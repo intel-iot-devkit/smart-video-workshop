@@ -1,6 +1,6 @@
 ## Workshop Agenda
 * **Intel Smart Video/Computer Vision Tools Overview**
-  - Slide Deck - [Introduction to Intel Smart Video Tools](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/presentations/01-Introduction-to-Intel-Smart-Video-Tools.pptx)
+  - Slides - [Introduction to Intel Smart Video Tools](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/presentations/01-Introduction-to-Intel-Smart-Video-Tools.pptx)
 
 * **Basic End to End Object Detection Example**
   - Slides - [Basic End to End Object Detection Example](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/presentations/02-Basic-End-to-End-Object-Detection-Example.pptx)
