@@ -1,3 +1,13 @@
+# Object Detection with Intel® Computer Vision SDK 
+
+This tutorial uses a Single Shot MultiBox Detector (SSD) on a trained SqeezeNet* model to walk you through the basic steps of using two key components of the Intel® CV SDK: the Model Optimizer and Inference Engine. 
+
+Inference is the process of using a trained neural network to interpret meaning from data, such as images. The code sample in this tutorial feeds a short video of pedestrians, frame-by-frame, to the Inference Engine which subsequently utilizes an optimized trained neural network. The photos below show an example frame from the video, one before inference and one after.
+
+<br>
+
+
+<br>
 
 ### Install the tutorial support files
 
