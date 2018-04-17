@@ -63,7 +63,7 @@ You should see the following two files listed in this directory: **squeezenet_SS
 
 #### 2. Close the source file
 
-#### 3. Set the path
+#### 3. Source your environmental variables
 
 	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 
