@@ -2,12 +2,9 @@
 
 This tutorial uses a Single Shot MultiBox Detector (SSD) on a trained SqeezeNet* model to walk you through the basic steps of using two key components of the Intel® CV SDK: the Model Optimizer and Inference Engine. 
 
-Inference is the process of using a trained neural network to interpret meaning from data, such as images. The code sample in this tutorial feeds a short video of cars, frame-by-frame, to the Inference Engine which subsequently utilizes an optimized trained neural network. The photos below show an example frame from the video, one before inference and one after.
+Model optimizer takes pre-trained deep learning models and optimizes them for performance/space with conservative topology transformations. The biggest boost is from conversion to data types matching the hardware. 
 
-<br>
-
-
-<br>
+Inference is the process of using a trained neural network to interpret meaning from data, such as images. The code sample in this tutorial feeds a short video of cars, frame-by-frame, to the Inference Engine which subsequently utilizes an optimized trained neural network. 
 
 ### Install the tutorial support files
 
@@ -49,5 +46,60 @@ The Model Optimizer converts a pretrained Caffe model to be compatible with the 
 
 You should see the following two files listed in this directory: **squeezenet_SSD.xml** and **squeezenet_SSD.bin**
 
+<br>
+<br>
+
+## Part 2: Use the optimized models and Inference Engine in a pedestrian detection application
+
+
+#### 1. Open the sample app (main.cpp) in the editor of your choice to view the lines that call the Inference Engine.
+<ul><ul>
+	<li> Line 39 &#8212; adds the Inference Engine plugin to your application</li>
+	<li> Line 107 &#8212; sets the confidence threshold for object detection</li>
+	<li> Line 391 &#8212; loads the Inference Engine plugin for use within the application</li>
+	<li> Line 417 &#8212; initializes the network object</li>
+	<li> Line 637 &#8212; runs inference using the optimized model
+</ul></ul>
+
+#### 2. Close the source file
+
+#### 3. Set the path
+
+	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+
+#### 4. Build the sample application with cmake
+
+ 	mkdir -p build
+	cd build
+	cmake -DCMAKE_BUILD_TYPE=Release ..
+	make -j8 security_barrier_camera_sample
+
+#### 5. Before running, download the test video file to a new videos directory:
+
+	wget https://videos.pexels.com/videos/cars-on-highway-1409 -P 
+
+
+#### 6. Run the security barrier sample application to use the Inference Engine on a video
+The below command runs the application 
+
+ 
+> **Note:** If you get an error related to "undefined reference to 'google::FlagRegisterer...", try uninstalling libgflags-dev: sudo apt-get remove libgflags-dev
+
+You should see a video play with cars running on the highway and red bounding boxes around them. 
+
+<br>
+
+### Explore using different parameters to see how they affect the results
+
+#### 1. Adjust the number of video frames to run through the Inference Engine
+The sample video file contains approximately 790 frames; however, in the previous example we opted to ran inference on a subset of those frames. Update the -fr parameter flag to adjust the amount of frames being processed through the Inference Engine.
+	
+	./IEobjectdetection -i /opt/intel/tutorials/cvsdk_hello_world/samples/hello_world_1.avi -fr 200 -m SSD_GoogleNetV2.xml -d CPU -f pascal_voc_classes.txt -t SSD
+
+#### 2. Modify the object detection confidence level threshold
+You can also try overriding the confidence level threshold. By setting the new threshold to 0.1, you will see a lot more bounding boxes around the people, but will have more instances of 'false' boxes appearing around non-pedestrian objects.
+	
+	./IEobjectdetection -i /opt/intel/tutorials/cvsdk_hello_world/samples/hello_world_1.avi -fr 200 -m SSD_GoogleNetV2.xml -d CPU -f pascal_voc_classes.txt -t SSD
+	
 <br>
 <br>
