@@ -119,7 +119,7 @@ You can enable the output of performance data to the console by using the `-pc` 
 -pc
 ```
 ```
-./security_barrier_camera_sample -d CPU -i "/opt/intel/computer_vision_sdk_2018.0.211/deployment_tools/demo/cars-on-highway-1409.mp4" -m "/object-detection/squeezenet_SSD.xml" 
+./security_barrier_camera_sample -d CPU -i "/opt/intel/computer_vision_sdk_2018.0.211/deployment_tools/demo/cars-on-highway-1409.mp4" -m "/object-detection/squeezenet_SSD.xml -pc" 
 ```
 You'll see the **Total time** it took to run.
 
@@ -131,7 +131,7 @@ Set target hardware as GPU with
 -d GPU
 ```
 ```
-./security_barrier_camera_sample -d GPU -i "/opt/intel/computer_vision_sdk_2018.0.211/deployment_tools/demo/cars-on-highway-1409.mp4" -m "/object-detection/squeezenet_SSD.xml" 
+./security_barrier_camera_sample -d GPU -i "/opt/intel/computer_vision_sdk_2018.0.211/deployment_tools/demo/cars-on-highway-1409.mp4" -m "/object-detection/squeezenet_SSD.xml -pc" 
 ```
 
 
