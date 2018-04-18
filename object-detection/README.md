@@ -134,15 +134,8 @@ Set target hardware as GPU with
 ./security_barrier_camera_sample -d GPU -i "/opt/intel/computer_vision_sdk_2018.0.211/deployment_tools/demo/cars-on-highway-1409.mp4" -m "/object-detection/squeezenet_SSD.xml" 
 ```
 
-#### 3. Movidius Neural Compute Stick (NCS)
-Set target hardware as Movidius NCS with
-```
--d MYRYAD
-```
-```
-./security_barrier_camera_sample -d MYRYAD -i "/opt/intel/computer_vision_sdk_2018.0.211/deployment_tools/demo/cars-on-highway-1409.mp4" -m "/object-detection/squeezenet_SSD.xml" 
-```
-The **Total time** between CPU, GPU and Movidius NCS will vary depending on your system.
+
+The **Total time** between CPU and GPU will vary depending on your system.
 
 <br>
 <br>
