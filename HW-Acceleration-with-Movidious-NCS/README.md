@@ -23,6 +23,8 @@ You will get following error as Movidius NCS supports only FP16 format.
 
 ![image of Movidius NCS error for FP32 model](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/NCSerror.png")
 
+![image of Movidius NCS to computer](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/Movidius.png "connected NCS")
+
 <br>
 
 The Model optimizer by default generate FP32 IR files if the data type is not particularly specified.
