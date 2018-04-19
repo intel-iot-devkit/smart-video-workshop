@@ -21,9 +21,7 @@ Set target hardware as Movidius NCS with
 You will get following error as Movidius NCS supports only FP16 format. 
 <br>
 
-![image of Movidius NCS error for FP32 model](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/NCSerror.png")
-
-![image of Movidius NCS to computer](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/Movidius.png "connected NCS")
+![image of Movidius NCS error for FP32 model](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/NCSerror.png)
 
 <br>
 
