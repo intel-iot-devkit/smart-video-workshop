@@ -30,7 +30,7 @@ The Model optimizer by default generate FP32 IR files if the data type is not pa
 Let's run the model optimizer to get IR files in FP16 format suitable for the Movidius NCS. 
   
     mkdir FP16
-	  python3 mo_caffe.py --input_model /object-detection/model/squeezenet_SSD.caffemodel --data_type FP16 -o /object-detection/FP16
+	  python3 mo_caffe.py --input_model /object-detection/model/squeezenet_SSD.caffemodel --data_type=FP16 -o /object-detection/FP16
 
 Check if the .xml and .bin files are created in folder FP16. 
 
