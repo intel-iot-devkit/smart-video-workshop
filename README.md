@@ -8,19 +8,19 @@
 
 * **Hardware Heterogeneity** - Priyanka
   - Slides - [Hardware Heterogeneity](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/presentations/03-Hardware-Heterogeneity.pptx)
-  - Lab - [Hardware Heterogeneity](https://github.com/intel-iot-devkit/smart-video-workshop/hardware-heterogeneity/README.md)
+  - Lab - [Hardware Heterogeneity](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/hardware-heterogeneity/README.md)
 
 * **HW Acceleration with Intel® Movidius™ Neural Compute Stick** - Priyanka
   - Slides - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/presentations/04-HW-Acceleration-with-NCS.pptx)
-  - Lab - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](https://github.com/intel-iot-devkit/smart-video-workshop/HW-Acceleration-with-Movidious-NCS/README.md) 
+  - Lab - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/HW-Acceleration-with-Movidious-NCS/README.md) 
   
 * **FPGA Inference Accelerator** - Richard C
   - Slides - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/presentations/04-HW-Acceleration-with-FPGA.pptx)
 
 * **Optimization Tools and Techniques** - Priyanka
   - Slides - [Optimization Tools and Techniques](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/presentations/06-Optimization-Tools-and-Techniques.pptx)
-  - Lab - [Optimization Tools and Techniques](https://github.com/intel-iot-devkit/smart-video-workshop/optimization-tools-and-techniques/README.md)
+  - Lab - [Optimization Tools and Techniques](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/optimization-tools-and-techniques/README.md)
   
 * **Advanced Video Analytics** - Priyanka
   - Slides - [Advanced Video Analytics](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/presentations/07-Advanced-Video-Analytics.pptx)
-  - Lab - [Advanced Video Analytics](https://github.com/intel-iot-devkit/smart-video-workshop/advanced-video-analytics/README.md)
+  - Lab - [Advanced Video Analytics](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/advanced-video-analytics/README.md)
