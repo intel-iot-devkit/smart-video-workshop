@@ -4,7 +4,7 @@
 
 * **Basic End to End Object Detection Example** - Priyanka
   - Slides - [Basic End to End Object Detection Example](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/presentations/02-Basic-End-to-End-Object-Detection-Example.pptx)
-  - Lab - [Basic End to End Object Detection Example](https://github.com/intel-iot-devkit/smart-video-workshop/object-detection/README.md)
+  - Lab - [Basic End to End Object Detection Example](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/object-detection/README.md)
 
 * **Hardware Heterogeneity** - Priyanka
   - Slides - [Hardware Heterogeneity](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/presentations/03-Hardware-Heterogeneity.pptx)
