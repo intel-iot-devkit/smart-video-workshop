@@ -13,7 +13,16 @@ The location that you downlaoded the SMart Video workshop content. For example, 
 
 	export SV=~/smart-video-workshop-master
 
-#### 1. Install gflags and python libraries
+#### 1. Compile samples
+	
+	cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/
+	$mkdir build && cd build
+	$cmake  –DCMAKE_BUILD_TYPE=Debug  ..
+	$make 
+	$make cpu_extension  
+
+
+#### 2. Install gflags and python libraries
 
 	sudo apt install libgflags-dev
 	
