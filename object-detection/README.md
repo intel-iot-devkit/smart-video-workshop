@@ -49,16 +49,16 @@ You should see the following two files listed in this directory: **squeezenet_ss
 <br>
 <br>
 
-## Part 2: Use the optimized models and Inference Engine in a security barrier car detection application
+## Part 2: Use the sqeezenet model and Inference Engine in an object detection application
 
 
 #### 1. Open the sample app (main.cpp) in the editor of your choice to view the lines that call the Inference Engine.
 <ul><ul>
-	<li> Line 39 &#8212; adds the Inference Engine plugin to your application</li>
-	<li> Line 107 &#8212; sets the confidence threshold for object detection</li>
-	<li> Line 391 &#8212; loads the Inference Engine plugin for use within the application</li>
-	<li> Line 417 &#8212; initializes the network object</li>
-	<li> Line 637 &#8212; runs inference using the optimized model
+	<li> Line 123 &#8212; loads the Inference Engine plugin for use within the application</li>
+	<li> Line 137 &#8212; initializes the network object</li>
+	<li> Line 221 &#8212; allocate input blobs</li>
+	<li> Line 231 &#8212; allocate output blobs</li>
+	<li> Line 282 &#8212; runs inference using the optimized model
 </ul></ul>
 
 #### 2. Close the source file
@@ -87,7 +87,7 @@ The below command runs the application
 #### 7. Display output
 For simplicity of the code and put more focus on the performance number, the rendering the video with rectangle baxes for object detection has been separated. 
 
-	make 
+	 make -f Makefile_ROIviewer 
 	./ROIviewer -i /models/cars_1920x1080.h264 -l pascal_voc_classes.txt 
 	
 You should see a video play with cars running on the highway and red bounding boxes around them. 
