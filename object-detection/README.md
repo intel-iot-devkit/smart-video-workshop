@@ -8,6 +8,11 @@ Inference is the process of using a trained neural network to interpret meaning 
 
 ### Install the tutorial support files
 
+#### 0. Set PATH variables
+The location that you downlaoded the SMart Video workshop content. For example, if you download the MSart Video workshop to *~/smart-video-workshop-master
+
+	export SV=~/smart-video-workshop-master
+
 #### 1. Install gflags and python libraries
 
 	sudo apt install libgflags-dev
