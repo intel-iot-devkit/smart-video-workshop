@@ -30,4 +30,4 @@ It runs the sample from /opt/intel/computer_vision_sdk/deployment_tools/inferenc
 
 It uses three ICV models, vehicle-license-plate-detection-barrier-0007, vehicle-attributes-recognition-barrier-0010, license-plate-recognition-barrier-0001 to do different tasks in the application. These ICV models are optimized for doing particular tasks which leads to better performance as compared to generic object detection models. 
  
-## Part 2. Use Media-SDK for encoding and decoding 
+
