@@ -1,10 +1,10 @@
 plane
 bicycle
-bird
+car
 boat
 bottle
 bus
-car
+bird
 cat
 chair
 cow
