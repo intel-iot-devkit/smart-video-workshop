@@ -32,11 +32,13 @@ Here ID 03e7:2150 without a description string is the Movidius device.
 
 #### Run the security barrier application on Movidius Neural Compute Stick (NCS)
 Set target hardware as Movidius NCS with
+  
+	cd $SV
 ```
--d MYRYAD
+-d MYRIAD
 ```
 ```
-./tutorial1 -i cars_1920x1080.h264 -m /object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d MYRYAD -pc
+./tutorial1 -i cars_1920x1080.h264 -m /models/sqeeznet_ssd/squeezenet_ssd.xml -d MYRIAD -pc
 ```
 You will get following error as Movidius NCS supports only FP16 format. 
 <br>
@@ -53,10 +55,10 @@ Let's run the model optimizer to get IR files in FP16 format suitable for the Mo
     mkdir FP16
     
     cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer
-	python3 mo_caffe.py --input_model /object-detection/models/sqeeznet_ssd/squeezenet_ssd.caffemodel --data_type=FP16 -o /object-detection/models/sqeeznet_ssd/FP16
+	python3 mo_caffe.py --input_model $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.caffemodel --data_type=FP16 -o $SV/object-detection/models/sqeeznet_ssd/FP16
 
 Check if the .xml and .bin files are created in folder FP16. 
 
 Now run the example application with these new IR files.
 
-    ./tutorial1 -i cars_1920x1080.h264 -m /object-detection/models/sqeeznet_ssd/FP16/squeezenet_ssd.xml -d MYRYAD -pc 
+    ./tutorial1 -i cars_1920x1080.h264 -m /models/sqeeznet_ssd/FP16/squeezenet_ssd.xml -d MYRIAD -pc 
