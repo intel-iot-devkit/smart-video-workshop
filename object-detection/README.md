@@ -26,7 +26,7 @@ In this section, you will use the Model Optimizer to convert a trained model to 
 
 #### 2. Run the Model Optimizer on the pretrained Caffe* model. This step generates one .xml file and one .bin file and place both files in the tutorial samples directory (located here: /object-detection/)
 
-	python3 mo_caffe.py --input_model /object-detection/model/squeezenet_SSD.caffemodel -o /object-detection/
+	python3 mo_caffe.py --input_model /object-detection/models/sqeeznet_ssd/squeezenet_ssd.caffemodel -o /object-detection/models/sqeeznet_ssd/
 
 > **Note:** Although this tutorial uses Single Shot MultiBox Detector (SSD) on a trained Sqeezenet* model, the inference engine is compatible with other neural network architectures, such as AlexNet*, GoogleNet*, MxNet* etc.
 
@@ -44,7 +44,7 @@ The Model Optimizer converts a pretrained Caffe model to be compatible with the 
 
 	ls
 
-You should see the following two files listed in this directory: **squeezenet_SSD.xml** and **squeezenet_SSD.bin**
+You should see the following two files listed in this directory: **squeezenet_ssd.xml** and **squeezenet_ssd.bin**
 
 <br>
 <br>
@@ -69,12 +69,10 @@ You should see the following two files listed in this directory: **squeezenet_SS
 
 #### 4. Build the sample application with cmake
 
- 	mkdir -p build
-	cd build
-	cmake -DCMAKE_BUILD_TYPE=Release ..
-	make -j8 security_barrier_camera_sample
+ 	make
 
-#### 5. Before running, download the test video file to a new videos directory:
+#### 5. Before running, download the test video file to a new videos directory. 
+Note: For dry-run on May 4th, the video is uploaded on github. 
 
 	wget https://pixabay.com/en/videos/download/video-1900_source.mp4?attachment  
 
@@ -82,34 +80,28 @@ You should see the following two files listed in this directory: **squeezenet_SS
 #### 6. Run the security barrier sample application to use the Inference Engine on a video
 The below command runs the application 
 	
-	./security_barrier_camera_sample -d CPU -i "/opt/intel/computer_vision_sdk_2018.0.211/deployment_tools/demo/cars-on-highway-1409.mp4" -m "/object-detection/squeezenet_SSD.xml" 
+	./tutorial1 -i cars_1920x1080.h264 -m /object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml 
  
 > **Note:** If you get an error related to "undefined reference to 'google::FlagRegisterer...", try uninstalling libgflags-dev: sudo apt-get remove libgflags-dev
 
-You should see a video play with cars running on the highway and red bounding boxes around them. 
+<!--- You should see a video play with cars running on the highway and red bounding boxes around them. -->
 
 Here are the parameters used in the above coomand to run the application:
 
-	./security_barrier_camera_sample -h
+	./tutorial1 -h
 
-    -i "<path>"                Required. Path to a video or image file. Default value is "cam" to work with camera.
-    -m "<path>"                Required. Path to the Vehicle/License-Plate Detection model (.xml) file.
-    -m_va "<path>"             Optional. Path to the Vehicle Attributes model (.xml) file.
-    -m_lpr "<path>"            Optional. Path to the License-Plate Recognition model (.xml) file.
-      -l "<absolute_path>"     For MKLDNN (CPU)-targeted custom layers, if any. Absolute path to a shared library with the kernels impl.
-          Or
-      -c "<absolute_path>"     For clDNN (GPU)-targeted custom kernels, if any. Absolute path to the xml file with the kernels desc.
-    -d "<device>"              Specify the target device for Vehicle Detection (CPU, GPU, FPGA, MYRYAD, or HETERO). 
-    -d_va "<device>"           Specify the target device for Vehicle Attributes (CPU, GPU, FPGA, MYRYAD, or HETERO). 
-    -d_lpr "<device>"          Specify the target device for License Plate Recognition (CPU, GPU, FPGA, MYRYAD, or HETERO). 
-    -pc                        Enables per-layer performance statistics.
-    -r                         Output Inference results as raw values.
-    -t                         Probability threshold for vehicle/licence-plate detections.
+		-h              Print a usage message
+		-i <path>       Required. Path to input video file
+		-model <path>   Required. Path to model file.
+		-b #            Batch size.
+		-thresh #       Threshold (0-1: .5=50%)
+		-d <device>     Infer target device (CPU or GPU or MYRIAD)
+		-fr #           maximum frames to process
 	
 <br>
 <br>
 
-## Part 3: Run the security barrier car detection application on different hardware
+## Part 3: Run the example on different hardware
 
 **IT'S BEST TO OPEN A NEW TERMINAL WINDOW SO YOU CAN COMPARE THE RESULTS**
 
@@ -119,7 +111,7 @@ You can enable the output of performance data to the console by using the `-pc` 
 -pc
 ```
 ```
-./security_barrier_camera_sample -d CPU -i "/opt/intel/computer_vision_sdk_2018.0.211/deployment_tools/demo/cars-on-highway-1409.mp4" -m "/object-detection/squeezenet_SSD.xml -pc" 
+./tutorial1 -i cars_1920x1080.h264 -m /object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d CPU -pc 
 ```
 You'll see the **Total time** it took to run.
 
@@ -131,7 +123,7 @@ Set target hardware as GPU with
 -d GPU
 ```
 ```
-./security_barrier_camera_sample -d GPU -i "/opt/intel/computer_vision_sdk_2018.0.211/deployment_tools/demo/cars-on-highway-1409.mp4" -m "/object-detection/squeezenet_SSD.xml -pc" 
+./tutorial1 -i cars_1920x1080.h264 -m /object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d GPU -pc
 ```
 
 
