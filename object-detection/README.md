@@ -76,7 +76,7 @@ You should see the following two files listed in this directory: **squeezenet_SS
 
 #### 5. Before running, download the test video file to a new videos directory:
 
-	wget https://videos.pexels.com/videos/cars-on-highway-1409 
+	wget https://pixabay.com/en/videos/download/video-1900_source.mp4?attachment  
 
 
 #### 6. Run the security barrier sample application to use the Inference Engine on a video
