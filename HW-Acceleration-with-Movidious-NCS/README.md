@@ -36,7 +36,7 @@ Set target hardware as Movidius NCS with
 -d MYRYAD
 ```
 ```
-./security_barrier_camera_sample -d MYRYAD -i "/opt/intel/computer_vision_sdk_2018.0.211/deployment_tools/demo/cars-on-highway-1409.mp4" -m "/object-detection/squeezenet_SSD.xml -pc" 
+./tutorial1 -i cars_1920x1080.h264 -m /object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d MYRYAD -pc
 ```
 You will get following error as Movidius NCS supports only FP16 format. 
 <br>
@@ -49,11 +49,14 @@ The Model optimizer by default generate FP32 IR files if the data type is not pa
 
 Let's run the model optimizer to get IR files in FP16 format suitable for the Movidius NCS. 
   
+    cd /models/sqeeznet_ssd/
     mkdir FP16
-	  python3 mo_caffe.py --input_model /object-detection/model/squeezenet_SSD.caffemodel --data_type=FP16 -o /object-detection/FP16
+    
+    cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer
+	python3 mo_caffe.py --input_model /object-detection/models/sqeeznet_ssd/squeezenet_ssd.caffemodel --data_type=FP16 -o /object-detection/models/sqeeznet_ssd/FP16
 
 Check if the .xml and .bin files are created in folder FP16. 
 
-Now run the security barrier application with these new IR files.
+Now run the example application with these new IR files.
 
-    ./security_barrier_camera_sample -d MYRYAD -i "/opt/intel/computer_vision_sdk_2018.0.211/deployment_tools/demo/cars-on-highway-1409.mp4" -m "/object-detection/FP16/squeezenet_SSD.xml -pc" 
+    ./tutorial1 -i cars_1920x1080.h264 -m /object-detection/models/sqeeznet_ssd/FP16/squeezenet_ssd.xml -d MYRYAD -pc 
