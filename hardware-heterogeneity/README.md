@@ -2,17 +2,17 @@ This example shows to use hetero plugin to define preferences to run diffrerent 
 
 #### 1. Navigate to the tutorial sample directory
 
-	cd /object-detection/
+	cd $SV/object-detection/
   
 #### 2. Run the security barrier object detection sample with hetero plugin 
 
 ##### a) Prioritizing running on GPU first.
 
-	./tutorial1 -i cars_1920x1080.h264 -m /object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d HETERO:GPU,CPU
+	./tutorial1 -i cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d HETERO:GPU,CPU
     
 Check where everything is running with –pc
 
-	  ./tutorial1 -i cars_1920x1080.h264 -m /object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d HETERO:GPU,CPU -pc
+	  ./tutorial1 -i cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d HETERO:GPU,CPU -pc
     
     performance counts:
 
@@ -32,7 +32,7 @@ Note: execType GPU for layers executed on GPU.  Also, skipped relu.
 
 ##### a) Prioritizing running on CPU first.
 
-     ../tutorial1 -i cars_1920x1080.h264 -m /object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d HETERO:CPU,GPU -pc
+     ../tutorial1 -i cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d HETERO:CPU,GPU -pc
      
      subgraph1: conv1              EXECUTED       layerType: Convolution        realTime: 257        cpu: 257            execType: jit_avx2
     subgraph1: conv10             EXECUTED       layerType: Convolution        realTime: 789        cpu: 789            execType: jit_avx2_1x1
