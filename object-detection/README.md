@@ -31,7 +31,7 @@ In this section, you will use the Model Optimizer to convert a trained model to 
 
 #### 2. Run the Model Optimizer on the pretrained Caffe* model. This step generates one .xml file and one .bin file and place both files in the tutorial samples directory (located here: /object-detection/)
 
-	python3 mo_caffe.py --input_model /object-detection/models/sqeeznet_ssd/squeezenet_ssd.caffemodel -o /object-detection/models/sqeeznet_ssd/
+	python3 mo_caffe.py --input_model $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.caffemodel -o $SV/object-detection/models/sqeeznet_ssd/
 
 > **Note:** Although this tutorial uses Single Shot MultiBox Detector (SSD) on a trained Sqeezenet* model, the inference engine is compatible with other neural network architectures, such as AlexNet*, GoogleNet*, MxNet* etc.
 
@@ -43,7 +43,7 @@ The Model Optimizer converts a pretrained Caffe model to be compatible with the 
 
 #### 3. Navigate to the tutorial sample directory
 
-	cd /object-detection/
+	cd $SV/object-detection/
 
 #### 4. Verify creation of the optimized model files (the IR files)
 
@@ -84,7 +84,8 @@ Note: For dry-run on May 4th, the video is in the object-detectoin/models folder
 
 #### 6. Run the security barrier sample application to use the Inference Engine on a video
 The below command runs the application 
-	
+	 
+	 cd ../..
 	./tutorial1 -i /models/cars_1920x1080.h264 -m /models/sqeeznet_ssd/squeezenet_ssd.xml 
  
 > **Note:** If you get an error related to "undefined reference to 'google::FlagRegisterer...", try uninstalling libgflags-dev: sudo apt-get remove libgflags-dev
