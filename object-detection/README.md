@@ -72,7 +72,7 @@ You should see the following two files listed in this directory: **squeezenet_ss
  	make
 
 #### 5. Before running, download the test video file to a new videos directory. 
-Note: For dry-run on May 4th, the video is uploaded on github. 
+Note: For dry-run on May 4th, the video is in the object-detectoin/models folder. 
 
 	wget https://pixabay.com/en/videos/download/video-1900_source.mp4?attachment  
 
@@ -80,11 +80,17 @@ Note: For dry-run on May 4th, the video is uploaded on github.
 #### 6. Run the security barrier sample application to use the Inference Engine on a video
 The below command runs the application 
 	
-	./tutorial1 -i cars_1920x1080.h264 -m /object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml 
+	./tutorial1 -i /models/cars_1920x1080.h264 -m /models/sqeeznet_ssd/squeezenet_ssd.xml 
  
 > **Note:** If you get an error related to "undefined reference to 'google::FlagRegisterer...", try uninstalling libgflags-dev: sudo apt-get remove libgflags-dev
 
-<!--- You should see a video play with cars running on the highway and red bounding boxes around them. -->
+#### 7. Display output
+For simplicity of the code and put more focus on the performance number, the rendering the video with rectangle baxes for object detection has been separated. 
+
+	make 
+	./ROIviewer -i /models/cars_1920x1080.h264 -l pascal_voc_classes.txt 
+	
+You should see a video play with cars running on the highway and red bounding boxes around them. 
 
 Here are the parameters used in the above coomand to run the application:
 
@@ -98,8 +104,6 @@ Here are the parameters used in the above coomand to run the application:
 		-d <device>     Infer target device (CPU or GPU or MYRIAD)
 		-fr #           maximum frames to process
 	
-<br>
-<br>
 
 ## Part 3: Run the example on different hardware
 
@@ -111,7 +115,7 @@ You can enable the output of performance data to the console by using the `-pc` 
 -pc
 ```
 ```
-./tutorial1 -i cars_1920x1080.h264 -m /object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d CPU -pc 
+./tutorial1 -i /models/cars_1920x1080.h264 -m /models/sqeeznet_ssd/squeezenet_ssd.xml -d CPU -pc 
 ```
 You'll see the **Total time** it took to run.
 
@@ -123,7 +127,7 @@ Set target hardware as GPU with
 -d GPU
 ```
 ```
-./tutorial1 -i cars_1920x1080.h264 -m /object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d GPU -pc
+./tutorial1 -i /models/cars_1920x1080.h264 -m /models/sqeeznet_ssd/squeezenet_ssd.xml -d GPU -pc
 ```
 
 
