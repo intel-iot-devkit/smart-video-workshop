@@ -8,11 +8,11 @@ This example shows to use hetero plugin to define preferences to run diffrerent 
 
 ##### a) Prioritizing running on GPU first.
 
-	./security_barrier_camera_sample -d HETERO:GPU,CPU -i "/opt/intel/computer_vision_sdk_2018.0.211/deployment_tools/demo/cars-on-highway-1409.mp4" -m "/object-detection/squeezenet_SSD.xml
+	./tutorial1 -i cars_1920x1080.h264 -m /object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d HETERO:GPU,CPU
     
 Check where everything is running with –pc
 
-    ./security_barrier_camera_sample -d HETERO:GPU,CPU -i "/opt/intel/computer_vision_sdk_2018.0.211/deployment_tools/demo/cars-on-highway-1409.mp4" -m "/object-detection/squeezenet_SSD.xml -pc
+	  ./tutorial1 -i cars_1920x1080.h264 -m /object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d HETERO:GPU,CPU -pc
     
     performance counts:
 
@@ -32,7 +32,7 @@ Note: execType GPU for layers executed on GPU.  Also, skipped relu.
 
 ##### a) Prioritizing running on CPU first.
 
-     ./security_barrier_camera_sample -d HETERO:CPU,GPU -i "/opt/intel/computer_vision_sdk_2018.0.211/deployment_tools/demo/cars-on-highway-1409.mp4" -m "/object-detection/squeezenet_SSD.xml -pc
+     ../tutorial1 -i cars_1920x1080.h264 -m /object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d HETERO:CPU,GPU -pc
      
      subgraph1: conv1              EXECUTED       layerType: Convolution        realTime: 257        cpu: 257            execType: jit_avx2
     subgraph1: conv10             EXECUTED       layerType: Convolution        realTime: 789        cpu: 789            execType: jit_avx2_1x1
