@@ -17,9 +17,8 @@ The location that you downlaoded the SMart Video workshop content. For example, 
 	
 	cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/
 	$sudo mkdir build && cd build
-	$sudo cmake  –DCMAKE_BUILD_TYPE=Debug  ..
-	$sudo make 
-	$sudo make cpu_extension  
+	$sudo cmake –DCMAKE_BUILD_TYPE=Debug  ..
+	$sudo make   
 
 If this errors out, run the demo script
 
