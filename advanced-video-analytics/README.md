@@ -26,7 +26,9 @@ Following car image will appear the at end of the script execution. It shows the
 
 It runs the sample from /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/security_barrier_camera/ with following command.
 
-    ./security_barrier_camera_sample -d CPU -i /opt/intel/computer_vision_sdk_2018.0.219/deployment_tools/demo/car_1.bmp -m /opt/intel/computer_vision_sdk_2018.0.234/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0007/FP32/vehicle-license-plate-detection-barrier-0007.xml -m_va /opt/intel/computer_vision_sdk_2018.0.234/deployment_tools/demo/../intel_models/vehicle-attributes-recognition-barrier-0010/FP32/vehicle-attributes-recognition-barrier-0010.xml -m_lpr /opt/intel/computer_vision_sdk_2018.0.234/deployment_tools/demo/../intel_models/license-plate-recognition-barrier-0001/FP32/license-plate-recognition-barrier-0001.xml
+    cd /opt/intel/computer_vision_sdk_2018.0.234/deployment_tools/inference_engine/samples/build/intel64/Release
+
+./security_barrier_camera_sample -d CPU -i /opt/intel/computer_vision_sdk_2018.0.234/deployment_tools/demo/car_1.bmp -m /opt/intel/computer_vision_sdk_2018.0.234/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0007/FP32/vehicle-license-plate-detection-barrier-0007.xml -m_va /opt/intel/computer_vision_sdk_2018.0.234/deployment_tools/demo/../intel_models/vehicle-attributes-recognition-barrier-0010/FP32/vehicle-attributes-recognition-barrier-0010.xml -m_lpr /opt/intel/computer_vision_sdk_2018.0.234/deployment_tools/demo/../intel_models/license-plate-recognition-barrier-0001/FP32/license-plate-recognition-barrier-0001.xml
 
 It uses three ICV models, vehicle-license-plate-detection-barrier-0007, vehicle-attributes-recognition-barrier-0010, license-plate-recognition-barrier-0001 to do different tasks in the application. These ICV models are optimized for doing particular tasks which leads to better performance as compared to generic object detection models. 
  
