@@ -7,7 +7,7 @@
   - Lab - [Basic End to End Object Detection Example](./object-detection/README.md)
 
 * **Hardware Heterogeneity** - Priyanka
-  - Slides - [Hardware Heterogeneity](./presentations/03-Hardware-Heterogeneity.pptx)
+  - Slides - [Hardware Heterogeneity](./presentations/03-Hardware-Heterogeneity.pptx) - Link is broken.
   - Lab - [Hardware Heterogeneity](./hardware-heterogeneity/README.md)
 
 * **HW Acceleration with Intel® Movidius™ Neural Compute Stick** - Priyanka
@@ -17,7 +17,7 @@
   - Slides - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](./presentations/04-HW-Acceleration-with-FPGA.pptx)
 
 * **Optimization Tools and Techniques** - Priyanka
-  - Slides - [Optimization Tools and Techniques](./presentations/04_05_Optimization_and_advanced_analytics.pptx)
+  - Slides - [Optimization Tools and Techniques](./presentations/04_05_Optimization_and_advanced_analytics.pptx) - Link is broken.
   - Lab - [Optimization Tools and Techniques](./optimization-tools-and-techniques/README.md)
   
 * **Advanced Video Analytics** - Priyanka
