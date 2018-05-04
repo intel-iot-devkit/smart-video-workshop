@@ -76,7 +76,9 @@ You should see the following two files listed in this directory: **squeezenet_ss
 	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 
 #### 4. Build the sample application with cmake
-
+Move up to the sample directory and build.
+	
+	cd ../..
  	make
 
 #### 5. Before running, download the test video file to a new videos directory. 
