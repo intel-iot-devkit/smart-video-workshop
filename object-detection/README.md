@@ -18,14 +18,14 @@ The location that you downlaoded the SMart Video workshop content. For example, 
 	cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/
 	$sudo mkdir build && cd build
 	$sudo cmake  –DCMAKE_BUILD_TYPE=Debug  ..
-	$make 
-	$make cpu_extension  
+	$sudo make 
+	$sudo make cpu_extension  
 
 If this errors out, run the demo script
 
 	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 	cd /opt/intel/computer_vision_sdk/deployment_tools/demo
-	sudo ./demo_security_camera_barrier.sh
+	sudo ./demo_security_barrier_camera.sh
 	
 #### 2. Install gflags and python libraries
 
@@ -130,12 +130,8 @@ Here are the parameters used in the above coomand to run the application:
 **IT'S BEST TO OPEN A NEW TERMINAL WINDOW SO YOU CAN COMPARE THE RESULTS**
 
 #### 1. CPU
-You can enable the output of performance data to the console by using the `-pc` flag.
 ```
--pc
-```
-```
-./tutorial1 -i /models/cars_1920x1080.h264 -m /models/sqeeznet_ssd/squeezenet_ssd.xml -d CPU -pc 
+./tutorial1 -i /models/cars_1920x1080.h264 -m /models/sqeeznet_ssd/squeezenet_ssd.xml -d CPU
 ```
 You'll see the **Total time** it took to run.
 
@@ -147,7 +143,7 @@ Set target hardware as GPU with
 -d GPU
 ```
 ```
-./tutorial1 -i /models/cars_1920x1080.h264 -m /models/sqeeznet_ssd/squeezenet_ssd.xml -d GPU -pc
+./tutorial1 -i /models/cars_1920x1080.h264 -m /models/sqeeznet_ssd/squeezenet_ssd.xml -d GPU
 ```
 
 
