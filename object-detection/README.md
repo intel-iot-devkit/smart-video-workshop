@@ -50,9 +50,9 @@ The Model Optimizer converts a pretrained Caffe model to be compatible with the 
 	
 > **Note:** if you continue to train or make changes to the Caffe model, you would then need to re-run the Model Optimizer on the updated model.
 
-#### 3. Navigate to the tutorial sample directory
+#### 3. Navigate to the tutorial sample model directory
 
-	cd $SV/object-detection/
+	cd $SV/object-detection/models/sqeeznet_ssd/
 
 #### 4. Verify creation of the optimized model files (the IR files)
 
