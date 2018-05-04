@@ -38,7 +38,7 @@ In this section, you will use the Model Optimizer to convert a trained model to 
 
 #### 2. Run the Model Optimizer on the pretrained Caffe* model. This step generates one .xml file and one .bin file and place both files in the tutorial samples directory (located here: /object-detection/)
 
-	python3 mo_caffe.py --input_model $LAB_DIR/object-detection/models/sqeeznet_ssd/squeezenet_ssd.caffemodel -o $LAB_DIR/object-detection/models/sqeeznet_ssd/
+	python3 mo_caffe.py --input_model /home/intel/Desktop/smart-video-workshop/object-detection/models/sqeeznet_ssd/squeezenet_ssd.caffemodel -o /home/intel/Desktop/smart-video-workshop/object-detection/models/sqeeznet_ssd/
 
 > **Note:** Although this tutorial uses Single Shot MultiBox Detector (SSD) on a trained Sqeezenet* model, the inference engine is compatible with other neural network architectures, such as AlexNet*, GoogleNet*, MxNet* etc.
 
