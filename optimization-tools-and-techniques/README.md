@@ -43,30 +43,30 @@ Run various SSD models on the car detection example which we used in the initial
 
 #### a) CPU
  
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/512/caffe/FP32/ssd512.xml
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/300/caffe/FP32/ssd300.xml
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml
-	./tutorial_1 -m /models/model_downloader/object_detection/common/mobilenet-ssd/caffe/FP32/mobilenet-ssd.xml
+	./tutorial_1 -i cars_1920x1080.h264 -m /models/model_downloader/object_detection/common/ssd/512/caffe/FP32/ssd512.xml
+	./tutorial_1 -i cars_1920x1080.h264 -m /models/model_downloader/object_detection/common/ssd/300/caffe/FP32/ssd300.xml
+	./tutorial_1 -i cars_1920x1080.h264 -m /models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml
+	./tutorial_1 -i cars_1920x1080.h264 -m /models/model_downloader/object_detection/common/mobilenet-ssd/caffe/FP32/mobilenet-ssd.xml
 
 #### b) GPU
  
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/512/caffe/FP32/ssd512.xml -d GPU
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/300/caffe/FP32/ssd300.xml -d GPU
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml -d GPU
-	./tutorial_1 -m /models/model_downloader/object_detection/common/mobilenet-ssd/caffe/FP32/mobilenet-ssd.xml -d GPU
+	./tutorial_1 -i cars_1920x1080.h264 -m /models/model_downloader/object_detection/common/ssd/512/caffe/FP32/ssd512.xml -d GPU
+	./tutorial_1 -i cars_1920x1080.h264 -m /models/model_downloader/object_detection/common/ssd/300/caffe/FP32/ssd300.xml -d GPU
+	./tutorial_1 -i cars_1920x1080.h264 -m /models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml -d GPU
+	./tutorial_1 -i cars_1920x1080.h264 -m /models/model_downloader/object_detection/common/mobilenet-ssd/caffe/FP32/mobilenet-ssd.xml -d GPU
 
 #### c) Movidius NCS
 
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/512/caffe/FP32/ssd512.xml -d MYRIAD
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/300/caffe/FP32/ssd300.xml -d MYRIAD
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml -d MYRIAD
-	./tutorial_1 -m /models/model_downloader/object_detection/common/mobilenet-ssd/caffe/FP32/mobilenet-ssd.xml -d MYRIAD
+	./tutorial_1 -i cars_1920x1080.h264-m /models/model_downloader/object_detection/common/ssd/512/caffe/FP32/ssd512.xml -d MYRIAD
+	./tutorial_1 -i cars_1920x1080.h264 -m /models/model_downloader/object_detection/common/ssd/300/caffe/FP32/ssd300.xml -d MYRIAD
+	./tutorial_1 -i cars_1920x1080.h264 -m /models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml -d MYRIAD
+	./tutorial_1 -i cars_1920x1080.h264 -m /models/model_downloader/object_detection/common/mobilenet-ssd/caffe/FP32/mobilenet-ssd.xml -d MYRIAD
 
 ### 3. Use the right data type for your target HW and accuracy needs
 In this section, we will consider example of GPU for which FP16 operations are more optimized as compared to FP32 operations. We will run the object detection example with SSD models with data types FP16 and FP32 and observe the performance difference. 
 
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml -d GPU
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp16.xml -d GPU
+	./tutorial_1 -i cars_1920x1080.h264 -m /models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml -d GPU
+	./tutorial_1 -i cars_1920x1080.h264 -m /models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp16.xml -d GPU
 
 From the performance numbers, it’s clear that we got much better performance for FP16 models. 
 
