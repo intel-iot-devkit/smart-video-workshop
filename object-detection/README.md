@@ -21,7 +21,12 @@ The location that you downlaoded the SMart Video workshop content. For example, 
 	$make 
 	$make cpu_extension  
 
+If this errors out, run the demo script
 
+	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+	cd /opt/intel/computer_vision_sdk/deployment_tools/demo
+	sudo ./demo_security_camera_barrier.sh
+	
 #### 2. Install gflags and python libraries
 
 	sudo apt install libgflags-dev
