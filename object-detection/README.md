@@ -8,17 +8,19 @@ Inference is the process of using a trained neural network to interpret meaning 
 
 ### Install the tutorial support files
 
-#### 0. Set PATH variables
-The location that you downlaoded the SMart Video workshop content. For example, if you download the MSart Video workshop to *~/smart-video-workshop-master
+#### Set PATH variables
+The location that you downlaoded the SMart Video workshop content. For example, if you download the MSart Video workshop to *~/Desktop/smart-video-workshop-master
 
-	export SV=~/smart-video-workshop-master
+	export LAB_DIR=/home/intel/Desktop/smart-video-workshop-master
+	export IE_SAMPLE_DIR=/opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/
+	export MODEL_OPT_DIR=/opt/intel/computer_vision_sdk/deployment_tools/model_optimizer
 
-#### 1. Compile samples
+#### Compile samples
 	
-	cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/
-	$sudo mkdir build && cd build
-	$sudo cmake –DCMAKE_BUILD_TYPE=Debug  ..
-	$sudo make   
+	cd $IE_SAMPLE_DIR
+	sudo mkdir -p build && cd build
+	sudo cmake –DCMAKE_BUILD_TYPE=Debug  ..
+	sudo make   
 
 If this errors out, run the demo script
 
@@ -26,29 +28,20 @@ If this errors out, run the demo script
 	cd /opt/intel/computer_vision_sdk/deployment_tools/demo
 	sudo ./demo_security_barrier_camera.sh
 	
-#### 2. Install gflags and python libraries
-
-	sudo apt install libgflags-dev
-	
-	sudo apt install python3-pip
-    
-    pip3 install -r /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/requirements_caffe.txt
-    
 ## Part 1: Optimize a deep-learning model using the Model Optimizer (MO)
 
 In this section, you will use the Model Optimizer to convert a trained model to two Intermediate Representation (IR) files (one .bin and one .xml). The Inference Engine requires this model conversion so it can use the IR as input and achieve optimum performance on Intel hardware.
 
 #### 1. Navigate to the cv-sdk directory
 
-	cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer
+	cd $MODEL_OPT_DIR
 
 #### 2. Run the Model Optimizer on the pretrained Caffe* model. This step generates one .xml file and one .bin file and place both files in the tutorial samples directory (located here: /object-detection/)
 
-	python3 mo_caffe.py --input_model $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.caffemodel -o $SV/object-detection/models/sqeeznet_ssd/
+	python3 mo_caffe.py --input_model $LAB_DIR/object-detection/models/sqeeznet_ssd/squeezenet_ssd.caffemodel -o $LAB_DIR/object-detection/models/sqeeznet_ssd/
 
 > **Note:** Although this tutorial uses Single Shot MultiBox Detector (SSD) on a trained Sqeezenet* model, the inference engine is compatible with other neural network architectures, such as AlexNet*, GoogleNet*, MxNet* etc.
 
-<br>
 
 The Model Optimizer converts a pretrained Caffe model to be compatible with the Intel Inference Engine and optimizes it for Intel architecture. These are the files you would include with your C++ application to apply inference to visual data.
 	
@@ -56,7 +49,7 @@ The Model Optimizer converts a pretrained Caffe model to be compatible with the 
 
 #### 3. Navigate to the tutorial sample model directory
 
-	cd $SV/object-detection/models/sqeeznet_ssd/
+	cd $LAB_DIR/object-detection/models/sqeeznet_ssd/
 
 #### 4. Verify creation of the optimized model files (the IR files)
 
@@ -64,20 +57,17 @@ The Model Optimizer converts a pretrained Caffe model to be compatible with the 
 
 You should see the following two files listed in this directory: **squeezenet_ssd.xml** and **squeezenet_ssd.bin**
 
-<br>
-<br>
 
 ## Part 2: Use the sqeezenet model and Inference Engine in an object detection application
 
 
 #### 1. Open the sample app (main.cpp) in the editor of your choice to view the lines that call the Inference Engine.
-<ul><ul>
-	<li> Line 123 &#8212; loads the Inference Engine plugin for use within the application</li>
-	<li> Line 137 &#8212; initializes the network object</li>
-	<li> Line 221 &#8212; allocate input blobs</li>
-	<li> Line 231 &#8212; allocate output blobs</li>
-	<li> Line 282 &#8212; runs inference using the optimized model
-</ul></ul>
+
+* Line 123 &#8212; loads the Inference Engine plugin for use within the application
+* Line 137 &#8212; initializes the network object
+* Line 221 &#8212; allocate input blobs
+* Line 231 &#8212; allocate output blobs
+* Line 282 &#8212; runs inference using the optimized model
 
 #### 2. Close the source file
 
@@ -99,7 +89,7 @@ Note: For dry-run on May 4th, the video is in the object-detectoin/models folder
 The below command runs the application 
 	 
 	 cd ../..
-	./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml 
+	./tutorial1 -i $LAB_DIR/object-detection/models/cars_1920x1080.h264 -m $LAB_DIR/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml 
  
 > **Note:** If you get an error related to "undefined reference to 'google::FlagRegisterer...", try uninstalling libgflags-dev: sudo apt-get remove libgflags-dev
 
@@ -107,7 +97,7 @@ The below command runs the application
 For simplicity of the code and put more focus on the performance number, the rendering the video with rectangle baxes for object detection has been separated. 
 
 	 make -f Makefile_ROIviewer 
-	./ROIviewer -i $SV/object-detection/models/cars_1920x1080.h264 -l $SV/object-detection/pascal_voc_classes.txt 
+	./ROIviewer -i $LAB_DIR/object-detection/models/cars_1920x1080.h264 -l $LAB_DIR/object-detection/pascal_voc_classes.txt 
 	
 You should see a video play with cars running on the highway and red bounding boxes around them. 
 
@@ -142,11 +132,7 @@ Set target hardware as GPU with
 -d GPU
 ```
 ```
-./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d GPU
+./tutorial1 -i $LAB_DIR/object-detection/models/cars_1920x1080.h264 -m $LAB_DIR/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d GPU
 ```
 
-
 The **Total time** between CPU and GPU will vary depending on your system.
-
-<br>
-<br>
