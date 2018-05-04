@@ -100,7 +100,7 @@ Note: For dry-run on May 4th, the video is in the object-detectoin/models folder
 The below command runs the application 
 	 
 	 cd ../..
-	./tutorial1 -i /models/cars_1920x1080.h264 -m /models/sqeeznet_ssd/squeezenet_ssd.xml 
+	./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml 
  
 > **Note:** If you get an error related to "undefined reference to 'google::FlagRegisterer...", try uninstalling libgflags-dev: sudo apt-get remove libgflags-dev
 
@@ -108,7 +108,7 @@ The below command runs the application
 For simplicity of the code and put more focus on the performance number, the rendering the video with rectangle baxes for object detection has been separated. 
 
 	 make -f Makefile_ROIviewer 
-	./ROIviewer -i /models/cars_1920x1080.h264 -l pascal_voc_classes.txt 
+	./ROIviewer -i $SV/object-detection/models/cars_1920x1080.h264 -l $SV/object-detection/pascal_voc_classes.txt 
 	
 You should see a video play with cars running on the highway and red bounding boxes around them. 
 
@@ -131,7 +131,7 @@ Here are the parameters used in the above coomand to run the application:
 
 #### 1. CPU
 ```
-./tutorial1 -i /models/cars_1920x1080.h264 -m /models/sqeeznet_ssd/squeezenet_ssd.xml -d CPU
+./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d CPU
 ```
 You'll see the **Total time** it took to run.
 
@@ -143,7 +143,7 @@ Set target hardware as GPU with
 -d GPU
 ```
 ```
-./tutorial1 -i /models/cars_1920x1080.h264 -m /models/sqeeznet_ssd/squeezenet_ssd.xml -d GPU
+./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d GPU
 ```
 
 
