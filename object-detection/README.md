@@ -63,11 +63,11 @@ You should see the following two files listed in this directory: **squeezenet_ss
 
 #### 1. Open the sample app (main.cpp) in the editor of your choice to view the lines that call the Inference Engine.
 
-* Line 123 &#8212; loads the Inference Engine plugin for use within the application
-* Line 137 &#8212; initializes the network object
-* Line 221 &#8212; allocate input blobs
-* Line 231 &#8212; allocate output blobs
-* Line 282 &#8212; runs inference using the optimized model
+* Line 123 - loads the Inference Engine plugin for use within the application
+* Line 137 - initializes the network object
+* Line 221 - allocate input blobs
+* Line 231 - allocate output blobs
+* Line 282 - runs inference using the optimized model
 
 #### 2. Close the source file
 
