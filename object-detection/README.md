@@ -87,7 +87,8 @@ You should see the following two files listed in this directory: **squeezenet_ss
 
 #### 4. Build the sample application with cmake
 
- 	make
+ 	cd $SV/object-detection/
+	make
 
 #### 5. Before running, download the test video file to a new videos directory. 
 Note: For dry-run on May 4th, the video is in the object-detectoin/models folder, cars_1920x1080.h264.
