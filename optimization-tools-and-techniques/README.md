@@ -9,13 +9,13 @@ For SSD models, the batch size is required to be set at model optimizer level. T
 #### Let's first look at the performance numbers for the batch size 1. 
 
 	 cd $SV/object-detection
-	./tutorial1 -i cars_1920x1080.h264 -m /models/sqeeznet_ssd/squeezenet_ssd.xml
+	./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml
 
 
 #### Change the batch size to 2 using model optimizer
  Create batch_size/batch_2 folder to store the IR files. 
  
- 	cd /models/sqeeznet_ssd/
+ 	cd $SV/object-detection/models/sqeeznet_ssd/
  	mkdir /batch_size/batch_2
 	
 Use -b flag to define the batch size.
@@ -26,7 +26,7 @@ Use -b flag to define the batch size.
 #### Run the object-detection example for with new batch size
 
 	cd $SV/object-detection
-	./tutorial1 -i cars_1920x1080.h264 -m /models/sqeeznet_ssd/batch_size/batch_2/squeezenet_ssd.xml
+	./tutorial1 -i $SV/object-detection/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/batch_size/batch_2/squeezenet_ssd.xml
 
 #### Run the example for batch size 8 and 16
 The similer instructions can be used to change batch size to 8 and 16 using model optimizer. Once it is done, run the example again and observe the performace. 
@@ -47,7 +47,7 @@ Run various SSD models on the car detection example which we used in the initial
 	
 	./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/300/caffe/FP32/ssd300.xml
 	
-	./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml
+	./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/models/GoogleNet/SSD_GoogleNetV2.xml
 	
 	./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/mobilenet-ssd/caffe/FP32/mobilenet-ssd.xml
 
@@ -57,7 +57,7 @@ Run various SSD models on the car detection example which we used in the initial
 	
 	./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/300/caffe/FP32/ssd300.xml -d GPU
 	
-	./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml -d GPU
+	./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/models/GoogleNet/SSD_GoogleNetV2.xml -d GPU
 	
 	./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/mobilenet-ssd/caffe/FP32/mobilenet-ssd.xml -d GPU
 
@@ -68,16 +68,16 @@ Run various SSD models on the car detection example which we used in the initial
 	
 	./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/300/caffe/FP32/ssd300.xml -d MYRIAD
 	
-	./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml -d MYRIAD
+	./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/models/GoogleNet/SSD_GoogleNetV2.xml -d MYRIAD
 	
 	./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/mobilenet-ssd/caffe/FP32/mobilenet-ssd.xml -d MYRIAD
 
 ### 3. Use the right data type for your target HW and accuracy needs
 In this section, we will consider example of GPU for which FP16 operations are more optimized as compared to FP32 operations. We will run the object detection example with SSD models with data types FP16 and FP32 and observe the performance difference. 
 
-	./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml -d GPU 
+	./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/models/GoogleNet/SSD_GoogleNetV2.xml -d GPU 
 	
-	./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp16.xml -d GPU
+	./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection//models/GoogleNet/SSD_GoogleNetV2.xml -d GPU
 
 From the performance numbers, it’s clear that we got much better performance for FP16 models. 
 
@@ -90,7 +90,7 @@ Async API can improve overall frame rate of the application. While accelerator i
     
 #### b) Run the async example
 
-    ./object_detection_demo_ssd_async -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml 
+    ./object_detection_demo_ssd_async -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection//models/GoogleNet/SSD_GoogleNetV2.xml
 
 There are important performance caveats though, for example the tasks that run in parallel should try to avoid oversubscribing the shared compute resources. e.g. if the inference is performed on the FPGA, and the CPU is essentially idle, than it makes sense to do things on the CPU in parallel. But if the inference is performed say on the GPU, than it can take little gain to do the (resulting video) encoding on the same GPU in parallel, because the device is already busy.
 
