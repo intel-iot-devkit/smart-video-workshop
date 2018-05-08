@@ -33,7 +33,7 @@ Here ID 03e7:2150 without a description string is the Movidius device.
 #### Run the security barrier application on Movidius Neural Compute Stick (NCS)
 Set target hardware as Movidius NCS with
   
-	cd $SV
+	cd $SV/object-detection/
 ```
 -d MYRIAD
 ```
@@ -51,7 +51,7 @@ The Model optimizer by default generate FP32 IR files if the data type is not pa
 
 Let's run the model optimizer to get IR files in FP16 format suitable for the Movidius NCS. 
   
-    cd /models/sqeeznet_ssd/
+    cd $SV/object-detection/models/sqeeznet_ssd/
     mkdir FP16
     
     cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer
