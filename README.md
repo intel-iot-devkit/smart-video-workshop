@@ -1,3 +1,5 @@
+### Please contact Priyanka Bagade priyanka.bagade@intel.com for any questions and modifications related to the content. Thanks.
+
 ## Workshop Agenda
 * **Intel Smart Video/Computer Vision Tools Overview** - Priyanka
   - Slides - [Introduction to Intel Smart Video Tools](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/presentations/01-Introduction-to-Intel-Smart-Video-Tools.pptx)
