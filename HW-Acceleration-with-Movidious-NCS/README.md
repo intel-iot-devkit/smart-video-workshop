@@ -31,7 +31,7 @@ Then check if the device is visible with lsusb.
 Here ID 03e7:2150 without a description string is the Movidius device.
 
 #### Run the security barrier application on Movidius™ Neural Compute Stick (NCS)
-Set target hardware as Movidius NCS with
+Set target hardware as Movidius™ NCS with
   
 	cd $SV/object-detection/
 ```
@@ -49,7 +49,7 @@ You will get following error as Movidius™ NCS supports only FP16 format.
 
 The Model optimizer by default generate FP32 IR files if the data type is not particularly specified.
 
-Let's run the model optimizer to get IR files in FP16 format suitable for the Movidius NCS. 
+Let's run the model optimizer to get IR files in FP16 format suitable for the Movidius™ NCS. 
   
     cd $SV/object-detection/models/sqeeznet_ssd/
     mkdir FP16
