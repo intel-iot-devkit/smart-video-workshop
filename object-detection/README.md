@@ -9,7 +9,7 @@ Inference is the process of using a trained neural network to interpret meaning 
 ### Install the tutorial support files
 
 #### 0. Set PATH variables
-The location that you downlaoded the SMart Video workshop content. For example, if you download the MSart Video workshop to *~/smart-video-workshop-master
+The location that you downlaoded the SMart Video workshop content. For example, if you download the smart video workshop to *~/smart-video-workshop-master
 
 	export SV=~/smart-video-workshop-master
 
@@ -17,7 +17,7 @@ The location that you downlaoded the SMart Video workshop content. For example, 
 	
 	cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/
 	$sudo mkdir build && cd build
-	$sudo cmake –DCMAKE_BUILD_TYPE=Debug  ..
+	$sudo cmake –DCMAKE_BUILD_TYPE=Debug ..
 	$sudo make   
 
 If this errors out, run the demo script
