@@ -62,4 +62,4 @@ Check if the .xml and .bin files are created in folder FP16.
 Now run the example application with these new IR files.
 
      cd $SV/object-detection/
-    ./tutorial1 -i ./models/cars_1920x1080.h264 -m ./models/sqeeznet_ssd/FP16/squeezenet_ssd.xml -d MYRIAD
+    ./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/FP16/squeezenet_ssd.xml -d MYRIAD
