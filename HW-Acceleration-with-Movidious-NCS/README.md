@@ -1,9 +1,9 @@
 
-# Movidius Neural Compute Stick (NCS)
+# Intel® Movidius™ Neural Compute Stick (NCS)
 
 Let's see how Intel CV-SDK provides hardware abstraction to run the security barrier application which we built in previous modules on Movidius NCS. 
 
-#### Connect Movidius NCS to your development laptop
+#### Connect Movidius™ NCS to your development laptop
 <br>
 
 ![image of Movidius NCS to computer](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/Movidius.png "connected NCS")
@@ -30,7 +30,7 @@ Then check if the device is visible with lsusb.
 
 Here ID 03e7:2150 without a description string is the Movidius device.
 
-#### Run the security barrier application on Movidius Neural Compute Stick (NCS)
+#### Run the security barrier application on Movidius™ Neural Compute Stick (NCS)
 Set target hardware as Movidius NCS with
   
 	cd $SV/object-detection/
@@ -40,7 +40,7 @@ Set target hardware as Movidius NCS with
 ```
 ./tutorial1 -i ./models/cars_1920x1080.h264 -m ./models/sqeeznet_ssd/squeezenet_ssd.xml -d MYRIAD
 ```
-You will get following error as Movidius NCS supports only FP16 format. 
+You will get following error as Movidius™ NCS supports only FP16 format. 
 <br>
 
 ![image of Movidius NCS error for FP32 model](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/NCSerror.png)
