@@ -1,6 +1,6 @@
-# Object Detection with Intel® Computer Vision SDK 
+# Object Detection with OpenVINO™ toolkit 
 
-This tutorial uses a Single Shot MultiBox Detector (SSD) on a trained SqeezeNet* model to walk you through the basic steps of using two key components of the Intel® CV SDK: the Model Optimizer and Inference Engine. 
+This tutorial uses a Single Shot MultiBox Detector (SSD) on a trained SqeezeNet* model to walk you through the basic steps of using two key components of the OpenVINO™ toolkit: the Model Optimizer and Inference Engine. 
 
 Model optimizer takes pre-trained deep learning models and optimizes them for performance/space with conservative topology transformations. The biggest boost is from conversion to data types matching the hardware. 
 
@@ -38,7 +38,7 @@ If this errors out, run the demo script
 
 In this section, you will use the Model Optimizer to convert a trained model to two Intermediate Representation (IR) files (one .bin and one .xml). The Inference Engine requires this model conversion so it can use the IR as input and achieve optimum performance on Intel hardware.
 
-#### 1. Navigate to the cv-sdk directory
+#### 1. Navigate to the OpenVINO™ toolkit install directory
 
 	cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer
 
