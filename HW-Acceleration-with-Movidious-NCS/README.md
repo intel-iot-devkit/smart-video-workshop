@@ -13,14 +13,14 @@ This lab shows how Intel OpenVINO™ toolkit provides hardware abstraction to ru
 #### System check
 First make sure the USB rules are set up.
 
-	cat <<EOF > 97-usbboot.rules
+	$cat <<EOF > 97-usbboot.rules
 	SUBSYSTEM=="usb", ATTRS{idProduct}=="2150", ATTRS{idVendor}=="03e7", GROUP="users", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
 	SUBSYSTEM=="usb", ATTRS{idProduct}=="f63b", ATTRS{idVendor}=="03e7", GROUP="users", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
 	EOF
-	sudo cp 97-usbboot.rules /etc/udev/rules.d/
-	sudo udevadm control --reload-rules
-	sudo udevadm trigger
-	sudo ldconfig
+	$sudo cp 97-usbboot.rules /etc/udev/rules.d/
+	$sudo udevadm control --reload-rules
+	$sudo udevadm trigger
+	$sudo ldconfig
 
 Then check if the device is visible with lsusb.
 	
@@ -30,15 +30,15 @@ Then check if the device is visible with lsusb.
 
 Here ID 03e7:2150 without a description string is the Movidius device.
 
-#### Run the security barrier application on Movidius™ Neural Compute Stick (NCS)
+#### Run the sample application on Movidius™ Neural Compute Stick (NCS)
 Set target hardware as Movidius™ NCS with
   
-	cd $SV/object-detection/
+	$cd $SV/object-detection/
 ```
 -d MYRIAD
 ```
 ```
-./tutorial1 -i ./models/cars_1920x1080.h264 -m ./models/sqeeznet_ssd/squeezenet_ssd.xml -d MYRIAD
+$./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/SSD300/FP32/ssd300.xml -d MYRIAD
 ```
 You will get following error as Movidius™ NCS supports only FP16 format. 
 <br>
@@ -51,15 +51,19 @@ The Model Optimizer by default generate FP32 IR files if the data type is not pa
 
 Let's run the Model Optimizer to get IR files in FP16 format suitable for the Movidius™ NCS. 
   
-    cd $SV/object-detection/models/sqeeznet_ssd/
-    mkdir FP16
+    $cd $SV/object-detection/SSD300
+    $mkdir FP16
     
-    cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer
-	python3 mo_caffe.py --input_model $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.caffemodel --data_type FP16 -o $SV/object-detection/models/sqeeznet_ssd/FP16
+    $cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer
+	
+	$python3 mo_caffe.py --input_model /opt/intel/computer_vision_sdk/deployment_tools/model_downloader/object_detection/common/ssd/300/caffe/ssd300.caffemodel --data_type FP16 -o $SV/object-detection/SSD300/FP16
 
-Check if the .xml and .bin files are created in folder FP16. 
-
+Check if the .xml and .bin files are created in folder $SV/object-detection/SSD300/FP16. 
+	 
+	 $cd $SV/object-detection/SSD300/FP16
+	 ls
+	
 Now run the example application with these new IR files.
 
-     cd $SV/object-detection/
-    ./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/FP16/squeezenet_ssd.xml -d MYRIAD
+     $cd $SV/object-detection/
+    $./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/SSD300/FP16/ssd300.xml -d MYRIAD
