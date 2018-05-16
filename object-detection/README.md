@@ -19,12 +19,13 @@ The location that you downlaoded the smart video workshop content to, for exampl
 	$sudo mkdir build && cd build
 	$sudo cmake –DCMAKE_BUILD_TYPE=Debug ..
 	$sudo make   
-
+<!---
 If this errors out, run the demo script
 
 	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 	cd /opt/intel/computer_vision_sdk/deployment_tools/demo
-	sudo ./demo_security_barrier_camera.sh
+	sudo ./demo_security_barrier_camera.sh 
+-->
 	
 #### 2. Install gflags and python libraries
 
