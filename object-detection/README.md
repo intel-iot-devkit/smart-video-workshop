@@ -67,7 +67,7 @@ You should see the following two files listed in this directory: **squeezenet_ss
 <br>
 <br>
 
-## Part 2: Use the sqeezenet model and Inference Engine in an object detection application
+## Part 2: Use the Sqeezenet* model and Inference Engine in an object detection application
 
 
 #### 1. Open the sample app (main.cpp) in the editor of your choice to view the lines that call the Inference Engine.
@@ -90,13 +90,12 @@ You should see the following two files listed in this directory: **squeezenet_ss
  	cd $SV/object-detection/
 	make
 
-#### 5. Before running, download the test video file to a new videos directory. 
-Note: For dry-run on May 4th, the video is in the object-detectoin/models folder, cars_1920x1080.h264.
+#### 5. Download the test video file to the smart video workshop folder. 
 
 	wget https://pixabay.com/en/videos/download/video-1900_source.mp4?attachment  
 
 
-#### 6. Run the security barrier sample application to use the Inference Engine on a video
+#### 6. Run the security barrier sample application to use the Inference Engine on the test video
 The below command runs the application 
 	 
 	 cd ../..
@@ -105,14 +104,14 @@ The below command runs the application
 > **Note:** If you get an error related to "undefined reference to 'google::FlagRegisterer...", try uninstalling libgflags-dev: sudo apt-get remove libgflags-dev
 
 #### 7. Display output
-For simplicity of the code and put more focus on the performance number, the rendering the video with rectangle baxes for object detection has been separated. 
+For simplicity of the code and in order to put more focus on the performance number, video rendering with rectangle boxes for detected objects has been separated from main.cpp. 
 
 	 make -f Makefile_ROIviewer 
 	./ROIviewer -i $SV/object-detection/models/cars_1920x1080.h264 -l $SV/object-detection/pascal_voc_classes.txt 
 	
 You should see a video play with cars running on the highway and red bounding boxes around them. 
 
-Here are the parameters used in the above coomand to run the application:
+Here are the parameters used in the above command to run the application:
 
 	./tutorial1 -h
 
@@ -122,21 +121,21 @@ Here are the parameters used in the above coomand to run the application:
 		-b #            Batch size.
 		-thresh #       Threshold (0-1: .5=50%)
 		-d <device>     Infer target device (CPU or GPU or MYRIAD)
-		-fr #           maximum frames to process
+		-fr #           Maximum frames to process
 	
 
 ## Part 3: Run the example on different hardware
 
-**IT'S BEST TO OPEN A NEW TERMINAL WINDOW SO YOU CAN COMPARE THE RESULTS**
+**IT'S BEST TO OPEN A NEW TERMINAL WINDOW SO THAT YOU CAN COMPARE THE RESULTS**
 
 #### 1. CPU
 ```
 ./tutorial1 -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d CPU
 ```
-You'll see the **Total time** it took to run.
+You will see the **Total time** it took to run the inference.
 
 #### 2. GPU
-Since you installed the OpenCL™ drivers to use the GPU, you can try running inference on the GPU and compare the difference.
+Since you installed the OpenCL™ drivers to use the GPU, you can run the inference on GPU and compare the difference.
 
 Set target hardware as GPU with
 ```
