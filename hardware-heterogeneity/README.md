@@ -1,4 +1,4 @@
-This example shows to use hetero plugin to define preferences to run diffrerent network layers on different hardware types. 
+This example shows how to use hetero plugin to define preferences to run different network layers on different hardware types. 
 
 #### 1. Navigate to the tutorial sample directory
 
