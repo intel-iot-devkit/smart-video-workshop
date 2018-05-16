@@ -39,7 +39,7 @@ The Model Optimizer converts a pretrained Caffe* model to make it compatible wit
 
 #### 4. Navigate to the tutorial sample model directory
 
-	cd $SV/object-detection/models/sqeeznet_ssd/
+	cd $SV/object-detection/SSD300/FP32
 
 #### 5. Verify creation of the optimized model files (the IR files)
 
@@ -68,7 +68,7 @@ You should see the following two files listed in this directory: **ssd300.xml** 
 
 	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 
-#### 4. Build the sample application with cmake
+#### 4. Build the sample application with make file
 
  	cd $SV/object-detection/
 	make
@@ -78,11 +78,10 @@ You should see the following two files listed in this directory: **ssd300.xml** 
 	https://pixabay.com/en/videos/download/video-1900_source.mp4?attachment  
 Cars - 1900.mp4 file will get downloaded. Put that file in the $SV/object-detection folder. 
 
-#### 6. Run the security barrier sample application to use the Inference Engine on the test video
+#### 6. Run the sample application to use the Inference Engine on the test video
 The below command runs the application 
 	 
-	 cd ../..
-	./tutorial1 -i $SV/object-detection//Cars\ -\ 1900.mp4 -m $SV/object-detection/models/sqeeznet_ssd/ssd300.xml 
+	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/SSD300/FP32/ssd300.xml 
  
 > **Note:** If you get an error related to "undefined reference to 'google::FlagRegisterer...", try uninstalling libgflags-dev: sudo apt-get remove libgflags-dev
 
@@ -113,7 +112,7 @@ Here are the parameters used in the above command to run the application:
 
 #### 1. CPU
 ```
-./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/models/sqeeznet_ssd/ssd300.xml -d CPU
+./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/SSD300/FP32/ssd300.xml -d CPU
 ```
 You will see the **Total time** it took to run the inference.
 
@@ -125,7 +124,7 @@ Set target hardware as GPU with
 -d GPU
 ```
 ```
-./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/models/sqeeznet_ssd/ssd300.xml -d GPU
+./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/SSD300/FP32/ssd300.xml -d GPU
 ```
 
 
