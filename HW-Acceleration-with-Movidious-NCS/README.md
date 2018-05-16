@@ -1,7 +1,7 @@
 
 # Intel® Movidius™ Neural Compute Stick (NCS)
 
-Let's see how Intel CV-SDK provides hardware abstraction to run the security barrier application which we built in previous modules on Movidius NCS. 
+This lab shows how Intel OpenVINO™ toolkit provides hardware abstraction to run the security barrier application which was built in previous modules on Movidius™ NCS. 
 
 #### Connect Movidius™ NCS to your development laptop
 <br>
@@ -47,9 +47,9 @@ You will get following error as Movidius™ NCS supports only FP16 format.
 
 <br>
 
-The Model optimizer by default generate FP32 IR files if the data type is not particularly specified.
+The Model Optimizer by default generate FP32 IR files if the data type is not particularly specified.
 
-Let's run the model optimizer to get IR files in FP16 format suitable for the Movidius™ NCS. 
+Let's run the Model Optimizer to get IR files in FP16 format suitable for the Movidius™ NCS. 
   
     cd $SV/object-detection/models/sqeeznet_ssd/
     mkdir FP16
