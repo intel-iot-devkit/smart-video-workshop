@@ -31,6 +31,18 @@ Compile in-built samples in OpenVINO™ toolkit
 	$sudo cmake –DCMAKE_BUILD_TYPE=Debug ..
 	$sudo make  
 
+#### d). Download models using model downloader scripts in OpenVINO™ toolkit installed folder
+   - Install python3 (version 3.5.2 or newer) 
+   - Install yaml and requests modules with command:
+
+   		$sudo -E pip3 install pyyaml requests
+   
+   - Run model downloader script with -h key to show help message:
+  		
+	$cd /opt/intel/computer_vision_sdk/deployment_tools/model_downloader
+	$sudo ./downloader.py
+		
+		
 ## Workshop Agenda
 * **Intel Smart Video/Computer Vision Tools Overview** - Priyanka
   - Slides - [Introduction to Intel Smart Video Tools](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/presentations/01-Introduction-to-Intel-Smart-Video-Tools.pptx)
