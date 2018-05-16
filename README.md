@@ -6,24 +6,24 @@ This workshop will walk you through a computer vision workflow using the latest 
 ## Note: For the in-class training, the hardware and software setup part has already been done on the workshop hardware. In-class training participants should directly move to Workshop Agenda section. 
 
 In order to use this workshop content, you will need to setup your hardware and install OpenVINO™ toolkit for infering your computer vision application.  
-### Hardware requirements
+### 1. Hardware requirements
 The hardware requirements are mentioned in the System Requirement section of the [install guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux)
 
-### Operating System
+### 2. Operating System
 These labs have been validated on Ubuntu 16.04 OS. 
 
-### Software installation steps
-#### 1. Install OpenVINO™ toolkit 
+### 3. Software installation steps
+#### a). Install OpenVINO™ toolkit 
 Use steps described in the [install guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux)
 to install OpenVINO™ toolkit as well as MediaSDK and OpenCL* mentioned in the Post-Installation section of the guide. 
 
-#### 2. Install gflags and python libraries
+#### b). Install gflags and python libraries
 
 	  $sudo apt install libgflags-dev
 	  $sudo apt install python3-pip
     $pip3 install -r /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/requirements_caffe.txt
 
-#### 3. Compile samples
+#### c). Compile samples
 Compile in-built samples in OpenVINO™ toolkit 
 
 	$cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/
