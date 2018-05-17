@@ -13,14 +13,18 @@ This lab shows how Intel OpenVINO™ toolkit provides hardware abstraction to ru
 #### System check
 First make sure the USB rules are set up.
 
-	$cat <<EOF > 97-usbboot.rules
+	cat <<EOF > 97-usbboot.rules
 	SUBSYSTEM=="usb", ATTRS{idProduct}=="2150", ATTRS{idVendor}=="03e7", GROUP="users", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
 	SUBSYSTEM=="usb", ATTRS{idProduct}=="f63b", ATTRS{idVendor}=="03e7", GROUP="users", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
 	EOF
-	$sudo cp 97-usbboot.rules /etc/udev/rules.d/
-	$sudo udevadm control --reload-rules
-	$sudo udevadm trigger
-	$sudo ldconfig
+	
+	sudo cp 97-usbboot.rules /etc/udev/rules.d/
+	
+	sudo udevadm control --reload-rules
+	
+	sudo udevadm trigger
+	
+	sudo ldconfig
 
 Then check if the device is visible with lsusb.
 	
@@ -56,7 +60,7 @@ Let's run the Model Optimizer to get IR files in FP16 format suitable for the Mo
     
     $cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer
 	
-	$python3 mo_caffe.py --input_model /opt/intel/computer_vision_sdk/deployment_tools/model_downloader/object_detection/common/mobilenet-ssd/caffe/ssd300.caffemodel --data_type FP16 -o $SV/object-detection/mobilenet-ssd/FP16
+	$python3 mo_caffe.py --input_model /opt/intel/computer_vision_sdk/deployment_tools/model_downloader/object_detection/common/mobilenet-ssd/caffe/mobilenet-ssd.caffemodel --data_type FP16 -o $SV/object-detection/mobilenet-ssd/FP16
 
 Check if the .xml and .bin files are created in folder $SV/object-detection/SSD300/FP16. 
 	 
