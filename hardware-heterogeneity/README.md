@@ -49,7 +49,7 @@ performance counts:
 
 > Note: execType GPU for layers executed on GPU.  Also, skipped relu.
 
-#### 4. Now, run with CPU first
+#### 3. Now, run with CPU first
 
 	 ./classification_sample -i /opt/intel/computer_vision_sdk/deployment_tools/demo/car.png -m $SV/object-detection/squeezenet1.1.xml -d HETERO:CPU,GPU -pc
 
