@@ -18,8 +18,7 @@ In this section, you will use the Model Optimizer to convert a trained model to 
 #### 1. Create a directory to store IR files
  	
 	cd $SV/object-detection/
-	mkdir mobilenet-ssd && cd mobilenet-ssd
-	mkdir FP32
+	mkdir -p mobilenet-ssd/FP32 && cd mobilenet-ssd
 
 #### 2. Navigate to the OpenVINO™ toolkit install directory
 
@@ -47,20 +46,18 @@ The Model Optimizer converts a pretrained Caffe* model to make it compatible wit
 
 You should see the following two files listed in this directory: **mobilenet-ssd.xml** and **mobilenet-ssd.bin**
 
-<br>
-<br>
 
 ## Part 2: Use the mobilenet-ssd* model and Inference Engine in an object detection application
 
 
 #### 1. Open the sample app (main.cpp) in the editor of your choice to view the lines that call the Inference Engine.
-<ul><ul>
-	<li> Line 123 &#8212; loads the Inference Engine plugin for use within the application</li>
-	<li> Line 137 &#8212; initializes the network object</li>
-	<li> Line 221 &#8212; allocate input blobs</li>
-	<li> Line 231 &#8212; allocate output blobs</li>
-	<li> Line 282 &#8212; runs inference using the optimized model
-</ul></ul>
+
+* Line 123 &#8212; loads the Inference Engine plugin for use within the application
+* Line 137 &#8212; initializes the network object
+* Line 221 &#8212; allocate input blobs
+* Line 231 &#8212; allocate output blobs
+* Line 282 &#8212; runs inference using the optimized model
+
 
 #### 2. Close the source file
 
@@ -75,8 +72,11 @@ You should see the following two files listed in this directory: **mobilenet-ssd
 
 #### 5. Download the test video file to the object-detection folder. 
 
-	https://pixabay.com/en/videos/download/video-1900_source.mp4?attachment  
+	https://pixabay.com/en/videos/download/video-1900_source.mp4?attachment
+	
 Cars - 1900.mp4 file will get downloaded. Put that file in the $SV/object-detection folder. 
+
+	mv ~/Downloads/Cars\ -\ 1900.mp4 .
 
 #### 6. Run the sample application to use the Inference Engine on the test video
 The below command runs the application 
