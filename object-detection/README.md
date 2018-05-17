@@ -1,6 +1,6 @@
 # Object detection with OpenVINO™ toolkit 
 
-This tutorial uses a Single Shot MultiBox Detector (SSD) on a trained SSD300* model to walk you through the basic steps of using two key components of the OpenVINO™ toolkit: Model Optimizer and Inference Engine. 
+This tutorial uses a Single Shot MultiBox Detector (SSD) on a trained mobilenet-ssd* model to walk you through the basic steps of using two key components of the OpenVINO™ toolkit: Model Optimizer and Inference Engine. 
 
 Model Optimizer takes pre-trained deep learning models and optimizes them for performance/space using conservative topology transformations. The biggest performance boost for a computer vision application can be achieved by converting data types to match the hardware. 
 
@@ -18,7 +18,7 @@ In this section, you will use the Model Optimizer to convert a trained model to 
 #### 1. Create a directory to store IR files
  	
 	cd $SV/object-detection/
-	mkdir SSD300 && cd SSD300
+	mkdir mobilenet-ssd && cd mobilenet-ssd
 	mkdir FP32
 
 #### 2. Navigate to the OpenVINO™ toolkit install directory
@@ -27,9 +27,9 @@ In this section, you will use the Model Optimizer to convert a trained model to 
 
 #### 3. Run the Model Optimizer on the pretrained Caffe* model. This step generates one .xml file and one .bin file and place both files in the tutorial samples directory (located here: /object-detection/)
 
-	python3 mo_caffe.py --input_model /opt/intel/computer_vision_sdk/deployment_tools/model_downloader/object_detection/common/ssd/300/caffe/ssd300.caffemodel -o $SV/object-detection/SSD300/FP32
+	$ python3 mo_caffe.py --input_model /opt/intel/computer_vision_sdk/deployment_tools/model_downloader/object_detection/common/mobilenet-ssd/caffe/mobilenet-ssd.caffemodel -o $SV/object-detection/mobilenet-ssd/FP32
 
-> **Note:** Although this tutorial uses Single Shot MultiBox Detector (SSD) on a trained SSD300* model, the Inference Engine is compatible with other neural network architectures, such as AlexNet*, GoogleNet*, MxNet* etc.
+> **Note:** Although this tutorial uses Single Shot MultiBox Detector (SSD) on a trained mobilenet-ssd* model, the Inference Engine is compatible with other neural network architectures, such as AlexNet*, GoogleNet*, MxNet* etc.
 
 <br>
 
@@ -39,18 +39,18 @@ The Model Optimizer converts a pretrained Caffe* model to make it compatible wit
 
 #### 4. Navigate to the tutorial sample model directory
 
-	cd $SV/object-detection/SSD300/FP32
+	cd $SV/object-detection/mobilenet-ssd/FP32
 
 #### 5. Verify creation of the optimized model files (the IR files)
 
 	ls
 
-You should see the following two files listed in this directory: **ssd300.xml** and **ssd300.bin**
+You should see the following two files listed in this directory: **mobilenet-ssd.xml** and **mobilenet-ssd.bin**
 
 <br>
 <br>
 
-## Part 2: Use the SSD300* model and Inference Engine in an object detection application
+## Part 2: Use the mobilenet-ssd* model and Inference Engine in an object detection application
 
 
 #### 1. Open the sample app (main.cpp) in the editor of your choice to view the lines that call the Inference Engine.
@@ -81,7 +81,7 @@ Cars - 1900.mp4 file will get downloaded. Put that file in the $SV/object-detect
 #### 6. Run the sample application to use the Inference Engine on the test video
 The below command runs the application 
 	 
-	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/SSD300/FP32/ssd300.xml 
+	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml 
  
 > **Note:** If you get an error related to "undefined reference to 'google::FlagRegisterer...", try uninstalling libgflags-dev: sudo apt-get remove libgflags-dev
 
@@ -112,7 +112,7 @@ Here are the parameters used in the above command to run the application:
 
 #### 1. CPU
 ```
-./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/SSD300/FP32/ssd300.xml -d CPU
+./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d CPU
 ```
 You will see the **Total time** it took to run the inference.
 
@@ -124,7 +124,7 @@ Set target hardware as GPU with
 -d GPU
 ```
 ```
-./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/SSD300/FP32/ssd300.xml -d GPU
+./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d GPU
 ```
 
 
