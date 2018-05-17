@@ -1,7 +1,7 @@
 
 # OpenVINO™ toolkit hetero plugin 
 
-This example shows how to use hetero plugin to define preferences to run different network layers on different hardware types. 
+This example shows how to use hetero plugin to define preferences to run different network layers on different hardware types. Here, we will use the command line option to define hetero plugin usage where the layer distribution is already defined. However, hetero plugin also allows developers to customize distribution of layers execution on different hardware by specifying the application code.  
 
 ### Car detection tutorial example 
 #### 1. Navigate to the tutorial directory
