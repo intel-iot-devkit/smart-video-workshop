@@ -47,7 +47,7 @@ performance counts:
 ![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/hetero_GPU_CPU.png)
 
 
-> execType GPU for layers executed on GPU.  Also, skipped relu.
+> Note: execType GPU for layers executed on GPU.  Also, skipped relu.
 
 #### 4. Now, run with CPU first
 
@@ -58,6 +58,6 @@ performance counts:
 ![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/hetero_CPU_GPU.png "CPU")
 <br>
 
- Note: jit to CPU instruction set
+ > Note: jit to CPU instruction set
 
 
