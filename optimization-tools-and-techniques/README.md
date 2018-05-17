@@ -17,8 +17,8 @@ For SSD models, the batch size is required to be set at Model Optimizer level. T
 Create batch_size/batch_2 folder to store the IR files. 
  
  	cd $SV/object-detection/mobilenet-ssd/
- 	mkdir batch_size
-	mkdir batch_2
+ 	mkdir -p batch_size/batch_2
+	
 	
 Use -b flag to define the batch size.
 
