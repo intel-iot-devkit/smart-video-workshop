@@ -20,7 +20,7 @@ to install OpenVINO™ toolkit as well as MediaSDK and OpenCL* mentioned in the 
 #### b). Install gflags and python libraries
 	sudo apt install libgflags-dev
 	sudo apt install python3-pip
-        pip3 install -r /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/requirements_caffe.txt
+    pip3 install -r /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/requirements_caffe.txt
 
 #### c). Compile samples
 Compile in-built samples in OpenVINO™ toolkit 
