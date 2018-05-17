@@ -32,12 +32,12 @@ For this example, we will use squeezenet model downloaded with the model downlao
 	python3 mo_caffe.py --input_model /opt/intel/computer_vision_sdk/deployment_tools/model_downloader/classification/squeezenet/1.1/caffe/squeezenet1.1.caffemodel -o $SV/object-detection/ 
 	
 
-#### 1. Go to samples build directory:
+#### 2. Go to samples build directory:
 
 	 cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
 
 
-#### 2. Run classification sample with hetero plugin, prioritizing running on GPU first.
+#### 3. Run classification sample with hetero plugin, prioritizing running on GPU first.
 
 	 ./classification_sample -i /opt/intel/computer_vision_sdk/deployment_tools/demo/car.png -m $SV/object-detection/squeezenet1.1.xml -d HETERO:GPU,CPU -pc
 	
@@ -49,7 +49,7 @@ performance counts:
 
 > Note: execType GPU for layers executed on GPU.  Also, skipped relu.
 
-#### 3. Now, run with CPU first
+#### 4. Now, run with CPU first
 
 	 ./classification_sample -i /opt/intel/computer_vision_sdk/deployment_tools/demo/car.png -m $SV/object-detection/squeezenet1.1.xml -d HETERO:CPU,GPU -pc
 
