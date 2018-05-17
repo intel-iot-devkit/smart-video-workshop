@@ -27,7 +27,7 @@ Use -b flag to define the batch size.
 #### Run the object-detection example for new batch size
 
 	$ cd $SV/object-detection
-	$ ./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/batch_size/batch_2/ssd300.xml
+	$ ./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/batch_size/batch_2/mobilenet-ssd.xml
 
 #### Run the example for batch size 8 and 16
 The similer instructions can be used to change batch size to 8 and 16 using Model Optimizer. Once it is done, run the example again and observe the performace. 
