@@ -18,29 +18,28 @@ Use steps described in the [install guide](https://software.intel.com/en-us/arti
 to install OpenVINO™ toolkit as well as MediaSDK and OpenCL* mentioned in the Post-Installation section of the guide. 
 
 #### b). Install gflags and python libraries
-
-	  $sudo apt install libgflags-dev
-	  $sudo apt install python3-pip
-    $pip3 install -r /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/requirements_caffe.txt
+	sudo apt install libgflags-dev
+	sudo apt install python3-pip
+        pip3 install -r /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/requirements_caffe.txt
 
 #### c). Compile samples
 Compile in-built samples in OpenVINO™ toolkit 
 
-	$cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/
-	$sudo mkdir build && cd build
-	$sudo cmake –DCMAKE_BUILD_TYPE=Debug ..
-	$sudo make  
+	cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/
+	sudo mkdir build && cd build
+	sudo cmake –DCMAKE_BUILD_TYPE=Debug ..
+	sudo make  
 
 #### d). Download models using model downloader scripts in OpenVINO™ toolkit installed folder
    - Install python3 (version 3.5.2 or newer) 
    - Install yaml and requests modules with command:
 
-   		$sudo -E pip3 install pyyaml requests
+	sudo -E pip3 install pyyaml requests
    
    - Run model downloader script with -h key to show help message:
   		
-	$cd /opt/intel/computer_vision_sdk/deployment_tools/model_downloader
-	$sudo ./downloader.py
+	cd /opt/intel/computer_vision_sdk/deployment_tools/model_downloader
+	sudo ./downloader.py
 		
 		
 ## Workshop Agenda
