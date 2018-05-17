@@ -3,7 +3,7 @@ This workshop will walk you through a computer vision workflow using the latest 
 
 ## How to Get Started
    
-## Note: For the in-class training, the hardware and software setup part has already been done on the workshop hardware. In-class training participants should directly move to Workshop Agenda section. 
+> :warning: For the in-class training, the hardware and software setup part has already been done on the workshop hardware. In-class training participants should directly move to Workshop Agenda section. 
 
 In order to use this workshop content, you will need to setup your hardware and install OpenVINO™ toolkit for infering your computer vision application.  
 ### 1. Hardware requirements
@@ -44,27 +44,27 @@ Compile in-built samples in OpenVINO™ toolkit
 		
 		
 ## Workshop Agenda
-* **Intel Smart Video/Computer Vision Tools Overview** - Priyanka
-  - Slides - [Introduction to Intel Smart Video Tools](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/presentations/01-Introduction-to-Intel-Smart-Video-Tools.pptx)
+* **Intel Smart Video/Computer Vision Tools Overview**
+  - Slides - [Introduction to Intel Smart Video Tools](./presentations/01-Introduction-to-Intel-Smart-Video-Tools.pptx)
 
-* **Basic End to End Object Detection Example** - Priyanka
-  - Slides - [Basic End to End Object Detection Example](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/presentations/02-Basic-End-to-End-Object-Detection-Example.pptx)
-  - Lab - [Basic End to End Object Detection Example](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/object-detection/README.md)
+* **Basic End to End Object Detection Example**
+  - Slides - [Basic End to End Object Detection Example](./presentations/02-Basic-End-to-End-Object-Detection-Example.pptx)
+  - Lab - [Basic End to End Object Detection Example](./object-detection/README.md)
 
-* **Hardware Heterogeneity** - Priyanka
-  - Slides - [Hardware Heterogeneity](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/presentations/03-Hardware-Heterogeneity.pptx)
-  - Lab - [Hardware Heterogeneity](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/hardware-heterogeneity/README.md)
+* **Hardware Heterogeneity**
+  - Slides - [Hardware Heterogeneity](./presentations/03-Hardware-Heterogeneity.pptx)
+  - Lab - [Hardware Heterogeneity](./hardware-heterogeneity/README.md)
 
-* **HW Acceleration with Intel® Movidius™ Neural Compute Stick** - Priyanka
-  - Lab - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/HW-Acceleration-with-Movidious-NCS/README.md) 
+* **HW Acceleration with Intel® Movidius™ Neural Compute Stick**
+  - Lab - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](./HW-Acceleration-with-Movidious-NCS/README.md) 
   
-* **FPGA Inference Accelerator** - Richard C
-  - Slides - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/presentations/04-HW-Acceleration-with-FPGA.pptx)
+* **FPGA Inference Accelerator**
+  - Slides - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](./presentations/04-HW-Acceleration-with-FPGA.pptx)
 
-* **Optimization Tools and Techniques** - Priyanka
-  - Slides - [Optimization Tools and Techniques](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/presentations/04_05_Optimization_and_advanced_analytics.pptx)
-  - Lab - [Optimization Tools and Techniques](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/optimization-tools-and-techniques/README.md)
+* **Optimization Tools and Techniques** 
+  - Slides - [Optimization Tools and Techniques](/presentations/04_05_Optimization_and_advanced_analytics.pptx)
+  - Lab - [Optimization Tools and Techniques](./optimization-tools-and-techniques/README.md)
   
-* **Advanced Video Analytics** - Priyanka
-  - Slides - [Advanced Video Analytics](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/presentations/04_05_Optimization_and_advanced_analytics.pptx)
-  - Lab - [Advanced Video Analytics](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/advanced-video-analytics/README.md)
+* **Advanced Video Analytics**
+  - Slides - [Advanced Video Analytics](./presentations/04_05_Optimization_and_advanced_analytics.pptx)
+  - Lab - [Advanced Video Analytics](./advanced-video-analytics/README.md)
