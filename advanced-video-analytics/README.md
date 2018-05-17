@@ -9,9 +9,9 @@ The OpenVINO™ toolkit package includes security barrier sample which uses 3 mo
 
 	$ cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
   
-#### 2. Run the executable for the security barrier sample with the SSD300 model used in the first tutorial
+#### 2. Run the executable for the security barrier sample with the mobilenet-ssd* model used in the first tutorial
 
-	$ sudo ./security_barrier_camera_sample -i /opt/intel/computer_vision_sdk_2018.0.219/deployment_tools/demo/car_1.bmp -m $SV/object-detection/SSD300/FP32/ssd300.xml -d CPU
+	$ sudo ./security_barrier_camera_sample -i /opt/intel/computer_vision_sdk_2018.0.219/deployment_tools/demo/car_1.bmp -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d CPU
  
 #### 3. Run the security camera sample with ICV models 
 
