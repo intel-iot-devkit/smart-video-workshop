@@ -51,7 +51,7 @@ performance counts:
 
 #### 4. Now, run with CPU first
 
-	 ./classification_sample -i car.png -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d HETERO:CPU,GPU -pc
+	 ./classification_sample -i /opt/intel/computer_vision_sdk/deployment_tools/demo/car.png -m $SV/object-detection/squeezenet1.1.xml -d HETERO:CPU,GPU -pc
 
 performance counts:
 <br>
