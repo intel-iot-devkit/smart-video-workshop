@@ -22,12 +22,14 @@ Create batch_size/batch_2 folder to store the IR files.
 	
 Use -b flag to define the batch size.
 
-	cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer$  
+	cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer
+	
 	python3 mo_caffe.py --input_model /opt/intel/computer_vision_sdk/deployment_tools/model_downloader/object_detection/common/mobilenet-ssd/caffe/mobilenet-ssd.caffemodel -o $SV/object-detection/mobilenet-ssd/batch_size/batch_2 -b 2
 
 ### Run the object-detection example for new batch size
 
 	cd $SV/object-detection
+	
 	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/batch_size/batch_2/mobilenet-ssd.xml
 
 ### Run the example for batch size 8 and 16
@@ -88,9 +90,9 @@ Run various SSD models from model_downloader on the car detection example which 
 ### 3. Use the right data type for your target harware and accuracy needs
 In this section, we will consider example of GPU for which FP16 operations are better optimized than FP32 operations. We will run the object detection example with SSD models with data types FP16 and FP32 and observe the performance difference. 
 
-	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/SSD300/FP32/ssd300.xml -d GPU 
+	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d GPU 
 	
-	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/SSD300/FP16/ssd300.xml -d GPU
+	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP16/mobilenet-ssd.xml -d GPU
 
 From the performance numbers, it is clear that we got better performance for FP16 models. 
 
