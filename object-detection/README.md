@@ -119,10 +119,7 @@ You will see the **Total time** it took to run the inference.
 #### 2. GPU
 Since you installed the OpenCL™ drivers to use the GPU, you can run the inference on GPU and compare the difference.
 
-Set target hardware as GPU with
-```
--d GPU
-```
+Set target hardware as GPU with **-d GPU**
 ```
 ./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d GPU
 ```
