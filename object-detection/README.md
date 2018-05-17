@@ -18,7 +18,7 @@ In this section, you will use the Model Optimizer to convert a trained model to 
 #### 1. Create a directory to store IR files
  	
 	cd $SV/object-detection/
-	mkdir -p mobilenet-ssd/FP32 && cd mobilenet-ssd
+	mkdir -p mobilenet-ssd/FP32 
 
 #### 2. Navigate to the OpenVINO™ toolkit install directory
 
