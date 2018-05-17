@@ -1,4 +1,4 @@
-This example shows to use hetero plugin to define preferences to run diffrerent network layers on different hardware types. 
+This example shows how to use hetero plugin to define preferences to run different network layers on different hardware types. 
 
 #### 1. Navigate to the tutorial sample directory
 
@@ -8,12 +8,12 @@ This example shows to use hetero plugin to define preferences to run diffrerent 
 
 ##### a) Prioritizing running on GPU first.
 
-	./tutorial1 -i cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d HETERO:GPU,CPU
+	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/SSD300/FP32/ssd300.xml -d HETERO:GPU,CPU
     
 
 ##### a) Prioritizing running on CPU first.
 
-     ../tutorial1 -i cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d HETERO:CPU,GPU 
+     ./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/SSD300/FP32/ssd300.xml -d HETERO:CPU,GPU 
      
     
 

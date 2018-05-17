@@ -179,7 +179,7 @@ int main(int argc, char *argv[]) {
         for (auto &item : output_info) {
             auto output_data = item.second;
             output_data->setPrecision(Precision::FP32);
-            output_data->setLayout(Layout::NC);
+            output_data->setLayout(Layout::NCHW);
             outputDims=output_data->getDims();
         }
         cout << "outputDims=";
