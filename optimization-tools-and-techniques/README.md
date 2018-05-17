@@ -39,9 +39,8 @@ Run various SSD models from model_downloader on the car detection example which 
 
 #### Run Model Optimizer on the models to get IR files
 	cd $SV/object-detection
-	mkdir SSD512 && cd SSD512 && mkdir FP32 && mkdir FP16 
-	cd $SV/object-detection
-	mkdir SSD300 && cd SSD300 && mkdir FP32 && mkdir FP16 
+	mkdir -p SSD512/{FP16,FP32} 
+	mkdir -p SSD300/{FP16,FP32} 
 	
 	cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer
 	
