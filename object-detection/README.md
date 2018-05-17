@@ -57,7 +57,6 @@ You should see the following two files listed in this directory: **mobilenet-ssd
 * Line 221 &#8212; allocate input blobs
 * Line 231 &#8212; allocate output blobs
 * Line 282 &#8212; runs inference using the optimized model
-* Line 290 &#8212; processes output
 
 
 #### 2. Close the source file
