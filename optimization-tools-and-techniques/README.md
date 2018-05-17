@@ -107,4 +107,6 @@ Async API can improve overall frame rate of the application. While accelerator i
 
 	./object_detection_demo_ssd_async -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml
 
+> Press tab to switch to sync mode. Observe the number of fps (frames per second) for both sync and async mode. The number frames processed per secod are more in async than the sync mode. 
+
 There are important performance caveats though, for example the tasks that run in parallel should try to avoid oversubscribing the shared compute resources. e.g. if the inference is performed on the FPGA, and the CPU is essentially idle, then it makes sense to do things on the CPU in parallel. But if the inference is performed say on the GPU, than it can gain little to perform the (resulting video) encoding on the same GPU in parallel, because the device is already busy.
