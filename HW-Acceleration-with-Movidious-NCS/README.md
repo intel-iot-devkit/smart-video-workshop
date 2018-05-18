@@ -1,7 +1,7 @@
 
 # Intel® Movidius™ Neural Compute Stick (NCS)
 
-This lab shows how Intel OpenVINO™ toolkit provides hardware abstraction to run the security barrier application which was built in previous modules on Movidius™ NCS. 
+This lab shows how Intel OpenVINO™ toolkit provides hardware abstraction to run the sample object detection application which was built in previous modules on Movidius™ NCS. 
 
 #### Connect Movidius™ NCS to your development laptop
 <br>
