@@ -2,7 +2,7 @@
 
 This tutorial uses a Single Shot MultiBox Detector (SSD) on a trained mobilenet-ssd* model to walk you through the basic steps of using two key components of the OpenVINO™ toolkit: Model Optimizer and Inference Engine. 
 
-Model Optimizer takes pre-trained deep learning models and optimizes them for performance/space using conservative topology transformations. The biggest performance boost for a computer vision application can be achieved by converting data types to match the hardware. 
+Model Optimizer is a is a cross-platform command-line tool that takes pre-trained deep learning models and optimizes them for performance/space using conservative topology transformations. It performs static model analysis and adjusts deep learning models for optimal execution on end-point target devices. 
 
 Inference is the process of using a trained neural network to interpret data, such as images. This lab feeds a short video of cars, frame-by-frame, to the Inference Engine which subsequently utilizes an optimized trained neural network to detect cars. 
 
