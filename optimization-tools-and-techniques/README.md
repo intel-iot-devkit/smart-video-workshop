@@ -86,7 +86,7 @@ Run various SSD models from the model_downloader in the car detection example wh
 	
 	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/SSD512/FP16/ssd512.xml -d MYRIAD
 	
-> **Note**: There is often USB write error for Intel® Movidius™ Neural Compute Stick, please try re-running the command. Sometimes it 3 trials. 
+> **Note**: There is often USB write error for Intel® Movidius™ Neural Compute Stick, please try re-running the command. Sometimes it takes 3 trials. 
 
 	
 ### 3. Use the right data type for your target harware and accuracy needs
