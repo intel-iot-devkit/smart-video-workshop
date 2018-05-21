@@ -38,12 +38,10 @@ The output will be
 Here ID 03e7:2150 without a description string is the Movidius device.
 
 #### Run the sample application on Movidius™ Neural Compute Stick (NCS)
-Set target hardware as Movidius™ NCS with
+Set target hardware as Movidius™ NCS with **-d MYRIAD**
   
 	cd $SV/object-detection/
-```
--d MYRIAD
-```
+
 ```
  ./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d MYRIAD
 ```
