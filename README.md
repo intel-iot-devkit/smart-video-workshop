@@ -36,7 +36,7 @@ Compile in-built samples in OpenVINO™ toolkit
 
 	sudo -E pip3 install pyyaml requests
    
-   - Run model downloader script with -h key to show help message:
+   - Run model downloader script to download example deep learning models
   		
 	cd /opt/intel/computer_vision_sdk/deployment_tools/model_downloader
 	sudo ./downloader.py
