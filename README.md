@@ -44,26 +44,24 @@ Compile in-built samples in OpenVINO™ toolkit
 		
 ## Workshop Agenda
 * **Intel Smart Video/Computer Vision Tools Overview**
-  - Slides - [Introduction to Intel Smart Video Tools](./presentations/01-Introduction-to-Intel-Smart-Video-Tools.pptx)
+  - Slides - [Introduction to Intel Smart Video Tools](./presentations/01-Introduction-to-Intel-Smart-Video-Tools.pdf)
 
 * **Basic End to End Object Detection Example**
-  - Slides - [Basic End to End Object Detection Example](./presentations/02-Basic-End-to-End-Object-Detection-Example.pptx)
+  - Slides - [Basic End to End Object Detection Example](./presentations/02-Basic-End-to-End-Object-Detection-Example.pdf)
   - Lab - [Basic End to End Object Detection Example](./object-detection/README.md)
 
 * **Hardware Heterogeneity**
-  - Slides - [Hardware Heterogeneity](./presentations/03-Hardware-Heterogeneity.pptx)
   - Lab - [Hardware Heterogeneity](./hardware-heterogeneity/README.md)
 
 * **HW Acceleration with Intel® Movidius™ Neural Compute Stick**
   - Lab - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](./HW-Acceleration-with-Movidious-NCS/README.md) 
   
 * **FPGA Inference Accelerator**
-  - Slides - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](./presentations/04-HW-Acceleration-with-FPGA.pptx)
+  - Slides - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](./presentations/04-HW-Acceleration-with-FPGA.pdf)
 
 * **Optimization Tools and Techniques** 
-  - Slides - [Optimization Tools and Techniques](/presentations/04_05_Optimization_and_advanced_analytics.pptx)
+  - Slides - [Optimization Tools and Techniques](/presentations/04_05_Optimization_and_advanced_analytics.pdf)
   - Lab - [Optimization Tools and Techniques](./optimization-tools-and-techniques/README.md)
   
 * **Advanced Video Analytics**
-  - Slides - [Advanced Video Analytics](./presentations/04_05_Optimization_and_advanced_analytics.pptx)
   - Lab - [Advanced Video Analytics](./advanced-video-analytics/README.md)
