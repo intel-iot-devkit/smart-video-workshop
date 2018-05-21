@@ -110,6 +110,10 @@ Here are the parameters used in the above command to run the application:
 
 **IT'S BEST TO OPEN A NEW TERMINAL WINDOW SO THAT YOU CAN COMPARE THE RESULTS**
 
+ Make sure that you have sourced the environmental variables for each newly opened terminal window.
+ 
+	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+ 
 #### 1. CPU
 ```
 ./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d CPU
