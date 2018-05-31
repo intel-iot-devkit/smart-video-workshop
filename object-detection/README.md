@@ -6,10 +6,28 @@ Model Optimizer is a cross-platform command-line tool that takes pre-trained dee
 
 Inference is the process of using a trained neural network to interpret data, such as images. This lab feeds a short video of cars, frame-by-frame, to the Inference Engine which subsequently utilizes an optimized trained neural network to detect cars. 
 
-### Set PATH variables
-The location that you downlaoded the smart video workshop content to, for example, if you download the smart video workshop to *~/smart-video-workshop-master
+### Download workshop content and set directory path
+#### 1. Create the workshop directory
 
-	export SV=~/smart-video-workshop-master
+	sudo mkdir -p /opt/intel/workshop/
+	
+#### 2. Change ownership of the workshop directory to the current user 
+
+> **Note:** *replace the usernames below with your user account name*
+		
+	sudo chown username.username –R /opt/intel/workshop/
+
+#### 3. Navigate to the new directory
+
+	cd /opt/intel/workshop/
+
+#### 4. Download and clone the workshop content to the current directory (/opt/intel/workshop/smart-video-workshop).
+
+	git clone https://github.com/intel-iot-devkit/smart-video-workshop.git
+	
+#### 5. Set short path for the workshop directory
+
+	export SV=/opt/intel/workshop/smart-video-workshop/
     
 ## Part 1: Optimize a deep-learning model using the Model Optimizer (MO)
 
