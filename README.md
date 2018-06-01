@@ -17,7 +17,8 @@ These labs have been validated on Ubuntu 16.04 OS.
 Use steps described in the [install guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux)
 to install OpenVINO™ toolkit as well as MediaSDK and OpenCL* mentioned in the Post-Installation section of the guide. 
 
-#### b). Install gflags and python libraries
+#### b). Install git, gflags and python libraries
+	sudo apt install git
 	sudo apt install libgflags-dev
 	sudo apt install python3-pip
     pip3 install -r /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/requirements_caffe.txt
@@ -25,6 +26,7 @@ to install OpenVINO™ toolkit as well as MediaSDK and OpenCL* mentioned in the 
 #### c). Compile samples
 Compile in-built samples in OpenVINO™ toolkit 
 
+	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 	cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/
 	sudo mkdir build && cd build
 	sudo cmake –DCMAKE_BUILD_TYPE=Debug ..
