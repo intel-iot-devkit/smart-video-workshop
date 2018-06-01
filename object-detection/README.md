@@ -15,7 +15,7 @@ Inference is the process of using a trained neural network to interpret data, su
 
 > **Note:** *replace the usernames below with your user account name*
 		
-	sudo chown username.username –R /opt/intel/workshop/
+	sudo chown username.username -R /opt/intel/workshop/
 
 #### 3. Navigate to the new directory
 
