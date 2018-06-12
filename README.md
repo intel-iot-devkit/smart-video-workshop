@@ -66,4 +66,5 @@ Compile in-built samples in OpenVINO™ toolkit
   - Lab - [Optimization Tools and Techniques](./optimization-tools-and-techniques/README.md)
   
 * **Advanced Video Analytics**
-  - Lab - [Advanced Video Analytics](./advanced-video-analytics/README.md)
+  - Lab - [Multiple models usage example](./advanced-video-analytics/README.md)
+  - Lab - [Tensor Flow example](./advanced-video-analytics/tensor_flow.md)
