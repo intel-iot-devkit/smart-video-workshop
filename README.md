@@ -15,7 +15,7 @@ These labs have been validated on Ubuntu 16.04 OS.
 ### 3. Software installation steps
 #### a). Install OpenVINO™ toolkit 
 Use steps described in the [install guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux)
-to install OpenVINO™ toolkit as well as MediaSDK and OpenCL* mentioned in the Post-Installation section of the guide. 
+to install OpenVINO™ toolkit, build sample demos, build inference engine samples, install MediaSDK and OpenCL* mentioned in the the guide. 
 
 #### b). Install git, gflags and python libraries
 	sudo apt install git
