@@ -41,7 +41,7 @@ Compile in-built samples in OpenVINO™ toolkit
    - Run model downloader script to download example deep learning models
   		
 	cd /opt/intel/computer_vision_sdk/deployment_tools/model_downloader
-	sudo ./downloader.py
+	sudo python3 downloader.py
 		
 		
 ## Workshop Agenda
