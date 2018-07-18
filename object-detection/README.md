@@ -70,6 +70,9 @@ You should see the following two files listed in this directory: **mobilenet-ssd
 
 #### 1. Open the sample app (main.cpp) in the editor of your choice to view the lines that call the Inference Engine.
 
+	cd $SV/object-detection/
+	gedit main.cpp
+
 * Line 130 &#8212; loads the Inference Engine plugin for use within the application
 * Line 144 &#8212; initializes the network object
 * Line 210 &#8212; loads model to the plugin
