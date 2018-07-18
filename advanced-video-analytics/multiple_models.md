@@ -27,7 +27,7 @@ Following car image will appear the at end of the above command execution. It sh
 <br>
 
 
-## Part 2. Face demo running on Myriad-2, CPU and GPU
+## Part 2. Use multiple models on different hardware
 
 #### 1. Let's look at the face detection sample from the OpenVINO tookit package
 	
