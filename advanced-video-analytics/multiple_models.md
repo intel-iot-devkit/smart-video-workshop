@@ -17,7 +17,7 @@ The OpenVINO™ toolkit package includes security barrier sample which uses 3 mo
 
      ./security_barrier_camera_sample -d CPU -i /opt/intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp -m /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0007/FP32/vehicle-license-plate-detection-barrier-0007.xml -m_va /opt/intel/computer_vision_sdk/deployment_tools/demo/../intel_models/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml -m_lpr /opt/intel/computer_vision_sdk/deployment_tools/demo/../intel_models/license-plate-recognition-barrier-0001/FP32/license-plate-recognition-barrier-0001.xml
 
-> :warning: If you have an older version than 2018.2.299 of OpenVINO™ toolkit, use the following command. The model number for vehicle-attributes-recognition-barrier ICV model has chnaged in the latest OpenVINO™ toolkit versions :
+> :warning: If you have an older version than 2018.2.299 of OpenVINO™ toolkit, use the following command. The model number for vehicle-attributes-recognition-barrier ICV model has changed in the latest OpenVINO™ toolkit versions :
 
 	./security_barrier_camera_sample -d CPU -i /opt/intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp -m /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0007/FP32/vehicle-license-plate-detection-barrier-0007.xml -m_va /opt/intel/computer_vision_sdk/deployment_tools/demo/../intel_models/vehicle-attributes-recognition-barrier-0010/FP32/vehicle-attributes-recognition-barrier-0010.xml -m_lpr /opt/intel/computer_vision_sdk/deployment_tools/demo/../intel_models/license-plate-recognition-barrier-0001/FP32/license-plate-recognition-barrier-0001.xml
 
