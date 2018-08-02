@@ -84,7 +84,7 @@ Information about the platform, the application, and the profiling data collecti
 ## Check Bottom-up and Platform Tabs for Detailed Information
 Click on the **Bottom-up** tab. It will show the list of functions, by default sorted by execution time. In case of the OpenVINO™ Toolkit profiling it is useful to change the **Grouping** to **Task Domain / Task Type Function / Call Stack**. Click on a domain name to expand the tasks list in that domain. Note that the tasks correspond to the Inference Engine layers.
 
-The execution timeline is displayed on the bottom part of the window. Note the threads of the application, and their behavior. This raises questions such as "Why does each thread have multiple (about 100) peaks?" and "Could this indicate excessive of task switching?"
+The execution timeline is displayed on the bottom part of the window. Note the threads of the application, and their behavior. This raises questions such as "Why does each thread have multiple (about 100) peaks?" and "Could this indicate excessive task switching?"
 
 
 ![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/07-VTune-OpenVINO-AH-Bottom_Up-Crop.png)
@@ -101,9 +101,9 @@ In the Intel® VTune™ Amplifier GUI click **New Analysis** toolbar icon to sta
 ![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/08-VTune-OpenVINO-New_Analysis-Icon_Crop.png)
 
 
-The previously configured **Analysis Type** settings will be shown. Click on the **Analysis Target** tab to change the application parameters. Add -b 32 option to the **Application parameters**:
+The previously configured **Analysis Type** settings will be shown. Click on the **Analysis Target** tab to change the application parameters. Add "-b 32" option to the **Application parameters**:
 
-**_-i /opt/intel/workshop/smart-video-workshop/object-detection/Cars\ -\ 1900.mp4 -m /opt/intel/workshop/smart-video-workshop/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml "-b 32"_**
+**_-i /opt/intel/workshop/smart-video-workshop/object-detection/Cars\ -\ 1900.mp4 -m /opt/intel/workshop/smart-video-workshop/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -b 32_**
 
 Click on the **Choose Analysis** button. Keep the previously configured settings. Click on the **Start** button to run and analyze the application.
 
