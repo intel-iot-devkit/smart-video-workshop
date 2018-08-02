@@ -8,7 +8,7 @@ This tutorial will show how to run Intel® VTune™ Amplifier on an OpenVINO™ 
 ## Build and Load Intel® VTune™ Amplifier Sampling Driver
 The Intel® VTune™ Amplifier sampling driver provides access to Intel® Performance Monitoring Unit (PMU) in your Intel® processor. This allows running Advanced Hotspots and General Exploration analysis types.
 
-Open a terminal and run the following commands to build and load the Intel® VTune™ Amplifier Sampling Driver, replace <group> with your user’s group name (e.g. intel):
+Open a terminal and run the following commands to build and load the Intel® VTune™ Amplifier Sampling Driver, replace &lt;group&gt; with your user’s group name (e.g. intel):
               
       cd /opt/intel/system_studio_2018/vtune_amplifier_2018/sepdk/src
       sudo ./build-driver -ni
@@ -77,22 +77,22 @@ Next, there is the list of Top Hotspots and the list of Top Tasks. The Top Hotsp
 ![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/06-VTune-OpenVINO-AH-Top_Tasks-Crop.png)
 
 
-After that, there is the Effective CPU Utilization Histogram. It shows the percentage of the time the specific number of logical CPUs (cores or threads) were running simultaneously. If your application does not utilize all the available cores, it might be possible to improve the performance by parallelizing it.
+The Effective CPU Utilization Histogram shows the percentage of the time the specific number of logical CPUs (cores or threads) were running simultaneously. If your application does not utilize all the available cores, it might be possible to improve the performance by parallelizing it.
 
-Finally, at the bottom of the Summary tab, there is the information about the platform, the application, and the profiling data collection.
+Information about the platform, the application, and the profiling data collection are presented at the bottom on the **Summary** tab.
 
 ## Check Bottom-up and Platform Tabs for Detailed Information
 Click on the **Bottom-up** tab. It will show the list of functions, by default sorted by execution time. In case of the OpenVINO™ Toolkit profiling it is useful to change the **Grouping** to **Task Domain / Task Type Function / Call Stack**. Click on a domain name to expand the tasks list in that domain. Note that the tasks correspond to the Inference Engine layers.
 
-The time diagram is displayed on the bottom part of the window. Note the threads of the application, and their behavior. Why there multiple (about a 100) peaks for each thread?
+The execution timeline is displayed on the bottom part of the window. Note the threads of the application, and their behavior. This raises questions such as "Why does each thread have multiple (about 100) peaks?" and "Could this indicate excessive of task switching?"
 
 
 ![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/07-VTune-OpenVINO-AH-Bottom_Up-Crop.png)
 
 
-Try to zoom in on the time diagram by clicking the mouse, dragging the mouse pointer over it, and then selecting **Zoom In on Selection** pop-up menu entry. In zoomed in view, the bottom-up view only shows hotspots (functions or tasks) observed during the selected time period. Also, note the task names on the OMP Master Thread and OpenCV thread. Use right click and Reset Zoom or Undo Previous Zoom pop-up menu entries to zoom out. 
+Try to zoom in on the timeline by clicking the mouse, dragging the mouse pointer over it, and then selecting **Zoom In on Selection** pop-up menu entry. In zoomed in view, the bottom-up view only shows hotspots (functions or tasks) observed during the selected time period. Also, note the task names on the OMP Master Thread and OpenCV thread. Use right click and Reset Zoom or Undo Previous Zoom pop-up menu entries to zoom out. 
 
-The Platform tab shows both the application threads time diagram, and the CPU metrics, such as CPU utilization and CPU Frequency. Just as in the Bottom-up tab, it is possible to zoom in to see more details for a given time period.
+The Platform tab shows both the application threads timeline, and the CPU metrics, such as CPU utilization and CPU Frequency. Just as in the Bottom-up tab, it is possible to zoom in to see more details for a given time period.
 
 ## Tune OpenVINO™ Toolkit Parameters and Rerun Analysis
 In the Intel® VTune™ Amplifier GUI click **New Analysis** toolbar icon to start a new analysis.
@@ -103,7 +103,7 @@ In the Intel® VTune™ Amplifier GUI click **New Analysis** toolbar icon to sta
 
 The previously configured **Analysis Type** settings will be shown. Click on the **Analysis Target** tab to change the application parameters. Add -b 32 option to the **Application parameters**:
 
-**_-i /opt/intel/workshop/smart-video-workshop/object-detection/Cars\ -\ 1900.mp4 -m /opt/intel/workshop/smart-video-workshop/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -b 32_**
+**_-i /opt/intel/workshop/smart-video-workshop/object-detection/Cars\ -\ 1900.mp4 -m /opt/intel/workshop/smart-video-workshop/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml "-b 32"_**
 
 Click on the **Choose Analysis** button. Keep the previously configured settings. Click on the **Start** button to run and analyze the application.
 
@@ -136,4 +136,4 @@ Intel® VTune™ Amplifier will compare the profiling data for two runs. In the 
 
 Switch to the **Bottom-up** tab, make sure that the **Grouping** is set to **Task Domain / Task Type Function / Call Stack**, and click on the **InferenceEngine** domain to see the tasks in that domain.
 
-Note that Intel® VTune™ Amplifier now also shows the difference in the metrics: instructions retired, CPI rate, time, and so on. This can be used to understand the impact on an optimization or an application change on the particular tasks or functions the application runs.
+Note that Intel® VTune™ Amplifier now also shows the difference in the metrics: instructions retired, CPI rate, time, and so on. This can be used to understand the impact on an optimization or an application change on the particular tasks or functions the application runs. Note how both "Wait Rate" and "Context Switch Time" improved in the second configuration.
