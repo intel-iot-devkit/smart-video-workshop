@@ -59,7 +59,7 @@ Compile in-built samples in OpenVINO™ toolkit
   - Lab - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](./HW-Acceleration-with-Movidious-NCS/README.md) 
   
 * **FPGA Inference Accelerator**
-  - Slides - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](./presentations/04-HW-Acceleration-with-FPGA.pdf)
+  - Slides - [HW Acceleration with Intel® FPGA](./presentations/04-HW-Acceleration-with-FPGA.pdf)
 
 * **Optimization Tools and Techniques** 
   - Slides - [Optimization Tools and Techniques](/presentations/04_05_Optimization_and_advanced_analytics.pdf)
