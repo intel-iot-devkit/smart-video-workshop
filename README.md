@@ -63,7 +63,8 @@ Compile in-built samples in OpenVINO™ toolkit
 
 * **Optimization Tools and Techniques** 
   - Slides - [Optimization Tools and Techniques](/presentations/04_05_Optimization_and_advanced_analytics.pdf)
-  - Lab - [Optimization Tools and Techniques](./optimization-tools-and-techniques/README.md)
+  - Lab 1 - [Optimization Tools and Techniques](./optimization-tools-and-techniques/README.md)
+  - Lab 2- [Intel® VTune™ Amplifier tutorial](./optimization-tools-and-techniques/README_VTune.md)
   
 * **Advanced Video Analytics**
   - Lab - [Multiple models usage example](./advanced-video-analytics/multiple_models.md)
