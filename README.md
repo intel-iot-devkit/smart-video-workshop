@@ -70,7 +70,7 @@ Compile in-built samples in OpenVINO™ toolkit
   - Lab - [Multiple models usage example](./advanced-video-analytics/multiple_models.md)
   - Lab - [Tensor Flow example](./advanced-video-analytics/tensor_flow.md)
   
-> ## Disclaimer
+> #### Disclaimer
 
 > Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries in the U.S. and/or other countries. 
  
