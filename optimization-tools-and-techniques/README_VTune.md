@@ -12,8 +12,12 @@ Open a terminal and run the following commands to build and load the Intel® VTu
               
       cd /opt/intel/system_studio_2018/vtune_amplifier_2018/sepdk/src
       sudo ./build-driver -ni
-      sudo ./insmod-sep –r -g <group>
+      sudo ./insmod-sep -r -g <group>
       ./insmod-sep -q
+
+> **Note**: The Build and Load Intel® VTune™ Amplifier Sampling Driver might fail due to some missing libraries libelf-dev, libelf-devel or elfutils-libelf-devel. You may need to install either of them on your system.
+
+      sudo apt-get install <Name of the missing library>
 
 ## Setup Environment Variables and Start Intel® VTune™ Amplifier
 In a terminal run source setupvars.sh and amplxe-vars.sh scripts, and run amplxe-gui:
@@ -53,8 +57,10 @@ And in the **Application parameters** field type:
 
 Click on the **Choose Analysis** button, the **Analysis Type** tab will be shown. Select **Advanced Hotspots** analysis here, and in the Advanced Hotspots configuration (on the right side), select **Hotspots and stacks**, and check the **Analyze user tasks, events, and counters** checkbox.
 
-> **Note**: If you get an error message about kernel-mode monitoring, check that you’ve loaded the Sampling Driver with the right group (see Build and Load Intel® VTune™ Amplifier Sampling Driver above).
+> **Note**: If you get an error message about kernel-mode monitoring, check that you’ve loaded the Sampling Driver with the right group (see Build and Load Intel® VTune™ Amplifier Sampling Driver above). If you get an error message about analysis type requires either an acess to kernel-mode monitoring in the Linux perf subsystem. Please set the perf_event_paranoid value to 1 or set the ptrace_scope value to 0 depending on the error message.
 
+      sudo sh –c 'echo 1 > /proc/sys/kernel/perf_event_paranoid'
+      sudo sh –c 'echo 0 > /proc/sys/kernel/yama/ptrace_scope'
 
 ![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/04-VTune-OpenVINO-Analysis_Type-Crop.png)
 
@@ -137,3 +143,9 @@ Intel® VTune™ Amplifier will compare the profiling data for two runs. In the 
 Switch to the **Bottom-up** tab, make sure that the **Grouping** is set to **Task Domain / Task Type Function / Call Stack**, and click on the **InferenceEngine** domain to see the tasks in that domain.
 
 Note that Intel® VTune™ Amplifier now also shows the difference in the metrics: instructions retired, CPI rate, time, and so on. This can be used to understand the impact on an optimization or an application change on the particular tasks or functions the application runs. Note how both "Wait Rate" and "Context Switch Time" improved in the second configuration.
+
+> #### Disclaimer
+
+> Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries in the U.S. and/or other countries. 
+ 
+> *Other names and brands may be claimed as the property of others
