@@ -1,7 +1,7 @@
 # Intel® VTune™ Amplifier Tutorial
 
 ## Introduction
-Intel® VTune™ Amplifier is a powerful performance analyzer that can help developers to better understand the factors impacting application performance. Using the analysis data provided, developers then can optimize the application.
+Intel® VTune™ Amplifier is a powerful performance analyzer that can help developers to better understand the factors impacting application performance. Using the analysis data provided, developers can optimize the application.
 
 This tutorial will show how to run Intel® VTune™ Amplifier on an OpenVINO™ Toolkit Inference Engine application.
 
@@ -15,7 +15,7 @@ Open a terminal and run the following commands to build and load the Intel® VTu
       sudo ./insmod-sep -r -g <group>
       ./insmod-sep -q
 
-> **Note**: The Build and Load Intel® VTune™ Amplifier Sampling Driver might fail due to some missing libraries libelf-dev, libelf-devel or elfutils-libelf-devel. You may need to install either of them on your system.
+> **Note**: The Build and Load Intel® VTune™ Amplifier Sampling Driver might fail due to missing libraries libelf-dev, libelf-devel or elfutils-libelf-devel. You may need to install them on your system.
 
       sudo apt-get install <Name of the missing library>
 
@@ -144,8 +144,8 @@ Switch to the **Bottom-up** tab, make sure that the **Grouping** is set to **Tas
 
 Note that Intel® VTune™ Amplifier now also shows the difference in the metrics: instructions retired, CPI rate, time, and so on. This can be used to understand the impact on an optimization or an application change on the particular tasks or functions the application runs. Note how both "Wait Rate" and "Context Switch Time" improved in the second configuration.
 
-> #### Disclaimer
+## Disclaimer
 
-> Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries in the U.S. and/or other countries. 
- 
-> *Other names and brands may be claimed as the property of others
+Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries in the U.S. and/or other countries. 
+
+*Other names and brands may be claimed as the property of others
