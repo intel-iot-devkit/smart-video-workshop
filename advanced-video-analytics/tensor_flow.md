@@ -93,11 +93,11 @@ Navigate to the classification_sample executable file:
 
 Place Classification App collateral in current local directory:
 
-    cp ~/models/research/slim/inception_v1_frozen.* .
+    sudo cp ~/models/research/slim/inception_v1_frozen.* .
     
-    cp /opt/intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp  .
+    sudo cp /opt/intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp  .
     
-    cp /opt/intel/computer_vision_sdk/deployment_tools/demo/squeezenet1.1.labels ./inception_v1_frozen.labels
+    sudo cp /opt/intel/computer_vision_sdk/deployment_tools/demo/squeezenet1.1.labels ./inception_v1_frozen.labels
 
 #### Run Application
 Note: To see all the flags that the sample takes as input run  ./classification_sample -h
