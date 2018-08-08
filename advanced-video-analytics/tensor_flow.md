@@ -2,7 +2,7 @@
 
 This guide is assuming that you are using virtual environment for python by running:
 
-    source /opt/intel/computer_vison_sdk/deployment_tools/model_optimizer/install_prerequisites/../venv/bin/activate
+    source /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/venv/bin/activate
     
 You should see “(venv) <user>: “on the command line if you are in the python virtual environment
   
