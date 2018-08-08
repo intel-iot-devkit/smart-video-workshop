@@ -59,8 +59,8 @@ Click on the **Choose Analysis** button, the **Analysis Type** tab will be shown
 
 > **Note**: If you get an error message about kernel-mode monitoring, check that you’ve loaded the Sampling Driver with the right group (see Build and Load Intel® VTune™ Amplifier Sampling Driver above). If you get an error message about analysis type requires either an acess to kernel-mode monitoring in the Linux perf subsystem. Please set the perf_event_paranoid value to 1 or set the ptrace_scope value to 0 depending on the error message.
 
-      sudo sh –c 'echo 1 > /proc/sys/kernel/perf_event_paranoid'
-      sudo sh –c 'echo 0 > /proc/sys/kernel/yama/ptrace_scope'
+      sudo sh -c 'echo 1 > /proc/sys/kernel/perf_event_paranoid'
+      sudo sh -c 'echo 0 > /proc/sys/kernel/yama/ptrace_scope'
 
 ![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/04-VTune-OpenVINO-Analysis_Type-Crop.png)
 
