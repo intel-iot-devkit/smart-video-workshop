@@ -145,7 +145,6 @@ int main(int argc, char *argv[]) {
         CNNNetReader network_reader;
         network_reader.ReadNetwork(FLAGS_m);
         network_reader.ReadWeights(FLAGS_m.substr(0, FLAGS_m.size() - 4) + ".bin");
-        network_reader.getNetwork().setBatchSize(1);
         CNNNetwork network = network_reader.getNetwork();
 
 
