@@ -68,7 +68,7 @@ The script generates inception_v1_frozen.pb file with the frozen model in the di
 ### Convert Frozen Tensorflow model to IR using Model Optimizer
 Assuming you are in the ~/models/research/slim/ directory 
 
-    python3 /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/mo_tf.py --input_model inception_v1_frozen.pb --input_shape [1,224,224,3] –-mean_values [128,128,128] –-scale_values [128,128,128]
+    python3 /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/mo_tf.py --input_model inception_v1_frozen.pb --input_shape [1,224,224,3] --mean_values [128,128,128] --scale_values [128,128,128]
 
 This should produce “inception_v1_frozen.xml” and “inception_v1_frozen.bin” file. The xml file contains the topology information of the model and the bin file contains the model’s weights and biases. These two files are expected when using the inference engine so make note of the path.
 
