@@ -26,11 +26,13 @@ to install OpenVINO™ toolkit, build sample demos, build inference engine sampl
 #### c). Compile samples
 Compile in-built samples in OpenVINO™ toolkit 
 
+	sudo su
 	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 	cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/
-	sudo mkdir build && cd build
-	sudo cmake –DCMAKE_BUILD_TYPE=Release ..
-	sudo make  
+	mkdir build && cd build
+	cmake –DCMAKE_BUILD_TYPE=Release ..
+	make 
+	exit
 
 #### d). Download models using model downloader scripts in OpenVINO™ toolkit installed folder
    - Install python3 (version 3.5.2 or newer) 
