@@ -44,7 +44,9 @@ Compile in-built samples in OpenVINO™ toolkit
   		
 	cd /opt/intel/computer_vision_sdk/deployment_tools/model_downloader
 	sudo python3 downloader.py
-		
+	
+> :warning: This workshop content has been validated with OpenVINO™ toolkit version R2 (computer_vision_sdk_2018.2.300). 
+
 		
 ## Workshop Agenda
 * **Intel Smart Video/Computer Vision Tools Overview**
