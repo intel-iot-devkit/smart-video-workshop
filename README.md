@@ -44,6 +44,8 @@ Compile in-built samples in OpenVINO™ toolkit
   		
 	cd /opt/intel/computer_vision_sdk/deployment_tools/model_downloader
 	sudo python3 downloader.py
+
+#### e). ISS - [Install Intel® System Studio, VNC viewer and Setup on development machine](./advanced-video-analytics/multiple_models.md)
 	
 > :warning: This workshop content has been validated with OpenVINO™ toolkit version R2 (computer_vision_sdk_2018.2.300). 
 
@@ -73,6 +75,10 @@ Compile in-built samples in OpenVINO™ toolkit
 * **Advanced Video Analytics**
   - Lab - [Multiple models usage example](./advanced-video-analytics/multiple_models.md)
   - Lab - [Tensor Flow example](./advanced-video-analytics/tensor_flow.md)
+  
+* **UP2 AI Vision Development kit as Edge**
+  - Setup - [Development machine and Internet Connection Sharing](./up2-vision-kit/setup.md)
+  - Lab - [Object detection on UP2 kit](./up2-vision-kit/object-detection-up2.md)
   
 > #### Disclaimer
 
