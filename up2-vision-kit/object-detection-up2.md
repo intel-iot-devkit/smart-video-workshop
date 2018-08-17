@@ -55,8 +55,12 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 ##### tutorial1_remote:
 1. Right click **tutorial1**, select **Run As -> Run Configurations...**, then doulbe click **C/C++ Remote Application**, it will generate a configuration named tutorial1, rename it to **tutorial1_remote**, click Apply
 2. Click **New** button after **Connection:**, in the droplist, choose **SSH**, then type **IP address** of your UP2 board, username: **upsquared**, choose **password based authentication**, then type **upsquared** as password, then click Finish
-3. Type **/home/upsquared/tutorial1** in "Remote Absolute File Path for C/C++ Application" 
-4. Type **source /opt/intel/computer_vision_sdk/bin/setupvars.sh** to "Commands to execute before application"
+3. In "Remote Absolute File Path for C/C++ Application", type:
+
+		/home/upsquared/tutorial1
+4. In "Commands to execute before application"
+
+		source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 5. Click **Arguments** tag, add below arguments in **Program arguments:** then click Apply and OK
 
         ./tutorial1 -i /home/upsquared/object-detection/Cars\ -\ 1900.mp4 -m /home/upsquared/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml
@@ -67,8 +71,12 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 1. Right click **ROIviewer**, select **Run As -> Run Configurations...**, then doulbe click **C/C++ Remote Application**, it will generate a configuration named tutorial1, rename it to **ROIviewer_remote**, click Apply
 > **Note:** *If you have done creating a SSH connection for tutorial1_remote, skip step 2 here, just select **upsquared** from the droplist in Connection*
 2. Click **New** button after **Connection:**, in the droplist, choose **SSH**, then type **IP address** of your UP2 board, username: **upsquared**, choose **password based authentication**, then type **upsquared** as password, then click Finish
-3. Type **/home/upsquared/tutorial1** in "Remote Absolute File Path for C/C++ Application" 
-4. Type **source /opt/intel/computer_vision_sdk/bin/setupvars.sh** to "Commands to execute before application"
+3. In "Remote Absolute File Path for C/C++ Application", type:
+
+		/home/upsquared/ROIviewer
+4. In "Commands to execute before application"
+
+		source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 5. Click **Arguments** tag, add below arguments in **Program arguments:** then click Apply and OK
 
         ./ROIviewer_remote -i /home/upsquared/object-detection/Cars\ -\ 1900.mp4 -l /home/upsquared/object-detection/pascal_voc_classes.txt
