@@ -46,3 +46,5 @@ Once it loads, search for the **Marketplace Client** and install it.
 5.	Go to **Help -> Eclipse Marketplace -> cmake4eclipse**
 (If you see cmake4eclipse listed, but cannot install it, close Intel System Studio, open a terminal, run sudo apt-get update && sudo apt-get upgrade, once done, come back and try again)
 (It’s going to ask you to restart ISS again)
+
+You are all set for importing Makefile project and CMake project to Intel System Studio now.
