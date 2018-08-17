@@ -79,7 +79,7 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 		source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 5. Click **Arguments** tag, add below arguments in **Program arguments:** then click Apply and OK
 
-        ./ROIviewer_remote -i /home/upsquared/object-detection/Cars\ -\ 1900.mp4 -l /home/upsquared/object-detection/pascal_voc_classes.txt
+        ./ROIviewer -i /home/upsquared/object-detection/Cars\ -\ 1900.mp4 -l /home/upsquared/object-detection/pascal_voc_classes.txt
 
 6. You will see an error message saying:
 
