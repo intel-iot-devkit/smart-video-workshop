@@ -32,16 +32,32 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
         
 6. Right click the project name, at the bottom of the options, select **Properties -> C/C++ Build**
 7. Uncheck **"Generate Makefiles automatically"**, then click **"workspace"** and select **object-detection**, click OK
+<br>
+
+![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_C_C++_Build_Setup.png "C/C++ Build Setup")
+
+<br>
 8. Click the little hammer icon to build the project, once complete, you will see two binaries files: **tutorial1** and **ROIviewer** generated
 
 #### 4. Run tutorial1 and ROIviewer as local application on your laptop
 ##### tutorial1_local:
-1. Right click **tutorial1**, select **Run As -> Run Configurations...**, then doulbe click **C/C++ Application**, it will generate a configuration named tutorial1, rename it to **tutorial1_local**, click Apply
-2. Click **Arguments** tag, add below arguments in **Program arguments:** then click Apply and OK
+1. Right click **tutorial1**, select **Run As -> Run Configurations...**
+<br>
+
+![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration.png "Open Run Configuration")
+
+<br>
+2. then doulbe click **C/C++ Application**, it will generate a configuration named tutorial1, rename it to **tutorial1_local**, click Apply
+<br>
+
+![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration_tutorial1_local.png "Setup Tutorial1_local Run Configuration")
+
+<br>
+3. Click **Arguments** tag, add below arguments in **Program arguments:** then click Apply and OK
 
         ./tutorial1 -i /home/intel/system_studio/workspace/object-detection/Cars\ -\ 1900.mp4 -m /home/intel/system_studio/workspace/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml
 
-3. You will see the inference running locally on your laptop, and it will print out the results in the console windows
+4. You will see the inference running locally on your laptop, and it will print out the results in the console windows
 
 ##### ROIviewer_local:
 1. Right click **ROIviewer**, select **Run As -> Run Configurations...**, then doulbe click **C/C++ Application**, it will generate a configuration named tutorial1, rename it to **ROIviewer_local**, click Apply
