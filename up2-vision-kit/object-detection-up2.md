@@ -32,38 +32,38 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
         
 6. Right click the project name, at the bottom of the options, select **Properties -> C/C++ Build**
 7. Uncheck **"Generate Makefiles automatically"**, then click **"workspace"** and select **object-detection**, click OK
-<br>
+	<br>
 
-![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_C_C++_Build_Setup.png "C/C++ Build Setup")
+	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_C_C++_Build_Setup.png "C/C++ Build Setup")
 
-<br>
+	<br>
 
 8. Click the little hammer icon to build the project, once complete, you will see two binaries files: **tutorial1** and **ROIviewer** generated
 
 #### 4. Run tutorial1 and ROIviewer as local application on your laptop
 ##### tutorial1_local:
 1. Right click **tutorial1**, select **Run As -> Run Configurations...**
-<br>
+	<br>
 
-![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration.png "Open Run Configuration")
+	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration.png "Open Run Configuration")
 
-<br>
+	<br>
 
 2. then doulbe click **C/C++ Application**, it will generate a configuration named tutorial1, rename it to **tutorial1_local**, click Apply
-<br>
+	<br>
 
-![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration_tutorial1_local.png "Setup Tutorial1_local Run Configuration")
+	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration_tutorial1_local.png "Setup Tutorial1_local Run Configuration")
 
-<br>
+	<br>
 
 3. Click **Arguments** tag, add below arguments in **Program arguments:** then click **Apply** and **OK**
 
         ./tutorial1 -i /home/intel/system_studio/workspace/object-detection/Cars\ -\ 1900.mp4 -m /home/intel/system_studio/workspace/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml
-<br>
+	<br>
 
-![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration_tutorial1_local_arguments.png "Setup Tutorial1_local Run Configuration")
+	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration_tutorial1_local_arguments.png "Setup Tutorial1_local Run Configuration")
 
-<br>
+	<br>
 
 4. You will see the inference running locally on your laptop, and it will print out the results in the console windows
 
@@ -79,43 +79,43 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 ##### tutorial1_remote:
 1. Right click **tutorial1**, select **Run As -> Run Configurations...**, then doulbe click **C/C++ Remote Application**, it will generate a configuration named tutorial1, rename it to **tutorial1_remote**, click Apply
 2. Click **New** button after **Connection:**
-<br>
+	<br>
 
-![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration_tutorial1_remote.png "Setup Tutorial1_remote Run Configuration")
+	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration_tutorial1_remote.png "Setup Tutorial1_remote Run Configuration")
 
-<br>
-In the droplist, choose **SSH**
+	<br>
+3. In the droplist, choose **SSH**
 
-<br>
+	<br>
 
-![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Create_a_New_Connection.png "Setup Tutorial1_remote Run Configuration")
+	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Create_a_New_Connection.png "Setup Tutorial1_remote Run Configuration")
 
-<br>
-Then type **IP address** of your UP2 board, username: **upsquared**, choose **password based authentication**, then type **upsquared** as password, then click Finish
+	<br>
+4. Then type **IP address** of your UP2 board, username: **upsquared**, choose **password based authentication**, then type **upsquared** as password, then click Finish
 
-<br>
+	<br>
 
-![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Setup_New_Connection.png "Setup Tutorial1_remote Run Configuration")
+	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Setup_New_Connection.png "Setup Tutorial1_remote Run Configuration")
 
-<br>
+	<br>
 
-3. In **Remote Absolute File Path for C/C++ Application**, type:
+5. In **Remote Absolute File Path for C/C++ Application**, type:
 
 		/home/upsquared/tutorial1
-4. In **Commands to execute before application**
+6. In **Commands to execute before application**
 
 		source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 		
-<br>
+	<br>
 
-![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration_tutorial1_remote_commands_run_before_application.png "Setup Tutorial1_remote Run Configuration")
+	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration_tutorial1_remote_commands_run_before_application.png "Setup Tutorial1_remote Run Configuration")
 
-<br>
-5. Click **Arguments** tag, add below arguments in **Program arguments:** then click Apply and OK
+	<br>
+7. Click **Arguments** tag, add below arguments in **Program arguments:** then click Apply and OK
 
         ./tutorial1 -i /home/upsquared/object-detection/Cars\ -\ 1900.mp4 -m /home/upsquared/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml
 
-6. You will see the inference running remotely on UP2, and it will print out the results in the console windows on your host laptop
+8. You will see the inference running remotely on UP2, and it will print out the results in the console windows on your host laptop
 
 ##### ROIviewer_remote:
 1. Right click **ROIviewer**, select **Run As -> Run Configurations...**, then doulbe click **C/C++ Remote Application**, it will generate a configuration named tutorial1, rename it to **ROIviewer_remote**, click Apply
@@ -150,8 +150,8 @@ Then type **IP address** of your UP2 board, username: **upsquared**, choose **pa
         export DISPLAY=localhost:10.0
         source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 	
-<br>
+	<br>
 
-![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration_ROIviewer_remote.png "Setup ROIviewer_remote Run Configuration")
+	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration_ROIviewer_remote.png "Setup ROIviewer_remote Run Configuration")
 
-<br>
+	<br>
