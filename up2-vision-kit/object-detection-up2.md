@@ -1,6 +1,6 @@
 # Part1: Up2 AI Vision Kit OOBE
 ### 1. Pre-requisites
-Make sure you have done - Setup - [Development machine and Internet Connection Sharing](./up2-vision-kit/dev_machine_setup.md)
+Make sure you have done - Setup - [Development machine and Internet Connection Sharing](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/up2-vision-kit/dev_machine_setup.md)
 
 ### 2. Setup Run Configurations
 1. From the **Run** icon(little hammer icon) drop-down in the toolbar, select **Run Configurations**. 
