@@ -1,4 +1,16 @@
 # Part1: Up2 AI Vision Kit OOBE
+### 1. Pre-requisites
+Make sure you have done - Setup - [Development machine and Internet Connection Sharing](./up2-vision-kit/dev_machine_setup.md)
+
+### 2. Setup Run Configurations
+1. From the **Run** icon(little hammer icon) drop-down in the toolbar, select **Run Configurations**. 
+2. Select C/C++ Application and hit the New launch configuration button (the blank page), The new configuration will have the name of the sample. 
+3. On the Main tab, click **Variables… -> Edit Variables -> New…** and add a new variable named **ROOT_DIR** with the value **/opt/intel/computer_vision_sdk/deployment_tools**
+4. Switch to the **Arguments** tab and paste the following string into Program arguments:
+
+		./interactive_face_detection_sample -m ${ROOT_DIR}/intel_models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -m_ag ${ROOT_DIR}/intel_models/age-gender-recognition-retail-0013/FP16/age-gender-recognition-retail-0013.xml -m_hp ${ROOT_DIR}/intel_models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d GPU -d_ag GPU -d_hp GPU
+
+5. Once finished, click Run, make sure your camera is plugged in
 
 
 # Part2: Using Intel System Studio to build your application on host laptop and run it on Up2
@@ -134,7 +146,7 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
         (video:17654): Gtk-WARNING **: cannot open display: 
         logout
 
-7. To solve this issue, open a Terminal on your laptop, type below commands and keep this terminal open
+7. This is because of we are running a GUI application remotely but we want it to display on local host. To solve this issue, open a Terminal on your laptop, type below commands and keep this terminal open
 
         ssh upsquared@IP_address -X
         echo %DISPLAY
@@ -216,11 +228,12 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 1. Right click **interactive_face_detection_sample**, select **Run As -> Run Configurations...**, then doulbe click **C/C++ Remote Application**, it will generate a configuration named tutorial1, rename it to **interactive_face_detection_sample_remote**, click Apply
 > **Note:** *If you have done creating a SSH connection for tutorial1_remote, skip step 2 here, just select **upsquared** from the droplist in Connection*
 2. Click **New** button after **Connection:**, in the droplist, choose **SSH**, then type **IP address** of your UP2 board, username: **upsquared**, choose **password based authentication**, then type **upsquared** as password, then click Finish
-3. In "Remote Absolute File Path for C/C++ Application", type:
+3. In **Remote Absolute File Path for C/C++ Application**, type:
 
 		/home/upsquared/interactive_face_detection_sample
 	
-4. In "Commands to execute before application"
+4. In **Commands to execute before application**
+> **Note:** *Remember to open a Terminal on your laptop, type **ssh upsquared@IP_address -X** and keep this terminal open, for running a GUI application remotely and display it locally*
 
 		export DISPLAY=localhost:10.0
 		source /opt/intel/computer_vision_sdk/bin/setupvars.sh
@@ -232,24 +245,20 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 
 		/home/upsquared/interactive_face_detection_sample: error while loading shared libraries: libcpu_extension.so: cannot open shared object file: No such file or directory
 		logout
-
-7. To solve this issue, open a Terminal on your laptop, type below commands and keep this terminal open
+		
+7. This is because of two **.so** library files were generated and needed to run this application correctly but running as Remote Application Intel System Studio only passes the binary to the target device. To solve this issue, open a Terminal on your laptop, type below commands, then back to Intel System Studio, run the application again
 
 		scp -r /home/intel/system_studio/workspace/samples/build/Debug/intel64/Debug/lib upsquared@<ip_address>:/home/upsquared/
-		
-8. Back to Run Configuration, in "Commands to execute before application"
-
-		export DISPLAY=localhost:10.0
-        
-9. You will see an **ERROR** message saying:
+		        
+8. Now you will see an new **ERROR** message saying:
 
 		Illegal instruction (core dumped)
 		logout
 		
-10. To solve this issue, expand cmake folder under project, open **OptimizationFlags.cmake** file, then comment out line 25-27, save and close, remove **Build** folder and rebuild the project
+9. This is because we compiled this application on a laptop which has advanced CPU extensions than the target system, then the generated binary will not able to run on the target device. To solve this issue, we need to tell the compiler not to use those advanced CPU extensions. Expand cmake folder under project, open **OptimizationFlags.cmake** file, then comment out line 25-27, save and close, remove **Build** folder and rebuild the project
 
 		#set(ENABLE_SSE42   ${HAVE_SSE42})
 		#set(ENABLE_AVX2    ${HAVE_AVX2})
 		#set(ENABLE_AVX512F ${HAVE_AVX512F})
 
-10. Run Step 7 again, then you can run interactive_face_detection_sample_remote
+10. Run Step 7 again, since you have generated new **.so** files, then you can run interactive_face_detection_sample_remote
