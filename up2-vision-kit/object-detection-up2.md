@@ -232,7 +232,7 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 
 		/home/upsquared/interactive_face_detection_sample
 	
-4. In **Commands to execute before application**
+4. In **Commands to execute before application**, type:
 > **Note:** *Remember to open a Terminal on your laptop, type **ssh upsquared@IP_address -X** and keep this terminal open, for running a GUI application remotely and display it locally*
 
 		export DISPLAY=localhost:10.0
@@ -250,15 +250,20 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 
 		scp -r /home/intel/system_studio/workspace/samples/build/Debug/intel64/Debug/lib upsquared@<ip_address>:/home/upsquared/
 		        
-8. Now you will see an new **ERROR** message saying:
+8. In **Commands to execute before application**, type:
+
+		export LD_LIBRARY_PATH=/home/upsquared/lib
+		export DISPLAY=localhost:10.0
+		source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+9. Now you will see an new **ERROR** message saying:
 
 		Illegal instruction (core dumped)
 		logout
 		
-9. This is because we compiled this application on a laptop which has advanced CPU extensions than the target system, then the generated binary will not able to run on the target device. To solve this issue, we need to tell the compiler not to use those advanced CPU extensions. Expand cmake folder under project, open **OptimizationFlags.cmake** file, then comment out line 25-27, save and close, remove **Build** folder and rebuild the project
+10. This is because we compiled this application on a laptop which has advanced CPU extensions than the target system, then the generated binary will not able to run on the target device. To solve this issue, we need to tell the compiler not to use those advanced CPU extensions. Expand cmake folder under project, open **OptimizationFlags.cmake** file, then comment out line 25-27, save and close, remove **Build** folder and rebuild the project
 
 		#set(ENABLE_SSE42   ${HAVE_SSE42})
 		#set(ENABLE_AVX2    ${HAVE_AVX2})
 		#set(ENABLE_AVX512F ${HAVE_AVX512F})
 
-10. Run Step 7 again, since you have generated new **.so** files, then you can run interactive_face_detection_sample_remote
+11. Run Step 7 again, since you have generated new **.so** files, then you can run interactive_face_detection_sample_remote
