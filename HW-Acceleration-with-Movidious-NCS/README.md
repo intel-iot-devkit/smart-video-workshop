@@ -61,7 +61,7 @@ The Model Optimizer by default generate FP32 IR files if the data type is not pa
 Let's run the Model Optimizer to get IR files in FP16 format suitable for the Movidius™ NCS. 
   
     cd $SV/object-detection/mobilenet-ssd
-    mkdir FP16
+    mkdir -p FP16
     
     cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer
 	
