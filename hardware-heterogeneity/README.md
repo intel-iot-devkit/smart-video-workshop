@@ -25,7 +25,7 @@ Observe the performance time required to process each frame by Inference Engine.
 OpenVINO install folder (/opt/intel/computer_vision_sdk/) includes various samples for developers to understand how Inference Engine APIs can be used. These samples have -pc flag implmented which shows per topology layer performance report. This will allow to see which layers are running on which hardware. We will run a very basic classification sample as an example in this section. We will provide car image as input to the classification sample. The output will be object labels with confidence numbers.  
 
 #### 1. First, get the classification model and convert that to IR using Model Optimizer
-For this example, we will use squeezenet8 model downloaded with the model downlaoder script while setting up the OS for the workshop. 
+For this example, we will use squeezenet model downloaded with the model downlaoder script while setting up the OS for the workshop. 
 
 	cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer
 	
