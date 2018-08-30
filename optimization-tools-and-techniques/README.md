@@ -1,11 +1,11 @@
 # Optimizing Computer Vision Applications
-This tutorial shows some techniques to get better performance for computer vision applications with Model Optimizer and Inference Engine. 
+This tutorial shows some techniques to get better performance for computer vision applications with the OpenVINO™ toolkit. 
 
 
-## 1. Tune parameters in Model Optimizer
+## 1. Tune parameters - set batch size
 In this section, we will see how changes in the batch size affect the performance. We will use the SSD300 model for the experiments.  
 
-For SSD models, the batch size is required to be set at Model Optimizer level. The default batch size for the Model Optimizer is 1. 
+The default batch size for the Model Optimizer is 1. 
 
 ### Let us first look at the performance numbers for the batch size 1. 
 
@@ -20,8 +20,8 @@ For SSD models, the batch size is required to be set at Model Optimizer level. T
 	
 	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -b 2
 
-### Run the example for batch size 8 and 16
-The similar instructions can be used to change batch size to 8 and 16 using Model Optimizer. Once it is done, run the example again and observe the performace. 
+### Run the example for different batch sizes 
+Change the batch sizes to 8,16,32,64,128 and so on and see the performance diffrence in terms of the inference time.
 
 
 ### 2. Pick the right model based on application and hardware
