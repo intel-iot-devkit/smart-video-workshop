@@ -93,6 +93,7 @@ You should see the following two files listed in this directory: **mobilenet-ssd
 	make
 
 #### 5. Download the test video file to the object-detection folder. 
+Put the below link in your favorite browser. 
 
 	https://pixabay.com/en/videos/download/video-1900_source.mp4?attachment
 	
