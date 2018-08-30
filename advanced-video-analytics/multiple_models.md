@@ -46,7 +46,7 @@ Following car image will appear the at end of the above command execution. It sh
 
 	ls /dev/video*
 
-#### 3. set short path to access the ICV models
+#### 3. Set short path to access the pretrained models
 
 	export models=/opt/intel/computer_vision_sdk/deployment_tools/intel_models/
 	
