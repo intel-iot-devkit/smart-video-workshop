@@ -15,6 +15,7 @@ The OpenVINO™ toolkit package includes security barrier sample which uses 3 mo
  
 #### 3. Run the security camera sample with Intel optimized pre-trained models 
 
+    cd /opt/intel/computer_vision_sdk/deployment_tools/demo/
     sudo ./demo_security_barrier_camera.sh
 
 Above script will run the security barrier camera example with Intel pretrained models. Open the script to see the models used.
