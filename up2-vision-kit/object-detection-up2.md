@@ -1,24 +1,9 @@
-# Part1: Up2 AI Vision Kit OOBE
-### 1. Pre-requisites
-Make sure you have done - Setup - [Development machine and Internet Connection Sharing](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/up2-vision-kit/dev_machine_setup.md)
+# Build your application on laptop and run it on Up2 with Intel System Studio
+This tutorial will guide you through how to import existing Makefile projects and CMake projects into Intel System Studio, then run the applications both locally on the host laptop and remotely on the target Up2 board. All the results and outputs from both local and remote application will be shown on host laptop display.
 
-### 2. Setup Run Configurations
-1. From the **Run** icon(little hammer icon) drop-down in the toolbar, select **Run Configurations**. 
-2. Select C/C++ Application and hit the New launch configuration button (the blank page), The new configuration will have the name of the sample. 
-3. On the Main tab, click **Variables… -> Edit Variables -> New…** and add a new variable named **ROOT_DIR** with the value **/opt/intel/computer_vision_sdk/deployment_tools**
-4. Switch to the **Arguments** tab and paste the following string into Program arguments:
-
-		./interactive_face_detection_sample -m ${ROOT_DIR}/intel_models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -m_ag ${ROOT_DIR}/intel_models/age-gender-recognition-retail-0013/FP16/age-gender-recognition-retail-0013.xml -m_hp ${ROOT_DIR}/intel_models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d GPU -d_ag GPU -d_hp GPU
-
-5. Once finished, click Run, make sure your camera is plugged in
-
-
-# Part2: Using Intel System Studio to build your application on host laptop and run it on Up2
-This tutorial will guide you through how to import existing Makefile project and CMake project into Intel System Studio, then run the applications both locally on the host laptop and remotely on the target Up2 board. All the results and outputs from both local and remote application will be shown on host laptop display.
-
-### Import Makefile Project - Object-detection
+### Makefile Project - Object-detection
 #### 1. Pre-requisites
-Please complete at least first three Labs in this workshop, make sure at least you have **.bin** and **.xml** files generated in the directory: **/opt/intel/workshop/smart-video-workshop/object-detection/mobilenet-ssd/FP32**
+> :warning: Please make sure you have completed at least first three Labs in this workshop, we are going to use the **.bin** and **.xml** files generated in previous labs in the directory: **/opt/intel/workshop/smart-video-workshop/object-detection/mobilenet-ssd/FP32**
 
 #### 2. Copy the object-detection folder to Intel System Studio workspace and to UP2 /home/upsquared/
 > **Note:** *replace the IP_address below with your UP2 IP address*
