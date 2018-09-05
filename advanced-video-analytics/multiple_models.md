@@ -6,7 +6,8 @@ The tutorial shows some techniques for developing advanced video analytics appli
 The OpenVINO™ toolkit package includes security barrier sample which uses 3 models to detect cars, their number plates, color and number plate attributes from the input video or image of the cars. The sample demo script is provided in the OpenVINO™ toolkit package to run the sample. 
 
 #### 1. Navigate to the security camera barrier sample build directory
-
+	 export SV=/opt/intel/workshop/smart-video-workshop/
+	 source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 	 cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
   
 #### 2. Run the executable for the security barrier sample with the mobilenet-ssd* model used in the first tutorial
