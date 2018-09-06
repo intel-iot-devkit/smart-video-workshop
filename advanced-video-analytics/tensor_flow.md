@@ -7,7 +7,7 @@ This guide is assuming that you are using virtual environment for python by runn
 You should see “(venv) <user>: “on the command line if you are in the python virtual environment
   
 ### Pre-Requisites:
-#### . Change ownership of the directory to the current user 
+#### Change ownership of the directory to the current user 
 
 > **Note:** *replace the usernames below with your user account name*
 		
