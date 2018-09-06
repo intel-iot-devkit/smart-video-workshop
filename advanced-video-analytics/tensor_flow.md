@@ -7,11 +7,21 @@ This guide is assuming that you are using virtual environment for python by runn
 You should see “(venv) <user>: “on the command line if you are in the python virtual environment
   
 ### Pre-Requisites:
+#### . Change ownership of the directory to the current user 
+
+> **Note:** *replace the usernames below with your user account name*
+		
+	sudo chown username.username -R /opt/intel
+    
 #### Install Pre-Requisites for TensorFlow Framework
 
 > :warning: Already done for the workshop laptops.
 
     sudo ./opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/install_prerequisites/install_prerequistes_tf.sh
+   
+#### Install Pre-Requisites for TensorFlow Framework  
+
+     pip install -U protobuf
 
 #### Download Model(s) from TensorFlow* -slim library
 There are a number of pre-trained public models in the TensorFlow*-slim repository. The models are distributed as Python scripts and checkpoint files.
