@@ -5,8 +5,10 @@ This tutorial will guide you through how to import existing Makefile projects an
 #### 1. Pre-requisites
 > :warning: Please make sure you have completed at least first three Labs in this workshop, we are going to use the **.bin** and **.xml** files generated in previous labs in the directory: **/opt/intel/workshop/smart-video-workshop/object-detection/mobilenet-ssd/FP32**
 
+> :warning: Please make sure you have setup the [Internet Connection Sharing](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/up2-vision-kit/dev_machine_setup.md) to get an IP address for your Up2 AI Vision Kit
+
 #### 2. Copy the object-detection folder to Intel System Studio workspace and to UP2 /home/upsquared/
-> **Note:** *replace the IP_address below with your UP2 IP address*
+> **Note:** *replace the **P_address** below with your UP2 IP address*
 
 	cp -r /opt/intel/workshop/smart-video-workshop/object-detection /home/intel/system_studio/workspace
 	cd /home/intel/system_studio/workspace/object-detection
@@ -151,7 +153,7 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 	<br>
 
 ### Import CMake Project - Samples 
-Only running interactive_face_detection sample in this workshop
+Only running **interactive_face_detection** sample in this workshop, to save the build time, we remove unused projects from this sample folder.
 
 
 #### 1. Copy the Samples folder to Intel System Studio workspace
