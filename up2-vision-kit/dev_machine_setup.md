@@ -15,7 +15,7 @@ to be completed.
 command.
 
 
-Illustrated Instructions
+**Illustrated Instructions**
 
 Select the **wifi/Ethernet** icon from the top menu, and choose **Edit
 Connections...**
