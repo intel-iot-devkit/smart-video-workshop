@@ -1,11 +1,11 @@
 # Build your application on laptop and run it on Up2 with Intel System Studio - CMake Porject
-This tutorial will guide you through how to import existing Makefile projects into Intel System Studio, then run the applications both locally on the host laptop and remotely on the target Up2 board. All the results and outputs from both local and remote application will be shown on host laptop display.
+This tutorial will guide you through how to import existing CMake projects into Intel System Studio, then run the applications both locally on the host laptop and remotely on the target Up2 board. All the results and outputs from both local and remote application will be shown on host laptop display.
 
 ### Import existing CMake Project - Samples(interact-face-detection)
 #### 1. Pre-requisites
 > :warning: Please make sure you have setup the [Internet Connection Sharing](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/up2-vision-kit/dev_machine_setup.md) to get an IP address for your Up2 AI Vision Kit
 
-Only running **interactive_face_detection** sample in this workshop, to save the build time, we remove unused projects from this sample folder.
+We will only running **interactive_face_detection** sample in this workshop, to save the build time, we will remove unused projects from this sample folder.
 
 
 #### 2. Copy the Samples folder to Intel System Studio workspace
@@ -85,7 +85,7 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 		/home/upsquared/interactive_face_detection_sample: error while loading shared libraries: libcpu_extension.so: cannot open shared object file: No such file or directory
 		logout
 		
-7. This is because of two **.so** library files were generated and needed to run this application correctly but running as Remote Application Intel System Studio only passes the binary to the target device. To solve this issue, open a Terminal on your laptop, type below commands, then back to Intel System Studio, run the application again
+7. This is because of two **.so** library files were generated during build, and they are needed to run this application correctly but running as Remote Application Intel System Studio only passes the binary to the target device. To solve this issue, open a Terminal on your laptop, type below commands, then back to Intel System Studio, run the application again
 
 		scp -r /home/intel/system_studio/workspace/samples/build/Debug/intel64/Debug/lib upsquared@<ip_address>:/home/upsquared/
 		        
