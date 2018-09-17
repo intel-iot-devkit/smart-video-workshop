@@ -80,8 +80,7 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio.md) to install Int
   
 * **UP2 AI Vision Development kit as Edge**
   - Setup - [Development machine and Internet Connection Sharing](./up2-vision-kit/dev_machine_setup.md)
-  - Lab1 - [Object detection on UP2 kit](./up2-vision-kit/object-detection-up2.md)
-  - Lab2 - [Interact face detection on UP2 kit](./up2-vision-kit/interact-face-detection.md)
+  - Lab - [Interact face detection on UP2 kit using Intel System Studio](./up2-vision-kit/interact-face-detection.md)
   
 > #### Disclaimer
 
