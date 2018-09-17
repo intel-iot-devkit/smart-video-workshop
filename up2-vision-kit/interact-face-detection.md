@@ -34,11 +34,11 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 	<br>
 9. Update **CMakeLists.txt** by commenting out the deleted directories, only keeping the **interactive_face_detection_sample** uncommented, save and close CMakeLists.txt
 
-line 128:
+	line 128:
 
 		#add_subdirectory(speech_sample)
 		
-line 142-158:
+	line 142-158:
 
 		#add_subdirectory(object_detection_sample)
 		add_subdirectory(interactive_face_detection_sample)
@@ -58,7 +58,7 @@ line 142-158:
 		#add_subdirectory(smart_classroom_sample)
 		#add_subdirectory(multichannel_face_detection)
 		
-line 166:
+	line 166:
 
 		#add_subdirectory(validation_app)
 
@@ -136,17 +136,17 @@ line 166:
 		/home/upsquared/interactive_face_detection_sample
 	
 6. In **Commands to execute before application**, type:
-> **Note:** *Remember to open a Terminal on your laptop, type **ssh upsquared@IP_address -X** and keep this terminal open, for running a GUI application remotely and display it locally*
+	> **Note:** *Remember to open a Terminal on your laptop, type **ssh upsquared@IP_address -X** and keep this terminal open, for running a GUI application remotely and display it locally*
 	
-	export DISPLAY=localhost:10.0
-	export LD_LIBRARY_PATH=/home/upsquared/lib
-	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+		export DISPLAY=localhost:10.0
+		export LD_LIBRARY_PATH=/home/upsquared/lib
+		source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 
-<br>
+	<br>
 
-![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration_face_detection_remote.png "Setup face_detection_remote Run Configuration")
+	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration_face_detection_remote.png "Setup face_detection_remote Run Configuration")
 
-<br>	
+	<br>	
 	
 6. Click **Arguments** tag, add below arguments in **Program arguments:** then click Apply and OK
 
