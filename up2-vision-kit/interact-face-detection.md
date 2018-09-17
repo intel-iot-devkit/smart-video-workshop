@@ -109,6 +109,9 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 	c. To get the read and write authority of the camera on the remote device, we need to type: 
 	
 		sudo chmod 666 /dev/video0
+		
+	> **Note:** upsquared@upsquared-UP-APL01:~$ sudo chmod 666 /dev/video0
+
 
 1. Right click **interactive_face_detection_sample** from **Binaries**, select **Run As -> Run Configurations...**, then doulbe click **C/C++ Remote Application**, it will generate a configuration named interactive_face_detection_sample, rename it to **interactive_face_detection_sample_remote**, click Apply
 
@@ -157,3 +160,5 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration_face_detection_remote_arguments.png "Setup face_detection_remote Run Configuration")
 
 	<br>		
+
+Now we can make a comparison of the performance running the same application between on our host laptop and on the Up2 AI Vision kit, and you can load different models used here to different hardware and see what is the optimized configuration for this application.
