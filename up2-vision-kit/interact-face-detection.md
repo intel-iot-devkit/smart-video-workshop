@@ -98,7 +98,7 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 ### Run interactive_face_detection_sample as remote application on UP2 then display the results on your laptop
 1. Preparation:
 
-	a. Open a new Terminal, type command below, this is for the :
+	a. Open a new Terminal, type command below, we are sending necessary dependencies to the remote device:
 
 		scp -r /home/intel/system_studio/workspace/samples/build/Debug/intel64/Debug/lib upsquared@10.42.0.xxx:/home/upsquared/
 		
@@ -136,7 +136,7 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 		/home/upsquared/interactive_face_detection_sample
 	
 6. In **Commands to execute before application**, type:
-	> **Note:** *Remember to open a Terminal on your laptop, type **ssh upsquared@IP_address -X** and keep this terminal open, for running a GUI application remotely and display it locally*
+	> **Note:** *Remember to open a Terminal on your laptop, type **ssh upsquared@10.42.0.xxx -X** and keep this terminal open, for running a GUI application remotely and display it locally*
 	
 		export DISPLAY=localhost:10.0
 		export LD_LIBRARY_PATH=/home/upsquared/lib
