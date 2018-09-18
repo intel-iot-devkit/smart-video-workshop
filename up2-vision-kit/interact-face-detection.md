@@ -178,4 +178,4 @@ Line 48 below: using namespace InferenceEngine;
 Line 1105 above: cv::imshow("Detection results", prev_frame);
 
 	cv::namedWindow( "Detection results", WINDOW_NORMAL);
-        cv::resizeWindow("Detection results", 1280, 720);
+	cv::resizeWindow("Detection results", 1280, 720);
