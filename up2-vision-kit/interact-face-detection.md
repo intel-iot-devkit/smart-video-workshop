@@ -5,11 +5,16 @@ This tutorial will guide you through how to import existing CMake projects into 
 #### 1. Pre-requisites
 > :warning: Please make sure you have setup the [Internet Connection Sharing](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/up2-vision-kit/dev_machine_setup.md) to get an IP address for your Up2 AI Vision Kit
 
+Clean up somet seetings during our preparation of the workshop on Intel System Studio by running below commands:
+
+	rm -rf ~/system_stdio/workspace/.metadata/.plugins/org.eclipse.core.*
+	rm -rf ~/system_stdio/workspace/.metadata/.plugins/org.eclipse.debug.*
+
 #### 2. Copy the Samples folder to Intel System Studio workspace
 	cp -r /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples /home/intel/system_studio/workspace
 	
 #### 3. Create a C++ project named samples in Intel System Studio
-> :warning: If you don't see **C++ project** under **C/C++** in **File -> New -> Project...**, go to Window -> Preferences -> Intel(R) System Studio -> Hide unsupported wizards, **uncheck** the box, hit Apply then OK, then try again
+> :warning: If you don't see **C++ project** under **C/C++** in **File -> New -> Project...**, go to Window -> Preferences -> Intel(R) System Studio -> **Hide unsupported wizards**, **uncheck** the box, hit Apply then OK, then try again
 
 1. Open Intel System Studio pre-installed on your laptop by double-click the icon on Desktop
 2. Choose **File -> New -> Project** to start the new project wizard.
