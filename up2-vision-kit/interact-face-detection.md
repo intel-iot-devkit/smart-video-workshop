@@ -167,4 +167,15 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 
 	<br>		
 
-Now we can make a comparison of the performance running the same application between on our host laptop and on the Up2 AI Vision kit, and you can load different models used here to different hardware and see what is the optimized configuration for this application.
+Now we can make a comparison of the performance running the same application between on our host laptop and on the Up2 AI Vision kit, and you can load different models used here to different hardware by changing the arguments and see what is the optimized configuration for this application. More details of this sample project can be found from here: /opt/intel/computer_vision_sdk_2018.3.343/deployment_tools/documentation/docs/InferenceEngineInteractiveFaceDetectionSampleApplication.html
+
+> **Note:** The output of the Up2 AI Kit is too big for the display, we can resize the windows by adding some codes in **main.c** under interact_face_detection_sample folder:
+
+Line 48 below: using namespace InferenceEngine;
+
+	using namespace cv;
+	
+Line 1105 above: cv::imshow("Detection results", prev_frame);
+
+	cv::namedWindow( "Detection results", WINDOW_NORMAL);
+        cv::resizeWindow("Detection results", 1280, 720);
