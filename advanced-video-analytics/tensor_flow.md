@@ -17,7 +17,8 @@ You should see “(venv) <user>: “on the command line if you are in the python
 
 > :warning: Already done for the workshop laptops.
 
-    sudo ./opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/install_prerequisites/install_prerequistes_tf.sh
+    cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/install_prerequisites/
+    sudo ./install_prerequistes_tf.sh
    
 #### Install Pre-Requisites for TensorFlow Framework  
 
@@ -28,6 +29,7 @@ There are a number of pre-trained public models in the TensorFlow*-slim reposito
 First of all download repository with models.
 Note: This is done in home directory(~)
 
+    cd
     git clone https://github.com/tensorflow/models/
     cd models/research/slim
 
@@ -91,12 +93,7 @@ Create a new directory that will hold the classification sample app and all need
 Note: The following steps should be followed and are assuming you are following the preceding steps. You should be in the home directory.
 
     source /opt/intel/computer_vision_sdk/bin/setupvars.sh
-
-    mkdir TFSampleApp
-    
-    cd TFSampleApp
-    
-
+ 
 Navigate to the classification_sample executable file:
 
     cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
