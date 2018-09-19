@@ -10,6 +10,7 @@ Clean up some settings during our preparation of the workshop on Intel System St
 	cd /home/intel/system_studio/workspace/.metadata/.plugins/
 	rm -rf org.eclipse.core.*
 	rm -rf org.eclipse.debug.*
+	cd
 
 #### 2. Copy the Samples folder to Intel System Studio workspace
 	cp -r /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples /home/intel/system_studio/workspace
