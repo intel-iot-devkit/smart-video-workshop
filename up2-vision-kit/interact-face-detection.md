@@ -7,7 +7,7 @@ This tutorial will guide you through how to import existing CMake projects into 
 
 Clean up some settings during our preparation of the workshop on Intel System Studio by running below commands:
 
-	cd ~/system_stdio/workspace/.metadata/.plugins
+	cd ~/system_stdio/workspace/.metadata/.plugins/
 	rm -rf org.eclipse.core.*
 	rm -rf org.eclipse.debug.*
 
