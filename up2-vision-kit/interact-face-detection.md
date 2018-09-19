@@ -7,9 +7,11 @@ This tutorial will guide you through how to import existing CMake projects into 
 
 Clean up some settings during our preparation of the workshop on Intel System Studio by running below commands:
 
-	rm -rf ~/system_stdio/workspace/.metadata/.plugins/org.eclipse.core.*
-	rm -rf ~/system_stdio/workspace/.metadata/.plugins/org.eclipse.debug.*
+	cd ~/system_stdio/workspace/.metadata/.plugins
+	rm -rf org.eclipse.core.*
+	rm -rf org.eclipse.debug.*
 
+Then, go to **Window** -> **Preferences** -> **Intel System Studio** -> **Hide unsupported wizards**, **uncheck** the box, click OK
 #### 2. Copy the Samples folder to Intel System Studio workspace
 	cp -r /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples /home/intel/system_studio/workspace
 	
