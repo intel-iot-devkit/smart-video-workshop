@@ -3,7 +3,7 @@ This tutorial will guide you through how to import existing CMake projects into 
 
 ### Import existing CMake Project - Samples(interact-face-detection)
 #### 1. Pre-requisites
-> :warning: Please make sure you have setup the [Internet Connection Sharing](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/up2-vision-kit/dev_machine_setup.md) to get an IP address for your Up2 AI Vision Kit
+> :warning: Please make sure you have setup the [Internet Connection Sharing](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/up2-vision-kit/dev_machine_setup.md) to get an **IP address** for your Up2 AI Vision Kit, it should be a 10.42.0.xxx
 
 Clean up some settings during our preparation of the workshop on Intel System Studio by running below commands:
 
