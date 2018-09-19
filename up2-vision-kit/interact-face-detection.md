@@ -15,8 +15,8 @@ Clean up some settings during our preparation of the workshop on Intel System St
 	cp -r /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples /home/intel/system_studio/workspace
 	
 #### 3. Create a C++ project named samples in Intel System Studio
-1. Go to **Window** -> **Preferences** -> **Intel(R) System Studio** -> **Hide unsupported wizards**, **uncheck** the box, hit Apply then OK
 1. Open Intel System Studio pre-installed on your laptop by double-click the icon on Desktop
+2. Go to **Window** -> **Preferences** -> **Intel(R) System Studio** -> **Hide unsupported wizards**, **uncheck** the box, hit Apply then OK
 2. Choose **File -> New -> Project** to start the new project wizard.
 3. Expand **C/C++** and select **C++ project**, Click Next.
 4. Type the name **samples** for the project in the Name field.
