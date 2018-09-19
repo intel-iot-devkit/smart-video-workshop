@@ -15,7 +15,8 @@ to be completed.
 command.
 
 
-**Illustrated Instructions**
+
+***Illustrated Instructions***
 
 Select the **wifi/Ethernet** icon from the top menu, and choose **Edit
 Connections...**
@@ -40,3 +41,25 @@ safely ignored.
 ![](../images/arp1.png)
 
 The 10.42.0.x IP address has been assigned to your Up2 board.
+
+
+
+
+***OpenCL driver upgrade for Up2 board installed with OpenVINO R3.343***
+1. SSH to Up2 board with the IP address you just obtained, password: **upsquared**
+
+        ssh upsquared@10.42.0.xxx
+    
+2. Go to the directory contains the OpenCL driver update script
+
+        cd /opt/intel/computer_vision_sdk/install_dependencies/
+        
+3. Run the upgrade script
+
+        sudo ./install_NEO_OCL_driver.sh
+        
+4. Once done, reboot Up2
+
+        sudo reboot
+        
+    
