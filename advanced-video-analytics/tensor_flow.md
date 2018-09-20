@@ -1,30 +1,30 @@
 # Converting a TensorFlow Model in Linux
 
-This guide is assuming that you are using virtual environment for python by running:
+> **Note:** *For OpenVINO™ toolkit release R2 and R3, the file paths used in the tensorflow model conversion are different. Please follow the steps carefully for your installed OpenVINO™ toolkit version. You can check the OpenVINO™ toolkit version by going to /opt/intel/ folder. If the folder starts with computer_vision_sdk_2018.2.xxx, it is release R2. If it starts with computer_vision_sdk_2018.3.xxx, it's release R3. Please confirm the version before you follow the steps.*
+
+##### For OpenVINO™ toolkit release R2, use virtual environment for python by running:
 
     source /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/venv/bin/activate
     
 You should see “(venv) <user>: “on the command line if you are in the python virtual environment
+	
+##### For OpenVINO™ toolkit release R3, virtual environment for python is not required. 
   
-### Pre-Requisites:
-#### Change ownership of the directory to the current user 
+### Pre-Requisites: 
+#### Change ownership of the directory to the current user (for both R2 and R3)
 
 > **Note:** *replace the usernames below with your user account name*
 		
 	sudo chown username.username -R /opt/intel
     
-#### Install Pre-Requisites for TensorFlow Framework
+#### Install Pre-Requisites for TensorFlow Framework (for both R2 and R3)
 
 > :warning: Already done for the workshop laptops.
 
     cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/install_prerequisites/
     sudo ./install_prerequistes_tf.sh
    
-#### Install Pre-Requisites for TensorFlow Framework  
-
-     pip install -U protobuf
-
-#### Download Model(s) from TensorFlow* -slim library
+#### Download Model(s) from TensorFlow* -slim library (for both R2 and R3)
 There are a number of pre-trained public models in the TensorFlow*-slim repository. The models are distributed as Python scripts and checkpoint files.
 First of all download repository with models.
 Note: This is done in home directory(~)
@@ -33,14 +33,14 @@ Note: This is done in home directory(~)
     git clone https://github.com/tensorflow/models/
     cd models/research/slim
 
-#### Export Inference Graph and download checkpoint file
+#### Export Inference Graph and download checkpoint file (for both R2 and R3)
 Export inference graph for one of the available models using the following command (Inception V1 in this example): 
 
     python3 export_inference_graph.py --alsologtostderr --model_name=inception_v1 --output_file=/tmp/inception_v1_inf_graph.pb
     
 The script creates inference graph file with name “inception_v1_inf_graph.pb” in the /tmp direcory.
 
-#### Download archive with checkpoint file (Inception V1 in this example): 
+#### Download archive with checkpoint file (Inception V1 in this example): (for both R2 and R3)
 
     export CHECKPOINT_DIR=/tmp/checkpoints
     
@@ -57,7 +57,7 @@ The script creates inference graph file with name “inception_v1_inf_graph.pb�
 #### Freeze the model
 The last step is to freeze the graph. To do this you need to know the output node of the model you are planning to freeze. This information is found by running the summarize_graph.
 
-##### Summarize Graph
+##### Summarize Graph (for both R2 and R3)
 Go to ~/models/research/slim/ directory and run summarize_graph.py script.
 
     cd ~/models/research/slim/
@@ -71,13 +71,26 @@ Name: input, type: float32, shape: (-1,224,224,3)
 1 output(s) detected:
 InceptionV1/Logits/Predictions/Reshape_1Freeze Graph
 
-##### Freeze the graph run:
-
-    python3 /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/venv/lib/python3.5/site-packages/tensorflow/python/tools/freeze_graph.py --input_graph /tmp/inception_v1_inf_graph.pb --input_binary --input_checkpoint /tmp/checkpoints/inception_v1.ckpt --output_node_names InceptionV1/Logits/Predictions/Reshape_1 --output_graph inception_v1_frozen.pb
-    
+##### Freeze the graph
 The script generates inception_v1_frozen.pb file with the frozen model in the directory you are currently in.
 
-### Convert Frozen Tensorflow model to IR using Model Optimizer
+###### For OpenVINO™ toolkit release R2
+
+    python3 /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/venv/lib/python3.5/site-packages/tensorflow/python/tools/freeze_graph.py --input_graph /tmp/inception_v1_inf_graph.pb --input_binary --input_checkpoint /tmp/checkpoints/inception_v1.ckpt --output_node_names InceptionV1/Logits/Predictions/Reshape_1 --output_graph inception_v1_frozen.pb
+ 
+###### For OpenVINO™ toolkit release R3
+ 
+ 	python3 /usr/local/lib/python3.5/dist-packages/tensorflow/python/tools/freeze_graph.py --input_graph /tmp/inception_v1_inf_graph.pb --input_binary --input_checkpoint /tmp/checkpoints/inception_v1.ckpt --output_node_names InceptionV1/Logits/Predictions/Reshape_1 --output_graph inception_v1_frozen.pb
+    
+For OpenVINO™ toolkit release R3, if you get error message "Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA" while executing above command, compile tensforflow binary for your CPU by running following command.
+
+	sudo pip install --ignore-installed --upgrade https://github.com/lakshayg/tensorflow-build/releases/download/tf1.9.0-ubuntu16.04-py27-py35/tensorflow-1.9.0-cp35-cp35m-linux_x86_64.whl
+	
+Now run the freeze_graph.py command again. 
+	
+	python3 /usr/local/lib/python3.5/dist-packages/tensorflow/python/tools/freeze_graph.py --input_graph /tmp/inception_v1_inf_graph.pb --input_binary --input_checkpoint /tmp/checkpoints/inception_v1.ckpt --output_node_names InceptionV1/Logits/Predictions/Reshape_1 --output_graph inception_v1_frozen.pb
+
+### Convert Frozen Tensorflow model to IR using Model Optimizer (for both R2 and R3)
 Assuming you are in the ~/models/research/slim/ directory 
 
     python3 /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/mo_tf.py --input_model inception_v1_frozen.pb --input_shape [1,224,224,3] --mean_values [128,128,128] --scale_values [128,128,128]
@@ -85,7 +98,7 @@ Assuming you are in the ~/models/research/slim/ directory
 This should produce “inception_v1_frozen.xml” and “inception_v1_frozen.bin” file. The xml file contains the topology information of the model and the bin file contains the model’s weights and biases. These two files are expected when using the inference engine so make note of the path.
 
 
-### Run Classification Sample 
+### Run Classification Sample (for both R2 and R3)
 
 The classification sample will showcase OpenVINO’s inference engine using Tensor Flow model Inception_v1_frozen IR files (.xml & .bin) and an input image of a car to classify.
 The classification collateral is defined as the input image car_1.bmp, the Inception_v1_frozen IR files (.xml & .bin), and the labels file inception_v1_frozen.labels.
