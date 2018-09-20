@@ -71,14 +71,13 @@ Name: input, type: float32, shape: (-1,224,224,3)
 1 output(s) detected:
 InceptionV1/Logits/Predictions/Reshape_1Freeze Graph
 
-##### Freeze the graph
+##### Freeze the graph for OpenVINO™ toolkit release R2
 The script generates inception_v1_frozen.pb file with the frozen model in the directory you are currently in.
 
-###### For OpenVINO™ toolkit release R2
-
-    python3 /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/venv/lib/python3.5/site-packages/tensorflow/python/tools/freeze_graph.py --input_graph /tmp/inception_v1_inf_graph.pb --input_binary --input_checkpoint /tmp/checkpoints/inception_v1.ckpt --output_node_names InceptionV1/Logits/Predictions/Reshape_1 --output_graph inception_v1_frozen.pb
+	python3 /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/venv/lib/python3.5/site-packages/tensorflow/python/tools/freeze_graph.py --input_graph /tmp/inception_v1_inf_graph.pb --input_binary --input_checkpoint /tmp/checkpoints/inception_v1.ckpt --output_node_names InceptionV1/Logits/Predictions/Reshape_1 --output_graph inception_v1_frozen.pb
  
-###### For OpenVINO™ toolkit release R3
+##### Freeze the graph for OpenVINO™ toolkit release R3
+The script generates inception_v1_frozen.pb file with the frozen model in the directory you are currently in.
  
  	python3 /usr/local/lib/python3.5/dist-packages/tensorflow/python/tools/freeze_graph.py --input_graph /tmp/inception_v1_inf_graph.pb --input_binary --input_checkpoint /tmp/checkpoints/inception_v1.ckpt --output_node_names InceptionV1/Logits/Predictions/Reshape_1 --output_graph inception_v1_frozen.pb
     
