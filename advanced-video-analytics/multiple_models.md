@@ -54,20 +54,20 @@ Following car image will appear the at end of the above command execution. It sh
 	
 #### 4. Run the face demo, face detection only, on the Movidius Compute stick
 
-	./interactive_face_detection_sample -i /dev/video0 -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD
+	./interactive_face_detection_sample -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD
 
 #### 5. Now we add (to the face detection) also an age and gender detection, running on the CPU
 
-	./interactive_face_detection_sample -i /dev/video0 -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD -m_ag $models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU 
+	./interactive_face_detection_sample -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD -m_ag $models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU 
 
 
 #### 6. Now let’s add head position detection running on GPU.
  
- 	./interactive_face_detection_sample -i /dev/video0 -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD -m_ag $models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp $models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU
+ 	./interactive_face_detection_sample -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD -m_ag $models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp $models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU
 
 #### 7. Now we’ll add an emotion detector, running on the GPU
 	
-	./interactive_face_detection_sample -i /dev/video0 -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD -m_ag $models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp $models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU -m_em $models/emotions-recognition-retail-0003/FP16/emotions-recognition-retail-0003.xml -d_em GPU
+	./interactive_face_detection_sample -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD -m_ag $models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp $models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU -m_em $models/emotions-recognition-retail-0003/FP16/emotions-recognition-retail-0003.xml -d_em GPU
 	
 
 	
