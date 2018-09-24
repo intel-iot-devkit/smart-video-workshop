@@ -49,7 +49,7 @@ Compile in-built samples in OpenVINO™ toolkit
 
 Follow the [guide](./up2-vision-kit/setup_intel_system_studio.md) to install Intel® System Studio and VNC viewer on your development machine.
 	
-> :warning: This workshop content has been validated with OpenVINO™ toolkit version R2 (computer_vision_sdk_2018.2.300). 
+> :warning: This workshop content has been validated with OpenVINO™ toolkit version R3 (computer_vision_sdk_2018.3.343). 
 
 		
 ## Workshop Agenda
