@@ -10,6 +10,7 @@ The default batch size for the Model Optimizer is 1.
 ### Let us first look at the performance numbers for the batch size 1. 
 
 	export SV=/opt/intel/workshop/smart-video-workshop/
+	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 	cd $SV/object-detection
 	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml
 
