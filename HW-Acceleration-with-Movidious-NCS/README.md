@@ -40,6 +40,7 @@ Here ID 03e7:2150 without a description string is the Movidius device.
 #### Setup a short path for the workshop directory
 
 	export SV=/opt/intel/workshop/smart-video-workshop/
+	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 
 #### Run the sample application on Movidius™ Neural Compute Stick (NCS)
 Set target hardware as Movidius™ NCS with **-d MYRIAD**
