@@ -29,10 +29,15 @@ To install the necessary Python libraries on Linux, you need to run:
 ```
 sudo pip install keras tensorflow
 ```
+## Run the tutorial
 
-## The tutorial code
+```
+python3 Deep_Learning_Tutorial.py
+```
 
-The complete code for this tutorial can be found here **[TBD: Update with the GitHub link to the sample code]**
+## How the tutorial code works
+
+The complete code for this tutorial can be found [here](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/dl-model-training/Deep_Learning_Tutorial.py)
 
 ### Importing the necessary objects from Keras
 
