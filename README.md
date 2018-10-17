@@ -56,6 +56,10 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio.md) to install Int
 * **Intel Smart Video/Computer Vision Tools Overview**
   - Slides - [Introduction to Intel Smart Video Tools](./presentations/01-Introduction-to-Intel-Smart-Video-Tools.pdf)
 
+* **Training a Deep Learning Model**
+  - Slides - [Training a Deep Learning Model](./presentations/DL_training_model.pdf)
+  - Lab - [Training a Deep Learning Model](./dl-model-training/README.md)
+  
 * **Basic End to End Object Detection Example**
   - Slides - [Basic End to End Object Detection Example](./presentations/02-Basic-End-to-End-Object-Detection-Example.pdf)
   - Lab - [Basic End to End Object Detection Example](./object-detection/README.md)
