@@ -60,7 +60,7 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio.md) to install Int
   - Slides - [Training a Deep Learning Model](./presentations/DL_training_model.pdf)
   - Lab - [Training a Deep Learning Model](./dl-model-training/README.md)
   
-* **Basic End to End Object Detection Example**
+* **Basic End to End Object Detection Inference Example**
   - Slides - [Basic End to End Object Detection Example](./presentations/02-Basic-End-to-End-Object-Detection-Example.pdf)
   - Lab - [Basic End to End Object Detection Example](./object-detection/README.md)
 
