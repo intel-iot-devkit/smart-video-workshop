@@ -81,13 +81,7 @@ The script generates inception_v1_frozen.pb file with the frozen model in the di
  
  	python3 /usr/local/lib/python3.5/dist-packages/tensorflow/python/tools/freeze_graph.py --input_graph /tmp/inception_v1_inf_graph.pb --input_binary --input_checkpoint /tmp/checkpoints/inception_v1.ckpt --output_node_names InceptionV1/Logits/Predictions/Reshape_1 --output_graph inception_v1_frozen.pb
     
-For OpenVINO™ toolkit release R3, if you get error message "Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA" while executing above command, compile tensforflow binary for your CPU by running following command.
-
-	sudo pip install --ignore-installed --upgrade https://github.com/lakshayg/tensorflow-build/releases/download/tf1.9.0-ubuntu16.04-py27-py35/tensorflow-1.9.0-cp35-cp35m-linux_x86_64.whl
-	
-Now run the freeze_graph.py command again. 
-	
-	python3 /usr/local/lib/python3.5/dist-packages/tensorflow/python/tools/freeze_graph.py --input_graph /tmp/inception_v1_inf_graph.pb --input_binary --input_checkpoint /tmp/checkpoints/inception_v1.ckpt --output_node_names InceptionV1/Logits/Predictions/Reshape_1 --output_graph inception_v1_frozen.pb
+For OpenVINO™ toolkit release R3, if you might get warning message "Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA" while executing above command, ignore that. 
 
 ### Convert Frozen Tensorflow model to IR using Model Optimizer (for both R2 and R3)
 Assuming you are in the ~/models/research/slim/ directory 
