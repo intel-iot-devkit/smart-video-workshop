@@ -1,6 +1,6 @@
-# Object detection with OpenVINO™ toolkit 
+# Object detection with Intel® Distribution of OpenVINO™ toolkit 
 
-This tutorial uses a Single Shot MultiBox Detector (SSD) on a trained mobilenet-ssd* model to walk you through the basic steps of using two key components of the OpenVINO™ toolkit: Model Optimizer and Inference Engine. 
+This tutorial uses a Single Shot MultiBox Detector (SSD) on a trained mobilenet-ssd* model to walk you through the basic steps of using two key components of the Intel® Distribution of OpenVINO™ toolkit: Model Optimizer and Inference Engine. 
 
 Model Optimizer is a cross-platform command-line tool that takes pre-trained deep learning models and optimizes them for performance/space using conservative topology transformations. It performs static model analysis and adjusts deep learning models for optimal execution on end-point target devices. 
 
@@ -38,7 +38,7 @@ In this section, you will use the Model Optimizer to convert a trained model to 
 	cd $SV/object-detection/
 	mkdir -p mobilenet-ssd/FP32 
 
-#### 2. Navigate to the OpenVINO™ toolkit install directory
+#### 2. Navigate to the Intel® Distribution of OpenVINO™ toolkit install directory
 
 	cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer
 
@@ -50,7 +50,7 @@ In this section, you will use the Model Optimizer to convert a trained model to 
 
 <br>
 
-The Model Optimizer converts a pretrained Caffe* model to make it compatible with the Intel Inference Engine and optimizes it for Intel architecture. These are the files you would include with your C++ application to apply inference to visual data.
+The Model Optimizer converts a pretrained Caffe* model to make it compatible with the Intel Inference Engine and optimizes it for Intel® architecture. These are the files you would include with your C++ application to apply inference to visual data.
 	
 > **Note:** if you continue to train or make changes to the Caffe* model, you would then need to re-run the Model Optimizer on the updated model.
 
