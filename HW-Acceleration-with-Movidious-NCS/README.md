@@ -1,9 +1,9 @@
 
 # Intel® Movidius™ Neural Compute Stick (NCS)
 
-This lab shows how Intel OpenVINO™ toolkit provides hardware abstraction to run the sample object detection application which was built in previous modules on Movidius™ NCS. 
+This lab shows how the Intel® Distribution of OpenVINO™ toolkit provides hardware abstraction to run the sample object detection application which was built in previous modules on Intel® Movidius™ Neural Compute Stick. 
 
-#### Connect Movidius™ NCS to your development laptop
+#### Connect Intel® Movidius™ Neural Compute Stick to your development laptop
 <br>
 
 ![image of Movidius NCS to computer](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/Movidius.png "connected NCS")
@@ -42,15 +42,15 @@ Here ID 03e7:2150 without a description string is the Movidius device.
 	export SV=/opt/intel/workshop/smart-video-workshop/
 	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 
-#### Run the sample application on Movidius™ Neural Compute Stick (NCS)
-Set target hardware as Movidius™ NCS with **-d MYRIAD**
+#### Run the sample application on Intel® Movidius™ Neural Compute Stick (NCS)
+Set target hardware as Intel® Movidius™ NCS with **-d MYRIAD**
   
 	cd $SV/object-detection/
 
 ```
  ./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d MYRIAD
 ```
-You will get following error as Movidius™ NCS supports only FP16 format. 
+You will get following error as Intel® Movidius™ NCS supports only FP16 format. 
 <br>
 
 ![image of Movidius NCS error for FP32 model](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/NCSerror.png)
@@ -59,7 +59,7 @@ You will get following error as Movidius™ NCS supports only FP16 format.
 
 The Model Optimizer by default generate FP32 IR files if the data type is not particularly specified.
 
-Let's run the Model Optimizer to get IR files in FP16 format suitable for the Movidius™ NCS by setting the data_type flag to FP16.
+Let's run the Model Optimizer to get IR files in FP16 format suitable for the Intel® Movidius™ NCS by setting the data_type flag to FP16.
   
     cd $SV/object-detection/mobilenet-ssd
     mkdir -p FP16
