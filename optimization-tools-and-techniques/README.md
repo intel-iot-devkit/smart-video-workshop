@@ -1,5 +1,5 @@
 # Optimizing Computer Vision Applications
-This tutorial shows some techniques to get better performance for computer vision applications with the OpenVINO™ toolkit. 
+This tutorial shows some techniques to get better performance for computer vision applications with the Intel® Distribution of OpenVINO™ toolkit. 
 
 
 ## 1. Tune parameters - set batch size
@@ -67,7 +67,7 @@ Run various SSD models from the model_downloader in the car detection example wh
 	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/SSD512/FP32/ssd512.xml -d GPU
 	
 	
-#### c) Movidius NCS
+#### c) Intel® Movidius™ Neural Compute Stick
 
 	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP16/mobilenet-ssd.xml -d MYRIAD
 	
