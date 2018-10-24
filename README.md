@@ -82,7 +82,7 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio.md) to install Int
   - Lab - [Multiple models usage example](./advanced-video-analytics/multiple_models.md)
   - Lab - [Tensor Flow example](./advanced-video-analytics/tensor_flow.md)
   
-* **UP²* AI Vision Development kit as Edge**
+* **UP²\* AI Vision Development kit as Edge**
   - Setup - [Development machine and Internet Connection Sharing](./up2-vision-kit/dev_machine_setup.md)
   - Lab - [Interact face detection on UP2 kit using Intel® System Studio](./up2-vision-kit/interact-face-detection.md)
   
