@@ -3,7 +3,7 @@ The tutorial shows some techniques for developing advanced video analytics appli
 
 ## Part 1. Chaining models: Use mutiple models in an application
 
-The OpenVINO™ toolkit package includes security barrier sample which uses 3 models to detect cars, their number plates, color and number plate attributes from the input video or image of the cars. The sample demo script is provided in the OpenVINO™ toolkit package to run the sample. 
+The Intel® Distribution of OpenVINO™ toolkit package includes security barrier sample which uses 3 models to detect cars, their number plates, color and number plate attributes from the input video or image of the cars. The sample demo script is provided in the Intel® Distribution of OpenVINO™ toolkit package to run the sample. 
 
 #### 1. Navigate to the security camera barrier sample build directory
 	 export SV=/opt/intel/workshop/smart-video-workshop/
@@ -19,7 +19,7 @@ The OpenVINO™ toolkit package includes security barrier sample which uses 3 mo
     cd /opt/intel/computer_vision_sdk/deployment_tools/demo/
     sudo ./demo_security_barrier_camera.sh
 
-Above script will run the security barrier camera example with Intel pretrained models. Open the script to see the models used.
+Above script will run the security barrier camera example with Intel® pretrained models. Open the script to see the models used.
 
 	gedit demo_security_barrier_camera.sh
 
@@ -39,7 +39,7 @@ Following car image will appear the at end of the above command execution. It sh
 
 	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 
-#### 1. Let's look at the face detection sample from the OpenVINO™ tookit package
+#### 1. Let's look at the face detection sample from the Intel® Distribution of OpenVINO™ toolkit package
 	
 	cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
 	 ./interactive_face_detection_sample -h
@@ -52,7 +52,7 @@ Following car image will appear the at end of the above command execution. It sh
 
 	export models=/opt/intel/computer_vision_sdk/deployment_tools/intel_models/
 	
-#### 4. Run the face demo, face detection only, on the Movidius Compute stick
+#### 4. Run the face demo, face detection only, on the Intel® Movidius™ Neural Compute stick
 
 	./interactive_face_detection_sample -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD
 
