@@ -1,17 +1,17 @@
 # Deep Learning Tutorial
 ## MNIST Database - Handwritten digits (0-9)
 
-On this tutorial we will use Python to implement one [Convolutional Neural Network](https://en.wikipedia.org/wiki/Convolutional_neural_network) - a simplified version of [LeNet](https://en.wikipedia.org/wiki/Convolutional_neural_network#LeNet-5) - that will recognized Handwritten digits. A project like this one, using the MNIST dataset is considered as the "Hello World" of Machine Learning.
+On this tutorial we will use Python* to implement one [Convolutional Neural Network](https://en.wikipedia.org/wiki/Convolutional_neural_network) - a simplified version of [LeNet](https://en.wikipedia.org/wiki/Convolutional_neural_network#LeNet-5) - that will recognized Handwritten digits. A project like this one, using the MNIST dataset is considered as the "Hello World" of Machine Learning.
 
-We will use [Keras](https://keras.io), [TensorFlow](https://www.tensorflow.org) and the [MNIST database](https://en.wikipedia.org/wiki/MNIST_database).
+We will use [Keras*](https://keras.io), [TensorFlow*](https://www.tensorflow.org) and the [MNIST database](https://en.wikipedia.org/wiki/MNIST_database).
 
-According to the description on their website, *"**Keras** is a high-level neural networks API, written in Python and capable of running on top of TensorFlow, CNTK, or Theano. **It was developed with a focus on enabling fast experimentation. Being able to go from idea to result with the least possible delay is key to doing good research.**"*
+According to the description on their website, *"**Keras** is a high-level neural networks API, written in Python and capable of running on top of TensorFlow, CNTK, or Theano*. **It was developed with a focus on enabling fast experimentation. Being able to go from idea to result with the least possible delay is key to doing good research.**"*
 
 We will use TensorFlow as the backend for Keras. TensorFlow is an open source software library for high performance numerical computation.
 
 The MNIST database is a large database of handwritten digits that is commonly used for training various image processing systems. MNIST database is also available as a Keras dataset, with 60k 28x28 images of the 10 digits along with a test set of 10k images, so it is very easy to import and use it on our code.
 
-One good visual and interactive reference on what we are developing can be found [here](http://scs.ryerson.ca/~aharley/vis/conv/). The basic difference between our code and this interactive sample is the number and size of convolutional and fully-connected layers (LeNet uses two of each, we will use a single one, to reduce training time). We also adjusted the layers size to balance between accuracy and training time. We are achieving 98,54% of accuracy with less than 2 minutes training time on an Core i7 processor.
+One good visual and interactive reference on what we are developing can be found [here](http://scs.ryerson.ca/~aharley/vis/conv/). The basic difference between our code and this interactive sample is the number and size of convolutional and fully-connected layers (LeNet uses two of each, we will use a single one, to reduce training time). We also adjusted the layers size to balance between accuracy and training time. We are achieving 98,54% of accuracy with less than 2 minutes training time on an Intel® Core™ processor.
 
 This code can also be optimized by several ways to increase accuracy, and we would like to invite you to explore this later, changing the number of epochs, filters, fully-connected neurons and also including additional convolutional and fully connected layers. You can also use [flattening](https://keras.io/layers/core/#flatten), [dropout](https://keras.io/layers/core/#dropout) and [batch normalization](https://keras.io/layers/normalization/) layers. Other optimization techniques can also be applied, so feel free to use this tutorial code as a base to explore those optimization techniques.
 
@@ -23,7 +23,7 @@ Pooling layers reduces the spatial size of the image (downsampling), reducing th
 
 Fully connected layers are traditional Neural Network layers.
 
-## Installing the Python libraries
+## Installing the Python* libraries
 
 To install the necessary Python libraries on Linux, you need to run:
 ```
@@ -39,7 +39,7 @@ python3 Deep_Learning_Tutorial.py
 
 The complete code for this tutorial can be found [here](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/dl-model-training/Deep_Learning_Tutorial.py)
 
-### Importing the necessary objects from Keras
+### Importing the necessary objects from Keras*
 
 [Sequential Network Model](https://keras.io/models/sequential):
 
@@ -87,7 +87,7 @@ This will load the MNIST Dataset on four different variables:
 ```
 **NOTE:** only on the first run on your machine, this will download the MNIST Dataset.
 
-### Adjust the datasets to TensorFlow
+### Adjust the datasets to TensorFlow*
 
 First step, we need to reduce the image channels, from 3 (color) to 1 (grayscale):
 ```Python

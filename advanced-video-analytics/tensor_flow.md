@@ -1,14 +1,14 @@
-# Converting a TensorFlow Model in Linux
+# Converting a TensorFlow* Model in Linux*
 
-> **Note:** *For OpenVINO™ toolkit release R2 and R3, the file paths used in the tensorflow model conversion are different. Please follow the steps carefully for your installed OpenVINO™ toolkit version. You can check the OpenVINO™ toolkit version by going to /opt/intel/ folder. If the folder starts with computer_vision_sdk_2018.2.xxx, it is release R2. If it starts with computer_vision_sdk_2018.3.xxx, it's release R3. Please confirm the version before you follow the steps.*
+> **Note:** *For Intel® Distribution of OpenVINO™ toolkit release R2 and R3, the file paths used in the TensorFlow* model conversion are different. Please follow the steps carefully for your installed Intel® Distribution of OpenVINO™ toolkit version. You can check the Intel® Distribution of OpenVINO™ toolkit version by going to /opt/intel/ folder. If the folder starts with computer_vision_sdk_2018.2.xxx, it is release R2. If it starts with computer_vision_sdk_2018.3.xxx, it's release R3. Please confirm the version before you follow the steps.*
 
-##### For OpenVINO™ toolkit release R2, use virtual environment for python by running:
+##### For Intel® Distribution of OpenVINO™ toolkit release R2, use virtual environment for Python* by running:
 
     source /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/venv/bin/activate
     
-You should see “(venv) <user>: “on the command line if you are in the python virtual environment
+You should see “(venv) <user>: “on the command line if you are in the Python* virtual environment
 	
-##### For OpenVINO™ toolkit release R3, virtual environment for python is not required. 
+##### For Intel® Distribution of OpenVINO™ toolkit release R3, virtual environment for Python* is not required. 
   
 ### Pre-Requisites: 
 #### Change ownership of the directory to the current user (for both R2 and R3)
@@ -17,7 +17,7 @@ You should see “(venv) <user>: “on the command line if you are in the python
 		
 	sudo chown username.username -R /opt/intel
     
-#### Install Pre-Requisites for TensorFlow Framework (for both R2 and R3)
+#### Install Pre-Requisites for TensorFlow* Framework (for both R2 and R3)
 
 > :warning: Already done for the workshop laptops.
 
@@ -71,19 +71,19 @@ Name: input, type: float32, shape: (-1,224,224,3)
 1 output(s) detected:
 InceptionV1/Logits/Predictions/Reshape_1Freeze Graph
 
-##### Freeze the graph for OpenVINO™ toolkit release R2
+##### Freeze the graph for Intel® Distribution of OpenVINO™ toolkit release R2
 The script generates inception_v1_frozen.pb file with the frozen model in the directory you are currently in.
 
 	python3 /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/venv/lib/python3.5/site-packages/tensorflow/python/tools/freeze_graph.py --input_graph /tmp/inception_v1_inf_graph.pb --input_binary --input_checkpoint /tmp/checkpoints/inception_v1.ckpt --output_node_names InceptionV1/Logits/Predictions/Reshape_1 --output_graph inception_v1_frozen.pb
  
-##### Freeze the graph for OpenVINO™ toolkit release R3
+##### Freeze the graph for Intel® Distribution of OpenVINO™ toolkit release R3
 The script generates inception_v1_frozen.pb file with the frozen model in the directory you are currently in.
  
  	python3 /usr/local/lib/python3.5/dist-packages/tensorflow/python/tools/freeze_graph.py --input_graph /tmp/inception_v1_inf_graph.pb --input_binary --input_checkpoint /tmp/checkpoints/inception_v1.ckpt --output_node_names InceptionV1/Logits/Predictions/Reshape_1 --output_graph inception_v1_frozen.pb
     
-For OpenVINO™ toolkit release R3, if you might get warning message "Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA" while executing above command, ignore that. 
+For Intel® Distribution of OpenVINO™ toolkit release R3, if you might get warning message "Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA" while executing above command, ignore that. 
 
-### Convert Frozen Tensorflow model to IR using Model Optimizer (for both R2 and R3)
+### Convert Frozen Tensorflow* model to IR using Model Optimizer (for both R2 and R3)
 Assuming you are in the ~/models/research/slim/ directory 
 
     python3 /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/mo_tf.py --input_model inception_v1_frozen.pb --input_shape [1,224,224,3] --mean_values [1024,1024,1024] --scale_values [128,128,128]
@@ -93,7 +93,7 @@ This should produce “inception_v1_frozen.xml” and “inception_v1_frozen.bin
 
 ### Run Classification Sample (for both R2 and R3)
 
-The classification sample will showcase OpenVINO’s inference engine using Tensor Flow model Inception_v1_frozen IR files (.xml & .bin) and an input image of a car to classify.
+The classification sample will showcase the Intel® Distribution of OpenVINO™ toolkit inference engine using TensorFlow model Inception_v1_frozen IR files (.xml & .bin) and an input image of a car to classify.
 The classification collateral is defined as the input image car_1.bmp, the Inception_v1_frozen IR files (.xml & .bin), and the labels file inception_v1_frozen.labels.
 Create a new directory that will hold the classification sample app and all needed components to run the classification sample
 Note: The following steps should be followed and are assuming you are following the preceding steps. You should be in the home directory.

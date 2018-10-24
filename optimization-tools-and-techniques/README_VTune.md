@@ -3,10 +3,10 @@
 ## Introduction
 Intel® VTune™ Amplifier is a powerful performance analyzer that can help developers to better understand the factors impacting application performance. Using the analysis data provided, developers can optimize the application.
 
-This tutorial will show how to run Intel® VTune™ Amplifier on an OpenVINO™ Toolkit Inference Engine application.
+This tutorial will show how to run Intel® VTune™ Amplifier on an Intel® Distribution of OpenVINO™ toolkit Inference Engine application.
 
 ## Build and Load Intel® VTune™ Amplifier Sampling Driver
-The Intel® VTune™ Amplifier sampling driver provides access to Intel® Performance Monitoring Unit (PMU) in your Intel® processor. This allows running Advanced Hotspots and General Exploration analysis types.
+The Intel® VTune™ Amplifier sampling driver provides access to Performance Monitoring Unit (PMU) in your Intel® processor. This allows running Advanced Hotspots and General Exploration analysis types.
 
 Open a terminal and run the following commands to build and load the Intel® VTune™ Amplifier Sampling Driver, replace &lt;group&gt; with your user’s group name (e.g. intel):
               
@@ -57,7 +57,7 @@ And in the **Application parameters** field type:
 
 Click on the **Choose Analysis** button, the **Analysis Type** tab will be shown. Select **Advanced Hotspots** analysis here, and in the Advanced Hotspots configuration (on the right side), select **Hotspots and stacks**, and check the **Analyze user tasks, events, and counters** checkbox.
 
-> **Note**: If you get an error message about kernel-mode monitoring, check that you’ve loaded the Sampling Driver with the right group (see Build and Load Intel® VTune™ Amplifier Sampling Driver above). If you get an error message about analysis type requires either an acess to kernel-mode monitoring in the Linux perf subsystem. Please set the perf_event_paranoid value to 1 or set the ptrace_scope value to 0 depending on the error message.
+> **Note**: If you get an error message about kernel-mode monitoring, check that you’ve loaded the Sampling Driver with the right group (see Build and Load Intel® VTune™ Amplifier Sampling Driver above). If you get an error message about analysis type requires either an acess to kernel-mode monitoring in the Linux* perf subsystem. Please set the perf_event_paranoid value to 1 or set the ptrace_scope value to 0 depending on the error message.
 
       sudo sh -c 'echo 1 > /proc/sys/kernel/perf_event_paranoid'
       sudo sh -c 'echo 0 > /proc/sys/kernel/yama/ptrace_scope'
@@ -77,7 +77,7 @@ In the beginning of the summary, you’ll see the time, CPI (cycles per instruct
 ![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/05-VTune-OpenVINO-AH-Summary-Crop.png)
 
 
-Next, there is the list of Top Hotspots and the list of Top Tasks. The Top Hotspots list shows 5 functions that took the most CPU time, and the Top Tasks, shows 5 tasks that took the most CPU time. OpenVINO™ Toolkit uses Intel® VTune™ Amplifier Instrumentation and Tracing Technology (ITT) to define these tasks.
+Next, there is the list of Top Hotspots and the list of Top Tasks. The Top Hotspots list shows 5 functions that took the most CPU time, and the Top Tasks, shows 5 tasks that took the most CPU time. Intel® Distribution of OpenVINO™ toolkit uses Intel® VTune™ Amplifier Instrumentation and Tracing Technology (ITT) to define these tasks.
 
 
 ![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/06-VTune-OpenVINO-AH-Top_Tasks-Crop.png)
@@ -88,7 +88,7 @@ The Effective CPU Utilization Histogram shows the percentage of the time the spe
 Information about the platform, the application, and the profiling data collection are presented at the bottom on the **Summary** tab.
 
 ## Check Bottom-up and Platform Tabs for Detailed Information
-Click on the **Bottom-up** tab. It will show the list of functions, by default sorted by execution time. In case of the OpenVINO™ Toolkit profiling it is useful to change the **Grouping** to **Task Domain / Task Type Function / Call Stack**. Click on a domain name to expand the tasks list in that domain. Note that the tasks correspond to the Inference Engine layers.
+Click on the **Bottom-up** tab. It will show the list of functions, by default sorted by execution time. In case of the Intel® Distribution of OpenVINO™ toolkit profiling it is useful to change the **Grouping** to **Task Domain / Task Type Function / Call Stack**. Click on a domain name to expand the tasks list in that domain. Note that the tasks correspond to the Inference Engine layers.
 
 The execution timeline is displayed on the bottom part of the window. Note the threads of the application, and their behavior. This raises questions such as "Why does each thread have multiple (about 100) peaks?" and "Could this indicate excessive task switching?"
 
@@ -100,7 +100,7 @@ Try to zoom in on the timeline by clicking the mouse, dragging the mouse pointer
 
 The Platform tab shows both the application threads timeline, and the CPU metrics, such as CPU utilization and CPU Frequency. Just as in the Bottom-up tab, it is possible to zoom in to see more details for a given time period.
 
-## Tune OpenVINO™ Toolkit Parameters and Rerun Analysis
+## Tune Intel® Distribution of OpenVINO™ Toolkit Parameters and Rerun Analysis
 In the Intel® VTune™ Amplifier GUI click **New Analysis** toolbar icon to start a new analysis.
 
 
@@ -115,7 +115,7 @@ Click on the **Choose Analysis** button. Keep the previously configured settings
 
 Once the application profiling is done, review the **Summary** tab. Note the changes from the previous analysis.
 
-Switch to the **Bottom-up** tab and then to the **Platform** tab. Note how the thread behavior had changed. What in OpenVINO™ Toolkit caused this change in the behavior?
+Switch to the **Bottom-up** tab and then to the **Platform** tab. Note how the thread behavior had changed. What in Intel® Distribution of OpenVINO™ toolkit caused this change in the behavior?
 
 
 ![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/09-VTune-OpenVINO2-AH-Platform-Crop.png)

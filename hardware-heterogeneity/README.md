@@ -1,5 +1,5 @@
 
-# OpenVINO™ toolkit hetero plugin 
+# Intel® Distribution of OpenVINO™ toolkit hetero plugin 
 
 This example shows how to use hetero plugin to define preferences to run different network layers on different hardware types. Here, we will use the command line option to define hetero plugin usage where the layer distribution is already defined. However, hetero plugin also allows developers to customize distribution of layers execution on different hardware by specifying it in the application code.  
 
@@ -23,7 +23,7 @@ This example shows how to use hetero plugin to define preferences to run differe
 Observe the performance time required to process each frame by Inference Engine. For this particular example, inferance ran faster when prioritized for CPU as oppose to when GPU was the first priority.  
 
 ### Inference Engine classification sample     
-OpenVINO install folder (/opt/intel/computer_vision_sdk/) includes various samples for developers to understand how Inference Engine APIs can be used. These samples have -pc flag implmented which shows per topology layer performance report. This will allow to see which layers are running on which hardware. We will run a very basic classification sample as an example in this section. We will provide car image as input to the classification sample. The output will be object labels with confidence numbers.  
+Intel® Distribution of OpenVINO™ toolkit install folder (/opt/intel/computer_vision_sdk/) includes various samples for developers to understand how Inference Engine APIs can be used. These samples have -pc flag implmented which shows per topology layer performance report. This will allow to see which layers are running on which hardware. We will run a very basic classification sample as an example in this section. We will provide car image as input to the classification sample. The output will be object labels with confidence numbers.  
 
 #### 1. First, get the classification model and convert that to IR using Model Optimizer
 For this example, we will use squeezenet model downloaded with the model downlaoder script while setting up the OS for the workshop. 
@@ -32,7 +32,7 @@ For this example, we will use squeezenet model downloaded with the model downlao
 	
 	python3 mo_caffe.py --input_model /opt/intel/computer_vision_sdk/deployment_tools/model_downloader/classification/squeezenet/1.1/caffe/squeezenet1.1.caffemodel -o $SV/object-detection/ 
 	
-To display labels after classifictaion, you will need a labels file for the squeezenet* model. Get the available labels file from demo directory to your working directory.  
+To display labels after classifictaion, you will need a labels file for the SqueezeNet* model. Get the available labels file from demo directory to your working directory.  
 
 	cp /opt/intel/computer_vision_sdk/deployment_tools/demo/squeezenet1.1.labels $SV/object-detection/
 
