@@ -1,22 +1,22 @@
-# Build your application on laptop and run it on Up2 with Intel System Studio - CMake Porject
-This tutorial will guide you through how to import existing CMake projects into Intel System Studio, then run the applications both locally on the host laptop and remotely on the target Up2 board. All the results and outputs from both local and remote application will be shown on host laptop display.
+# Build your application on laptop and run it on UP²* with Intel System Studio - CMake Porject
+This tutorial will guide you through how to import existing CMake projects into Intel® System Studio, then run the applications both locally on the host laptop and remotely on the target UP²* board. All the results and outputs from both local and remote application will be shown on host laptop display.
 
 ### Import existing CMake Project - Samples(interact-face-detection)
 #### 1. Pre-requisites
-> :warning: Please make sure you have setup the [Internet Connection Sharing](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/up2-vision-kit/dev_machine_setup.md) to get an **IP address** for your Up2 AI Vision Kit, it should be a 10.42.0.xxx
+> :warning: Please make sure you have setup the [Internet Connection Sharing](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/up2-vision-kit/dev_machine_setup.md) to get an **IP address** for your UP Squared* AI Vision Kit, it should be a 10.42.0.xxx
 
-Clean up some settings during our preparation of the workshop on Intel System Studio by running below commands:
+Clean up some settings during our preparation of the workshop on Intel® System Studio by running below commands:
 
 	cd /home/intel/system_studio/workspace/.metadata/.plugins/
 	rm -rf org.eclipse.core.*
 	rm -rf org.eclipse.debug.*
 	cd
 
-#### 2. Copy the Samples folder to Intel System Studio workspace
+#### 2. Copy the Samples folder to Intel® System Studio workspace
 	cp -r /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples /home/intel/system_studio/workspace
 	
-#### 3. Create a C++ project named samples in Intel System Studio
-1. Open Intel System Studio pre-installed on your laptop by double-click the icon on Desktop
+#### 3. Create a C++ project named samples in Intel® System Studio
+1. Open Intel® System Studio pre-installed on your laptop by double-click the icon on Desktop
 2. Go to **Window** -> **Preferences** -> **Intel(R) System Studio** -> **Hide unsupported wizards**, **uncheck** the box, hit Apply then OK
 2. Choose **File -> New -> Project** to start the new project wizard.
 3. Expand **C/C++** and select **C++ project**, Click Next.
@@ -68,7 +68,7 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 
 		#add_subdirectory(validation_app)
 
-10. Since we are going to run the application on both laptop with an Intel Core CPU and on Up2 with an Intel Atom CPU, some of the CPU extensions are not supported for Atom, we want to make sure we disable it for compiler. Expand **cmake** folder under project samples, double click **OptimizationFlags.cmake**, then comment out line 26 and 27, save and close the file. Learn more about the Supported Devices from here: /opt/intel/computer_vision_sdk_2018.3.343/deployment_tools/documentation/docs/SupportedPlugins.html
+10. Since we are going to run the application on both laptop with an Intel® Core™ processor CPU and on UP² with an Intel Atom® processor CPU, some of the CPU extensions are not supported for Intel Atom® processors, we want to make sure we disable it for compiler. Expand **cmake** folder under project samples, double click **OptimizationFlags.cmake**, then comment out line 26 and 27, save and close the file. Learn more about the Supported Devices from here: /opt/intel/computer_vision_sdk_2018.3.343/deployment_tools/documentation/docs/SupportedPlugins.html
 
 		#            set(ENABLE_AVX2    ${HAVE_AVX2})
 		#            set(ENABLE_AVX512F ${HAVE_AVX512F})
@@ -101,7 +101,7 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 4. Click **Variables… -> Edit Variables -> New…** and add a new variable named **ROOT_DIR** with the value **/opt/intel/computer_vision_sdk/deployment_tools**, click Apply
 5. Click Run, you will see the realtime face detection with age, gender and head pose prediction on upper-left running locally on your laptop, and it will print out the results in the console windows
 
-### Run interactive_face_detection_sample as remote application on UP2 then display the results on your laptop
+### Run interactive_face_detection_sample as remote application on UP²* then display the results on your laptop
 1. Preparation:
 
 	a. Open a new Terminal, type command below, we are sending necessary dependencies to the remote device:
@@ -133,7 +133,7 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Create_a_New_Connection.png "Setup Tutorial1_remote Run Configuration")
 
 	<br>
-4. Then type **IP address** of your UP2 board(10.42.0.xxx), username: **upsquared**, choose **password based authentication**, then type **upsquared** as password, then click Finish
+4. Then type **IP address** of your UP² board(10.42.0.xxx), username: **upsquared**, choose **password based authentication**, then type **upsquared** as password, then click Finish
 	<br>
 
 	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Setup_New_Connection.png "Setup Tutorial1_remote Run Configuration")
@@ -167,9 +167,9 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 
 	<br>		
 
-Now we can make a comparison of the performance running the same application between on our host laptop and on the Up2 AI Vision kit, and you can load different models used here to different hardware by changing the arguments and see what is the optimized configuration for this application. More details of this sample project can be found from here: /opt/intel/computer_vision_sdk_2018.3.343/deployment_tools/documentation/docs/InferenceEngineInteractiveFaceDetectionSampleApplication.html
+Now we can make a comparison of the performance running the same application between on our host laptop and on the UP² AI Vision kit, and you can load different models used here to different hardware by changing the arguments and see what is the optimized configuration for this application. More details of this sample project can be found from here: /opt/intel/computer_vision_sdk_2018.3.343/deployment_tools/documentation/docs/InferenceEngineInteractiveFaceDetectionSampleApplication.html
 
-> **Note:** The output of the Up2 AI Kit is too big for the display, we can resize the windows by adding some codes in **main.c** under interact_face_detection_sample folder:
+> **Note:** The output of the UP² AI Kit is too big for the display, we can resize the windows by adding some codes in **main.c** under interact_face_detection_sample folder:
 
 Line 48 below: using namespace InferenceEngine;
 
