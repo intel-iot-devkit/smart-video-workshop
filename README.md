@@ -5,17 +5,17 @@ This workshop will walk you through a computer vision workflow using the latest 
    
 > :warning: For the in-class training, the hardware and software setup part has already been done on the workshop hardware. In-class training participants should directly move to Workshop Agenda section. 
 
-In order to use this workshop content, you will need to setup your hardware and install OpenVINO™ toolkit for infering your computer vision application.  
+In order to use this workshop content, you will need to setup your hardware and install the Intel® Distribution of OpenVINO™ toolkit for infering your computer vision application.  
 ### 1. Hardware requirements
 The hardware requirements are mentioned in the System Requirement section of the [install guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux)
 
 ### 2. Operating System
-These labs have been validated on Ubuntu 16.04 OS. 
+These labs have been validated on Ubuntu* 16.04 OS. 
 
 ### 3. Software installation steps
-#### a). Install OpenVINO™ toolkit 
+#### a). Install Intel® Distribution of OpenVINO™ toolkit 
 Use steps described in the [install guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux)
-to install OpenVINO™ toolkit, build sample demos, build inference engine samples, install MediaSDK and OpenCL* mentioned in the the guide. 
+to install the Intel® Distribution of OpenVINO™ toolkit, build sample demos, build inference engine samples, install Intel® Media SDK and OpenCL™ mentioned in the the guide. 
 
 #### b). Install git, gflags and python libraries
 	sudo apt install git
@@ -24,7 +24,7 @@ to install OpenVINO™ toolkit, build sample demos, build inference engine sampl
     pip3 install -r /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/requirements_caffe.txt
 
 #### c). Compile samples
-Compile in-built samples in OpenVINO™ toolkit 
+Compile in-built samples in Intel® Distribution of OpenVINO™ toolkit 
 
 	sudo su
 	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
@@ -34,7 +34,7 @@ Compile in-built samples in OpenVINO™ toolkit
 	make 
 	exit
 
-#### d). Download models using model downloader scripts in OpenVINO™ toolkit installed folder
+#### d). Download models using model downloader scripts in Intel® Distribution of OpenVINO™ toolkit installed folder
    - Install python3 (version 3.5.2 or newer) 
    - Install yaml and requests modules with command:
 
@@ -49,12 +49,12 @@ Compile in-built samples in OpenVINO™ toolkit
 
 Follow the [guide](./up2-vision-kit/setup_intel_system_studio.md) to install Intel® System Studio and VNC viewer on your development machine.
 	
-> :warning: This workshop content has been validated with OpenVINO™ toolkit version R3 (computer_vision_sdk_2018.3.343). 
+> :warning: This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version R3 (computer_vision_sdk_2018.3.343). 
 
 		
 ## Workshop Agenda
-* **Intel Smart Video/Computer Vision Tools Overview**
-  - Slides - [Introduction to Intel Smart Video Tools](./presentations/01-Introduction-to-Intel-Smart-Video-Tools.pdf)
+* **Smart Video/Computer Vision Tools Overview**
+  - Slides - [Introduction to Smart Video Tools](./presentations/01-Introduction-to-Intel-Smart-Video-Tools.pdf)
 
 * **Training a Deep Learning Model**
   - Slides - [Training a Deep Learning Model](./presentations/DL_training_model.pdf)
@@ -82,9 +82,9 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio.md) to install Int
   - Lab - [Multiple models usage example](./advanced-video-analytics/multiple_models.md)
   - Lab - [Tensor Flow example](./advanced-video-analytics/tensor_flow.md)
   
-* **UP2 AI Vision Development kit as Edge**
+* **UP²* AI Vision Development kit as Edge**
   - Setup - [Development machine and Internet Connection Sharing](./up2-vision-kit/dev_machine_setup.md)
-  - Lab - [Interact face detection on UP2 kit using Intel System Studio](./up2-vision-kit/interact-face-detection.md)
+  - Lab - [Interact face detection on UP2 kit using Intel® System Studio](./up2-vision-kit/interact-face-detection.md)
   
 > #### Disclaimer
 
