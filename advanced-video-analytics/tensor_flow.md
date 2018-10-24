@@ -22,7 +22,7 @@ You should see “(venv) <user>: “on the command line if you are in the Python
 > :warning: Already done for the workshop laptops.
 
     cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/install_prerequisites/
-    sudo ./install_prerequistes_tf.sh
+    sudo ./install_prerequisites_tf.sh
    
 #### Download Model(s) from TensorFlow* -slim library (for both R2 and R3)
 There are a number of pre-trained public models in the TensorFlow*-slim repository. The models are distributed as Python scripts and checkpoint files.
