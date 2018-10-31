@@ -86,6 +86,14 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio.md) to install Int
   - Setup - [Development machine and Internet Connection Sharing](./up2-vision-kit/dev_machine_setup.md)
   - Lab - [Interact face detection on UP2 kit using Intel® System Studio](./up2-vision-kit/interact-face-detection.md)
   
+* **Additional Examples - Reference Implementations**
+  - Industrial 
+  	- [Restricted Zone Notifier](https://github.com/intel-iot-devkit/restricted-zone-notifier-cpp)
+  	- [Object Size Detector](https://github.com/intel-iot-devkit/object-size-detector-cpp)
+  - Retail 
+  	- [Store Traffic Monitor](https://github.com/intel-iot-devkit/store-traffic-monitor)
+	- [Shopper Gaze Monitor](https://github.com/intel-iot-devkit/shopper-gaze-monitor-cpp)
+  
 > #### Disclaimer
 
 > Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries in the U.S. and/or other countries. 
