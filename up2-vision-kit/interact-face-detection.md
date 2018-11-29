@@ -169,7 +169,7 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 
 Now we can make a comparison of the performance running the same application between on our host laptop and on the UP² AI Vision kit, and you can load different models used here to different hardware by changing the arguments and see what is the optimized configuration for this application. More details of this sample project can be found from here: /opt/intel/computer_vision_sdk_2018.3.343/deployment_tools/documentation/docs/InferenceEngineInteractiveFaceDetectionSampleApplication.html
 
-> **Note:** The max resolution of the camera on Up2 is 1920 X 1080, the time for render each frame is unacceptable, which giving people lagging feeling. To solve this issue, we can set the camera resolution to 1280 X 720 by adding some codes in **main.c** under interact_face_detection_sample folder:
+> **Note:** The max resolution of the camera on UP² is 1920 X 1080, the time for render each frame is unacceptable, which giving people lagging feeling. To solve this issue, we can set the camera resolution to 1280 X 720 by adding some codes in **main.c** under interact_face_detection_sample folder:
 
 Line 858 above **const size_t width = (size_t) cap.get(CV_CAP_PROP_FRAM_WIDTH)**:
 
