@@ -1,4 +1,4 @@
-# Build your application on laptop and run it on UP²* with Intel System Studio - CMake Porject
+# Build your application on laptop and run it on UP²* with Intel System Studio - CMake Project
 This tutorial will guide you through how to import existing CMake projects into Intel® System Studio, then run the applications both locally on the host laptop and remotely on the target UP²* board. All the results and outputs from both local and remote application will be shown on host laptop display.
 
 ### Import existing CMake Project - Samples(interact-face-detection)
