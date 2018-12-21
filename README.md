@@ -15,25 +15,27 @@ These labs have been validated on Ubuntu* 16.04 OS.
 ### 3. Software installation steps
 #### a). Install Intel® Distribution of OpenVINO™ toolkit 
 Use steps described in the [install guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux)
-to install the Intel® Distribution of OpenVINO™ toolkit, build sample demos, build inference engine samples, install Intel® Media SDK and OpenCL™ mentioned in the the guide. 
+to install the Intel® Distribution of OpenVINO™ toolkit, configure Model Optimizer, run the demos, additional steps to install Intel® Media SDK and OpenCL™ mentioned in the the guide. 
 
-#### b). Install git, gflags and python libraries
+#### b). Install git, python libraries
 	sudo apt install git
-	sudo apt install libgflags-dev
 	sudo apt install python3-pip
-    pip3 install -r /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/requirements_caffe.txt
+    
+#### c). Run the demo scipts and compile samples
+Delete $HOME/inference_engine_samples folder if it already exists. 
 
-#### c). Compile samples
-Compile in-built samples in Intel® Distribution of OpenVINO™ toolkit 
+	rm -rf $HOME/inference_engine_samples
+	
+Run demo scripts (any one of them or both if you want to both the demos) which will generate the folder $HOME/inference_engine_samples with the current Intel® Distribution of OpenVINO™ toolkit built. 
 
-	sudo su
-	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
-	cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/
-	mkdir build && cd build
-	cmake –DCMAKE_BUILD_TYPE=Release ..
-	make 
-	exit
-
+	cd /opt/intel/computer_vision_sdk/deployment_tools/demo
+	./demo_squeezenet_download_convert_run.sh
+	./demo_security_barrier_camera.sh
+	
+	sudo chown -R username.username $HOME/inference_engine_samples
+	cd $HOME/inference_engine_samples
+	make
+	
 #### d). Download models using model downloader scripts in Intel® Distribution of OpenVINO™ toolkit installed folder
    - Install python3 (version 3.5.2 or newer) 
    - Install yaml and requests modules with command:
@@ -43,13 +45,13 @@ Compile in-built samples in Intel® Distribution of OpenVINO™ toolkit
    - Run model downloader script to download example deep learning models
   		
 	cd /opt/intel/computer_vision_sdk/deployment_tools/model_downloader
-	sudo python3 downloader.py
+	sudo python3 downloader.py --name mobilenet-ssd,ssd300,ssd512
 
 #### e). Install Intel® System Studio, VNC viewer and Setup on development machine
 
 Follow the [guide](./up2-vision-kit/setup_intel_system_studio.md) to install Intel® System Studio and VNC viewer on your development machine.
 	
-> :warning: This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version R3 (computer_vision_sdk_2018.3.343). 
+> :warning: This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version R5 (computer_vision_sdk_2018.5.445). 
 
 		
 ## Workshop Agenda
