@@ -20,7 +20,7 @@ First make sure the USB rules are set up.
 	EOF
 
 	
-	sudo cp 97-usbboot.rules /etc/udev/rules.d/
+	sudo cp 97-myriad-usbboot.rules /etc/udev/rules.d/
 	
 	sudo udevadm control --reload-rules
 	
