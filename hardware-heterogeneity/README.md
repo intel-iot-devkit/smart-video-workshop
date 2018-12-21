@@ -41,7 +41,7 @@ To display labels after classifictaion, you will need a labels file for the Sque
 Make sure you have build the samples as per the instructions given in the [How to Get Started](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/README.md) section. 
 > **Note** For the in-class workshop sessions, the samples are already built in the OS image. 
 
-	 cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
+	 cd $HOME/inference_engine_samples/intel64/Release
 
 
 #### 3. Run classification sample with hetero plugin, prioritizing running on GPU first.
