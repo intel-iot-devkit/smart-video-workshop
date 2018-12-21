@@ -171,7 +171,7 @@ int main(int argc,char **argv)
             rectangle(frame,
                       Point((int)xmin, (int)ymin+32),
                       Point((int)xmax, (int)ymin), Scalar(155, 155, 155),
-                      CV_FILLED, LINE_8,0);
+                      1, LINE_8,0);
             putText(frame,tmplabel,
                     Point((int)xmin, (int)ymin+24), FONT_HERSHEY_COMPLEX, 1.1,
                     Scalar(0, 0, 0),3);
