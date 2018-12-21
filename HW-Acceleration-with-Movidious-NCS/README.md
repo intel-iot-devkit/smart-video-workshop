@@ -13,10 +13,12 @@ This lab shows how the Intel® Distribution of OpenVINO™ toolkit provides hard
 #### System check
 First make sure the USB rules are set up.
 
-	cat <<EOF > 97-usbboot.rules
+	cat <<EOF > 97-myriad-usbboot.rules
 	SUBSYSTEM=="usb", ATTRS{idProduct}=="2150", ATTRS{idVendor}=="03e7", GROUP="users", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
+	SUBSYSTEM=="usb", ATTRS{idProduct}=="2485", ATTRS{idVendor}=="03e7", GROUP="users", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
 	SUBSYSTEM=="usb", ATTRS{idProduct}=="f63b", ATTRS{idVendor}=="03e7", GROUP="users", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
 	EOF
+
 	
 	sudo cp 97-usbboot.rules /etc/udev/rules.d/
 	
@@ -24,16 +26,20 @@ First make sure the USB rules are set up.
 	
 	sudo udevadm trigger
 	
-	sudo ldconfig
-
 Then check if the device is visible with lsusb.
 	
 	lsusb
 	
 The output will be
+If using NCS1,
 
 	Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 	Bus 001 Device 015: ID 03e7:2150  
+	
+If useing NCS2,
+
+	Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+	Bus 001 Device 015: ID 03e7:2485 
 
 Here ID 03e7:2150 without a description string is the Movidius device.
 
