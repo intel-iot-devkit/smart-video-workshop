@@ -92,7 +92,7 @@ It is clear that we got better performance with FP16 models.
 The async API can improve the overall frame rate of the application. While the accelerator is busy with running inference operations, the application can continue encoding, decoding or post inference data processing on the host. For this section, we will use the object_detection_demo_ssd_async sample. This sample makes asynchronous requests to the inference engine. This reduces the inference request latency, so that the overall framerate is determined by the MAXIMUM(detection time, input capturing time) and not the SUM(detection time, input capturing time).
 #### a) Navigate to the object_detection_demo_ssd_async sample build directory
 
-	cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
+	cd $HOME/inference_engine_samples/intel64/Release
     
 #### b) Run the async example
 
