@@ -1,30 +1,13 @@
 # Converting a TensorFlow* Model in Linux*
-
-> **Note:** *For Intel® Distribution of OpenVINO™ toolkit release R2 and R3, the file paths used in the TensorFlow* model conversion are different. Please follow the steps carefully for your installed Intel® Distribution of OpenVINO™ toolkit version. You can check the Intel® Distribution of OpenVINO™ toolkit version by going to /opt/intel/ folder. If the folder starts with computer_vision_sdk_2018.2.xxx, it is release R2. If it starts with computer_vision_sdk_2018.3.xxx, it's release R3. Please confirm the version before you follow the steps.*
-
-##### For Intel® Distribution of OpenVINO™ toolkit release R2, use virtual environment for Python* by running:
-
-    source /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/venv/bin/activate
-    
-You should see “(venv) <user>: “on the command line if you are in the Python* virtual environment
-	
-##### For Intel® Distribution of OpenVINO™ toolkit release R3, virtual environment for Python* is not required. 
   
 ### Pre-Requisites: 
-#### Change ownership of the directory to the current user (for both R2 and R3)
+#### Change ownership of the directory to the current user 
 
 > **Note:** *replace the usernames below with your user account name*
 		
 	sudo chown username.username -R /opt/intel
-    
-#### Install Pre-Requisites for TensorFlow* Framework (for both R2 and R3)
-
-> :warning: Already done for the workshop laptops.
-
-    cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/install_prerequisites/
-    sudo ./install_prerequisites_tf.sh
-   
-#### Download Model(s) from TensorFlow* -slim library (for both R2 and R3)
+     
+#### Download Model(s) from TensorFlow* -slim library 
 There are a number of pre-trained public models in the TensorFlow*-slim repository. The models are distributed as Python scripts and checkpoint files.
 First of all download repository with models.
 Note: This is done in home directory(~)
@@ -33,14 +16,14 @@ Note: This is done in home directory(~)
     git clone https://github.com/tensorflow/models/
     cd models/research/slim
 
-#### Export Inference Graph and download checkpoint file (for both R2 and R3)
+#### Export Inference Graph and download checkpoint file 
 Export inference graph for one of the available models using the following command (Inception V1 in this example): 
 
     python3 export_inference_graph.py --alsologtostderr --model_name=inception_v1 --output_file=/tmp/inception_v1_inf_graph.pb
     
 The script creates inference graph file with name “inception_v1_inf_graph.pb” in the /tmp direcory.
 
-#### Download archive with checkpoint file (Inception V1 in this example): (for both R2 and R3)
+#### Download archive with checkpoint file (Inception V1 in this example): 
 
     export CHECKPOINT_DIR=/tmp/checkpoints
     
@@ -57,7 +40,7 @@ The script creates inference graph file with name “inception_v1_inf_graph.pb�
 #### Freeze the model
 The last step is to freeze the graph. To do this you need to know the output node of the model you are planning to freeze. This information is found by running the summarize_graph.
 
-##### Summarize Graph (for both R2 and R3)
+##### Summarize Graph 
 Go to ~/models/research/slim/ directory and run summarize_graph.py script.
 
     cd ~/models/research/slim/
@@ -71,19 +54,15 @@ Name: input, type: float32, shape: (-1,224,224,3)
 1 output(s) detected:
 InceptionV1/Logits/Predictions/Reshape_1Freeze Graph
 
-##### Freeze the graph for Intel® Distribution of OpenVINO™ toolkit release R2
-The script generates inception_v1_frozen.pb file with the frozen model in the directory you are currently in.
-
-	python3 /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/venv/lib/python3.5/site-packages/tensorflow/python/tools/freeze_graph.py --input_graph /tmp/inception_v1_inf_graph.pb --input_binary --input_checkpoint /tmp/checkpoints/inception_v1.ckpt --output_node_names InceptionV1/Logits/Predictions/Reshape_1 --output_graph inception_v1_frozen.pb
  
-##### Freeze the graph for Intel® Distribution of OpenVINO™ toolkit release R3
+##### Freeze the graph for Intel® Distribution of OpenVINO™ toolkit 
 The script generates inception_v1_frozen.pb file with the frozen model in the directory you are currently in.
  
  	python3 /usr/local/lib/python3.5/dist-packages/tensorflow/python/tools/freeze_graph.py --input_graph /tmp/inception_v1_inf_graph.pb --input_binary --input_checkpoint /tmp/checkpoints/inception_v1.ckpt --output_node_names InceptionV1/Logits/Predictions/Reshape_1 --output_graph inception_v1_frozen.pb
     
-For Intel® Distribution of OpenVINO™ toolkit release R3, if you might get warning message "Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA" while executing above command, ignore that. 
+You might get warning message "Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA" while executing above command, ignore that. 
 
-### Convert Frozen Tensorflow* model to IR using Model Optimizer (for both R2 and R3)
+### Convert Frozen Tensorflow* model to IR using Model Optimizer 
 Assuming you are in the ~/models/research/slim/ directory 
 
     python3 /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/mo_tf.py --input_model inception_v1_frozen.pb --input_shape [1,224,224,3] --mean_values [1024,1024,1024] --scale_values [128,128,128]
@@ -91,7 +70,7 @@ Assuming you are in the ~/models/research/slim/ directory
 This should produce “inception_v1_frozen.xml” and “inception_v1_frozen.bin” file. The xml file contains the topology information of the model and the bin file contains the model’s weights and biases. These two files are expected when using the inference engine so make note of the path.
 
 
-### Run Classification Sample (for both R2 and R3)
+### Run Classification Sample
 
 The classification sample will showcase the Intel® Distribution of OpenVINO™ toolkit inference engine using TensorFlow model Inception_v1_frozen IR files (.xml & .bin) and an input image of a car to classify.
 The classification collateral is defined as the input image car_1.bmp, the Inception_v1_frozen IR files (.xml & .bin), and the labels file inception_v1_frozen.labels.
@@ -102,7 +81,7 @@ Note: The following steps should be followed and are assuming you are following 
  
 Navigate to the classification_sample executable file:
 
-    cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
+    cd $HOME/inference_engine_samples/intel64/Release
 
 Place Classification App collateral in current local directory:
 
@@ -121,40 +100,50 @@ Expected Output:
 
 
     [ INFO ] InferenceEngine: 
-      API version ............ 1.0
-      Build .................. 10478
-    [ INFO ] Parsing input parameters
-    [ INFO ] Loading plugin
+	API version ............ 1.4
+	Build .................. 19154
+	[ INFO ] Parsing input parameters
+	[ INFO ] Files were added: 1
+	[ INFO ]     car_1.bmp
+	[ INFO ] Loading plugin
 
-      API version ............ 1.0
-      Build .................. lnx_20180314
-      Description ....... MKLDNNPlugin
-    [ INFO ] Loading network files:
-      /home/monique/inception_v1_frozen.xml
-      /home/monique/inception_v1_frozen.bin
-    [ INFO ] Preparing input blobs
-    [ WARNING ] Image is resized from (749, 637) to (224, 224)
-    [ INFO ] Batch size is 1
-    [ INFO ] Preparing output blobs
-    [ INFO ] Loading model to the plugin
-    [ INFO ] Starting inference (1 iterations)
-    [ INFO ] Average running time of one iteration: 12.1089 ms
-    [ INFO ] Processing output blobs
+		API version ............ 1.5
+		Build .................. lnx_20181004
+		Description ....... MKLDNNPlugin
+	[ INFO ] Loading network files:
+		inception_v1_frozen.xml
+		inception_v1_frozen.bin
+	[ INFO ] Preparing input blobs
+	[ WARNING ] Image is resized from (749, 637) to (224, 224)
+	[ INFO ] Batch size is 1
+	[ INFO ] Preparing output blobs
+	[ INFO ] Loading model to the plugin
+	[ INFO ] Starting inference (1 iterations)
+	[ INFO ] Processing output blobs
 
-    Top 10 results:
+	Top 10 results:
 
-    Image /opt/intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp
+	Image car_1.bmp
 
-    829 0.9999994 label streetcar, tram, tramcar, trolley, trolley car
-    905 0.0000005 label window shade
-    950 0.0000001 label orange
-    430 0.0000000 label basketball
-    56 0.0000000 label king snake, kingsnake
-    370 0.0000000 label guenon, guenon monkey
-    490 0.0000000 label chain mail, ring mail, mail, chain armor, chain armour, ring armor, ring armour
-    575 0.0000000 label golfcart, golf cart
-    41 0.0000000 label whiptail, whiptail lizard
-    856 0.0000000 label thresher, thrasher, threshing machine
+	829 0.6013380 label streetcar, tram, tramcar, trolley, trolley car
+	905 0.1193137 label window shade
+	557 0.0587131 label flagpole, flagstaff
+	600 0.0273736 label hook, claw
+	812 0.0096623 label space shuttle
+	633 0.0080024 label loupe, jeweler's loupe
+	795 0.0052693 label ski
+	791 0.0045856 label shopping cart
+	652 0.0042737 label military uniform
+	689 0.0042264 label overskirt
+
+
+	total inference time: 11.8761007
+	Average running time of one iteration: 11.8761007 ms
+
+	Throughput: 84.2027217 FPS
+
+	[ INFO ] Execution successful
+
 
 
 
