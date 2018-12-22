@@ -8,11 +8,11 @@ The Intel® Distribution of OpenVINO™ toolkit package includes security barrie
 #### 1. Navigate to the security camera barrier sample build directory
 	 export SV=/opt/intel/workshop/smart-video-workshop/
 	 source /opt/intel/computer_vision_sdk/bin/setupvars.sh
-	 cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
+	 cd $HOME/inference_engine_samples/intel64/Release
   
 #### 2. Run the executable for the security barrier sample with the mobilenet-ssd* model used in the first tutorial
 
-	 ./security_barrier_camera_sample -i /opt/intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d CPU
+	 ./security_barrier_camera_demo -i /opt/intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d CPU
  
 #### 3. Run the security camera sample with Intel optimized pre-trained models 
 
@@ -41,8 +41,8 @@ Following car image will appear the at end of the above command execution. It sh
 
 #### 1. Let's look at the face detection sample from the Intel® Distribution of OpenVINO™ toolkit package
 	
-	cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
-	 ./interactive_face_detection_sample -h
+	cd $HOME/inference_engine_samples/intel64/Release
+	 ./interactive_face_detection_demo -h
 	 
 #### 2. Check if a web cam is connected
 
@@ -54,20 +54,20 @@ Following car image will appear the at end of the above command execution. It sh
 	
 #### 4. Run the face demo, face detection only, on the Intel® Movidius™ Neural Compute stick
 
-	./interactive_face_detection_sample -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD
+	./interactive_face_detection_demo -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD
 
 #### 5. Now we add (to the face detection) also an age and gender detection, running on the CPU
 
-	./interactive_face_detection_sample -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD -m_ag $models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU 
+	./interactive_face_detection_demo -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD -m_ag $models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU 
 
 
 #### 6. Now let’s add head position detection running on GPU.
  
- 	./interactive_face_detection_sample -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD -m_ag $models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp $models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU
+ 	./interactive_face_detection_demo -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD -m_ag $models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp $models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU
 
 #### 7. Now we’ll add an emotion detector, running on the GPU
 	
-	./interactive_face_detection_sample -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD -m_ag $models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp $models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU -m_em $models/emotions-recognition-retail-0003/FP16/emotions-recognition-retail-0003.xml -d_em GPU
+	./interactive_face_detection_demo -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD -m_ag $models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp $models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU -m_em $models/emotions-recognition-retail-0003/FP16/emotions-recognition-retail-0003.xml -d_em GPU
 	
 
 	
