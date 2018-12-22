@@ -13,7 +13,7 @@ Clean up some settings during our preparation of the workshop on Intel® System 
 	cd
 
 #### 2. Copy the Samples folder to Intel® System Studio workspace
-	cp -r /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples /home/intel/system_studio/workspace
+	cp -r $HOME/inference_engine_samples /home/intel/system_studio/workspace
 	
 #### 3. Create a C++ project named samples in Intel® System Studio
 1. Open Intel® System Studio pre-installed on your laptop by double-click the icon on Desktop
@@ -47,8 +47,8 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 	line 142-158:
 
 		#add_subdirectory(object_detection_sample)
-		add_subdirectory(interactive_face_detection_sample)
-		#add_subdirectory(security_barrier_camera_sample)
+		add_subdirectory(interactive_face_detection_demo)
+		#add_subdirectory(security_barrier_camera_demo)
 		#add_subdirectory(object_detection_demo_ssd_async)
 		#add_subdirectory(object_detection_sample_ssd)
 		#add_subdirectory(classification_sample)
@@ -142,7 +142,7 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 
 5. In **Remote Absolute File Path for C/C++ Application**, type:
 
-		/home/upsquared/interactive_face_detection_sample
+		/home/upsquared/interactive_face_detection_demo
 	
 6. In **Commands to execute before application**, type:
 	> **Note:** *Remember to open a Terminal on your laptop, type **ssh upsquared@10.42.0.xxx -X** and keep this terminal open, for running a GUI application remotely and display it locally*
