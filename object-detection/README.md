@@ -42,7 +42,10 @@ In this section, you will use the Model Optimizer to convert a trained model to 
 
 	cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer
 
-#### 3. Run the Model Optimizer on the pretrained Caffe* model. This step generates one .xml file and one .bin file and place both files in the tutorial samples directory (located here: /object-detection/)
+#### 3. Download the mobilenet-ssd model
+	python3 downloader.py --name mobilenet-ssd
+
+#### 4. Run the Model Optimizer on the pretrained Caffe* model. This step generates one .xml file and one .bin file and place both files in the tutorial samples directory (located here: /object-detection/)
 
 	python3 mo_caffe.py --input_model /opt/intel/computer_vision_sdk/deployment_tools/model_downloader/object_detection/common/mobilenet-ssd/caffe/mobilenet-ssd.caffemodel -o $SV/object-detection/mobilenet-ssd/FP32 --scale 256 --mean_values [127,127,127]
 
@@ -54,11 +57,11 @@ The Model Optimizer converts a pretrained Caffe* model to make it compatible wit
 	
 > **Note:** if you continue to train or make changes to the Caffe* model, you would then need to re-run the Model Optimizer on the updated model.
 
-#### 4. Navigate to the tutorial sample model directory
+#### 5. Navigate to the tutorial sample model directory
 
 	cd $SV/object-detection/mobilenet-ssd/FP32
 
-#### 5. Verify creation of the optimized model files (the IR files)
+#### 6. Verify creation of the optimized model files (the IR files)
 
 	ls
 
