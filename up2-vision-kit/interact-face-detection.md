@@ -7,13 +7,13 @@ This tutorial will guide you through how to import existing CMake projects into 
 
 Clean up some settings during our preparation of the workshop on Intel® System Studio by running below commands:
 
-	cd /home/intel/system_studio/workspace/.metadata/.plugins/
+	cd /home/<username>/system_studio/workspace/.metadata/.plugins/
 	rm -rf org.eclipse.core.*
 	rm -rf org.eclipse.debug.*
 	cd
 
 #### 2. Copy the Samples folder to Intel® System Studio workspace
-	cp -r $HOME/inference_engine_samples /home/intel/system_studio/workspace
+	cp -r $HOME/inference_engine_samples /home/<username>/system_studio/workspace
 	
 #### 3. Create a C++ project named samples in Intel® System Studio
 1. Open Intel® System Studio pre-installed on your laptop by double-click the icon on Desktop
@@ -106,7 +106,7 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 
 	a. Open a new Terminal, type command below, we are sending necessary dependencies to the remote device:
 
-		scp -r /home/intel/system_studio/workspace/samples/build/Debug/intel64/Debug/lib upsquared@10.42.0.xxx:/home/upsquared/
+		scp -r /home/<username>/system_studio/workspace/samples/build/Debug/intel64/Debug/lib upsquared@10.42.0.xxx:/home/upsquared/
 		
 	b. To run a graphic application on remote device and display on your host, here we use X11 Forwarding with SSH, open another Terminal on your laptop, type below command and **keep this terminal open**
 
