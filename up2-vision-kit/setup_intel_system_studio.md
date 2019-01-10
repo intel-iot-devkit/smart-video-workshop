@@ -12,8 +12,10 @@
   <br>
   
 5.	Download, by default **system_studio_2018_version_ultimate_edition.tar.gz**  will be downloaded to your **/home/username/Downloads** on your Ubuntu
-6.	Abstract **system_studio_2018_version_ultimate_edition.tar.gz**
-7.	Open a terminal, go to the abstracted installation directory and run **./install.sh**  
+6.	Extract **system_studio_2018_version_ultimate_edition.tar.gz**
+
+		tar -xvf system_studio_2018_version_ultimate_edition.tar.gz
+7.	Open a terminal, go to the extracted installation directory and run **sudo ./install.sh**  
 8.	Install as root user, type your password, enter the Serial Number Emailed to you, you can click **Customize** then **Next** to choose which components you’d like to install, here we only selected the **minimal requirements** for our workshop:
     1. Eclipse IDE
     2. Intel® C++ Compiler 18.0
