@@ -56,6 +56,8 @@ The 10.42.0.x IP address has been assigned to your UP² board.
         
 3. Run the upgrade script
 
+        sudo apt update
+
         sudo ./install_NEO_OCL_driver.sh
         
 4. Once done, reboot UP²
