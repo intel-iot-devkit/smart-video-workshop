@@ -83,7 +83,7 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 
 	<br>
 
-2. Then doulbe click **C/C++ Application**, it will generate a configuration named interactive_face_detection_sample, rename it to **interactive_face_detection_sample_local**, click Apply
+2. Then doulbe click **C/C++ Application**, it will generate a configuration named **interactive_face_detection_sample**, you can rename it to **interactive_face_detection_sample_local**, click **Apply**
 	<br>
 
 	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration_face_detection_local.png "Open Run Configuration")
@@ -91,18 +91,21 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 	<br>
 3. Click **Arguments** tag, add below arguments in **Program arguments:** then click **Apply** and **OK**
 
-        -m ${ROOT_DIR}/intel_models/face-detection-retail-0004/FP32/face-detection-retail-0004.xml -m_ag ${ROOT_DIR}/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -m_hp ${ROOT_DIR}/intel_models/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001.xml -d CPU -d_ag CPU -d_hp CPU
+        -i cam -m ${ROOT_DIR}/intel_models/face-detection-retail-0004/FP32/face-detection-retail-0004.xml -d CPU -m_ag ${ROOT_DIR}/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp ${ROOT_DIR}/intel_models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU -m_em ${ROOT_DIR}/intel_models/emotions-recognition-retail-0003/FP16/emotions-recognition-retail-0003.xml -d_em GPU
 	
 	<br>
 
 	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration_face_detection_local_arguments.png "Open Run Configuration")
 
 	<br>	
-4. Click **Variables… -> Edit Variables -> New…** and add a new variable named **ROOT_DIR** with the value **/opt/intel/computer_vision_sdk/deployment_tools**, click Apply
-5. Click Run, you will see the realtime face detection with age, gender and head pose prediction on upper-left running locally on your laptop, and it will print out the results in the console windows
+4. Click **Variables… -> Edit Variables -> New…** and add a new variable named **ROOT_DIR** with the value **/opt/intel/computer_vision_sdk/deployment_tools**, click **OK**
 
-### Run interactive_face_detection_sample as remote application on UP²* then display the results on your laptop
+5. Click **Apply** and **Run**, you will see the realtime face detection with age, gender, head pose prediction and mood analysis on the display
+
+### Run interactive_face_detection_sample as remote application on target UP²* but display the processed video on host laptop
 1. Preparation:
+
+	a. 
 
 	a. Open a new Terminal, type command below, we are sending necessary dependencies to the remote device:
 
