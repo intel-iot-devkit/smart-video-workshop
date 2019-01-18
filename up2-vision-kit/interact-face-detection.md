@@ -76,14 +76,14 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 	<br>
 
 ### Run interactive_face_detection_sample as local application on your laptop
-1. Right click **interactive_face_detection_sample** from **Binaries**, select **Run As -> Run Configurations...**
+1. Right click **interactive_face_detection_demo** from **Binaries**, select **Run As -> Run Configurations...**
 	<br>
 
 	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_samples_Run_Configuration.png "Open Run Configuration")
 
 	<br>
 
-2. Then doulbe click **C/C++ Application**, it will generate a configuration named **interactive_face_detection_sample**, you can rename it to **interactive_face_detection_sample_local**, click **Apply**
+2. Then doulbe click **C/C++ Application**, it will generate a configuration named **interactive_face_detection_demo**, you can rename it to **interactive_face_detection_demo_local**, click **Apply**
 	<br>
 
 	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration_face_detection_local.png "Open Run Configuration")
@@ -103,51 +103,73 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 5. Click **Apply** and **Run**, you will see the realtime face detection with age, gender, head pose prediction and mood analysis on the display
 
 ### Run interactive_face_detection_sample as remote application on target UP²* but display the processed video on host laptop
-1. Preparation:
 
-	a. 
+Cross compiling may cause issues while host and target system has different type of CPU. In this case, our host laptop has the Intel Core CPU while on the UP²*, it was using Intel Atom CPU. So, we need to set the flags for compiler running on the host, to disable the unsuppoted CPU extensions for the target system. In addition, since we don't connect monitors for UP²* but are going to run a graphic application on it, we will use X forwarding to send back the graphics to show on our host system. 
 
-	a. Open a new Terminal, type command below, we are sending necessary dependencies to the remote device:
+1. Right click **Build** under the **samples**, click **delete**:
+	<br>
 
-		scp -r /home/<username>/system_studio/workspace/samples/build/Debug/intel64/Debug/lib upsquared@10.42.0.xxx:/home/upsquared/
+	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Delete_Build.png "Delete Build")
+
+	<br>
+	
+2. Right click the project name, at the bottom of the options, select **Properties -> C/C++ Build**, double click **CMake**, then select **Host OS overrides**, on the right panel, click **Add...** of **CMake cache entries to define (-D)**. In the **Add new CMake Define** window, put **ENABLE_AVX2** into Variable name, select **BOOL** as Type, and put **OFF** into Value:
+	<br>
+
+	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_ENABLE_AVX2.png "Add Cmake Option")
+
+	<br>
+	
+3. click **Add...** of **CMake cache entries to define (-D)**. In the **Add new CMake Define** window, put **ENABLE_AVX512F** into Variable name, select **BOOL** as Type, and put **OFF** into Value, then click **Apply**:
+	<br>
+
+	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_ENABLE_AVX512F.png "Add Cmake Option")
+
+	<br>
+	
+4. Click the little hammer icon on top left to rebuild the project
+5. Open a terminal, copy the generated CPU extension library to the target system by typing:
+
+		cd /home/<username>/system_studio/workspace/samples/build/Debug/intel64/Release/
+		scp -r lib upsquared@10.42.0.xxx:/home/upsquared/
 		
-	b. To run a graphic application on remote device and display on your host, here we use X11 Forwarding with SSH, open another Terminal on your laptop, type below command and **keep this terminal open**
+6. To run a graphic application on remote device and display on your host, here we use X11 Forwarding with SSH, open another Terminal on your laptop, type below command and **keep this terminal open**
 
 		ssh upsquared@10.42.0.xxx -X 
 	
-	c. To get the read and write authority of the camera on the remote device, we need to type: 
+7. To get the read and write authority of the camera on the remote device, we need to type: 
 	
 		sudo chmod 666 /dev/video0
 		
 	> **Note:** upsquared@upsquared-UP-APL01:~$ sudo chmod 666 /dev/video0
 
 
-1. Right click **interactive_face_detection_sample** from **Binaries**, select **Run As -> Run Configurations...**, then doulbe click **C/C++ Remote Application**, it will generate a configuration named interactive_face_detection_sample, rename it to **interactive_face_detection_sample_remote**, click Apply
+8. Back to Intel System Studio interface, right click **interactive_face_detection_sample_demo** from **Binaries**, select **Run As -> Run Configurations...**, then doulbe click **C/C++ Remote Application**, it will generate a configuration named **interactive_face_detection_demo**, rename it to **interactive_face_detection_demo_remote**, click Apply
 
-2. Click **New** button after **Connection:**
+9. Click **New** button after **Connection:**
 	<br>
 
 	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Run_Configuration_New_Connection.png "Setup New Connection")
 
 	<br>
-3. In the droplist, choose **SSH**
+10. In the droplist, choose **SSH**
 	<br>
 
 	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Create_a_New_Connection.png "Setup Tutorial1_remote Run Configuration")
 
 	<br>
-4. Then type **IP address** of your UP² board(10.42.0.xxx), username: **upsquared**, choose **password based authentication**, then type **upsquared** as password, then click Finish
+11. Then type **IP address** of your UP² board(10.42.0.xxx), username: **upsquared**, choose **password based authentication**, then type **upsquared** as password, then click Finish
 	<br>
 
 	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Setup_New_Connection.png "Setup Tutorial1_remote Run Configuration")
 
 	<br>	
 
-5. In **Remote Absolute File Path for C/C++ Application**, type:
+12. In **Remote Absolute File Path for C/C++ Application**, type:
 
 		/home/upsquared/interactive_face_detection_demo
-	
-6. In **Commands to execute before application**, type:
+		
+13. In **Commands to execute before application**, type:
 	> **Note:** *Remember to open a Terminal on your laptop, type **ssh upsquared@10.42.0.xxx -X** and keep this terminal open, for running a GUI application remotely and display it locally*
 	
 		export DISPLAY=localhost:10.0
@@ -162,7 +184,7 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 	
 6. Click **Arguments** tag, add below arguments in **Program arguments:** then click Apply and OK
 
-		-m ${ROOT_DIR}/intel_models/face-detection-retail-0004/FP32/face-detection-retail-0004.xml -m_ag ${ROOT_DIR}/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -m_hp ${ROOT_DIR}/intel_models/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001.xml -d CPU -d_ag CPU -d_hp CPU
+		-i cam -m ${ROOT_DIR}/intel_models/face-detection-retail-0004/FP32/face-detection-retail-0004.xml -d CPU -m_ag ${ROOT_DIR}/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp ${ROOT_DIR}/intel_models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU -m_em ${ROOT_DIR}/intel_models/emotions-recognition-retail-0003/FP16/emotions-recognition-retail-0003.xml -d_em GPU
 		
 	<br>
 
@@ -174,9 +196,9 @@ Now we can make a comparison of the performance running the same application bet
 
 > **Note:** The max resolution of the camera on UP² is 1920 X 1080, the time for render each frame is unacceptable, which giving people lagging feeling. To solve this issue, we can set the camera resolution to 1280 X 720 by adding some codes in **main.c** under interact_face_detection_sample folder:
 
-Line 858 above **const size_t width = (size_t) cap.get(CV_CAP_PROP_FRAM_WIDTH)**:
+Line 85 above **const size_t width = (size_t) cap.get(CV_CAP_PROP_FRAM_WIDTH)**:
 
-	cap.set(CV_CAP_PROP_FRAM_WIDTH,1280);
-	cap.set(CV_CAP_PROP_FRAM_HEITHG,720);
+        cap.set(cv::CAP_PROP_FRAME_WIDTH,1280);
+        cap.set(cv::CAP_PROP_FRAME_HEIGHT,720);
 	
 After this, click save all and build all, then run your application again, it will give you better performance. 
