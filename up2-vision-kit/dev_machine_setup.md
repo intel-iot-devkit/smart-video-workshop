@@ -18,7 +18,9 @@ command.
 
 ***Illustrated Instructions***
 
-Select the **wifi/Ethernet** icon from the top menu, and choose **Edit
+Plug in the USB to Ethernet adaptor to the laptop, **DO NOT plug in the Ethernet cable at this point**
+
+On your Ubuntu Desktop, select the **wifi/Ethernet** icon from the top menu, and choose **Edit
 Connections...**
 
 ![](../images/edit_connections1.png)
@@ -43,23 +45,9 @@ safely ignored.
 The 10.42.0.x IP address has been assigned to your UP² board.
 
 
-
-
-***OpenCL driver upgrade for UP²* board installed with Intel® Distribution of OpenVINO™ toolkit R3.343***
-1. SSH to UP² board with the IP address you just obtained, password: **upsquared**
+You can now SSH to UP² board with the IP address you just obtained, password: **upsquared**
 
         ssh upsquared@10.42.0.xxx
-    
-2. Go to the directory contains the OpenCL™ driver update script
 
-        cd /opt/intel/computer_vision_sdk/install_dependencies/
-        
-3. Run the upgrade script
-
-        sudo ./install_NEO_OCL_driver.sh
-        
-4. Once done, reboot UP²
-
-        sudo reboot
         
     
