@@ -12,68 +12,68 @@ Clean up some settings during our preparation of the workshop on Intel® System 
 	rm -rf org.eclipse.debug.*
 	cd
 
-#### 2. Copy the Samples folder to Intel® System Studio workspace
-	cp -r $HOME/inference_engine_samples /home/<username>/system_studio/workspace
+#### 2. Prepare the samples project folder to Intel® System Studio workspace
+	cd /home/<username>/system_studio/workspace
+	mkdir samples
+	cp /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/CMakeLists.txt /home/<username>/system_studio/workspace/samples
+	cp -r /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/common /home/<username>/system_studio/workspace/samples
+	cp -r /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/thirdparty /home/<username>/system_studio/workspace/samples
+	cp -r /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/interactive_face_detection_demo /home/<username>/system_studio/workspace/samples
 	
 #### 3. Create a C++ project named samples in Intel® System Studio
 1. Open Intel® System Studio pre-installed on your laptop by double-click the icon on Desktop
 2. Go to **Window** -> **Preferences** -> **Intel(R) System Studio** -> **Hide unsupported wizards**, **uncheck** the box, hit Apply then OK
-2. Choose **File -> New -> Project** to start the new project wizard.
-3. Expand **C/C++** and select **C++ project**, Click Next.
-4. Type the name **samples** for the project in the Name field.
-5. In the Toolchains list, choose **Linux GCC**. Click Finish.
+	<br>
+
+	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Uncheck_Hide_Unsupported_Wizards.png "Uncheck")
+
+	<br>
+3. Choose **File -> New -> Project** to start the new project wizard.
+4. Expand **C/C++** and select **C++ project**, Click Next.
+5. Type the name **samples** for the project in the Name field.
+6. In the Toolchains list, choose **Linux GCC**. Click Finish.
 If you see an 'Old project will be overridden' message, click OK.
 If you see an ‘Open Associated Perspective’ message, click Yes.
-6. Right click the project name, at the bottom of the options, select **Properties -> C/C++ Build**
-7. Expand **C/C++ Build** and select **Toolchain Editor**. The Tool Chain Editor options are displayed on the right, from the **Current Builder** droplist, choose **CMake Builder (portable)**. Click **OK**
+	<br>
+
+	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Create_C++_Project.png "Create C++ Project")
+
+	<br>
+7. Right click the project name, at the bottom of the options, select **Properties -> C/C++ Build**
+8. Expand **C/C++ Build** and select **Toolchain Editor**. The Tool Chain Editor options are displayed on the right, from the **Current Builder** droplist, choose **CMake Builder (portable)**. Click **Apply**
 	<br>
 
 	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_CMake_C_C++_Build_Setup.png "CMake C/C++ Build Setup")
 
 	<br>
-
-8. Expand project, delete below folders. In this lab, we will only run **interactive_face_detection** sample, in order to save the build time, we will remove unused projects from this sample folder. You can check all the other samples from **SamplesOverview** document located in: **/opt/intel/computer_vision_sdk_2018.3.343/deployment_tools/documentation/docs/SamplesOverview.html**
+	
+9. Double click **CMake**, then select **Host OS overrides**, on the right panel, click **Add...** of **CMake cache entries to define (-D)**
 	<br>
 
-	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_CMake_sample_simplify.png "CMake C/C++ Build Setup")
+	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Host_OS_Overrides.png "CMake C/C++ Build Setup")
 
 	<br>
-9. Update **CMakeLists.txt** by commenting out the deleted directories, only keeping the **interactive_face_detection_sample** uncommented, save and close CMakeLists.txt
+	
+10. In the **Add new CMake Define** window, put **CMAKE_BUILD_TYPE** into Variable name, select **STRING** as Type, and put **Release** into Value, click **Apply**
+	<br>
 
-	line 128:
+	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_CMAKE_BUILD_TYPE.png "CMake C/C++ Build Setup")
 
-		#add_subdirectory(speech_sample)
-		
-	line 142-158:
+	<br>
+	
+11. Click **C/C++ Build**, on the right panel, choose **Behavior** tag, then enter **-j8 interactive_face_detection_demo** after **Build (Incremnetal build)**, click **Apply** and **OK**
+	<br>
 
-		#add_subdirectory(object_detection_sample)
-		add_subdirectory(interactive_face_detection_demo)
-		#add_subdirectory(security_barrier_camera_demo)
-		#add_subdirectory(object_detection_demo_ssd_async)
-		#add_subdirectory(object_detection_sample_ssd)
-		#add_subdirectory(classification_sample)
-		#add_subdirectory(classification_sample_async)
-		#add_subdirectory(hello_autoresize_classification)
-		#add_subdirectory(hello_classification)
-		#add_subdirectory(hello_request_classification)
-		#add_subdirectory(segmentation_sample)
-		#add_subdirectory(mask_rcnn_sample)
-		#add_subdirectory(style_transfer_sample)
-		#add_subdirectory(end2end_video_analytics)
-		#add_subdirectory(crossroad_camera_sample)
-		#add_subdirectory(smart_classroom_sample)
-		#add_subdirectory(multichannel_face_detection)
-		
-	line 166:
+	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Build_Command.png "CMake C/C++ Build Setup")
 
-		#add_subdirectory(validation_app)
+	<br>
+	
+12. Click the little hammer icon on top left to build the project
+	<br>
 
-10. Since we are going to run the application on both laptop with an Intel® Core™ processor CPU and on UP² with an Intel Atom® processor CPU, some of the CPU extensions are not supported for Intel Atom® processors, we want to make sure we disable it for compiler. Expand **cmake** folder under project samples, double click **OptimizationFlags.cmake**, then comment out line 26 and 27, save and close the file. Learn more about the Supported Devices from here: /opt/intel/computer_vision_sdk_2018.3.343/deployment_tools/documentation/docs/SupportedPlugins.html
+	![image of Intel System Studio](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS_Click_To_Build_Project.png "CMake C/C++ Build Setup")
 
-		#            set(ENABLE_AVX2    ${HAVE_AVX2})
-		#            set(ENABLE_AVX512F ${HAVE_AVX512F})
-
-11. Click the little hammer icon to build the project, once complete, you will see **interactive_face_detection_sample** generated in **Binaries**
+	<br>
 
 ### Run interactive_face_detection_sample as local application on your laptop
 1. Right click **interactive_face_detection_sample** from **Binaries**, select **Run As -> Run Configurations...**
