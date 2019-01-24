@@ -91,7 +91,7 @@ If you see an ‘Open Associated Perspective’ message, click Yes.
 	<br>
 3. Click **Arguments** tag, add below arguments in **Program arguments:** then click **Apply** and **OK**
 
-        -i cam -m ${ROOT_DIR}/intel_models/face-detection-retail-0004/FP32/face-detection-retail-0004.xml -d CPU -m_ag ${ROOT_DIR}/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp ${ROOT_DIR}/intel_models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU -m_em ${ROOT_DIR}/intel_models/emotions-recognition-retail-0003/FP16/emotions-recognition-retail-0003.xml -d_em GPU
+        -i cam -m ${ROOT_DIR}/intel_models/face-detection-retail-0004/FP32/face-detection-retail-0004.xml -d CPU -m_ag ${ROOT_DIR}/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp ${ROOT_DIR}/intel_models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU -m_em ${ROOT_DIR}/intel_models/emotions-recognition-retail-0003/FP16/emotions-recognition-retail-0003.xml -d_em GPU -m_lm  ${ROOT_DIR}/intel_models/facial-landmarks-35-adas-0001/FP16/facial-landmarks-35-adas-0001.xml -d_lm GPU
 	
 	<br>
 
@@ -184,7 +184,7 @@ Cross compiling may cause issues while host and target system has different type
 	
 6. Click **Arguments** tag, add below arguments in **Program arguments:** then click Apply and OK
 
-		-i cam -m ${ROOT_DIR}/intel_models/face-detection-retail-0004/FP32/face-detection-retail-0004.xml -d CPU -m_ag ${ROOT_DIR}/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp ${ROOT_DIR}/intel_models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU -m_em ${ROOT_DIR}/intel_models/emotions-recognition-retail-0003/FP16/emotions-recognition-retail-0003.xml -d_em GPU
+		-i cam -m ${ROOT_DIR}/intel_models/face-detection-retail-0004/FP32/face-detection-retail-0004.xml -d CPU -m_ag ${ROOT_DIR}/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp ${ROOT_DIR}/intel_models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU -m_em ${ROOT_DIR}/intel_models/emotions-recognition-retail-0003/FP16/emotions-recognition-retail-0003.xml -d_em GPU -m_lm  ${ROOT_DIR}/intel_models/facial-landmarks-35-adas-0001/FP16/facial-landmarks-35-adas-0001.xml -d_lm GPU
 		
 	<br>
 
