@@ -32,7 +32,7 @@ sudo pip install keras tensorflow
 ## Run the tutorial
 
 ```
-python3 Deep_Learning_Tutorial.py
+python Deep_Learning_Tutorial.py
 ```
 
 ## How the tutorial code works
