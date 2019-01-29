@@ -25,7 +25,6 @@ import logging as log
 from openvino.inference_engine import IENetwork, IEPlugin
 from enum import Enum
 import collections
-import xml.etree.ElementTree as ET
 
 
 
@@ -62,7 +61,8 @@ def main():
     args = build_argparser().parse_args()
     model_xml = args.model
     model_bin = os.path.splitext(model_xml)[0] + ".bin"
-    args.cpu_extension="/opt/intel/computer_vision_sdk_2018.5.445/inference_engine/samples/build/intel64/Release/lib/libcpu_extension.so"
+    args.cpu_extension="/opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release/lib/libcpu_extension.so"
+
     preprocess_times = collections.deque()
     infer_times = collections.deque()
     postprocess_times = collections.deque()
@@ -78,7 +78,7 @@ def main():
         
     # Read IR
     log.info("Reading IR...")
-    net = IENetwork.from_ir(model=model_xml, weights=model_bin)
+    net = IENetwork(model=model_xml, weights=model_bin)
 
     if plugin.device == "CPU":
         supported_layers = plugin.get_supported_layers(net)
@@ -99,11 +99,10 @@ def main():
     out_blob = next(iter(net.outputs))
     log.info("Loading IR to the plugin...")
     exec_net = plugin.load(network=net, num_requests=2)
-    tree = ET.parse(model_xml)
-    root = tree.getroot()
-    
+       
     # Read and pre-process input image
     n, c, h, w = net.inputs[input_blob].shape
+    output_dims=net.outputs[out_blob].shape
     infer_width=w;
     infer_height=h;
     num_channels=c;
@@ -111,14 +110,14 @@ def main():
     full_image_size=channel_size*num_channels
     
     print("inputdims=",w,h,c,n)
-    print("outputdims=",root[0][120][2][0][3].text,root[0][120][2][0][2].text,root[0][120][2][0][1].text,root[0][120][2][0][0].text)
-    if int(root[0][120][2][0][3].text)>1 :
+    print("outputdims=",output_dims[3],output_dims[2],output_dims[1],output_dims[0])
+    if int(output_dims[3])>1 :
         print("SSD Mode")
         output_mode=output_mode_type.SSD_MODE
     else:
         print("Single Classification Mode")
         output_mode=CLASSIFICATION_MODE
-        output_data_size=int(root[0][120][2][0][2].text)*int(root[0][120][2][0][1].text)*int(root[0][120][2][0][0].text)
+        output_data_size=int(output_dims[2])*int(output_dims[1])*int(output_dims[0])
     del net
     if args.input == 'cam':
         input_stream = 0
