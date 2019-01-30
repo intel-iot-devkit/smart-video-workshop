@@ -42,6 +42,12 @@ def build_argparser():
                         help="Specify the target device to infer on; CPU, GPU, FPGA or MYRIAD is acceptable. Demo "
                              "will look for a suitable plugin for device specified (CPU by default)", default="cpu",
                         type=str)
+    parser.add_argument("-d_va", "--device_va",
+                        help="Specify the target device for Vehicle Attributes (CPU, GPU, FPGA, MYRIAD, or HETERO).(CPU by default)", default="cpu",
+                        type=str)
+    parser.add_argument("-d_lpr", "--device_lpr",
+                        help="Specify the target device for License Plate Recognition (CPU, GPU, FPGA, MYRIAD, or HETERO).(CPU by default)", default="cpu",
+                        type=str)
     parser.add_argument("--labels", help="Labels mapping file", default=None, type=str)
     parser.add_argument("-pt", "--prob_threshold", help="Probability threshold for detections filtering",
                         default=0.5, type=float)
@@ -84,9 +90,7 @@ def main():
     net = IENetwork(model=model_xml, weights=model_bin)
     # Plugin initialization for specified device and load extensions library if specified
     log.info("Initializing plugin for {} device...".format(args.device))
-    if args.device.islower():
-        args.device=args.device.upper()
-    plugin = IEPlugin(device=args.device, plugin_dirs=args.plugin_dir)
+    plugin = IEPlugin(device=(args.device.upper()), plugin_dirs=args.plugin_dir)
     if args.cpu_extension and 'CPU' in args.device:
         plugin.add_cpu_extension(args.cpu_extension)
         
@@ -120,6 +124,9 @@ def main():
         assert len(va_net.outputs) == 2, "Vehicle Attribs Network expects networks having two outputs"
         va_input_blob=next(iter(va_net.inputs))
         va_out_blob=next(iter(va_net.outputs))
+        plugin = IEPlugin(device=(args.device_va.upper()), plugin_dirs=args.plugin_dir)
+        if args.cpu_extension and 'CPU' in args.device_va:
+            plugin.add_cpu_extension(args.cpu_extension)
         va_exec_net = plugin.load(network=va_net, num_requests=2)
         n_va,c_va,h_va,w_va = va_net.inputs[va_input_blob].shape
         va_enabled=True
@@ -137,6 +144,9 @@ def main():
         lpr_seqBlob=[[0.0]]
         for i in range(1,maxSequenceSizePerPlate):
             lpr_seqBlob[0].append(1.0)
+        plugin = IEPlugin(device=(args.device_lpr.upper()), plugin_dirs=args.plugin_dir)
+        if args.cpu_extension and 'CPU' in args.device_lpr:
+            plugin.add_cpu_extension(args.cpu_extension)
         lpr_exec_net=plugin.load(network=lpr_net, num_requests=2)
         n_lpr,c_lpr,h_lpr,w_lpr =lpr_net.inputs['data'].shape
         lpr_enabled=True
@@ -233,13 +243,17 @@ def main():
             #Inference Statistics  
             inf_time_message = "Time for processing 1 stream (nireq ={}): {:.3f} ms ({} fps)".format(args.ni_required,(det_time * 1000),int(1/det_time))
             render_time_message = "Rendering time ({}): {:.3f} ms".format(args.device,render_time * 1000)
-            vehicle_detection_time="Vehicle detection time ({}) : {:.3f} ms ({} fps)".format(args.device,(det_time*1000),int((det_time*1000)/framecount))
-            vehicle_attrib_time_message="Vehicle Attribs time({}) : {:.3f} ms ({} fps)".format(args.device,(va_det_time*1000),int((va_det_time*1000)/framecount))
-            lpr_time_message="Lpr recognition time({}) : {:.2f} ms ({} fps)".format(args.device,(lpr_det_time*1000),int((lpr_det_time*1000)/framecount))
+            vehicle_detection_time="Vehicle detection time ({}) : {:.3f} ms ({} fps)".format(args.device,(det_time*1000),int(1/(det_time)/framecount))
+            if va_det_time :
+                vehicle_attrib_time_message="Vehicle Attribs time({}) : {:.3f} ms ({} fps)".format(args.device_va,(va_det_time*1000),int(1/(va_det_time)/framecount))
+                cv2.putText(img, vehicle_attrib_time_message, (0, 60), cv2.FONT_HERSHEY_COMPLEX, 0.5, (200, 10, 10), 1)
+            if lpr_det_time :
+                lpr_time_message="Lpr recognition time({}) : {:.2f} ms ({} fps)".format(args.device_lpr,(lpr_det_time*1000),int(1/(lpr_det_time)/framecount))
+                cv2.putText(img, lpr_time_message, (0, 80), cv2.FONT_HERSHEY_COMPLEX, 0.5, (200, 10, 10), 1)
             cv2.putText(img, inf_time_message, (0, 20), cv2.FONT_HERSHEY_COMPLEX, 0.5, (200, 10, 10), 1,cv2.LINE_AA)
             cv2.putText(img, vehicle_detection_time, (0, 40), cv2.FONT_HERSHEY_COMPLEX, 0.5, (200, 10, 10), 1,cv2.LINE_AA)
-            cv2.putText(img, vehicle_attrib_time_message, (0, 60), cv2.FONT_HERSHEY_COMPLEX, 0.5, (200, 10, 10), 1)
-            cv2.putText(img, lpr_time_message, (0, 80), cv2.FONT_HERSHEY_COMPLEX, 0.5, (200, 10, 10), 1)
+            
+            
                 
 
             cv2.imshow("Detection Results", img)
