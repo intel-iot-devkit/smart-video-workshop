@@ -62,7 +62,7 @@ def main():
         plugin.set_config({"PERF_COUNT":"YES"})
     # Read IR
     log.info("Loading network files:\n\t{}\n\t{}".format(model_xml, model_bin))
-    net = IENetwork.from_ir(model=model_xml, weights=model_bin)
+    net = IENetwork(model=model_xml, weights=model_bin)
 
     if plugin.device == "CPU":
         supported_layers = plugin.get_supported_layers(net)
@@ -113,15 +113,16 @@ def main():
     args.labels="/opt/intel/workshop/smart-video-workshop/object-detection/squeezenet1.1.labels"
     if args.labels:
         with open(args.labels, 'r') as f:
-            labels_map = [x.split(sep=' ', maxsplit=1)[-1].strip() for x in f]
+            labels_map = [x.split(sep=' ', maxsplit=0)[-1].strip() for x in f]
     else:
         labels_map = None
-    for i, probs in enumerate(res):
+    for i, probs in enumerate(res):                                            
         probs = np.squeeze(probs)
         top_ind = np.argsort(probs)[-args.number_top:][::-1]
         print("Image {}\n".format(args.input[i]))
         for id in top_ind:
             det_label = labels_map[id] if labels_map else "#{}".format(id)
+            
             print("{:<5}{:.7f} label {}".format(id,probs[id], det_label))
         print("\n")
     total_inference=np.sum(np.asarray(infer_time))
@@ -131,16 +132,15 @@ def main():
     print("\n")
 
     #printing performance counts
-    exec_net.requests[0].infer({input_blob: images[0]})
-    if args.perf_counts:
-        
+
+    if args.perf_counts:        
         perf_counts=exec_net.requests[0].get_perf_counts()
         print("performance counts:\n")
         total=0
         for layer, stats in perf_counts.items():
             total+=stats['real_time']
             print ("{:<40} {:<15} {:<10} {:<15} {:<8} {:<5} {:<5} {:<5} {:<10} {:<15}".format(layer, stats['status'], 'layerType:', stats['layer_type'], 'realTime:', stats['real_time'], 'cpu:', stats['cpu_time'],'execType:', stats['exec_type'] ))
-    print ("{:<20} {:<7} {:<20}".format('TotalTime:',total ,'microseconds'))
+        print ("{:<20} {:<7} {:<20}".format('TotalTime:',total ,'microseconds'))
     log.info("Execution successful")
     
     

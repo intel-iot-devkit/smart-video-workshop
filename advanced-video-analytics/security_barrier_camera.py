@@ -40,18 +40,19 @@ def build_argparser():
     parser.add_argument("-pp", "--plugin_dir", help="Path to a plugin folder", type=str, default=None)
     parser.add_argument("-d", "--device",
                         help="Specify the target device to infer on; CPU, GPU, FPGA or MYRIAD is acceptable. Demo "
-                             "will look for a suitable plugin for device specified (CPU by default)", default="cpu",
+                             "will look for a suitable plugin for device specified (CPU by default)", default="CPU",
                         type=str)
     parser.add_argument("-d_va", "--device_va",
-                        help="Specify the target device for Vehicle Attributes (CPU, GPU, FPGA, MYRIAD, or HETERO).(CPU by default)", default="cpu",
+                        help="Specify the target device for Vehicle Attributes (CPU, GPU, FPGA, MYRIAD, or HETERO).(CPU by default)", default="CPU",
                         type=str)
     parser.add_argument("-d_lpr", "--device_lpr",
-                        help="Specify the target device for License Plate Recognition (CPU, GPU, FPGA, MYRIAD, or HETERO).(CPU by default)", default="cpu",
+                        help="Specify the target device for License Plate Recognition (CPU, GPU, FPGA, MYRIAD, or HETERO).(CPU by default)", default="CPU",
                         type=str)
     parser.add_argument("--labels", help="Labels mapping file", default=None, type=str)
     parser.add_argument("-pt", "--prob_threshold", help="Probability threshold for detections filtering",
                         default=0.5, type=float)
     parser.add_argument("-ni", "--ni_required", help="n infer request message",default=1, type=int)
+    parser.add_argument("-pc", "--perf_counts", help="Report performance counters", default=False, action="store_true")
 
     return parser
 
@@ -73,38 +74,21 @@ items  = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
           "U", "V", "W", "X", "Y", "Z"]
 maxSequenceSizePerPlate = 88
 
+def load_model(feature,model_xml,device,plugin_dirs,input_key_length,output_key_length):
 
-def main():
-    log.basicConfig(format="[ %(levelname)s ] %(message)s", level=log.INFO, stream=sys.stdout)
-    args = build_argparser().parse_args()
-    va_enabled=False
-    lpr_enabled=False
-    
-    # Read Inputs
-    log.info("Processing commandline Arguments...")
-    model_xml = args.model
     model_bin = os.path.splitext(model_xml)[0] + ".bin"
-    args.cpu_extension="/opt/intel/computer_vision_sdk/inference_engine/samples/build/intel64/Release/lib/libcpu_extension.so"
-    # Read IR for Vehicle Detection
-    log.info("Reading IR...")
+    cpu_extension="/opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release/lib/libcpu_extension.so"
+
+    log.info("Initializing plugin for {} device...".format(device))
+    plugin = IEPlugin(device, plugin_dirs)
+
+    log.info("Loading network files for {}".format(feature))
+    if cpu_extension and 'CPU' in device:
+        plugin.add_cpu_extension(cpu_extension)
+    else:
+        plugin.set_config({"PERF_COUNT":"YES"})
     net = IENetwork(model=model_xml, weights=model_bin)
-    # Plugin initialization for specified device and load extensions library if specified
-    log.info("Initializing plugin for {} device...".format(args.device))
-    plugin = IEPlugin(device=(args.device.upper()), plugin_dirs=args.plugin_dir)
-    if args.cpu_extension and 'CPU' in args.device:
-        plugin.add_cpu_extension(args.cpu_extension)
-        
-    # Check input/output topologies
-    assert len(net.inputs.keys()) == 1, "Vehicle Detection supports only single input topologies"
-    assert len(net.outputs) == 1, "Vehicle Detection supports only single output topologies"
-    
-    # Get input/output blobs    
-    input_blob = next(iter(net.inputs))
-    out_blob = next(iter(net.outputs))
-    log.info("Loading IR to the plugin...")
-    exec_net = plugin.load(network=net, num_requests=2)
-    # Read and pre-process input image   
-    n, c, h, w = net.inputs[input_blob].shape
+
     if plugin.device == "CPU":
         supported_layers = plugin.get_supported_layers(net)
         not_supported_layers = [l for l in net.layers.keys() if l not in supported_layers]
@@ -113,43 +97,51 @@ def main():
                       format(plugin.device, ', '.join(not_supported_layers)))
             log.error("Please try to specify cpu extensions library path in demo's command line parameters using -l "
                       "or --cpu_extension command line argument")
-            sys.exit(1)
+    
+    log.info("Checking {} network inputs".format(feature))
+    assert len(net.inputs.keys()) == input_key_length, "Demo supports only single input topologies"
+    log.info("Checking {} network outputs".format(feature))
+    assert len(net.outputs) == output_key_length, "Demo supports only single output topologies"
+    return plugin,net
+
+
+def main():
+    log.basicConfig(format="[ %(levelname)s ] %(message)s", level=log.INFO, stream=sys.stdout)
+    args = build_argparser().parse_args()
+    va_enabled=False
+    lpr_enabled=False
+    
+    #Vehicle Detection
+    plugin,net=load_model("Vehicle Detection",args.model,args.device,args.plugin_dir,1,1)
+    input_blob = next(iter(net.inputs))
+    out_blob = next(iter(net.outputs))
+    log.info("Loading IR to the plugin...")
+    exec_net = plugin.load(network=net, num_requests=2)
+    n, c, h, w = net.inputs[input_blob].shape
     del net
+    
     #For Vehicle Attribute Detection
     if args.model and args.model_va :
-        va_model_xml = args.model_va
-        va_model_bin=os.path.splitext(va_model_xml)[0] + ".bin"
-        va_net=IENetwork(model=va_model_xml, weights=va_model_bin)
-        assert len(va_net.inputs.keys()) == 1, "Vehicle Attribs supports only single input topologies"
-        assert len(va_net.outputs) == 2, "Vehicle Attribs Network expects networks having two outputs"
+        va_enabled=True
+        plugin,va_net=load_model("Vehicle Attribute Detection",args.model_va,args.device_va,args.plugin_dir,1,2)
         va_input_blob=next(iter(va_net.inputs))
         va_out_blob=next(iter(va_net.outputs))
-        plugin = IEPlugin(device=(args.device_va.upper()), plugin_dirs=args.plugin_dir)
-        if args.cpu_extension and 'CPU' in args.device_va:
-            plugin.add_cpu_extension(args.cpu_extension)
         va_exec_net = plugin.load(network=va_net, num_requests=2)
         n_va,c_va,h_va,w_va = va_net.inputs[va_input_blob].shape
-        va_enabled=True
         del va_net
+        
     #For License Plate Recognition   
     if args.model and args.model_lpr:
-        lpr_model_xml = args.model_lpr
-        lpr_model_bin=os.path.splitext(lpr_model_xml)[0] + ".bin"
-        lpr_net=IENetwork(model=lpr_model_xml, weights=lpr_model_bin)
-        assert len(lpr_net.inputs.keys()) == 2, "LPR supports two input topologies"
-        assert len(lpr_net.outputs) == 1, "LPR supports only single output topologies"
+        lpr_enabled=True
+        plugin,lpr_net=load_model("License Plate Recognition",args.model_lpr,args.device_lpr,args.plugin_dir,2,1)
         lpr_input_data_blob=next(iter(lpr_net.inputs))
         lpr_seqBlob=next(iter(lpr_net.inputs))
         lpr_out_blob = next(iter(lpr_net.outputs))
         lpr_seqBlob=[[0.0]]
         for i in range(1,maxSequenceSizePerPlate):
             lpr_seqBlob[0].append(1.0)
-        plugin = IEPlugin(device=(args.device_lpr.upper()), plugin_dirs=args.plugin_dir)
-        if args.cpu_extension and 'CPU' in args.device_lpr:
-            plugin.add_cpu_extension(args.cpu_extension)
         lpr_exec_net=plugin.load(network=lpr_net, num_requests=2)
         n_lpr,c_lpr,h_lpr,w_lpr =lpr_net.inputs['data'].shape
-        lpr_enabled=True
         del lpr_net
 
 
@@ -204,8 +196,8 @@ def main():
                     cv2.rectangle(img, (xmin, ymin), (xmax, ymax), (0,255,0), 2)
                     clippedRect=img[ymin:ymax, xmin:xmax]
                     det_label = labels_map[class_id] if labels_map else str(class_id)
+                    # For vehicle attribute recognition
                     if det_label == '1' and va_enabled:
-                        #vehicle attribute recognition
                         va_inf_start = time.time()
                         in_frame = cv2.resize(clippedRect, (w_va, h_va))
                         in_frame = in_frame.transpose((2, 0, 1))  # Change data layout from HWC to CHW
@@ -220,8 +212,8 @@ def main():
                         type_id=typesValues.argmax()
                         cv2.putText(img, colors[color_id] , (xmin+2, ymin +15),cv2.FONT_HERSHEY_COMPLEX, 0.6, (255,0,0), 1, cv2.LINE_AA)
                         cv2.putText(img, types[type_id] , (xmin+2, ymin+30),cv2.FONT_HERSHEY_COMPLEX, 0.6, (255,0,0), 1, cv2.LINE_AA)
+                    #For lpr recognition
                     elif det_label == '2' and lpr_enabled:
-                        #lpr recognition
                         lpr_inf_start = time.time()
                         in_frame=cv2.resize(clippedRect,(w_lpr,h_lpr))
                         in_frame = in_frame.transpose((2, 0, 1))  # Change data layout from HWC to CHW
@@ -232,7 +224,6 @@ def main():
                         lpr_det_time = lpr_inf_end - lpr_inf_start
                         lpr_res=lpr_exec_net.requests[0].outputs[lpr_out_blob]
                         result=""
-                        
                         for i in range(0,lpr_res.size):
                             if lpr_res[0][i] != -1:
                                  result+=items[int(lpr_res[0][i])]
@@ -252,9 +243,6 @@ def main():
                 cv2.putText(img, lpr_time_message, (0, 80), cv2.FONT_HERSHEY_COMPLEX, 0.5, (200, 10, 10), 1)
             cv2.putText(img, inf_time_message, (0, 20), cv2.FONT_HERSHEY_COMPLEX, 0.5, (200, 10, 10), 1,cv2.LINE_AA)
             cv2.putText(img, vehicle_detection_time, (0, 40), cv2.FONT_HERSHEY_COMPLEX, 0.5, (200, 10, 10), 1,cv2.LINE_AA)
-            
-            
-                
 
             cv2.imshow("Detection Results", img)
  
@@ -262,6 +250,15 @@ def main():
             key = cv2.waitKey(0)
             if key == 27:
                 break
+    if args.perf_counts:        
+        perf_counts=exec_net.requests[0].get_perf_counts()
+        print("performance counts:\n")
+        total=0
+        for layer, stats in perf_counts.items():
+            total+=stats['real_time']
+            print ("{:<40} {:<15} {:<10} {:<15} {:<8} {:<5} {:<5} {:<5} {:<10} {:<15}".format(layer, stats['status'], 'layerType:', stats['layer_type'], 'realTime:', stats['real_time'], 'cpu:', stats['cpu_time'],'execType:', stats['exec_type'] ))
+        print ("{:<20} {:<7} {:<20}".format('TotalTime:',total ,'microseconds'))
+    log.info("Execution successful")
               
     del exec_net
     del plugin
