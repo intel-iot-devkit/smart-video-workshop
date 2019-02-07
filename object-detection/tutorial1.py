@@ -61,7 +61,6 @@ def main():
     args = build_argparser().parse_args()
     model_xml = args.model
     model_bin = os.path.splitext(model_xml)[0] + ".bin"
-    args.cpu_extension="/opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release/lib/libcpu_extension.so"
 
     preprocess_times = collections.deque()
     infer_times = collections.deque()

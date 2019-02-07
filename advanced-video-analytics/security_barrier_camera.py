@@ -74,10 +74,9 @@ items  = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
           "U", "V", "W", "X", "Y", "Z"]
 maxSequenceSizePerPlate = 88
 
-def load_model(feature,model_xml,device,plugin_dirs,input_key_length,output_key_length):
+def load_model(feature,model_xml,device,plugin_dirs,input_key_length,output_key_length,cpu_extension):
 
     model_bin = os.path.splitext(model_xml)[0] + ".bin"
-    cpu_extension="/opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release/lib/libcpu_extension.so"
 
     log.info("Initializing plugin for {} device...".format(device))
     plugin = IEPlugin(device, plugin_dirs)
@@ -87,6 +86,7 @@ def load_model(feature,model_xml,device,plugin_dirs,input_key_length,output_key_
         plugin.add_cpu_extension(cpu_extension)
     else:
         plugin.set_config({"PERF_COUNT":"YES"})
+
     net = IENetwork(model=model_xml, weights=model_bin)
 
     if plugin.device == "CPU":
@@ -97,6 +97,7 @@ def load_model(feature,model_xml,device,plugin_dirs,input_key_length,output_key_
                       format(plugin.device, ', '.join(not_supported_layers)))
             log.error("Please try to specify cpu extensions library path in demo's command line parameters using -l "
                       "or --cpu_extension command line argument")
+            sys.exit(1)
     
     log.info("Checking {} network inputs".format(feature))
     assert len(net.inputs.keys()) == input_key_length, "Demo supports only single input topologies"
@@ -112,7 +113,7 @@ def main():
     lpr_enabled=False
     
     #Vehicle Detection
-    plugin,net=load_model("Vehicle Detection",args.model,args.device,args.plugin_dir,1,1)
+    plugin,net=load_model("Vehicle Detection",args.model,args.device,args.plugin_dir,1,1,args.cpu_extension)
     input_blob = next(iter(net.inputs))
     out_blob = next(iter(net.outputs))
     log.info("Loading IR to the plugin...")
@@ -123,7 +124,7 @@ def main():
     #For Vehicle Attribute Detection
     if args.model and args.model_va :
         va_enabled=True
-        plugin,va_net=load_model("Vehicle Attribute Detection",args.model_va,args.device_va,args.plugin_dir,1,2)
+        plugin,va_net=load_model("Vehicle Attribute Detection",args.model_va,args.device_va,args.plugin_dir,1,2,args.cpu_extension)
         va_input_blob=next(iter(va_net.inputs))
         va_out_blob=next(iter(va_net.outputs))
         va_exec_net = plugin.load(network=va_net, num_requests=2)
@@ -133,7 +134,7 @@ def main():
     #For License Plate Recognition   
     if args.model and args.model_lpr:
         lpr_enabled=True
-        plugin,lpr_net=load_model("License Plate Recognition",args.model_lpr,args.device_lpr,args.plugin_dir,2,1)
+        plugin,lpr_net=load_model("License Plate Recognition",args.model_lpr,args.device_lpr,args.plugin_dir,2,1,args.cpu_extension)
         lpr_input_data_blob=next(iter(lpr_net.inputs))
         lpr_seqBlob=next(iter(lpr_net.inputs))
         lpr_out_blob = next(iter(lpr_net.outputs))

@@ -55,7 +55,6 @@ def main():
 
     # Plugin initialization for specified device and load extensions library if specified
     plugin = IEPlugin(device=args.device, plugin_dirs=args.plugin_dir)
-    #print(dir(IEPlugin))
     if args.cpu_extension and 'CPU' in args.device:
         plugin.add_cpu_extension(args.cpu_extension)
     else:
@@ -110,7 +109,6 @@ def main():
     log.info("Processing output blob")
     res = res[out_blob]
     log.info("Top {} results: ".format(args.number_top))
-    args.labels="/opt/intel/workshop/smart-video-workshop/object-detection/squeezenet1.1.labels"
     if args.labels:
         with open(args.labels, 'r') as f:
             labels_map = [x.split(sep=' ', maxsplit=0)[-1].strip() for x in f]
@@ -119,16 +117,15 @@ def main():
     for i, probs in enumerate(res):                                            
         probs = np.squeeze(probs)
         top_ind = np.argsort(probs)[-args.number_top:][::-1]
-        print("Image {}\n".format(args.input[i]))
         for id in top_ind:
             det_label = labels_map[id] if labels_map else "#{}".format(id)
             
             print("{:<5}{:.7f} label {}".format(id,probs[id], det_label))
         print("\n")
     total_inference=np.sum(np.asarray(infer_time))
-    log.info("Average running time of one iteration: {} ms".format(np.average(np.asarray(infer_time))))
-    log.info("total running time of inference: {} ms" .format(total_inference))
-    log.info("Throughput: {} FPS".format((1000*args.number_iter*n)/total_inference))
+    log.info("Average running time of one iteration: {:.2f} ms".format(np.average(np.asarray(infer_time))))
+    log.info("total running time of inference: {:.2f} ms" .format(total_inference))
+    log.info("Throughput: {:.2f} FPS".format((1000*args.number_iter*n)/total_inference))
     print("\n")
 
     #printing performance counts

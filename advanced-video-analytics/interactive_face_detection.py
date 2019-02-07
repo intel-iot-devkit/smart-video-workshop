@@ -138,10 +138,9 @@ def drawAxes(pitch,yaw,roll,cpoint,frame):
     cv2.line(frame,(p1x,p1y),(p2x,p2y),(255,0,0),2)
     cv2.circle(frame,(p2x,p2y),3,(255,0,0))
 
-def load_model(feature,model_xml,device,plugin_dirs,input_key_length,output_key_length):
+def load_model(feature,model_xml,device,plugin_dirs,input_key_length,output_key_length,cpu_extension):
 
     model_bin = os.path.splitext(model_xml)[0] + ".bin"
-    cpu_extension="/opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release/lib/libcpu_extension.so"
 
     log.info("Initializing plugin for {} device...".format(device))
     plugin = IEPlugin(device, plugin_dirs)
@@ -161,6 +160,7 @@ def load_model(feature,model_xml,device,plugin_dirs,input_key_length,output_key_
                       format(plugin.device, ', '.join(not_supported_layers)))
             log.error("Please try to specify cpu extensions library path in demo's command line parameters using -l "
                       "or --cpu_extension command line argument")
+            sys.exit(1)
     
     log.info("Checking {} network inputs".format(feature))
     assert len(net.inputs.keys()) == input_key_length, "Demo supports only single input topologies"
@@ -180,7 +180,7 @@ def main():
     log.info("Reading IR...")
     # Face detection
     #log.info("Loading network files for Face Detection") 
-    plugin,net=load_model("Face Detection",args.model,args.device.upper(),args.plugin_dir,1,1)
+    plugin,net=load_model("Face Detection",args.model,args.device.upper(),args.plugin_dir,1,1,args.cpu_extension)
     input_blob = next(iter(net.inputs))
     out_blob = next(iter(net.outputs))
     exec_net = plugin.load(network=net, num_requests=2)
@@ -191,7 +191,7 @@ def main():
     if args.model and args.ag_model:
        age_enabled =True
        #log.info("Loading network files for Age/Gender Recognition") 
-       plugin,ag_net = load_model("Age/Gender Recognition",args.ag_model,args.device_ag.upper(),args.plugin_dir,1,2)
+       plugin,ag_net = load_model("Age/Gender Recognition",args.ag_model,args.device_ag.upper(),args.plugin_dir,1,2,args.cpu_extension)
        age_input_blob=next(iter(ag_net.inputs))
        age_out_blob=next(iter(ag_net.outputs))
        age_exec_net=plugin.load(network=ag_net, num_requests=2)
@@ -202,7 +202,7 @@ def main():
     if args.model and args.hp_model:
         headPose_enabled = True
         #log.info("Loading network files for Head Pose Estimation") 
-        plugin,hp_net=load_model("Head Pose Estimation",args.hp_model,args.device_hp,args.plugin_dir,1,3)
+        plugin,hp_net=load_model("Head Pose Estimation",args.hp_model,args.device_hp,args.plugin_dir,1,3,args.cpu_extension)
         hp_input_blob=next(iter(hp_net.inputs))
         hp_out_blob=next(iter(hp_net.outputs))
         hp_exec_net=plugin.load(network=hp_net, num_requests=2)
@@ -213,7 +213,7 @@ def main():
     if args.model and args.em_model:
         emotions_enabled = True
         #log.info("Loading network files for Emotions Recognition")
-        plugin,em_net=load_model("Emotions Recognition",args.em_model,args.device_em.upper(),args.plugin_dir,1,1)
+        plugin,em_net=load_model("Emotions Recognition",args.em_model,args.device_em.upper(),args.plugin_dir,1,1,args.cpu_extension)
         em_input_blob=next(iter(em_net.inputs))
         em_out_blob=next(iter(em_net.outputs))
         em_exec_net=plugin.load(network=em_net, num_requests=2)
@@ -224,7 +224,7 @@ def main():
     if args.model and args.lm_model:
         landmarks_enabled = True
         #log.info("Loading network files for Facial Landmarks Estimation")
-        plugin,lm_net=load_model("Facial Landmarks Estimation",args.lm_model,args.device_lm.upper(),args.plugin_dir,1,1)
+        plugin,lm_net=load_model("Facial Landmarks Estimation",args.lm_model,args.device_lm.upper(),args.plugin_dir,1,1,args.cpu_extension)
         lm_input_blob=next(iter(lm_net.inputs))
         lm_out_blob=next(iter(lm_net.outputs))
         lm_exec_net=plugin.load(network=lm_net, num_requests=2)
