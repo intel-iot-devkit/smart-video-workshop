@@ -90,7 +90,8 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio.md) to install Int
   
 * **Additional Examples - Reference Implementations**
   - Industrial 
-  	- [Restricted Zone Notifier](https://github.com/intel-iot-devkit/restricted-zone-notifier-cpp)
+  	- [Safety Gear Detection](./safety-gear-example/README.md)
+	- [Restricted Zone Notifier](https://github.com/intel-iot-devkit/restricted-zone-notifier-cpp)
   	- [Object Size Detector](https://github.com/intel-iot-devkit/object-size-detector-cpp)
   - Retail 
   	- [Store Traffic Monitor](https://github.com/intel-iot-devkit/store-traffic-monitor)
