@@ -9,7 +9,7 @@ to be completed.
 
 2: Select the unused Wired Connection and enable internet sharing.
 
-3: Plug in Ethernet Cable directly from Laptop to UP²* Board.
+3: Plug in Ethernet Cable directly from Laptop to UP²* Board. (make sure your UP²* Board is powered)
 
 4: Determine the IP address given to the UP² board, using "**arp -a**"
 command.
