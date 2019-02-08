@@ -245,6 +245,8 @@ def main():
         labels_map = None
 
     cap = cv2.VideoCapture(input_stream)
+    if not cap.isOpened():
+        sys.exit(1)
     cur_request_id = 0
     log.info("Starting inference ...")
     log.info("To stop the demo execution press Esc button")
