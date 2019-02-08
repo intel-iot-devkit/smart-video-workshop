@@ -9,7 +9,7 @@ to be completed.
 
 2: Select the unused Wired Connection and enable internet sharing.
 
-3: Plug in Ethernet Cable directly from Laptop to UP²* Board. (make sure your UP²* Board is powered)
+3: Plug in Ethernet Cable directly from Laptop to UP²* Board. **(make sure your UP²* Board is powered)**
 
 4: Determine the IP address given to the UP² board, using "**arp -a**"
 command.
@@ -43,6 +43,8 @@ safely ignored.
 ![](../images/arp1.png)
 
 The 10.42.0.x IP address has been assigned to your UP² board.
+
+**Take a note of the IP address assigned to your UP² board, we will be using it during next steps.**
 
 
 You can now SSH to UP² board with the IP address you just obtained, password: **upsquared**
