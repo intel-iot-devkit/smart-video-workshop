@@ -114,7 +114,7 @@ For simplicity of the code and in order to put more focus on the performance num
 	 make -f Makefile_ROIviewer 
 	./ROIviewer -i $SV/object-detection/Cars\ -\ 1900.mp4 -l $SV/object-detection/pascal_voc_classes.txt 
 	
-You should see a video play with cars running on the highway and red bounding boxes around them. 
+You should see a video playing with cars driving on a highway and green bounding boxes around them. 
 
 Here are the parameters used in the above command to run the application:
 
