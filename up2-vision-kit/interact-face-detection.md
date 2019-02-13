@@ -184,7 +184,7 @@ Cross compiling may cause issues while host and target system has different type
 	
 6. Click **Arguments** tag, add below arguments in **Program arguments:** then click Apply and OK
 
-		-i cam -m ${ROOT_DIR}/intel_models/face-detection-retail-0004/FP32/face-detection-retail-0004.xml -d CPU -m_ag ${ROOT_DIR}/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp ${ROOT_DIR}/intel_models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU -m_em ${ROOT_DIR}/intel_models/emotions-recognition-retail-0003/FP16/emotions-recognition-retail-0003.xml -d_em GPU -m_lm  ${ROOT_DIR}/intel_models/facial-landmarks-35-adas-0001/FP16/facial-landmarks-35-adas-0001.xml -d_lm GPU
+		-i cam -m ${ROOT_DIR}/intel_models/face-detection-retail-0004/FP32/face-detection-retail-0004.xml -d CPU -m_ag ${ROOT_DIR}/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp ${ROOT_DIR}/intel_models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU -m_em ${ROOT_DIR}/intel_models/emotions-recognition-retail-0003/FP16/emotions-recognition-retail-0003.xml -d_em GPU
 		
 	<br>
 
@@ -194,11 +194,3 @@ Cross compiling may cause issues while host and target system has different type
 
 Now we can make a comparison of the performance running the same application between on our host laptop and on the UP² AI Vision kit, and you can load different models used here to different hardware by changing the arguments and see what is the optimized configuration for this application. More details of this sample project can be found from here: /opt/intel/computer_vision_sdk_2018.3.343/deployment_tools/documentation/docs/InferenceEngineInteractiveFaceDetectionSampleApplication.html
 
-> **Note:** The max resolution of the camera on UP² is 1920 X 1080, the time for render each frame is unacceptable, which giving people lagging feeling. To solve this issue, we can set the camera resolution to 1280 X 720 by adding some codes in **main.c** under interact_face_detection_sample folder:
-
-Line 85 above **const size_t width = (size_t) cap.get(CV_CAP_PROP_FRAM_WIDTH)**:
-
-        cap.set(cv::CAP_PROP_FRAME_WIDTH,1280);
-        cap.set(cv::CAP_PROP_FRAME_HEIGHT,720);
-	
-After this, click save all and build all, then run your application again, it will give you better performance. 
