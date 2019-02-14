@@ -40,7 +40,7 @@ In this section, you will use the Model Optimizer to convert a trained model to 
 
 #### 3. Run the Model Optimizer on the pretrained Caffe* model. This step generates one .xml file and one .bin file and place both files in the tutorial samples directory (located here: /safety-gear-example/)
 
-	python3 mo_caffe.py --input_model $SV/safety-gear-example/worker_safety_mobilenet.caffemodel -o $SV/safety-gear-example/mobilenet-ssd/FP32 --scale 256 --mean_values [127,127,127]
+	python3 mo_caffe.py --input_model $SV/safety-gear-example/worker_safety_mobilenet.caffemodel -o $SV/safety-gear-example/mobilenet-ssd/FP32
 
 > **Note:** Although this tutorial uses Single Shot MultiBox Detector (SSD) on a trained mobilenet-ssd* model, the Inference Engine is compatible with other neural network architectures, such as AlexNet*, GoogleNet*, MxNet* etc.
 
