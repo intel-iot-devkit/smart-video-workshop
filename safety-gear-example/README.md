@@ -66,7 +66,7 @@ You should see the following two files listed in this directory: **worker_safety
 
 #### 1. Open the sample app (main.cpp) in the editor of your choice to view the lines that call the Inference Engine.
 
-	cd $SV/safety-gear-example/
+	cd $SV/object-detection/
 	gedit main.cpp
 
 * Line 130 &#8212; loads the Inference Engine plugin for use within the application
@@ -85,7 +85,7 @@ You should see the following two files listed in this directory: **worker_safety
 
 #### 4. Build the sample application with make file
 
- 	cd $SV/safety-gear-example/
+ 	cd $SV/object-detection/
 	make
 
 #### 5. Check the test video file from the safety-gear-example folder.
@@ -132,7 +132,7 @@ Here are the parameters used in the above command to run the application:
 
 	export SV=/opt/intel/workshop/smart-video-workshop/
 
-	cd $SV/safety-gear-example
+	cd $SV/object-detection
 
 #### 1. CPU
 ```
