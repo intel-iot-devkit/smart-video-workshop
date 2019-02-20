@@ -65,6 +65,7 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio.md) to install Int
 * **Basic End to End Object Detection Inference Example**
   - Slides - [Basic End to End Object Detection Example](./presentations/02-Basic-End-to-End-Object-Detection-Example.pdf)
   - Lab - [Basic End to End Object Detection Example](./object-detection/README.md)
+  - Lab - [Tensor Flow example](./advanced-video-analytics/tensor_flow.md)
 
 * **Hardware Heterogeneity**
   - Lab - [Hardware Heterogeneity](./hardware-heterogeneity/README.md)
@@ -82,7 +83,6 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio.md) to install Int
   
 * **Advanced Video Analytics**
   - Lab - [Multiple models usage example](./advanced-video-analytics/multiple_models.md)
-  - Lab - [Tensor Flow example](./advanced-video-analytics/tensor_flow.md)
   
 * **UP²\* AI Vision Development kit as Edge**
   - Setup - [Development machine and Internet Connection Sharing](./up2-vision-kit/dev_machine_setup.md)
