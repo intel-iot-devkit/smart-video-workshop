@@ -6,13 +6,13 @@
 3.  Click **Register & Download**
 4.  Fill out the form then submit, an Email from **Intel Registration Center** will be sent to your registered Email address with **Serial Number** of Intel® System Studio, you will enter into below page, select **Linux** as Development operating system and **Linux and Android** as Target operating system, then click **Continue**
 5.  Click **Get the Full Package**
-  <br>  
+  <br>
   
   ![image of Intel_System_Studio_Choose_Host_and_Target_OS](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS2019_Choose_OS.png "Figure 1")  
   
   <br>
-
-6.  Then click **Download**, by default **intel-sw-tools-installation-bundle.zip**  will be downloaded to your **/home/username/Downloads** on your Ubuntu
+  
+6.  Then click **Download**, by default **intel-sw-tools-installation-bundle.zip**  will be downloaded to your **/home/username/Downloads** on your Ubuntu, if you are downloading it from Windows, after download, copy the whole **intel-sw-tools-installation-bundle.zip file** to your Ubuntu OS
   <br>  
   
   ![image of Intel_System_Studio_Choose_Host_and_Target_OS](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS2019_Download_Full_Package.png "Figure 1")  
@@ -28,8 +28,11 @@
 
         tar -xvf system_studio_2019_update_2.tar.gz
 
-9.  Open a terminal, go to the extracted installation directory and run **sudo ./install.sh**  
-10.  Install as root user, type your password, enter the Serial Number Emailed to you, you can click **Customize** then **Next** to choose which components you’d like to install, here we only selected the **minimal requirements** for our workshop:
+9.  Open a terminal, go to the extracted directory and run as root user
+
+        sudo ./install.sh
+    
+10.  Installation GUI will pop up, enter the Serial Number Emailed to you, you can click **Customize** then **Next** to choose which components you’d like to install, here we only selected the necessary components for our workshop:
 
         1. Docker* based build system
         2. Eclipse IDE
