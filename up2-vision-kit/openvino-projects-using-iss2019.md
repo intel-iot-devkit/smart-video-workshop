@@ -36,78 +36,100 @@ In this section, we step you through creating and building a new project based o
 CMake creates the necessary make files for the project, and then starts a build. View the build progress in the CMakeconsole and CDT buildconsole at the bottom of the workspace.
 
 ## Create a connection to the local system
-1. Make sure your target device is functioning properly and can be reached on the network by your host system.
-2. On the main toolbar, click the arrow next to the New Connection box, and then select New Connection.
+1. On the main toolbar, click the **arrow** next to the **New Connection** box, and then select **New Connection**.
+    <br>
+  
+    ![](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS2019_NEW_CONNECTION.png)  
+  
+    <br>
 
+3. Select **Connection for container based C/C++ applications or Java applications**, and then click **Next**.
+    <br>
+  
+    ![](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS2019_Connection_for_container.png)  
+  
+    <br>
 
-3. Select Connection for container based C/C++ applications or Java* applications, and then click Next.
+4. Type a name in the **Connection Name** field, here we used **Local**.
+5. Enter **localhost** in the **Address** field, and then click **Finish**.
+    <br>
+  
+    ![](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS2019_Local_connection.png)  
+  
+    <br>
 
-
-4. Type a name in the Connection Name field.
-5. Enter **localhost** in the Address field, and then click Finish.
-6. When prompted, provide the appropriate credentials to access your device, and then click OK.
+6. When prompted, provide the appropriate credentials to access your device, and then click **OK**.
+    <br>
+  
+    ![](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS2019_connection_login_password.png)  
+  
+    <br>
 
 ## Run Interactive Face Detection Demo on your host laptop
 
-- This demo showcases the Object Detection task applied to face recognition using a sequence of neural networks.
-- Async API can improve the overall frame-rate of the application. Rather than waiting for inference to complete, the application can continue operating on the host while accelerator is busy.
-- This demo maintains four parallel infer requests for the Age/Gender Recognition, Head Pose Estimation, Emotions Recognition, and Facial Landmarks Estimation that run simultaneously.
+- Now let's run the face recognition demo application using a sequence of neural networks.
+- From the source code, you can see Async API can improve the overall frame-rate of the application. Rather than waiting for inference to complete, the application can continue operating on the host while accelerator is busy.
+- You can also find four parallel infer requests for the Age/Gender Recognition, Head Pose Estimation, Emotions Recognition, and Facial Landmarks Estimation that run simultaneously.
 
 ### Step 1. Update the launch configuration
-1. On the main toolbar, click the down arrow next to the Run button, and then select Run Configurations.
+1. On the main toolbar, click the down arrow next to the Run button, and then select **Run Configurations**.
+    <br>
+  
+    ![](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS2019_Run_Configuration.png)  
+  
+    <br>
 
+2. Click to open **C/C++ Application built in a container and running on Linux**.
+3. Select **Face_Detection**.
+4. On the **Main** tab, click **Search Project**.
+    <br>
+  
+    ![](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS2019_Search_Project.png)  
+  
+    <br>
 
-2. Click to open C/C++ Application built in a container and running on Linux.
-3. Select Security_Barrier_Camera.
-4. On the Main tab, under C/C++ Application, click Search Project.
-
-
-5. Select security_barrier_camera_demo.
-
+5. Select **interactive_face_detection_demo**.
+    <br>
+  
+    ![](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS2019_Program_Selection.png)  
+  
+    <br>
 
 ### Step 2. [Optional] Verify that the ROOT_DIR variable is set
-1. Still on the Main tab, click the Variables button.
+1. Still on the **Mai**n tab, click the **Variables** button.
+2. Click **Edit Variables**.
+    <br>
+  
+    ![](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS2019_variables_button_0.png)  
+  
+    <br>
 
+3. Verify that **ROOT_DIR** is set to **/opt/intel/computer_vision_sdk/deployment tools**.
+    <br>
+  
+    ![](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/ISS2019_verify_root_dir.png)  
+  
+    <br>
 
-2. Click Edit Variables.
-
-
-3. Verify that ROOT_DIR is set to /opt/intel/computer_vision_sdk/deployment tools.
-
-
-4. Click Cancel twice to close the dialogs.
+4. Click **Cancel** twice to close the dialogs.
 
 ### Step 3. [Optional] Verify that commands are set properly
-1. Still on the Main tab, review the Commands to execute before application to make sure the paths are set properly for your target system, as follows.
+1. Still on the **Main** tab, review the **Commands to execute before application** to make sure the paths are set properly for your system, as follows.
 > **Note:** The following assumes that OpenVINO is installed on the default location for a user with root privileges. If you’ve installed OpenVINO in a different folder, modify the first line below accordingly.
 
-        export INTEL_CVSDK_DIR=/opt/intel/computer_vision_sdk_2018.4.420; 
+        export INTEL_CVSDK_DIR=/opt/intel/computer_vision_sdk; 
         export INFENG=$INTEL_CVSDK_DIR/deployment_tools/inference_engine; 
         export IE_PLUGINS_PATH=$INFENG/lib/ubuntu_16.04/intel64; 
         [ ! -d /tmp/OpenVINO ] && mkdir /tmp/OpenVINO; 
-        cp $INFENG/lib/ubuntu_16.04/intel64/libcpu_extension_sse4.so /tmp/OpenVINO/libcpu_extension.so; 
+        cp $INFENG/lib/ubuntu_16.04/intel64/libcpu_extension_avx2.so /tmp/OpenVINO/libcpu_extension.so; 
         export LD_LIBRARY_PATH=/tmp/OpenVINO:$INTEL_CVSDK_DIR/opencv/lib:/opt/intel/opencl:$INFENG/external/gna/lib:$INFENG/external/mkltiny_lnx/lib:$INFENG/external/omp/lib:$INFENG/lib/ubuntu_16.04/intel64:$LD_LIBRARY_PATH;
         export DISPLAY=:0;
         
-
-> **Tip:** If your system has a processor that supports the AVX instructions, you can use a more optimized version of the libcpu_extension. To do this, change this part of the above command:
-
-From this: 
-
-    cp $INFENG/lib/ubuntu_16.04/intel64/libcpu_extension_sse4.so /tmp/OpenVINO/libcpu_extension.so;
-
-To this:
-
-    cp $INFENG/lib/ubuntu_16.04/intel64/libcpu_extension_avx2.so /tmp/OpenVINO/libcpu_extension.so;
-
 ### Step 4. Verify that arguments are set properly and Run
-1. Select the Arguments tab.
-2. Verify that the Program arguments are set properly. Change them as needed.
+1. Select the **Arguments** tab.
+2. Verify that the **Program arguments** are set as follows.
 
+        -i cam -m /opt/intel/computer_vision_sdk/deployment_tools/intel_models/face-detection-retail-0004/FP32/face-detection-retail-0004.xml -d CPU -m_ag /opt/intel/computer_vision_sdk/deployment_tools/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp /opt/intel/computer_vision_sdk/deployment_tools/intel_models/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001.xml -d_hp CPU -m_em /opt/intel/computer_vision_sdk/deployment_tools/intel_models/emotions-recognition-retail-0003/FP32/emotions-recognition-retail-0003.xml -d_em CPU -m_lm  /opt/intel/computer_vision_sdk/deployment_tools/intel_models/facial-landmarks-35-adas-0001/FP32/facial-landmarks-35-adas-0001.xml -d_lm CPU
 
-3. [Optional] Run with video instead of a single image. To use the car-detection.mp4 video:
-    - Find the video in GitHub*. Click intel-iot-devkit/sample-videos.
-    - Download the video to a folder on your target system.
-    - Provide the path to the video file in the arguments in step 3 above.
-4. Click Apply and Run. 
+3. Click **Apply** and **Run**. 
  
