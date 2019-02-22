@@ -35,6 +35,18 @@ In this section, we step you through creating and building a new project based o
     
 CMake creates the necessary make files for the project, and then starts a build. View the build progress in the CMakeconsole and CDT buildconsole at the bottom of the workspace.
 
+## Create a connection to the local system
+1. Make sure your target device is functioning properly and can be reached on the network by your host system.
+2. On the main toolbar, click the arrow next to the New Connection box, and then select New Connection.
+
+
+3. Select Connection for container based C/C++ applications or Java* applications, and then click Next.
+
+
+4. Type a name in the Connection Name field.
+5. Enter **localhost** in the Address field, and then click Finish.
+6. When prompted, provide the appropriate credentials to access your device, and then click OK.
+
 ## Run Interactive Face Detection Demo on your host laptop
 
 - This demo showcases the Object Detection task applied to face recognition using a sequence of neural networks.
@@ -74,49 +86,28 @@ CMake creates the necessary make files for the project, and then starts a build.
         export IE_PLUGINS_PATH=$INFENG/lib/ubuntu_16.04/intel64; 
         [ ! -d /tmp/OpenVINO ] && mkdir /tmp/OpenVINO; 
         cp $INFENG/lib/ubuntu_16.04/intel64/libcpu_extension_sse4.so /tmp/OpenVINO/libcpu_extension.so; 
-        export LD_LIBRARY_PATH=/tmp/OpenVINO:$INTEL_CVSDK_DIR/opencv/lib:/opt/intel/opencl:$INFENG/external/gna/lib:$INFENG/external/mkltiny_lnx/lib:$INFENG/external/omp/lib:$INFENG/lib/ubuntu_16.04/intel64:$LD_LIBRARY_PATH
+        export LD_LIBRARY_PATH=/tmp/OpenVINO:$INTEL_CVSDK_DIR/opencv/lib:/opt/intel/opencl:$INFENG/external/gna/lib:$INFENG/external/mkltiny_lnx/lib:$INFENG/external/omp/lib:$INFENG/lib/ubuntu_16.04/intel64:$LD_LIBRARY_PATH;
+        export DISPLAY=:0;
         
 
-TIP: If your system has a processor that supports the AVX instructions, you can use a more optimized version of the libcpu_extension. To do this, change this part of the above command:
+> **Tip:** If your system has a processor that supports the AVX instructions, you can use a more optimized version of the libcpu_extension. To do this, change this part of the above command:
 
 From this: 
-cp $INFENG/lib/ubuntu_16.04/intel64/libcpu_extension_sse4.so /tmp/OpenVINO/libcpu_extension.so;
+
+    cp $INFENG/lib/ubuntu_16.04/intel64/libcpu_extension_sse4.so /tmp/OpenVINO/libcpu_extension.so;
 
 To this:
-cp $INFENG/lib/ubuntu_16.04/intel64/libcpu_extension_avx2.so /tmp/OpenVINO/libcpu_extension.so;
 
-Step 4. Verify that arguments are set properly
-Select the Arguments tab.
-Verify that the Program arguments are set properly. Change them as needed.
+    cp $INFENG/lib/ubuntu_16.04/intel64/libcpu_extension_avx2.so /tmp/OpenVINO/libcpu_extension.so;
+
+### Step 4. Verify that arguments are set properly and Run
+1. Select the Arguments tab.
+2. Verify that the Program arguments are set properly. Change them as needed.
 
 
-[Optional] Run with video instead of a single image. To use the car-detection.mp4 video:
-Find the video in GitHub*. Click intel-iot-devkit/sample-videos.
-Download the video to a folder on your target system.
-Provide the path to the video file in the arguments in step 3 above.
-To close the Run Configuration window, click Apply and then click Close.
-Step 5. Run or debug
-Run
-
-Click the   Run button.
-
-Debug
-
-Click the     Debug button.
-
-Results
-The application goes through several steps and then starts inference. It will try to open a window on the target system’s display to show the output image.
-
-Open a graphical display for the application
-In the results, you might see the error: Gtk-WARNING**:cannot open display.
-
-The recommended way to resolve this problem is to connect a monitor to your target system and do the following:
-
-Open a terminal on your host system.
-To see how DISPLAY is defined:
-Type ssh username@IP_address
-Type echo $DISPLAY
-It will show something similar to this: :0
-
-Make a note of this and keep this terminal open.
-In Commands to execute before application, add: export DISPLAY=:0; where :0 is the result you just saw in the terminal. Separate all commands with a semi-colon (;).
+3. [Optional] Run with video instead of a single image. To use the car-detection.mp4 video:
+    - Find the video in GitHub*. Click intel-iot-devkit/sample-videos.
+    - Download the video to a folder on your target system.
+    - Provide the path to the video file in the arguments in step 3 above.
+4. Click Apply and Run. 
+ 
