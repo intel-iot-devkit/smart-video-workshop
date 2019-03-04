@@ -28,6 +28,10 @@ Intel® Distribution of OpenVINO™ toolkit install folder (/opt/intel/computer_
 #### 1. First, get the classification model and convert that to IR using Model Optimizer
 For this example, we will use squeezenet model downloaded with the model downlaoder script while setting up the OS for the workshop. 
 
+	cd /opt/intel/computer_vision_sdk/deployment_tools/model_downloader
+	
+	sudo python3 downloader.py --name squeezenet1.1
+	
 	cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer
 	
 	python3 mo_caffe.py --input_model /opt/intel/computer_vision_sdk/deployment_tools/model_downloader/classification/squeezenet/1.1/caffe/squeezenet1.1.caffemodel -o $SV/object-detection/ 
