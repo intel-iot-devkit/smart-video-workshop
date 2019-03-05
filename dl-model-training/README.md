@@ -27,11 +27,12 @@ Fully connected layers are traditional Neural Network layers.
 
 To install the necessary Python libraries on Linux, you need to run:
 ```
-sudo pip install keras tensorflow
+sudo pip3 install keras tensorflow
 ```
 ## Run the tutorial
 
 ```
+cd ~/smart-video-workshop/dl-model-training
 python3 Deep_Learning_Tutorial.py
 ```
 
