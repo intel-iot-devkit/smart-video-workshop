@@ -74,10 +74,10 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio.md) to install Int
   - Lab - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](./HW-Acceleration-with-Movidious-NCS/README.md) 
   
 * **FPGA Inference Accelerator**
-  - Slides - [HW Acceleration with Intel® FPGA](./presentations/04-05_HW-Acceleration-with-FPGA.pdf)
+  - Slides - [HW Acceleration with Intel® FPGA](./presentations/04-HW-Acceleration-with-FPGA.pdf)
 
 * **Optimization Tools and Techniques** 
-  - Slides - [Optimization Tools and Techniques](/presentations/04_05_Optimization_and_advanced_analytics.pdf)
+  - Slides - [Optimization Tools and Techniques](/presentations/04-05_Optimization_and_advanced_analytics.pdf)
   - Lab 1 - [Optimization Tools and Techniques](./optimization-tools-and-techniques/README.md)
   - Lab 2- [Intel® VTune™ Amplifier tutorial](./optimization-tools-and-techniques/README_VTune.md)
   
