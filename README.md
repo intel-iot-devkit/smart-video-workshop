@@ -63,7 +63,7 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio.md) to install Int
   - Lab - [Training a Deep Learning Model](./dl-model-training/README.md)
   
 * **Basic End to End Object Detection Inference Example**
-  - Slides - [Basic End to End Object Detection Example](./presentations/02-Basic-End-to-End-Object-Detection-Example.pdf)
+  - Slides - [Basic End to End Object Detection Example](./presentations/02-03_Basic-End-to-End-Object-Detection-Example.pdf)
   - Lab - [Basic End to End Object Detection Example](./object-detection/README.md)
   - Lab - [Tensor Flow example](./advanced-video-analytics/tensor_flow.md)
 
@@ -74,7 +74,7 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio.md) to install Int
   - Lab - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](./HW-Acceleration-with-Movidious-NCS/README.md) 
   
 * **FPGA Inference Accelerator**
-  - Slides - [HW Acceleration with Intel® FPGA](./presentations/04-HW-Acceleration-with-FPGA.pdf)
+  - Slides - [HW Acceleration with Intel® FPGA](./presentations/04-05_HW-Acceleration-with-FPGA.pdf)
 
 * **Optimization Tools and Techniques** 
   - Slides - [Optimization Tools and Techniques](/presentations/04_05_Optimization_and_advanced_analytics.pdf)
