@@ -49,7 +49,7 @@ Run demo scripts (any one of them or both if you want to both the demos) which w
 
 #### e). Install Intel® System Studio, VNC viewer and Setup on development machine
 
-Follow the [guide](./up2-vision-kit/setup_intel_system_studio.md) to install Intel® System Studio and VNC viewer on your development machine.
+Follow the [guide](./up2-vision-kit/setup_intel_system_studio_2019.md) to install Intel® System Studio and VNC viewer on your development machine.
 	
 > :warning: This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version R5 (computer_vision_sdk_2018.5.445). 
 
@@ -86,7 +86,7 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio.md) to install Int
   
 * **UP²\* AI Vision Development kit as Edge**
   - Setup - [Development machine and Internet Connection Sharing](./up2-vision-kit/dev_machine_setup.md)
-  - Lab - [Interact face detection on UP2 kit using Intel® System Studio](./up2-vision-kit/interact-face-detection.md)
+  - Lab - [Interact face detection on UP2 kit using Intel® System Studio](./up2-vision-kit/openvino-projects-using-iss2019.md)
   
 * **Additional Examples - Reference Implementations**
   - Industrial 
