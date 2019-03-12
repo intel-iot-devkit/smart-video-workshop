@@ -32,7 +32,7 @@ The Intel® VTune™ Amplifier GUI will open.
 In the Intel® VTune™ Amplifier GUI click **New Project** toolbar icon to create a new project.
 
 
-![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/01-VTune-New_Project-2019u3.png.PNG)
+![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/01-VTune-NewProject-2019u3.png)
 
 
 When prompted, enter a project name, e.g. **_openvino-lab_**
@@ -55,7 +55,7 @@ And in the **Application parameters** field type:
 ![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/03-VTune-OpenVINO-Analysis_Target-Crop_2019u3.png)
 
 
-Right side of GUI will show the section with the **Analysis Type**. Select **Hotspots** analysis here, and in the Hotspots configuration , select **Hardware Event-Based Sampling with CPU sampling interval,ms set to 1**, and check the **Collect stacks** checkbox.
+Right side of GUI will show the section with the **Analysis Type**. Select **Hotspots** analysis here, and in the Hotspots configuration , select **Hardware Event-Based Sampling with CPU sampling interval, ms set to 1**, and check the **Collect stacks** checkbox.
 
 > **Note**: If you get an error message about kernel-mode monitoring, check that you’ve loaded the Sampling Driver with the right group (see Build and Load Intel® VTune™ Amplifier Sampling Driver above). If you get an error message about analysis type requires either an acess to kernel-mode monitoring in the Linux* perf subsystem. Please set the perf_event_paranoid value to 1 or set the ptrace_scope value to 0 depending on the error message.
 
@@ -74,13 +74,13 @@ Once the application terminates (or the **Stop** button is clicked) Intel® VTun
 In the beginning of the summary, you’ll see the time, CPI (cycles per instruction), CPU frequency, thread count, and some other statistics. Hover with the mouse pointer over (?) signs to see the detailed description of the counter. Some of the counters here might be marked by red flags. Hover over the red flag to see more information on the flagged issue, and in some cases, suggestions for potential performance improvements.
 
 
-![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/05-VTune-OpenVINO-AH-Summary-Crop_2019u3.png)
+![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/05-VTune-OpenVINO-AHSummary-Crop_2019u3.png)
 
 
 Next, there is the list of Top Hotspots and the list of Top Tasks. The Top Hotspots list shows 5 functions that took the most CPU time, and the Top Tasks, shows 5 tasks that took the most CPU time. Intel® Distribution of OpenVINO™ toolkit uses Intel® VTune™ Amplifier Instrumentation and Tracing Technology (ITT) to define these tasks.
 
 
-![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/06-VTune-OpenVINO-AH-Top_Tasks-Crop_2019u3.png)
+![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/06-VTune-OpenVINO-AH-TopTasks-Crop_2019u3.png)
 
 
 The Effective CPU Utilization Histogram shows the percentage of the time the specific number of logical CPUs (cores or threads) were running simultaneously. If your application does not utilize all the available cores, it might be possible to improve the performance by parallelizing it.
@@ -93,7 +93,7 @@ Click on the **Bottom-up** tab. It will show the list of functions, by default s
 The execution timeline is displayed on the bottom part of the window. Note the threads of the application, and their behavior. This raises questions such as "Why does each thread have multiple (about 100) peaks?" and "Could this indicate excessive task switching?"
 
 
-![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/07-VTune-OpenVINO-AH-Bottom_Up-Crop_2019u3.png)
+![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/07-VTune-OpenVINO-AH-BottomUp-Crop_2019u3.png)
 
 
 Try to zoom in on the timeline by clicking the mouse, dragging the mouse pointer over it, and then selecting **Zoom In on Selection** pop-up menu entry. In zoomed in view, the bottom-up view only shows hotspots (functions or tasks) observed during the selected time period. Also, note the task names on the OMP Master Thread and OpenCV thread. Use right click and Reset Zoom or Undo Previous Zoom pop-up menu entries to zoom out. 
@@ -118,7 +118,7 @@ Once the application profiling is done, review the **Summary** tab. Note the cha
 Switch to the **Bottom-up** tab and then to the **Platform** tab. Note how the thread behavior had changed. What in Intel® Distribution of OpenVINO™ toolkit caused this change in the behavior?
 
 
-![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/09-VTune-OpenVINO2-AH-Platform-Crop_2019u3.png)
+![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/09-VTune-OpenVINO2-AHPlatform-Crop_2019u3.png)
 
 
 ## Compare Two Profiling Results
@@ -137,7 +137,7 @@ Select the two results you would like to compare, and click on the **Compare** b
 Intel® VTune™ Amplifier will compare the profiling data for two runs. In the displayed results, note that now the difference between two runs is shown. Particularly in this case we can see improvement in CPU time.
 
 
-![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/11-VTune-OpenVINO-Compare_Results-Summary-Crop_2019u3.png)
+![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/11-VTune-OpenVINO-CompareResults-Summary-Crop_2019u3.png)
 
 
 Switch to the **Bottom-up** tab, make sure that the **Grouping** is set to **Task Domain / Task Type Function / Call Stack**, and click on the **InferenceEngine** domain to see the tasks in that domain.
