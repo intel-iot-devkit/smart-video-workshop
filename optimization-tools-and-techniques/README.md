@@ -81,9 +81,9 @@ Run various SSD models from the model_downloader in the car detection example wh
 ### 3. Use the right data type for your target harware and accuracy needs
 In this section, we will consider an example running on a GPU. FP16 operations are better optimized than FP32 on GPUs. We will run the object detection example with SSD models with data types FP16 and FP32 and observe the performance difference. 
 
-	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d GPU 
+	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/SSD300/FP32/ssd300.xml -d GPU 
 	
-	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP16/mobilenet-ssd.xml -d GPU
+	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/SSD300/FP16/ssd300.xml -d GPU
 
 It is clear that we got better performance with FP16 models. 
 
