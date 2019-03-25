@@ -7,6 +7,9 @@ In this lab, developers who are interested in using the Intel® System Studio Ec
 In this section, we step you through creating and building a new project based on the OpenVINO™ sample projects available in the Intel® System Studio Eclipse*-based IDE.
 
 0. Open Intel System Studio by seraching in the Ubuntu serach bar or from the shortcut created on the Desktop on the laptop. 
+
+> :warning: For the in-class training, the **custom Docker* image** has already been created on the workshop laptop. In-class training participants should directly move to **Step 2**. 
+
 1. You need a custom Docker* image in order to use the OpenVINO samples. Make sure you have completed [Create a Custom Docker* image](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/up2-vision-kit/setup_intel_system_studio_2019.md#2--create-a-custom-docker-image) session. If you have already done this, skip this step. 
 2. Choose **File > New > Project** from the menu to start the new project wizard.
 3. Expand **Intel Application Development** and select **C++ Project**. Click **Next**.
@@ -26,7 +29,7 @@ In this section, we step you through creating and building a new project based o
     <br>
     
 7. Click **Next**.
-8. Select the custom Docker image you created in the [Create a Custom Docker* image](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/up2-vision-kit/setup_intel_system_studio_2019.md#2--create-a-custom-docker-image) session.
+8. Select the custom Docker image, the name should be something like "Ubuntu OpenVINO R5".
 9. Click **Finish** to start the build process.
     <br>
   
