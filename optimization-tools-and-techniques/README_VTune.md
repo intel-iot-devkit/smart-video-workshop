@@ -40,6 +40,7 @@ When prompted, enter a project name, e.g. **_openvino-lab_**
 
 ![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/02-VTune-Create_Project-OpenVINO_2019u3.png)
 
+Press **Create Project** button.
 
 Intel® VTune™ Amplifier will show **Configure Analysis** tab. Configure the analysis target under **WHERE** tab. In this case we’ll be using the local host as the target system and we’ll launch an application to profile.
 
