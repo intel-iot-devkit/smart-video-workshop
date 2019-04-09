@@ -6,7 +6,7 @@ This example shows how to use hetero plugin to define preferences to run differe
 ### Car detection tutorial example 
 #### 1. Navigate to the tutorial directory
 	export SV=/opt/intel/workshop/smart-video-workshop
-	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+	source /opt/intel/openvino/bin/setupvars.sh
 	cd $SV/object-detection/
   
 #### 2. Run the car detection tutorial with hetero plugin 
@@ -23,34 +23,34 @@ This example shows how to use hetero plugin to define preferences to run differe
 Observe the performance time required to process each frame by Inference Engine. For this particular example, inferance ran faster when prioritized for CPU as oppose to when GPU was the first priority.  
 
 ### Inference Engine classification sample     
-Intel® Distribution of OpenVINO™ toolkit install folder (/opt/intel/computer_vision_sdk/) includes various samples for developers to understand how Inference Engine APIs can be used. These samples have -pc flag implmented which shows per topology layer performance report. This will allow to see which layers are running on which hardware. We will run a very basic classification sample as an example in this section. We will provide car image as input to the classification sample. The output will be object labels with confidence numbers.  
+Intel® Distribution of OpenVINO™ toolkit install folder (/opt/intel/openvino/) includes various samples for developers to understand how Inference Engine APIs can be used. These samples have -pc flag implmented which shows per topology layer performance report. This will allow to see which layers are running on which hardware. We will run a very basic classification sample as an example in this section. We will provide car image as input to the classification sample. The output will be object labels with confidence numbers.  
 
 #### 1. First, get the classification model and convert that to IR using Model Optimizer
 For this example, we will use squeezenet model downloaded with the model downlaoder script while setting up the OS for the workshop. 
 
-	cd /opt/intel/computer_vision_sdk/deployment_tools/model_downloader
+	cd /opt/intel/openvino/deployment_tools/tools/model_downloader
 	
 	sudo python3 downloader.py --name squeezenet1.1
 	
-	cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer
+	cd /opt/intel/openvino/deployment_tools/model_optimizer
 	
-	python3 mo_caffe.py --input_model /opt/intel/computer_vision_sdk/deployment_tools/model_downloader/classification/squeezenet/1.1/caffe/squeezenet1.1.caffemodel -o $SV/object-detection/ 
+	python3 mo_caffe.py --input_model /opt/intel/openvino/deployment_tools/tools/model_downloader/classification/squeezenet/1.1/caffe/squeezenet1.1.caffemodel -o $SV/object-detection/ 
 	
 To display labels after classifictaion, you will need a labels file for the SqueezeNet* model. Get the available labels file from demo directory to your working directory.  
 
-	cp /opt/intel/computer_vision_sdk/deployment_tools/demo/squeezenet1.1.labels $SV/object-detection/
+	cp /opt/intel/openvino/deployment_tools/demo/squeezenet1.1.labels $SV/object-detection/
 
 
 #### 2. Go to samples build directory
 Make sure you have build the samples as per the instructions given in the [How to Get Started](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/README.md) section. 
 > **Note** For the in-class workshop sessions, the samples are already built in the OS image. 
 
-	 cd $HOME/inference_engine_samples/intel64/Release
+	 cd $HOME/inference_engine_samples_build/intel64/Release
 
 
 #### 3. Run classification sample with hetero plugin, prioritizing running on GPU first.
 
-	 ./classification_sample -i /opt/intel/computer_vision_sdk/deployment_tools/demo/car.png -m $SV/object-detection/squeezenet1.1.xml -d HETERO:GPU,CPU -pc
+	 ./classification_sample -i /opt/intel/openvino/deployment_tools/demo/car.png -m $SV/object-detection/squeezenet1.1.xml -d HETERO:GPU,CPU -pc
 	
 performance counts:
 
@@ -62,7 +62,7 @@ performance counts:
 
 #### 4. Now, run with CPU first
 
-	 ./classification_sample -i /opt/intel/computer_vision_sdk/deployment_tools/demo/car.png -m $SV/object-detection/squeezenet1.1.xml -d HETERO:CPU,GPU -pc
+	 ./classification_sample -i /opt/intel/openvino/deployment_tools/demo/car.png -m $SV/object-detection/squeezenet1.1.xml -d HETERO:CPU,GPU -pc
 
 performance counts:
 <br>
