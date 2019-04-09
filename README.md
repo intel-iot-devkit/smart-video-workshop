@@ -51,7 +51,7 @@ Run demo scripts (any one of them or both if you want to both the demos) which w
 
 Follow the [guide](./up2-vision-kit/setup_intel_system_studio_2019.md) to install Intel® System Studio and VNC viewer on your development machine.
 	
-> :warning: This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version R5 (computer_vision_sdk_2018.5.445). 
+> :warning: This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version R1 (openvino_toolkit_2019.1.094). 
 
 		
 ## Workshop Agenda
