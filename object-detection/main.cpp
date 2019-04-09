@@ -138,7 +138,7 @@ int main(int argc, char *argv[]) {
         //in some cases it might be possible to skip this step, but most models use these extensions to run on CPU
         if (FLAGS_d.find("CPU")!=string::npos)
         {
-            string s_ext_plugin = path + "/inference_engine_samples/intel64/Release/lib/libcpu_extension.so";
+            string s_ext_plugin = path + "/inference_engine_samples_build/intel64/Release/lib/libcpu_extension.so";
             auto extension_ptr = make_so_pointer<InferenceEngine::IExtension>(s_ext_plugin);
             plugin.AddExtension(extension_ptr);
         }
