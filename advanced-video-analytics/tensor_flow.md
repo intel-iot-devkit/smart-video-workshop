@@ -45,7 +45,7 @@ Go to ~/models/research/slim/ directory and run summarize_graph.py script.
 
     cd ~/models/research/slim/
     
-    python3 /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/mo/utils/summarize_graph.py --input_model=/tmp/inception_v1_inf_graph.pb
+    python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo/utils/summarize_graph.py --input_model=/tmp/inception_v1_inf_graph.pb
 
 The output layer/node name should be in the last line of text on the console and should look like:
 
@@ -65,7 +65,7 @@ You might get warning message "Your CPU supports instructions that this TensorFl
 ### Convert Frozen Tensorflow* model to IR using Model Optimizer 
 Assuming you are in the ~/models/research/slim/ directory 
 
-    python3 /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/mo_tf.py --input_model inception_v1_frozen.pb --input_shape [1,224,224,3] --mean_values [1024,1024,1024] --scale_values [128,128,128]
+    python3 /opt/intel/openvino/deployment_tools/tools/model_optimizer/mo_tf.py --input_model inception_v1_frozen.pb --input_shape [1,224,224,3] --mean_values [1024,1024,1024] --scale_values [128,128,128]
 
 This should produce “inception_v1_frozen.xml” and “inception_v1_frozen.bin” file. The xml file contains the topology information of the model and the bin file contains the model’s weights and biases. These two files are expected when using the inference engine so make note of the path.
 
@@ -77,7 +77,7 @@ The classification collateral is defined as the input image car_1.bmp, the Incep
 Create a new directory that will hold the classification sample app and all needed components to run the classification sample
 Note: The following steps should be followed and are assuming you are following the preceding steps. You should be in the home directory.
 
-    source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+    source /opt/intel/openvino/bin/setupvars.sh
  
 Navigate to the classification_sample executable file:
 
@@ -87,9 +87,9 @@ Place Classification App collateral in current local directory:
 
     sudo cp ~/models/research/slim/inception_v1_frozen.* .
     
-    sudo cp /opt/intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp  .
+    sudo cp /opt/intel/openvino/deployment_tools/demo/car_1.bmp  .
     
-    sudo cp /opt/intel/computer_vision_sdk/deployment_tools/demo/squeezenet1.1.labels ./inception_v1_frozen.labels
+    sudo cp /opt/intel/openvino/deployment_tools/demo/squeezenet1.1.labels ./inception_v1_frozen.labels
 
 #### Run Application
 Note: To see all the flags that the sample takes as input run  ./classification_sample -h
