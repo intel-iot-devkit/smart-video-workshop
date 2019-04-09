@@ -65,7 +65,7 @@ You might get warning message "Your CPU supports instructions that this TensorFl
 ### Convert Frozen Tensorflow* model to IR using Model Optimizer 
 Assuming you are in the ~/models/research/slim/ directory 
 
-    python3 /opt/intel/openvino/deployment_tools/tools/model_optimizer/mo_tf.py --input_model inception_v1_frozen.pb --input_shape [1,224,224,3] --mean_values [1024,1024,1024] --scale_values [128,128,128]
+    python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo_tf.py --input_model inception_v1_frozen.pb --input_shape [1,224,224,3] --mean_values [1024,1024,1024] --scale_values [128,128,128]
 
 This should produce “inception_v1_frozen.xml” and “inception_v1_frozen.bin” file. The xml file contains the topology information of the model and the bin file contains the model’s weights and biases. These two files are expected when using the inference engine so make note of the path.
 
@@ -81,7 +81,7 @@ Note: The following steps should be followed and are assuming you are following 
  
 Navigate to the classification_sample executable file:
 
-    cd $HOME/inference_engine_samples/intel64/Release
+    cd $HOME/inference_engine_samples_build/intel64/Release
 
 Place Classification App collateral in current local directory:
 
@@ -100,15 +100,15 @@ Expected Output:
 
 
     [ INFO ] InferenceEngine: 
-	API version ............ 1.4
-	Build .................. 19154
+	API version ............ 1.6
+	Build .................. custom_releases/2019/R1_c9b66a26e4d65bb986bb740e73f58c6e9e84c7c2
 	[ INFO ] Parsing input parameters
 	[ INFO ] Files were added: 1
 	[ INFO ]     car_1.bmp
 	[ INFO ] Loading plugin
 
-		API version ............ 1.5
-		Build .................. lnx_20181004
+		API version ............ 1.6
+		Build .................. 22443
 		Description ....... MKLDNNPlugin
 	[ INFO ] Loading network files:
 		inception_v1_frozen.xml
@@ -125,24 +125,27 @@ Expected Output:
 
 	Image car_1.bmp
 
-	829 0.6013380 label streetcar, tram, tramcar, trolley, trolley car
-	905 0.1193137 label window shade
-	557 0.0587131 label flagpole, flagstaff
-	600 0.0273736 label hook, claw
-	812 0.0096623 label space shuttle
-	633 0.0080024 label loupe, jeweler's loupe
-	795 0.0052693 label ski
-	791 0.0045856 label shopping cart
-	652 0.0042737 label military uniform
-	689 0.0042264 label overskirt
+	classid probability label
+	------- ----------- -----
+	829     0.6013383   streetcar, tram, tramcar, trolley, trolley car
+	905     0.1193138   window shade
+	557     0.0587131   flagpole, flagstaff
+	600     0.0273736   hook, claw
+	812     0.0096623   space shuttle
+	633     0.0080025   loupe, jeweler's loupe
+	795     0.0052693   ski
+	791     0.0045856   shopping cart
+	652     0.0042737   military uniform
+	689     0.0042265   overskirt
 
 
-	total inference time: 11.8761007
-	Average running time of one iteration: 11.8761007 ms
+	total inference time: 22.1188385
+	Average running time of one iteration: 22.1188385 ms
 
-	Throughput: 84.2027217 FPS
+	Throughput: 45.2103305 FPS
 
 	[ INFO ] Execution successful
+
 
 
 
