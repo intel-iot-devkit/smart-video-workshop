@@ -85,7 +85,7 @@ You should see the following two files listed in this directory: **mobilenet-ssd
 
 #### 3. Source your environmental variables
 
-	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+	source /opt/intel/openvino/bin/setupvars.sh
 
 #### 4. Build the sample application with make file
 
@@ -135,7 +135,7 @@ Here are the parameters used in the above command to run the application:
 
  Make sure that you have sourced the environmental variables for each newly opened terminal window.
  
-	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+	source /opt/intel/openvino/bin/setupvars.sh
 	
 	export SV=/opt/intel/workshop/smart-video-workshop/
 	
