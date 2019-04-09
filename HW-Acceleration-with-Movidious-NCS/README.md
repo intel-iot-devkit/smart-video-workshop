@@ -74,7 +74,7 @@ Let's run the Model Optimizer to get IR files in FP16 format suitable for the In
 	
 	python3 mo_caffe.py --input_model /opt/intel/computer_vision_sdk/deployment_tools/model_downloader/object_detection/common/mobilenet-ssd/caffe/mobilenet-ssd.caffemodel -o $SV/object-detection/mobilenet-ssd/FP16 --scale 256 --mean_values [127,127,127] --data_type FP16
 
-Check if the .xml and .bin files are created in folder $SV/object-detection/SSD300/FP16. 
+Check if the .xml and .bin files are created in folder $SV/object-detection/mobilenet-ssd/FP16. 
 	 
 	 cd $SV/object-detection/mobilenet-ssd/FP16
 	 ls
