@@ -46,7 +46,7 @@ Here ID 03e7:2150 without a description string is the Movidius device.
 #### Setup a short path for the workshop directory
 
 	export SV=/opt/intel/workshop/smart-video-workshop/
-	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+	source /opt/intel/openvino/bin/setupvars.sh
 
 #### Run the sample application on Intel® Movidius™ Neural Compute Stick (NCS)
 Set target hardware as Intel® Movidius™ NCS with **-d MYRIAD**
@@ -70,9 +70,9 @@ Let's run the Model Optimizer to get IR files in FP16 format suitable for the In
     cd $SV/object-detection/mobilenet-ssd
     mkdir -p FP16
     
-    cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer
+    cd /opt/intel/openvino/deployment_tools/model_optimizer
 	
-	python3 mo_caffe.py --input_model /opt/intel/computer_vision_sdk/deployment_tools/model_downloader/object_detection/common/mobilenet-ssd/caffe/mobilenet-ssd.caffemodel -o $SV/object-detection/mobilenet-ssd/FP16 --scale 256 --mean_values [127,127,127] --data_type FP16
+	python3 mo_caffe.py --input_model /opt/intel/openvino/deployment_tools/tools/model_downloader/object_detection/common/mobilenet-ssd/caffe/mobilenet-ssd.caffemodel -o $SV/object-detection/mobilenet-ssd/FP16 --scale 256 --mean_values [127,127,127] --data_type FP16
 
 Check if the .xml and .bin files are created in folder $SV/object-detection/SSD300/FP16. 
 	 
