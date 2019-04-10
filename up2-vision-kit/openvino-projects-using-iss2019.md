@@ -121,7 +121,7 @@ CMake creates the necessary make files for the project, and then starts a build.
 1. Still on the **Main** tab, review the **Commands to execute before application** to make sure the paths are set properly for your system, as follows.
 > **Note:** The following assumes that OpenVINO is installed on the default location for a user with root privileges. If you’ve installed OpenVINO in a different folder, modify the first line below accordingly.
 
-    export INTEL_CVSDK_DIR=/opt/intel/computer_vision_sdk; 
+    export INTEL_CVSDK_DIR=/opt/intel/openvino; 
     export INFENG=$INTEL_CVSDK_DIR/deployment_tools/inference_engine; 
     export IE_PLUGINS_PATH=$INFENG/lib/ubuntu_16.04/intel64; 
     [ ! -d /tmp/OpenVINO ] && mkdir /tmp/OpenVINO; 
@@ -133,7 +133,8 @@ CMake creates the necessary make files for the project, and then starts a build.
 1. Select the **Arguments** tab.
 2. Verify that the **Program arguments** are set as follows.
 
-        -i cam -m /opt/intel/computer_vision_sdk/deployment_tools/intel_models/face-detection-retail-0004/FP32/face-detection-retail-0004.xml -d CPU -m_ag /opt/intel/computer_vision_sdk/deployment_tools/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp /opt/intel/computer_vision_sdk/deployment_tools/intel_models/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001.xml -d_hp CPU -m_em /opt/intel/computer_vision_sdk/deployment_tools/intel_models/emotions-recognition-retail-0003/FP32/emotions-recognition-retail-0003.xml -d_em CPU -m_lm  /opt/intel/computer_vision_sdk/deployment_tools/intel_models/facial-landmarks-35-adas-0001/FP32/facial-landmarks-35-adas-0001.xml -d_lm CPU
+        ./interactive_face_detection_demo -i cam -m /opt/intel/openvino/deployment_tools/tools/model_downloader/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/face-detection-retail-0004-fp16.xml -d MYRIAD -m_ag /opt/intel/openvino/deployment_tools/tools/model_downloader/Retail/object_attributes/age_gender/dldt/age-gender-recognition-retail-0013.xml -d_ag CPU -d_ag CPU -m_hp /opt/intel/openvino/deployment_tools/tools/model_downloader/Transportation/object_attributes/headpose/vanilla_cnn/dldt/head-pose-estimation-adas-0001-fp16.xml -d_hp GPU -d_hp GPU -m_em /opt/intel/openvino/deployment_tools/tools/model_downloader/Retail/object_attributes/emotions_recognition/0003/dldt/emotions-recognition-retail-0003-fp16.xml -d_em GPU -m_lm  /opt/intel/openvino/deployment_tools/tools/model_downloader/Transportation/object_attributes/facial_landmarks/custom-35-facial-landmarks/dldt/facial-landmarks-35-adas-0002.xml -d_lm CPU
+
 
 3. Click **Apply** and **Run**. 
  
@@ -160,7 +161,7 @@ Now, let's push the application to run on our remote system - Up2* AI Vision Boa
 1. Still on the **Main** tab, review the **Commands to execute before application** to make sure the paths are set properly for your system, as follows.
 > **Note:** The following assumes that OpenVINO is installed on the default location for a user with root privileges. If you’ve installed OpenVINO in a different folder, modify the first line below accordingly.
 
-    export INTEL_CVSDK_DIR=/opt/intel/computer_vision_sdk; 
+    export INTEL_CVSDK_DIR=/opt/intel/openvino; 
     export INFENG=$INTEL_CVSDK_DIR/deployment_tools/inference_engine; 
     export IE_PLUGINS_PATH=$INFENG/lib/ubuntu_16.04/intel64; 
     [ ! -d /tmp/OpenVINO ] && mkdir /tmp/OpenVINO; 
@@ -173,6 +174,7 @@ Now, let's push the application to run on our remote system - Up2* AI Vision Boa
 1. Select the **Arguments** tab.
 2. Verify that the **Program arguments** are set as follows.
 
-        -i cam -m /opt/intel/computer_vision_sdk/deployment_tools/intel_models/face-detection-retail-0004/FP32/face-detection-retail-0004.xml -d CPU -m_ag /opt/intel/computer_vision_sdk/deployment_tools/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp /opt/intel/computer_vision_sdk/deployment_tools/intel_models/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001.xml -d_hp CPU -m_em /opt/intel/computer_vision_sdk/deployment_tools/intel_models/emotions-recognition-retail-0003/FP32/emotions-recognition-retail-0003.xml -d_em CPU -m_lm  /opt/intel/computer_vision_sdk/deployment_tools/intel_models/facial-landmarks-35-adas-0001/FP32/facial-landmarks-35-adas-0001.xml -d_lm CPU
+        -i cam -m /opt/intel/openvino/deployment_tools/tools/model_downloader/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/face-detection-retail-0004-fp16.xml -d MYRIAD -m_ag /opt/intel/openvino/deployment_tools/tools/model_downloader/Retail/object_attributes/age_gender/dldt/age-gender-recognition-retail-0013.xml -d_ag CPU -d_ag CPU -m_hp /opt/intel/openvino/deployment_tools/tools/model_downloader/Transportation/object_attributes/headpose/vanilla_cnn/dldt/head-pose-estimation-adas-0001-fp16.xml -d_hp GPU -d_hp GPU -m_em /opt/intel/openvino/deployment_tools/tools/model_downloader/Retail/object_attributes/emotions_recognition/0003/dldt/emotions-recognition-retail-0003-fp16.xml -d_em GPU -m_lm  /opt/intel/openvino/deployment_tools/tools/model_downloader/Transportation/object_attributes/facial_landmarks/custom-35-facial-landmarks/dldt/facial-landmarks-35-adas-0002.xml -d_lm CPU
+
 
 3. Click **Apply** and **Run**. 
