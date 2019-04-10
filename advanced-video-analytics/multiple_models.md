@@ -50,27 +50,29 @@ Following car image will appear the at end of the above command execution. It sh
 
 #### 3. Set short path to access the pretrained models
 
-	export models=/opt/intel/openvino/deployment_tools/intel_models/
+	export models=/opt/intel/openvino/deployment_tools/tools/model_downloader
 	
 #### 4. Run the face demo, face detection only, on the Intel® Movidius™ Neural Compute stick
 
-	./interactive_face_detection_demo -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD
+	./interactive_face_detection_demo -i cam -m $models/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/face-detection-retail-0004-fp16.xml -d MYRIAD
+
 
 #### 5. Now we add (to the face detection) also an age and gender detection, running on the CPU
 
-	./interactive_face_detection_demo -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD -m_ag $models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU 
+	./interactive_face_detection_demo -i cam -m $models/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/face-detection-retail-0004-fp16.xml -d MYRIAD -m_ag $models/Retail/object_attributes/age_gender/dldt/age-gender-recognition-retail-0013.xml -d_ag CPU 
+
 
 
 #### 6. Now let’s add head position detection running on GPU.
  
- 	./interactive_face_detection_demo -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD -m_ag $models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp $models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU
+ 	./interactive_face_detection_demo -i cam -m $models/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/face-detection-retail-0004-fp16.xml -d MYRIAD -m_ag $models/Retail/object_attributes/age_gender/dldt/age-gender-recognition-retail-0013.xml -d_ag CPU -d_ag CPU -m_hp $models/Transportation/object_attributes/headpose/vanilla_cnn/dldt/head-pose-estimation-adas-0001-fp16.xml -d_hp GPU
 
 #### 7. Now we’ll add an emotion detector, running on the GPU
 	
-	./interactive_face_detection_demo -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD -m_ag $models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp $models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU -m_em $models/emotions-recognition-retail-0003/FP16/emotions-recognition-retail-0003.xml -d_em GPU
+	./interactive_face_detection_demo -i cam -m $models/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/face-detection-retail-0004-fp16.xml -d MYRIAD -m_ag $models/Retail/object_attributes/age_gender/dldt/age-gender-recognition-retail-0013.xml -d_ag CPU -d_ag CPU -m_hp $models/Transportation/object_attributes/headpose/vanilla_cnn/dldt/head-pose-estimation-adas-0001-fp16.xml -d_hp GPU -d_hp GPU -m_em $models/Retail/object_attributes/emotions_recognition/0003/dldt/emotions-recognition-retail-0003-fp16.xml -d_em GPU
 	
 #### 8. Now let's add facial landmarks detector, running on the GPU
 	
-	./interactive_face_detection_demo -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD -m_ag $models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp $models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU -m_em $models/emotions-recognition-retail-0003/FP16/emotions-recognition-retail-0003.xml -d_em GPU -m_lm  $models/facial-landmarks-35-adas-0001/FP16/facial-landmarks-35-adas-0001.xml -d_lm GPU
+	./interactive_face_detection_demo -i cam -m $models/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/face-detection-retail-0004-fp16.xml -d MYRIAD -m_ag $models/Retail/object_attributes/age_gender/dldt/age-gender-recognition-retail-0013.xml -d_ag CPU -d_ag CPU -m_hp $models/Transportation/object_attributes/headpose/vanilla_cnn/dldt/head-pose-estimation-adas-0001-fp16.xml -d_hp GPU -d_hp GPU -m_em $models/Retail/object_attributes/emotions_recognition/0003/dldt/emotions-recognition-retail-0003-fp16.xml -d_em GPU -m_lm  $models/Transportation/object_attributes/facial_landmarks/custom-35-facial-landmarks/dldt/facial-landmarks-35-adas-0002.xml -d_lm CPU
 	
 
