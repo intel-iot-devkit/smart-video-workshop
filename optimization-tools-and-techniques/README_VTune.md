@@ -22,7 +22,7 @@ Open a terminal and run the following commands to build and load the Intel® VTu
 ## Setup Environment Variables and Start Intel® VTune™ Amplifier
 In a terminal run source setupvars.sh and amplxe-vars.sh scripts, and run amplxe-gui:
 
-      source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+      source /opt/intel/openvino/bin/setupvars.sh
       source /opt/intel/system_studio_2019/vtune_amplifier_2019/amplxe-vars.sh
       amplxe-gui
 
