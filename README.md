@@ -45,7 +45,8 @@ Run demo scripts (any one of them or both if you want to both the demos) which w
    - Run model downloader script to download example deep learning models
   		
 	cd /opt/intel/openvino/deployment_tools/tools/model_downloader
-	sudo python3 downloader.py --name mobilenet-ssd,ssd300,ssd512,squeezenet1.1
+	sudo python3 downloader.py --name mobilenet-ssd,ssd300,ssd512,squeezenet1.1,face-detection-retail-0004,face-detection-retail-0004-fp16,age-gender-recognition-retail-0013,age-gender-recognition-retail-0013-fp16,head-pose-estimation-adas-0001,head-pose-estimation-adas-0001-fp16,emotions-recognition-retail-0003,emotions-recognition-retail-0003-fp16,facial-landmarks-35-adas-0002,facial-landmarks-35-adas-0002-fp16
+
 
 #### e). Install Intel® System Studio, VNC viewer and Setup on development machine
 
