@@ -36,7 +36,7 @@ In this section, you will use the Model Optimizer to convert a trained model to 
 
 #### 2. Navigate to the Intel® Distribution of OpenVINO™ toolkit install directory
 
-	cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer
+	cd /opt/intel/openvino/deployment_tools/model_optimizer
 
 #### 3. Run the Model Optimizer on the pretrained Caffe* model. This step generates one .xml file and one .bin file and place both files in the tutorial samples directory (located here: /safety-gear-example/)
 
@@ -81,7 +81,7 @@ You should see the following two files listed in this directory: **worker_safety
 
 #### 3. Source your environmental variables
 
-	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+	source /opt/intel/openvino/bin/setupvars.sh
 
 #### 4. Build the sample application with make file
 
@@ -128,7 +128,7 @@ Here are the parameters used in the above command to run the application:
 
  Make sure that you have sourced the environmental variables for each newly opened terminal window.
 
-	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+	source /opt/intel/openvino/bin/setupvars.sh
 
 	export SV=/opt/intel/workshop/smart-video-workshop/
 
