@@ -44,7 +44,7 @@ Run demo scripts (any one of them or both if you want to both the demos) which w
    
    - Run model downloader script to download example deep learning models
   		
-	cd /opt/intel/computer_vision_sdk/deployment_tools/tools/model_downloader
+	cd /opt/intel/openvino/deployment_tools/tools/model_downloader
 	sudo python3 downloader.py --name mobilenet-ssd,ssd300,ssd512,squeezenet1.1
 
 #### e). Install Intel® System Studio, VNC viewer and Setup on development machine
