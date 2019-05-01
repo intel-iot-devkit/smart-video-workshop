@@ -20,6 +20,7 @@ to install the Intel® Distribution of OpenVINO™ toolkit, configure Model Opti
 #### b). Install git, python libraries
 	sudo apt install git
 	sudo apt install python3-pip
+	sudo apt install libgflags-dev
     
 #### c). Run the demo scipts and compile samples
 Delete $HOME/inference_engine_samples folder if it already exists. 
