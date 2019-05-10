@@ -51,6 +51,8 @@ We create a simple model with a custom cosh layer.The weights are random and unt
 	 cd $SW/custom-layer/create_tf_model
 
 	 mkdir -p tf_model
+	 
+	 chmod +x build_cosh_model.py
 
     ./build_cosh_model.py tf_model
 
