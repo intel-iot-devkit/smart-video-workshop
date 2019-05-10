@@ -81,32 +81,26 @@ You should see the following two files listed in this directory: **frozen_darkne
 
 	source /opt/intel/openvino/bin/setupvars.sh
 
-#### 3. Download the test video file .
 
-	cd $SV/object-detection/tensorflow-yolo-v3
-
-	wget https://github.com/intel-iot-devkit/sample-videos/blob/master/person-bicycle-car-detection.mp4
-
-
-#### 4. Run the sample application to use the Inference Engine on the test video
+#### 3. Run the sample application to use the Inference Engine on the test video
 The below command runs the application with YOLOv3 IR model and the test video which you downloaded in previous step.
 
 
-	python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/object_detection_demo_yolov3_async/object_detection_demo_yolov3_async.py -i /opt/intel/openvino/deployment_tools/demo/car_1.bmp -m ./FP32/frozen_darknet_yolov3_model.xml -l /home/intel/inference_engine_samples_build/intel64/Release/lib/libcpu_extension.so
+	python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/object_detection_demo_yolov3_async/object_detection_demo_yolov3_async.py -i /dev/video0 -m ./FP32/frozen_darknet_yolov3_model.xml -l /home/intel/inference_engine_samples_build/intel64/Release/lib/libcpu_extension.so
 
 
 #### 1. Inference on CPU
 ```
-python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/object_detection_demo_yolov3_async/object_detection_demo_yolov3_async.py -i /opt/intel/openvino/deployment_tools/demo/car_1.bmp -m ./FP32/frozen_darknet_yolov3_model.xml -l /home/intel/inference_engine_samples_build/intel64/Release/lib/libcpu_extension.so -d CPU
+python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/object_detection_demo_yolov3_async/object_detection_demo_yolov3_async.py -i /dev/video0 -m ./FP32/frozen_darknet_yolov3_model.xml -l /home/intel/inference_engine_samples_build/intel64/Release/lib/libcpu_extension.so -d CPU
 ```
-You will see the **total time** it took to run the inference.
+You will see the **total time** it took to run the inference and see the detected objects captured by the camera video. 
 
 #### 2. Inference on GPU
 Since you installed the OpenCL™ drivers to use the GPU, you can run the inference on GPU and compare the difference.
 
 Set target hardware as GPU with **-d GPU**
 ```
-python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/object_detection_demo_yolov3_async/object_detection_demo_yolov3_async.py -i /opt/intel/openvino/deployment_tools/demo/car_1.bmp -m ./FP32/frozen_darknet_yolov3_model.xml -d GPU
+python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/object_detection_demo_yolov3_async/object_detection_demo_yolov3_async.py -i /dev/video0 -m ./FP32/frozen_darknet_yolov3_model.xml -d GPU
 ```
 
 #### 3. Inference on Movidius NCS2
@@ -156,8 +150,8 @@ Let's run the Model Optimizer to get IR files in FP16 format suitable for the In
 
     mkdir -p FP16
 
-	python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo_tf.py --input_model frozen_darknet_yolov3_model.pb --batch 1 --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/yolo_v3.json -o $SV/object-detection/tensorflow-yolo-v3/FP32 --data_type FP16
+	python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo_tf.py --input_model frozen_darknet_yolov3_model.pb --batch 1 --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/yolo_v3.json -o $SV/object-detection/tensorflow-yolo-v3/FP16 --data_type FP16
 
 Now run the example application with these new IR files.
 
-	python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/object_detection_demo_yolov3_async/object_detection_demo_yolov3_async.py -i /opt/intel/openvino/deployment_tools/demo/car_1.bmp -m ./FP16/frozen_darknet_yolov3_model.xml -d MYRIAD
+	python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/object_detection_demo_yolov3_async/object_detection_demo_yolov3_async.py -i /dev/video0 -m ./FP16/frozen_darknet_yolov3_model.xml -d MYRIAD
