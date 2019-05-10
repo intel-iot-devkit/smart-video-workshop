@@ -1,4 +1,4 @@
-# OpenVINO 2019 R1 Custom Layer Tutorial for Linux
+# OpenVINO 2019 R1.0 Custom Layer Tutorial for Ubuntu 16.04
 
 ### Custom Layers
 Custom layers are NN (Neural Network) layers that are not explicitly supported by a given framework. This tutorial demonstrates how to run inference on topologies featuring custom layers allowing you to plug in your own implementation for existing or completely new layers.
