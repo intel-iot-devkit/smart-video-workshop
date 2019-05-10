@@ -67,7 +67,8 @@ We create a simple model with a custom cosh layer.The weights are random and unt
 
 
    Answer the Model Optimizer extension generator questions as follows:
-    ```
+   
+   
     Please enter layer name:
     [Cosh]
 
