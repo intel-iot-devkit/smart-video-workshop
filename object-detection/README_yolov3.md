@@ -131,7 +131,7 @@ The output for NCS2 will be
 	Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 	Bus 001 Device 015: ID 03e7:2485
 
-Here ID 03e7:2150 without a description string is the Movidius device.
+Here ID 03e7:2485 without a description string is the Movidius device.
 
 ##### Setup a short path for the workshop directory
 
