@@ -82,8 +82,8 @@ You should see the following two files listed in this directory: **frozen_darkne
 	source /opt/intel/openvino/bin/setupvars.sh
 
 
-#### 3. Run the sample application to use the Inference Engine on the test video
-The below command runs the application with YOLOv3 IR model and the test video which you downloaded in previous step.
+#### 3. Run the sample application to use the Inference Engine 
+The below command runs the application with YOLOv3 IR model and the video captured by the camera.
 
 
 	python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/object_detection_demo_yolov3_async/object_detection_demo_yolov3_async.py -i /dev/video0 -m ./FP32/frozen_darknet_yolov3_model.xml -l /home/intel/inference_engine_samples_build/intel64/Release/lib/libcpu_extension.so
