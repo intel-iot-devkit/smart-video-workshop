@@ -67,8 +67,9 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio_2019.md) to instal
 * **Basic End to End Object Detection Inference Example**
   - Slides - [Basic End to End Object Detection Example](./presentations/02-03_Basic-End-to-End-Object-Detection-Example.pdf)
   - Lab Setup - [Lab Setup Instructions](./Lab_setup.md)
-  - Lab - [Basic End to End Object Detection Example](./object-detection/README.md)
-  - Lab - [Tensor Flow example](./advanced-video-analytics/tensor_flow.md)
+  - Lab - [Object Detection with Caffe* model](./object-detection/README.md)
+  - Lab - [Classification with TensorFlow* model](./advanced-video-analytics/tensor_flow.md)
+  - Lab - [Object Detection with YOLOv3* model](./object-detection/README_yolov3.md)
 
 * **Hardware Heterogeneity**
   - Lab - [Hardware Heterogeneity](./hardware-heterogeneity/README.md)
@@ -90,6 +91,9 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio_2019.md) to instal
 * **UP²\* AI Vision Development kit as Edge**
   - Setup - [Development machine and Internet Connection Sharing](./up2-vision-kit/dev_machine_setup.md)
   - Lab - [Interact face detection on UP2 kit using Intel® System Studio](./up2-vision-kit/openvino-projects-using-iss2019.md)
+  
+* **Implement Custom Layers for Inference on CPU and Integrated GPU**
+  - Lab - [Custom Layers](./custom-layers/README.md)
   
 * **Additional Examples - Reference Implementations**
   - Industrial 
