@@ -116,7 +116,7 @@ We create a simple model with a custom cosh layer.The weights are random and unt
 
 <br>
 
-![image of extgen output](https://github.com/intel-iot-devkit/smart-video-workshop/custom-layer/blob/master/extgen_output.png "extgen output")
+![image of extgen output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/custom-layer/extgen_output.png "extgen output")
 
 <br>
 
