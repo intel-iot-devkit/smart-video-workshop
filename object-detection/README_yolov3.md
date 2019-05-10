@@ -110,6 +110,8 @@ python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_sam
 ```
 
 #### 3. Inference on Movidius NCS2
+Connect the Movidius NCS2 to your dev machine via USB port. 
+
 ##### System check
 First make sure the USB rules are set up.
 
