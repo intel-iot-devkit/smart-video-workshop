@@ -43,6 +43,9 @@ This tool generates extension source files with stubs for the core functions. To
 
   ```
   export SW=/opt/intel/workshop/smart-video-workshop
+  
+  sudo chown username.username -R /opt/intel/workshop/
+
   ```
 
 ### Create the TensorFlow model (weights, graphs, checkpoints)
