@@ -14,7 +14,7 @@ The Model Optimizer searches for each layer of the input model in the list of kn
 When implementing the custom layer in OpenVINO toolkit for your pre-trained model, you will need to add extensions in both the Model Optimizer and the Inference Engine. The following figure shows the work flow for the custom layer implementation.
 <br>
 
-![image of CL workflow](https://github.com/intel-iot-devkit/smart-video-workshop/tree/master/custom-layer/workflow.png "CL Workflow")
+![image of CL workflow](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/custom-layer/workflow.png "CL Workflow")
 
 <br>
 
@@ -28,7 +28,7 @@ This tool generates extension source files with stubs for the core functions. To
 
 ### Steps to implement custom layers on Ubuntu 16.04
 
-1. Make sure you run through the [lab setup](./Lab_setup.md).
+1. Make sure you run through the [lab setup](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/Lab_setup.md).
 
 2. Setup your environment for OpenVINO:<br>
     ```
