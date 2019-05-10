@@ -44,9 +44,11 @@ This tool generates extension source files with stubs for the core functions. To
   ```
   export SW=/opt/intel/workshop/smart-video-workshop
   
-  sudo chown username.username -R /opt/intel/workshop/
-
   ```
+5. Change ownership of the workshop directory to the current user
+Note: replace the usernames below with your user account name
+
+	sudo chown username.username -R /opt/intel/workshop/
 
 ### Create the TensorFlow model (weights, graphs, checkpoints)
 We create a simple model with a custom cosh layer.The weights are random and untrained, however sufficient for demonstrating Custom Layer conversion.
