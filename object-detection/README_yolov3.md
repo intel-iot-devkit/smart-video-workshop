@@ -8,7 +8,7 @@ Model Optimizer is a cross-platform command-line tool that takes pre-trained dee
 
 Check the TensorFlow* version
 	
-	pip3 list | grep Tensorflow
+	pip3 list | grep tensorflow
 
 If the Tensorflow* version is NOT 1.12, then
 
