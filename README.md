@@ -66,6 +66,7 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio_2019.md) to instal
   
 * **Basic End to End Object Detection Inference Example**
   - Slides - [Basic End to End Object Detection Example](./presentations/02-03_Basic-End-to-End-Object-Detection-Example.pdf)
+  - Lab Setup - [Lab Setup Instructions](./Lab_setup.md)
   - Lab - [Basic End to End Object Detection Example](./object-detection/README.md)
   - Lab - [Tensor Flow example](./advanced-video-analytics/tensor_flow.md)
 
