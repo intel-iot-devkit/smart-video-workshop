@@ -93,7 +93,7 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio_2019.md) to instal
   - Lab - [Interact face detection on UP2 kit using Intel® System Studio](./up2-vision-kit/openvino-projects-using-iss2019.md)
   
 * **Implement Custom Layers for Inference on CPU and Integrated GPU**
-  - Lab - [Custom Layers](./custom-layers/README.md)
+  - Lab - [Custom Layer](./custom-layer/README.md)
   
 * **Additional Examples - Reference Implementations**
   - Industrial 
