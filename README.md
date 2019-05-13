@@ -63,25 +63,30 @@ Install Opencv2 using below command
 
 #### g). Run the Jupyter Notebook
 1.	Create the workshop directory from a terminal:
+
 ```bash
 sudo mkdir -p /opt/intel/workshop/
 ```
 2.	Change ownership of the workshop directory to the current user:
+
 ```bash
 sudo chown username.username -R /opt/intel/workshop/
 ```
 3.	Navigate to the new directory:
+
 ```bash
 cd /opt/intel/workshop/
 ```
 4.	Clone the current Git Pull request repository to /opt/intel/workshop
 
 5. Navigate to Root directory in new terminal
+
 ```bash
 	$ cd /
 	```
 
 6. Run the Jupyter Notebook
+
 ```bash
 	$ jupyter notebook
 	```
