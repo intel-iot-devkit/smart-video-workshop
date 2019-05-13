@@ -74,22 +74,22 @@ sudo chown username.username -R /opt/intel/workshop/
 ```
 3.	Navigate to the new directory:
 
-```bash
-cd /opt/intel/workshop/
-```
+
+	cd /opt/intel/workshop/
+
 4.	Clone the current Git Pull request repository to /opt/intel/workshop
 
 5. Navigate to Root directory in new terminal
 
-```bash
+
 	$ cd /
-	```
+
 
 6. Run the Jupyter Notebook
 
-```bash
+
 	$ jupyter notebook
-	```
+
 
 7. It opens in default browser, locate the required jupyter notebook (.ipynb) file and double click on it to open and run.
 
