@@ -1,17 +1,17 @@
-# OpenVINO 2019 R1.0 Custom Layer Tutorial for Ubuntu 16.04
+# Intel® Distribution of OpenVINO™ Toolkit 2019 R1.0 Custom Layer Tutorial for Ubuntu* 16.04
 
 ### Custom Layers
 Custom layers are NN (Neural Network) layers that are not explicitly supported by a given framework. This tutorial demonstrates how to run inference on topologies featuring custom layers allowing you to plug in your own implementation for existing or completely new layers.
 
-The list of known layers is different for any particular framework. To see the layers supported by OpenVINO, refer to the OpenVINO Documentation: https://docs.openvinotoolkit.org/latest/_docs_MO_DG_Deep_Learning_Model_Optimizer_DevGuide.html#intermediate-representation-notation-catalog
+The list of known layers is different for any particular framework. To see the layers supported by the Intel® Distribution of OpenVINO™ toolkit, refer to the Documentation: https://docs.openvinotoolkit.org/latest/_docs_MO_DG_Deep_Learning_Model_Optimizer_DevGuide.html#intermediate-representation-notation-catalog
 <br><br>
 
 *If your topology contains layers that are not in the list of known layers, the Model Optimizer considers them to be custom.*
 
 The Model Optimizer searches for each layer of the input model in the list of known layers before building the model's internal representation, optimizing the model and producing the Intermediate Representation.
 
-### Custom Layers implementation workflow in OpenVINO
-When implementing the custom layer in OpenVINO toolkit for your pre-trained model, you will need to add extensions in both the Model Optimizer and the Inference Engine. The following figure shows the work flow for the custom layer implementation.
+### Custom Layers implementation workflow in the Intel® Distribution of OpenVINO™ toolkit
+When implementing the custom layer in the Intel® Distribution of OpenVINO™ toolkit for your pre-trained model, you will need to add extensions in both the Model Optimizer and the Inference Engine. The following figure shows the work flow for the custom layer implementation.
 <br>
 
 ![image of CL workflow](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/custom-layer/workflow.png "CL Workflow")
@@ -26,11 +26,11 @@ We showcase custom layer implementation using a simple function; hyperbolic cosi
 ### Extension Generator
 This tool generates extension source files with stubs for the core functions. To get the workable extension, you will add your implementation of these functions to the generated files.
 
-### Steps to implement custom layers on Ubuntu 16.04
+### Steps to implement custom layers on Ubuntu* 16.04
 
 1. Make sure you run through the [lab setup](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/Lab_setup.md).
 
-2. Setup your environment for OpenVINO:<br>
+2. Setup your environment for the Intel® Distribution of OpenVINO™ toolkit:<br>
     ```
     source /opt/intel/openvino/bin/setupvars.sh
     ```
@@ -50,8 +50,8 @@ Note: replace the usernames below with your user account name
 
 	sudo chown username.username -R /opt/intel/workshop/
 
-### Create the TensorFlow model (weights, graphs, checkpoints)
-We create a simple model with a custom cosh layer.The weights are random and untrained, however sufficient for demonstrating Custom Layer conversion.
+### Create the TensorFlow* model (weights, graphs, checkpoints)
+We create a simple model with a custom cosh layer. The weights are random and untrained, however sufficient for demonstrating Custom Layer conversion.
 
 	 cd $SW/custom-layer/create_tf_model
 
@@ -65,7 +65,7 @@ We create a simple model with a custom cosh layer.The weights are random and unt
 ### Generate template files using the Extension Generator:
 
    We're using `$SW/custom-layer/extgen_output/` as the target extension path:<br><br>
-   This will create templates that will be partially replaced by Python and C++ code for executing the layer.
+   This will create templates that will be partially replaced by Python* and C++ code for executing the layer.
 
 
 	mkdir -p $SW/custom-layer/extgen_output/
@@ -139,14 +139,14 @@ We create a simple model with a custom cosh layer.The weights are random and unt
 
 
 #### Generate IR with custom layer using Model Optimizer
-  We run the Model Optimizer for TensorFlow to convert and optimize the new model for OpenVINO. We explicitly set the batch to 1 because the model has an input dim of "-1". TensorFLow allows "-1" as a variable indicating "to be filled in later", but the Model Optimizer requires explicit information for the optimization process. The output is the full name of the final output layer.<br><br>
+  We run the Model Optimizer for TensorFlow to convert and optimize the new model for the Intel® Distribution of OpenVINO™ toolkit. We explicitly set the batch to 1 because the model has an input dim of "-1". TensorFlow allows "-1" as a variable indicating "to be filled in later", but the Model Optimizer requires explicit information for the optimization process. The output is the full name of the final output layer.<br><br>
 
 	cd tf_model
 	mkdir -p $SW/custom-layer/cl_ext_cosh
 
     mo_tf.py --input_meta_graph model.ckpt.meta --batch 1 --output "ModCosh/Activation_8/softmax_output" --extensions $SW/custom-layer/extgen_output/user_mo_extensions --output_dir $SW/custom-layer/create_tf_model/tf_model
 
-### Inference Engine custom layer implementation for the Intel CPU
+### Inference Engine custom layer implementation for the Intel® CPU
 
 1. Copy CPU and GPU source code to the Model Optimizer extensions directory:<br>
    This will be used for building a back-end library for applications that implement cosh.<br><br>
@@ -201,7 +201,7 @@ We create a simple model with a custom cosh layer.The weights are random and unt
     ```
     python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/classification_sample/classification_sample.py -i /opt/intel/openvino/deployment_tools/demo/car.png  -m $SW/custom-layer/create_tf_model/tf_model/model.ckpt.xml -l $SW/custom-layer/cl_ext_cosh/libcosh_cpu_extension.so -d CPU
     ```
-### Inference Engine custom layer implementation for the Intel integrated GPU
+### Inference Engine custom layer implementation for the Intel® integrated GPU
 
 1. Copy GPU source code for cosh custom kernel .cl and .xml files to the cldnn library folder.<br>
     ```
