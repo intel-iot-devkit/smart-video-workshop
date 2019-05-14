@@ -111,13 +111,23 @@ def main():
     args = build_argparser().parse_args()
     va_enabled=False
     lpr_enabled=False
+
+    MYRIAD_plugin = IEPlugin(args.device.upper(),args.plugin_dir)
+    MYRIAD_plugin_va = IEPlugin(args.device_va.upper(),args.plugin_dir)
+    MYRIAD_plugin_lpr = IEPlugin(args.device_lpr.upper(),args.plugin_dir)
     
     #Vehicle Detection
     plugin,net=load_model("Vehicle Detection",args.model,args.device,args.plugin_dir,1,1,args.cpu_extension)
     input_blob = next(iter(net.inputs))
     out_blob = next(iter(net.outputs))
     log.info("Loading IR to the plugin...")
-    exec_net = plugin.load(network=net, num_requests=2)
+
+    if (args.device.upper() == "MYRIAD"):
+        exec_net = MYRIAD_plugin.load(network=net, num_requests=2)
+    else :
+        exec_net = plugin.load(network=net, num_requests=2)
+
+    
     n, c, h, w = net.inputs[input_blob].shape
     del net
     
@@ -127,7 +137,15 @@ def main():
         plugin,va_net=load_model("Vehicle Attribute Detection",args.model_va,args.device_va,args.plugin_dir,1,2,args.cpu_extension)
         va_input_blob=next(iter(va_net.inputs))
         va_out_blob=next(iter(va_net.outputs))
-        va_exec_net = plugin.load(network=va_net, num_requests=2)
+
+        if (args.device_va.upper() == "MYRIAD" and not args.device.upper() == "MYRIAD"):
+            va_exec_net = MYRIAD_plugin_va.load(network=va_net, num_requests=2)
+        elif (args.device_va == "MYRIAD"):
+            va_exec_net = MYRIAD_plugin.load(network=va_net, num_requests=2)
+        else :
+            va_exec_net = plugin.load(network=va_net, num_requests=2) 
+
+        
         n_va,c_va,h_va,w_va = va_net.inputs[va_input_blob].shape
         del va_net
         
@@ -141,7 +159,25 @@ def main():
         lpr_seqBlob=[[0.0]]
         for i in range(1,maxSequenceSizePerPlate):
             lpr_seqBlob[0].append(1.0)
-        lpr_exec_net=plugin.load(network=lpr_net, num_requests=2)
+
+        if (args.device_lpr.upper() == "MYRIAD" and not args.device.upper() =="MYRIAD" and not args.device_va.upper() == "MYRIAD"):
+            lpr_exec_net = MYRIAD_plugin_lpr.load(network=lpr_net, num_requests=2)
+      
+        elif (args.device_lpr.upper() == "MYRIAD"):
+            if (args.device_va.upper() == "MYRIAD"):
+                if (args.device.upper() == "MYRIAD"):
+                    lpr_exec_net = MYRIAD_plugin.load(network=lpr_net, num_requests=2)
+                else :
+                    lpr_exec_net = MYRIAD_plugin_va.load(network=lpr_net, num_requests=2)
+            elif (args.device.upper() == "MYRIAD"):
+                lpr_exec_net = MYRIAD_plugin.load(network=lpr_net, num_requests=2)
+            else :
+                lpr_exec_net = MYRIAD_plugin_lpr.load(network=lpr_net, num_requests=2)
+            
+        else : 
+            lpr_exec_net = plugin.load(network=lpr_net, num_requests=2)
+
+        
         n_lpr,c_lpr,h_lpr,w_lpr =lpr_net.inputs['data'].shape
         del lpr_net
 
