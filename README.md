@@ -73,23 +73,23 @@ sudo mkdir -p /opt/intel/workshop/
 sudo chown username.username -R /opt/intel/workshop/
 ```
 3.	Navigate to the new directory:
-
-
+```bash
 	cd /opt/intel/workshop/
+```
 
 4.	Clone the current Git Pull request repository to /opt/intel/workshop
 
 5. Navigate to Root directory in new terminal
 
-
+```bash
 	$ cd /
+```
 
 
 6. Run the Jupyter Notebook
-
-
+```bash
 	$ jupyter notebook
-
+```
 
 7. It opens in default browser, locate the required jupyter notebook (.ipynb) file and double click on it to open and run.
 
@@ -109,7 +109,7 @@ sudo chown username.username -R /opt/intel/workshop/
 
   - Slides - [Basic End to End Object Detection Example](./presentations/02-03_Basic-End-to-End-Object-Detection-Example.pdf)
   - Lab - Basic End to End Object Detection Example   [[C++](./object-detection/README.md)]   [[Python](./object-detection/Python/basic_end_to_end_object_detection.ipynb)]
-  - Lab - Tensor Flow example [[C++](./advanced-video-analytics/tensor_flow.md)] [[Python](./advanced-video-analytics/Python/tensor_flow.ipynb)]
+  - Lab - Tensor Flow example [[C++](./advanced-video-analytics/tensor_flow.md)] [[Python](./object-detection/Python/tensor_flow.ipynb)]
 
 * **Hardware Heterogeneity**
 
