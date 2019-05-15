@@ -109,7 +109,7 @@ sudo chown username.username -R /opt/intel/workshop/
 
   - Slides - [Basic End to End Object Detection Example](./presentations/02-03_Basic-End-to-End-Object-Detection-Example.pdf)
   - Lab - Basic End to End Object Detection Example   [[C++](./object-detection/README.md)]   [[Python](./object-detection/Python/basic_end_to_end_object_detection.ipynb)]
-  - Lab - Tensor Flow example [[C++](./advanced-video-analytics/tensor_flow.md)] [[Python](./object-detection/Python/tensor_flow.ipynb)]
+  - Lab - Tensor Flow example [[C++](./advanced-video-analytics/tensor_flow.md)] [[Python](./object-detection/Python/Tensor_Flow_example.ipynb)]
 
 * **Hardware Heterogeneity**
 
