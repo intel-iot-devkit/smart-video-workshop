@@ -22,4 +22,4 @@ Set the folder to execute labs in the workshop github.
 	
 #### 5. Set short path for the workshop directory
 
-	export SV=/opt/intel/workshop/smart-video-workshop/
+	export SW=/opt/intel/workshop/smart-video-workshop/
