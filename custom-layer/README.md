@@ -28,7 +28,7 @@ This tool generates extension source files with stubs for the core functions. To
 
 ### Steps to implement custom layers on Ubuntu* 16.04
 
-1. Make sure you run through the [lab setup](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/Lab_setup.md).
+1. Make sure you run through the [lab setup](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/Lab_setup.md) to download latest changes in the workshop github repo.
 
 2. Setup your environment for the Intel® Distribution of OpenVINO™ toolkit:<br>
     ```
