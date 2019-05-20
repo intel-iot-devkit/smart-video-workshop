@@ -87,11 +87,11 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio_2019.md) to instal
   
 * **Advanced Video Analytics**
   - Lab - [Multiple models usage example](./advanced-video-analytics/multiple_models.md)
-  
+<!----  
 * **UP²\* AI Vision Development kit as Edge**
   - Setup - [Development machine and Internet Connection Sharing](./up2-vision-kit/dev_machine_setup.md)
-  - Lab - [Interact face detection on UP2 kit using Intel® System Studio](./up2-vision-kit/openvino-projects-using-iss2019.md)
-  
+  - Lab - [Interact face detection on UP2 kit using Intel® System Studio](./up2-vision-kit/openvino-projects-using-iss2019.md) ---->
+
 * **Implement Custom Layers for Inference on CPU and Integrated GPU**
   - Lab - [Custom Layer](./custom-layer/README.md)
   
