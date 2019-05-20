@@ -42,7 +42,7 @@ This tool generates extension source files with stubs for the core functions. To
 4. Create short path for the workshop folder
 
   ```
-  export workshop_dir=/opt/intel/workshop/smart-video-workshop
+  export SV=/opt/intel/workshop/smart-video-workshop
   
   ```
 5. Change ownership of the workshop directory to the current user
@@ -53,7 +53,7 @@ Note: replace the usernames below with your user account name
 ### Create the TensorFlow* model (weights, graphs, checkpoints)
 We create a simple model with a custom cosh layer. The weights are random and untrained, however sufficient for demonstrating Custom Layer conversion.
 
-	 cd $workshop_dir/custom-layer/create_tf_model
+	 cd $SV/custom-layer/create_tf_model
 
 	 mkdir -p tf_model
 	 
@@ -64,13 +64,13 @@ We create a simple model with a custom cosh layer. The weights are random and un
 
 ### Generate template files using the Extension Generator:
 
-   We're using `$workshop_dir/custom-layer/extgen_output/` as the target extension path:<br><br>
+   We're using `$SV/custom-layer/extgen_output/` as the target extension path:<br><br>
    This will create templates that will be partially replaced by Python* and C++ code for executing the layer.
 
 
-	mkdir -p $workshop_dir/custom-layer/extgen_output/
+	mkdir -p $SV/custom-layer/extgen_output/
 
-    python3 /opt/intel/openvino/deployment_tools/tools/extension_generator/extgen.py new --mo-tf-ext --mo-op --ie-cpu-ext --ie-gpu-ext --output_dir=$workshop_dir/custom-layer/extgen_output/
+    python3 /opt/intel/openvino/deployment_tools/tools/extension_generator/extgen.py new --mo-tf-ext --mo-op --ie-cpu-ext --ie-gpu-ext --output_dir=$SV/custom-layer/extgen_output/
 
 
    Answer the Model Optimizer extension generator questions as follows:
@@ -135,23 +135,23 @@ We create a simple model with a custom cosh layer. The weights are random and un
    Copy to the Model Optimizer Ops Directory:<br>
    This allows the Model Optimizer to find the Python implementation of cosh.
 
-    sudo cp $SW/custom-layer/cosh.py /opt/intel/openvino/deployment_tools/model_optimizer/mo/ops/
+    sudo cp $SV/custom-layer/cosh.py /opt/intel/openvino/deployment_tools/model_optimizer/mo/ops/
 
 
 #### Generate IR with custom layer using Model Optimizer
   We run the Model Optimizer for TensorFlow to convert and optimize the new model for the Intel® Distribution of OpenVINO™ toolkit. We explicitly set the batch to 1 because the model has an input dim of "-1". TensorFlow allows "-1" as a variable indicating "to be filled in later", but the Model Optimizer requires explicit information for the optimization process. The output is the full name of the final output layer.<br><br>
 
 	cd tf_model
-	mkdir -p $workshop_dir/custom-layer/cl_ext_cosh
+	mkdir -p $SV/custom-layer/cl_ext_cosh
 
-    mo_tf.py --input_meta_graph model.ckpt.meta --batch 1 --output "ModCosh/Activation_8/softmax_output" --extensions $workshop_dir/custom-layer/extgen_output/user_mo_extensions --output_dir $workshop_dir/custom-layer/create_tf_model/tf_model
+    mo_tf.py --input_meta_graph model.ckpt.meta --batch 1 --output "ModCosh/Activation_8/softmax_output" --extensions $SV/custom-layer/extgen_output/user_mo_extensions --output_dir $SV/custom-layer/create_tf_model/tf_model
 
 ### Inference Engine custom layer implementation for the Intel® CPU
 
 1. Copy CPU and GPU source code to the Model Optimizer extensions directory:<br>
    This will be used for building a back-end library for applications that implement cosh.<br><br>
     ```
-    cp $workshop_dir/custom-layer/ext_cosh.cpp $workshop_dir/custom-layer/extgen_output/user_ie_extensions/cpu/
+    cp $SV/custom-layer/ext_cosh.cpp $SV/custom-layer/extgen_output/user_ie_extensions/cpu/
     ```
 
 
@@ -159,10 +159,10 @@ We create a simple model with a custom cosh layer. The weights are random and un
 10. Compile the C++ extension library:<br>
    Here we're building the back-end C++ library to be used by the Inference Engine for executing the cosh layer.<br><br>
     ```
-	cd $workshop_dir/custom-layer/extgen_output/user_ie_extensions/cpu
+	cd $SV/custom-layer/extgen_output/user_ie_extensions/cpu
     ```
     ```
-	cp $workshop_dir/custom-layer/CMakeLists.txt .
+	cp $SV/custom-layer/CMakeLists.txt .
     ```
     ```
 	mkdir -p build && cd build
@@ -176,14 +176,14 @@ We create a simple model with a custom cosh layer. The weights are random and un
     <br>
 
     ```
-	cp libcosh_cpu_extension.so $workshop_dir/custom-layer/cl_ext_cosh
+	cp libcosh_cpu_extension.so $SV/custom-layer/cl_ext_cosh
     ```
 
 11. Test your results:<br>
 
     <b>Using a C++ Sample:</b><br>
     ```
-    ~/inference_engine_samples_build/intel64/Release/classification_sample -i /opt/intel/openvino/deployment_tools/demo/car.png -m $workshop_dir/custom-layer/create_tf_model/tf_model/model.ckpt.xml -d CPU -l $workshop_dir/custom-layer/cl_ext_cosh/libcosh_cpu_extension.so
+    ~/inference_engine_samples_build/intel64/Release/classification_sample -i /opt/intel/openvino/deployment_tools/demo/car.png -m $SV/custom-layer/create_tf_model/tf_model/model.ckpt.xml -d CPU -l $SV/custom-layer/cl_ext_cosh/libcosh_cpu_extension.so
     ```
     <br><b>Using a Python Sample:</b><br>
 
@@ -194,24 +194,24 @@ We create a simple model with a custom cosh layer. The weights are random and un
 
     <br>Try running the Python Sample without including the cosh extension library. You should see the error describing unsupported Cosh operation.
     ```
-    python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/classification_sample/classification_sample.py -i /opt/intel/openvino/deployment_tools/demo/car.png  -m $workshop_dir/custom-layer/create_tf_model/tf_model/model.ckpt.xml -d CPU
+    python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/classification_sample/classification_sample.py -i /opt/intel/openvino/deployment_tools/demo/car.png  -m $SV/custom-layer/create_tf_model/tf_model/model.ckpt.xml -d CPU
     ```
 
     <br>Now run the command with the cosh extension library:<br>
     ```
-    python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/classification_sample/classification_sample.py -i /opt/intel/openvino/deployment_tools/demo/car.png  -m $workshop_dir/custom-layer/create_tf_model/tf_model/model.ckpt.xml -l $workshop_dir/custom-layer/cl_ext_cosh/libcosh_cpu_extension.so -d CPU
+    python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/classification_sample/classification_sample.py -i /opt/intel/openvino/deployment_tools/demo/car.png  -m $SV/custom-layer/create_tf_model/tf_model/model.ckpt.xml -l $SV/custom-layer/cl_ext_cosh/libcosh_cpu_extension.so -d CPU
     ```
 ### Inference Engine custom layer implementation for the Intel® integrated GPU
 
 1. Copy GPU source code for cosh custom kernel .cl and .xml files to the cldnn library folder.<br>
     ```
-    sudo cp $workshop_dir/custom-layer/cosh_kernel* /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/cldnn_global_custom_kernels/
+    sudo cp $SV/custom-layer/cosh_kernel* /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/cldnn_global_custom_kernels/
     ```
 2. Test your results
 
   <b>Using a C++ Sample:</b><br>
   ```
-  ~/inference_engine_samples_build/intel64/Release/classification_sample -i /opt/intel/openvino/deployment_tools/demo/car.png -m $workshop_dir/custom-layer/create_tf_model/tf_model/model.ckpt.xml -d GPU -c /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/cldnn_global_custom_kernels/cosh_kernel.xml
+  ~/inference_engine_samples_build/intel64/Release/classification_sample -i /opt/intel/openvino/deployment_tools/demo/car.png -m $SV/custom-layer/create_tf_model/tf_model/model.ckpt.xml -d GPU -c /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/cldnn_global_custom_kernels/cosh_kernel.xml
   ```
 
 
