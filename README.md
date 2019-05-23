@@ -81,7 +81,7 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio_2019.md) to instal
   - Slides - [HW Acceleration with Intel® FPGA](./presentations/04-HW-Acceleration-with-FPGA.pdf)
 
 * **Optimization Tools and Techniques** 
-  - Slides - [Optimization Tools and Techniques](/presentations/04-05_Optimization_and_advanced_analytics.pdf)
+  - Slides - [Optimization Tools and Techniques](./presentations/04-05_Optimization_and_advanced_analytics.pdf)
   - Lab 1 - [Optimization Tools and Techniques](./optimization-tools-and-techniques/README.md)
   - Lab 2- [Intel® VTune™ Amplifier tutorial](./optimization-tools-and-techniques/README_VTune.md)
   
@@ -93,6 +93,7 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio_2019.md) to instal
   - Lab - [Interact face detection on UP2 kit using Intel® System Studio](./up2-vision-kit/openvino-projects-using-iss2019.md) ---->
 
 * **Implement Custom Layers for Inference on CPU and Integrated GPU**
+  - Slides - [Custom Layer](./presentations/custom_layer.pdf)
   - Lab - [Custom Layer](./custom-layer/README.md)
   
 * **Additional Examples - Reference Implementations**
