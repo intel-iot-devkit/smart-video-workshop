@@ -109,6 +109,7 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio_2019.md) to instal
 * **Workshop Survey**
   - [Workshop Survey](https://idz.qualtrics.com/jfe/form/SV_a9GvOxtOrOziykB)
   - [Custom Layer Tutorial Survey](https://intelemployee.az1.qualtrics.com/jfe/form/SV_1ZjOKaEIQUM5FpX)
+  - [Embedded Vision Summit Workshop Survey](https://intel.az1.qualtrics.com/jfe/form/SV_6RsCwmj6QGD3PAF)
   
 > #### Disclaimer
 
