@@ -79,6 +79,7 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio_2019.md) to instal
   
 * **FPGA Inference Accelerator**
   - Slides - [HW Acceleration with Intel® FPGA](./presentations/04-HW-Acceleration-with-FPGA.pdf)
+  - Devcloud connection [signup] (https://colfaxresearch.com/iot-devcloud) Passcode:SC235IOT
 
 * **Optimization Tools and Techniques** 
   - Slides - [Optimization Tools and Techniques](./presentations/04-05_Optimization_and_advanced_analytics.pdf)
