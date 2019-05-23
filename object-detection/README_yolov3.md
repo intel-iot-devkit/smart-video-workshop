@@ -154,4 +154,4 @@ Let's run the Model Optimizer to get IR files in FP16 format suitable for the In
 
 Now run the example application with these new IR files.
 
-	python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/object_detection_demo_yolov3_async/object_detection_demo_yolov3_async.py -i /dev/video0 -m ./FP16/frozen_darknet_yolov3_model.xml -d MYRIAD
+	python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/object_detection_demo_yolov3_async/object_detection_demo_yolov3_async.py -i /dev/video0 -m $SV/object-detection/tensorflow-yolo-v3/FP16/frozen_darknet_yolov3_model.xml -d MYRIAD
