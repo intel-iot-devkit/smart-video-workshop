@@ -214,6 +214,3 @@ We create a simple model with a custom cosh layer. The weights are random and un
   ~/inference_engine_samples_build/intel64/Release/classification_sample -i /opt/intel/openvino/deployment_tools/demo/car.png -m $SV/custom-layer/create_tf_model/tf_model/model.ckpt.xml -d GPU -c /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/cldnn_global_custom_kernels/cosh_kernel.xml
   ```
 
-
-Thank you for following this tutorial. Your feedback answering this brief survey will help us to improve it:
-[Intel Custom Layer Survey](https://intelemployee.az1.qualtrics.com/jfe/form/SV_1ZjOKaEIQUM5FpX)
