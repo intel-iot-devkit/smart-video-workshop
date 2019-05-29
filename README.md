@@ -78,8 +78,7 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio_2019.md) to instal
   - Lab - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](./HW-Acceleration-with-Movidious-NCS/README.md) 
   
 * **FPGA Inference Accelerator**
-  - Slides - [HW Acceleration with Intel® FPGA](./presentations/04-HW-Acceleration-with-FPGA.pdf)
-  - Devcloud connection [signup] (https://colfaxresearch.com/iot-devcloud) Passcode:SC235IOT
+  - Slides - [HW Acceleration with Intel® FPGA](./presentations/FPGA.pdf)
 
 * **Optimization Tools and Techniques** 
   - Slides - [Optimization Tools and Techniques](./presentations/04-05_Optimization_and_advanced_analytics.pdf)
@@ -105,12 +104,12 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio_2019.md) to instal
   - Retail 
   	- [Store Traffic Monitor](https://github.com/intel-iot-devkit/store-traffic-monitor)
 	- [Shopper Gaze Monitor](https://github.com/intel-iot-devkit/shopper-gaze-monitor-cpp)
-	
+<!--	
 * **Workshop Survey**
   - [Workshop Survey](https://idz.qualtrics.com/jfe/form/SV_a9GvOxtOrOziykB)
   - [Custom Layer Tutorial Survey](https://intelemployee.az1.qualtrics.com/jfe/form/SV_1ZjOKaEIQUM5FpX)
   - [Embedded Vision Summit Workshop Survey](https://intel.az1.qualtrics.com/jfe/form/SV_6RsCwmj6QGD3PAF)
-  
+  -->
 > #### Disclaimer
 
 > Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries in the U.S. and/or other countries. 
