@@ -17,11 +17,12 @@ These labs have been validated on Ubuntu* 16.04 OS.
 Use steps described in the [install guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux)
 to install the Intel® Distribution of OpenVINO™ toolkit, configure Model Optimizer, run the demos, additional steps to install Intel® Media SDK and OpenCL™ mentioned in the the guide. 
 
-#### b). Install git, python libraries
+#### b). Install required packages
 	sudo apt install git
 	sudo apt install python3-pip
 	sudo apt install libgflags-dev
 	sudo pip3 install opencv-python
+	sudo pip3 install cogapp
     
 #### c). Run the demo scipts and compile samples
 Delete $HOME/inference_engine_samples folder if it already exists. 
