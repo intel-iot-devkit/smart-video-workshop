@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
- Copyright (c) 2018 Intel Corporation
+ Copyright (c) 2019 Intel Corporation
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -112,47 +112,56 @@ def main():
     va_enabled=False
     lpr_enabled=False
 
-    MYRIAD_plugin = IEPlugin(args.device.upper(),args.plugin_dir)
-    MYRIAD_plugin_va = IEPlugin(args.device_va.upper(),args.plugin_dir)
-    MYRIAD_plugin_lpr = IEPlugin(args.device_lpr.upper(),args.plugin_dir)
+    #Make sure only one IEPlugin was created for one type of device
+    plugin,net = load_model("Vehicle Detection",args.model,args.device,args.plugin_dir,1,1,args.cpu_extension)    
+    
+    if args.model and args.model_va:
+        plugin_va,va_net = load_model("Vehicle Attribute Detection",args.model_va,args.device_va,args.plugin_dir,1,2,args.cpu_extension)
+        if args.device == args.device_va:
+            plugin_va = plugin
+            if args.model and args.model_lpr:
+                plugin_lpr,lpr_net=load_model("License Plate Recognition",args.model_lpr,args.device_lpr,args.plugin_dir,2,1,args.cpu_extension)
+                if args.device == args.device_lpr:                    
+                    plugin_lpr = plugin
+
+                    
+        elif args.model and args.model_lpr:
+            plugin_lpr,lpr_net=load_model("License Plate Recognition",args.model_lpr,args.device_lpr,args.plugin_dir,2,1,args.cpu_extension)
+            if args.device_va == args.device_lpr:
+                plugin_lpr = plugin_va
+            elif args.device == args.device_lpr:    
+                plugin_lpr = plugin                    
+                                        
+
+    elif args.model and args.model_lpr:
+        plugin_lpr,lpr_net=load_model("License Plate Recognition",args.model_lpr,args.device_lpr,args.plugin_dir,2,1,args.cpu_extension)
+        if args.device == args.device_lpr:
+            plugin_lpr = plugin
+
+            
+                
     
     #Vehicle Detection
-    plugin,net=load_model("Vehicle Detection",args.model,args.device,args.plugin_dir,1,1,args.cpu_extension)
     input_blob = next(iter(net.inputs))
     out_blob = next(iter(net.outputs))
     log.info("Loading IR to the plugin...")
 
-    if (args.device.upper() == "MYRIAD"):
-        exec_net = MYRIAD_plugin.load(network=net, num_requests=2)
-    else :
-        exec_net = plugin.load(network=net, num_requests=2)
-
-    
+    exec_net = plugin.load(network=net, num_requests=2)
     n, c, h, w = net.inputs[input_blob].shape
     del net
     
     #For Vehicle Attribute Detection
     if args.model and args.model_va :
         va_enabled=True
-        plugin,va_net=load_model("Vehicle Attribute Detection",args.model_va,args.device_va,args.plugin_dir,1,2,args.cpu_extension)
         va_input_blob=next(iter(va_net.inputs))
         va_out_blob=next(iter(va_net.outputs))
-
-        if (args.device_va.upper() == "MYRIAD" and not args.device.upper() == "MYRIAD"):
-            va_exec_net = MYRIAD_plugin_va.load(network=va_net, num_requests=2)
-        elif (args.device_va == "MYRIAD"):
-            va_exec_net = MYRIAD_plugin.load(network=va_net, num_requests=2)
-        else :
-            va_exec_net = plugin.load(network=va_net, num_requests=2) 
-
-        
+        va_exec_net = plugin_va.load(network=va_net, num_requests=2)
         n_va,c_va,h_va,w_va = va_net.inputs[va_input_blob].shape
         del va_net
         
     #For License Plate Recognition   
     if args.model and args.model_lpr:
         lpr_enabled=True
-        plugin,lpr_net=load_model("License Plate Recognition",args.model_lpr,args.device_lpr,args.plugin_dir,2,1,args.cpu_extension)
         lpr_input_data_blob=next(iter(lpr_net.inputs))
         lpr_seqBlob=next(iter(lpr_net.inputs))
         lpr_out_blob = next(iter(lpr_net.outputs))
@@ -160,24 +169,7 @@ def main():
         for i in range(1,maxSequenceSizePerPlate):
             lpr_seqBlob[0].append(1.0)
 
-        if (args.device_lpr.upper() == "MYRIAD" and not args.device.upper() =="MYRIAD" and not args.device_va.upper() == "MYRIAD"):
-            lpr_exec_net = MYRIAD_plugin_lpr.load(network=lpr_net, num_requests=2)
-      
-        elif (args.device_lpr.upper() == "MYRIAD"):
-            if (args.device_va.upper() == "MYRIAD"):
-                if (args.device.upper() == "MYRIAD"):
-                    lpr_exec_net = MYRIAD_plugin.load(network=lpr_net, num_requests=2)
-                else :
-                    lpr_exec_net = MYRIAD_plugin_va.load(network=lpr_net, num_requests=2)
-            elif (args.device.upper() == "MYRIAD"):
-                lpr_exec_net = MYRIAD_plugin.load(network=lpr_net, num_requests=2)
-            else :
-                lpr_exec_net = MYRIAD_plugin_lpr.load(network=lpr_net, num_requests=2)
-            
-        else : 
-            lpr_exec_net = plugin.load(network=lpr_net, num_requests=2)
-
-        
+        lpr_exec_net = plugin_lpr.load(network=lpr_net, num_requests=2)
         n_lpr,c_lpr,h_lpr,w_lpr =lpr_net.inputs['data'].shape
         del lpr_net
 
