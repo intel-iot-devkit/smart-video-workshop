@@ -90,7 +90,8 @@ def main():
             sys.exit(1)
 
     #Set Batch Size
-    batchSize = args.b
+    net.batch_size = args.b
+    batchSize = net.batch_size
     frameLimit = args.fr
     assert len(net.inputs.keys()) == 1, "Demo supports only single input topologies"
     assert len(net.outputs) == 1, "Demo supports only single output topologies"
@@ -134,8 +135,12 @@ def main():
     cur_request_id = 0
     next_request_id = 1
 
-    log.info("Starting inference in async mode...")
-    is_async_mode = True
+    is_async_mode =True
+    if (is_async_mode == True):
+        log.info("Starting inference in async mode...")   
+    else :
+            log.info("Starting inference in sync mode...")
+
     render_time = 0
 
     framenum = 0
@@ -149,13 +154,15 @@ def main():
             if not ret or (framenum >= frameLimit):
                 process_more_frames=False
                 frames_in_output=mb
+                
+            if (not process_more_frames):
                 break
 
             # convert image to blob
             # Fill input tensor with planes. First b channel, then g and r channels
             in_frame = cv2.resize(frame, (w, h))
             in_frame = in_frame.transpose((2, 0, 1))  # Change data layout from HWC to CHW
-            in_frame = in_frame.reshape((n, c, h, w))
+            
 			
         time2 = time.time()
         diffPreProcess = time2 - time1
@@ -165,37 +172,43 @@ def main():
         # Main sync point:
         # in the truly Async mode we start the NEXT infer request, while waiting for the CURRENT to complete
         # in the regular mode we start the CURRENT request and immediately wait for it's completion
-        inf_start = time.time()
-        if is_async_mode:
-            exec_net.start_async(request_id=next_request_id, inputs={input_blob: in_frame})
-        else:
-            exec_net.start_async(request_id=cur_request_id, inputs={input_blob: in_frame})
-        if exec_net.requests[cur_request_id].wait(-1) == 0:
-            inf_end = time.time()
-            det_time = inf_end - inf_start
-            infer_times.append(det_time*1000)
-            time1 = time.time()
+            inf_start = time.time()
+            if is_async_mode:
+                exec_net.start_async(request_id=next_request_id, inputs={input_blob: in_frame})
+            else:
+                exec_net.start_async(request_id=cur_request_id, inputs={input_blob: in_frame})
+            if exec_net.requests[cur_request_id].wait(-1) == 0:
+                inf_end = time.time()
+                det_time = inf_end - inf_start
+                infer_times.append(det_time*1000)
+                time1 = time.time()
+                
+                for mb in range(0 , batchSize):
+                    if (framenum >= frameLimit):
+                        process_more_frames=False;
+                        break;
 
             # Parse detection results of the current request
-            res = exec_net.requests[cur_request_id].outputs[out_blob]
-            for obj in res[0][0]:
+                    res = exec_net.requests[cur_request_id].outputs[out_blob]
+                    for obj in res[0][0]:
                 # Write into ROIs.txt only objects when probability more than specified threshold
-            	if obj[2] > args.prob_threshold:
-                    confidence=obj[2]
-                    locallabel = obj[1] - 1
-                    print(str(0),str(framenum),str(locallabel),str(confidence),str(obj[3]),str(obj[4]),str(obj[5]),str(obj[6]), file=ROIfile)
+            	        if obj[2] > args.prob_threshold:
+                            confidence=obj[2]
+                            locallabel = obj[1] - 1
+                            print(str(0),str(framenum),str(locallabel),str(confidence),str(obj[3]),str(obj[4]),str(obj[5]),str(obj[6]), file=ROIfile)
 
         
-        sys.stdout.write("\rframenum:"+str(framenum))
-        sys.stdout.flush()
-        render_start = time.time()
-        framenum = framenum+1   
-        time2 = time.time()
-        diffPostProcess = time2 - time1
-        postprocess_times.append(diffPostProcess*1000)
+                    sys.stdout.write("\rframenum:"+str(framenum + 1))
+                    sys.stdout.flush()
+                    render_start = time.time()
+                    framenum = framenum+1  
+                    
+                time2 = time.time()
+                diffPostProcess = time2 - time1
+                postprocess_times.append(diffPostProcess*1000)
 
-        if is_async_mode:
-            cur_request_id, next_request_id = next_request_id, cur_request_id
+            if is_async_mode:
+                cur_request_id, next_request_id = next_request_id, cur_request_id
 
             
     print("\n")
@@ -211,9 +224,9 @@ def main():
         postprocesstime+=obj
 
         
-    print("Preprocess: ",preprocesstime/(len(preprocess_times)*batchSize),"\tms/frame")
-    print("Inference:  ",inferencetime/(len(infer_times)*batchSize),"\tms/frame")
-    print("Postprocess:" ,postprocesstime/(len(postprocess_times)*batchSize),"\tms/frame")
+    print("Preprocess: {:.2f} ms/frame".format(preprocesstime/(len(preprocess_times)*batchSize)))
+    print("Inference: {:.2f} ms/frame ".format(inferencetime/(len(infer_times)*batchSize)))
+    print("Postprocess: {:.2f} ms/frame".format(postprocesstime/(len(postprocess_times)*batchSize)))
 
     del exec_net
     del plugin
