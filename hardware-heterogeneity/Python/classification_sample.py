@@ -109,7 +109,7 @@ def main():
     log.info("Processing output blob")
     res = res[out_blob]
     log.info("Top {} results: ".format(args.number_top))
-    args.labels="/opt/intel/workshop/smart-video-workshop/object-detection/sqeezenet/FP32/squeezenet1.1.labels"
+    args.labels="/opt/intel/workshop/smart-video-workshop/object-detection/squeezenet/FP32/squeezenet1.1.labels"
     if args.labels:
         with open(args.labels, 'r') as f:
             labels_map = [x.split(sep=' ', maxsplit=1)[-1].strip() for x in f]
