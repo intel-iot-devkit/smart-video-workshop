@@ -125,7 +125,7 @@ sudo chown username.username -R /opt/intel/workshop/
 * **Optimization Tools and Techniques**
 
   - Slides - [Optimization Tools and Techniques](/presentations/04-05_Optimization_and_advanced_analytics.pdf)
-  - Lab 1 - Optimization Tools and Techniques [[C++](./optimization-tools-and-techniques/README.md)] [[Python](./optimization-tools-and-techniques/Python/optimization-tools-and-techniques.ipynb)]
+  - Lab 1 - Optimization Tools and Techniques [[C++](./optimization-tools-and-techniques/README.md)] [[Python](./optimization-tools-and-techniques/Python/optimization_tools_and_techniques.ipynb)]
   - Lab 2- [Intel® VTune™ Amplifier tutorial](./optimization-tools-and-techniques/README_VTune.md)
 
 
