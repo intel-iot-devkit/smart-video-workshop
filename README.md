@@ -54,8 +54,50 @@ Run demo scripts (any one of them or both if you want to both the demos) which w
 #### e). Install Intel® System Studio, VNC viewer and Setup on development machine
 
 Follow the [guide](./up2-vision-kit/setup_intel_system_studio_2019.md) to install Intel® System Studio and VNC viewer on your development machine.
-	
+
+#### f). Install Jupyter Notebook and Opencv
+Install Jupyter Notebook using below command
+
+	pip3 install jupyter
+
+Install Opencv2 using below command
+
+	pip3 install opencv-python
+
+#### g). Run the Jupyter Notebook
+1.	Create the workshop directory from a terminal:
+
+```bash
+sudo mkdir -p /opt/intel/workshop/
+```
+2.	Change ownership of the workshop directory to the current user:
+
+```bash
+sudo chown username.username -R /opt/intel/workshop/
+```
+3.	Navigate to the new directory:
+```bash
+	cd /opt/intel/workshop/
+```
+
+4.	Clone the current Git Pull request repository to /opt/intel/workshop
+
+5. Navigate to Root directory in new terminal
+
+```bash
+	$ cd /
+```
+
+
+6. Run the Jupyter Notebook
+```bash
+	$ jupyter notebook
+```
+
+7. It opens in default browser, locate the required jupyter notebook (.ipynb) file and double click on it to open and run.
+
 > :warning: This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version R1 (openvino_toolkit_2019.1.094). 
+
 
 		
 ## Workshop Agenda
@@ -64,31 +106,31 @@ Follow the [guide](./up2-vision-kit/setup_intel_system_studio_2019.md) to instal
 
 * **Training a Deep Learning Model**
   - Slides - [Training a Deep Learning Model](./presentations/DL_training_model.pdf)
-  - Lab - [Training a Deep Learning Model](./dl-model-training/README.md)
+  - Lab - Training a Deep Learning Model  [[Default](./dl-model-training/README.md)] [[Python](./dl-model-training/Python/Deep_Learning_Tutorial.ipynb)]
   
 * **Basic End to End Object Detection Inference Example**
   - Slides - [Basic End to End Object Detection Example](./presentations/02-03_Basic-End-to-End-Object-Detection-Example.pdf)
   - Lab Setup - [Lab Setup Instructions](./Lab_setup.md)
-  - Lab - [Object Detection with Caffe* model](./object-detection/README.md)
-  - Lab - [Classification with TensorFlow* model](./advanced-video-analytics/tensor_flow.md)
+  - Lab - Basic End to End Object Detection Example   [[C++](./object-detection/README.md)]   [[Python](./object-detection/Python/basic_end_to_end_object_detection.ipynb)]
+  - Lab - Tensor Flow example [[C++](./advanced-video-analytics/tensor_flow.md)] [[Python](./object-detection/Python/Tensor_Flow_example.ipynb)]
   - Lab - [Object Detection with YOLOv3* model](./object-detection/README_yolov3.md)
 
 * **Hardware Heterogeneity**
-  - Lab - [Hardware Heterogeneity](./hardware-heterogeneity/README.md)
+  - Lab - Hardware Heterogeneity [[C++](./hardware-heterogeneity/README.md)] [[Python](./hardware-heterogeneity/Python/hardware-heterogeneity.ipynb)]
 
 * **HW Acceleration with Intel® Movidius™ Neural Compute Stick**
-  - Lab - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](./HW-Acceleration-with-Movidious-NCS/README.md) 
+  - Lab - HW Acceleration with Intel® Movidius™ Neural Compute Stick [[C++](./HW-Acceleration-with-Movidious-NCS/README.md)] [[Python](./HW-Acceleration-with-Movidious-NCS/Python/HW_Acceleration_with_Movidius_NCS.ipynb)]
   
 * **FPGA Inference Accelerator**
   - Slides - [HW Acceleration with Intel® FPGA](./presentations/FPGA.pdf)
 
 * **Optimization Tools and Techniques** 
   - Slides - [Optimization Tools and Techniques](./presentations/04-05_Optimization_and_advanced_analytics.pdf)
-  - Lab 1 - [Optimization Tools and Techniques](./optimization-tools-and-techniques/README.md)
+  - Lab 1 - Optimization Tools and Techniques [[C++](./optimization-tools-and-techniques/README.md)] [[Python](./optimization-tools-and-techniques/Python/optimization_tools_and_techniques.ipynb)]
   - Lab 2- [Intel® VTune™ Amplifier tutorial](./optimization-tools-and-techniques/README_VTune.md)
   
 * **Advanced Video Analytics**
-  - Lab - [Multiple models usage example](./advanced-video-analytics/multiple_models.md)
+  - Lab - Multiple models usage example [[C++](./advanced-video-analytics/multiple_models.md)] [[Python](./advanced-video-analytics/Python/advanced_video_analytics.ipynb)]
 <!----  
 * **UP²\* AI Vision Development kit as Edge**
   - Setup - [Development machine and Internet Connection Sharing](./up2-vision-kit/dev_machine_setup.md)
