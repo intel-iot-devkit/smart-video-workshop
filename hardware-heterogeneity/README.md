@@ -11,22 +11,22 @@ This example shows how to use hetero plugin to define preferences to run differe
   
 #### 2. Run the car detection tutorial with hetero plugin 
 
-##### a) Prioritizing running on GPU first.
+##### a) Prioritize running on GPU first.
 
 	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d HETERO:GPU,CPU
     
 
-##### a) Prioritizing running on CPU first.
+##### a) Prioritize running on CPU first.
 
      ./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d HETERO:CPU,GPU 
 
-Observe the performance time required to process each frame by Inference Engine. For this particular example, inferance ran faster when prioritized for CPU as oppose to when GPU was the first priority.  
+Observe the performance time required to process each frame by Inference Engine. 
 
 ### Inference Engine classification sample     
-Intel® Distribution of OpenVINO™ toolkit install folder (/opt/intel/openvino/) includes various samples for developers to understand how Inference Engine APIs can be used. These samples have -pc flag implmented which shows per topology layer performance report. This will allow to see which layers are running on which hardware. We will run a very basic classification sample as an example in this section. We will provide car image as input to the classification sample. The output will be object labels with confidence numbers.  
+Intel® Distribution of OpenVINO™ toolkit install folder (/opt/intel/openvino/) includes various samples for developers to understand how Inference Engine APIs can be used. These samples have -pc flag implemented which shows per topology layer performance report. This will allow to see which layers are running on which hardware. We will run a very basic classification sample as an example in this section. We will provide car image as input to the classification sample. The output will be object labels with confidence numbers.  
 
 #### 1. First, get the classification model and convert that to IR using Model Optimizer
-For this example, we will use squeezenet model downloaded with the model downlaoder script while setting up the OS for the workshop. 
+For this example, we will use squeezenet model downloaded with the model downloader script while setting up the OS for the workshop. 
 
 	cd /opt/intel/openvino/deployment_tools/tools/model_downloader
 	
@@ -36,7 +36,7 @@ For this example, we will use squeezenet model downloaded with the model downlao
 	
 	python3 mo_caffe.py --input_model /opt/intel/openvino/deployment_tools/tools/model_downloader/classification/squeezenet/1.1/caffe/squeezenet1.1.caffemodel -o $SV/object-detection/ 
 	
-To display labels after classifictaion, you will need a labels file for the SqueezeNet* model. Get the available labels file from demo directory to your working directory.  
+To display labels after classification, you will need a labels file for the SqueezeNet* model. Get the available labels file from demo directory to your working directory.  
 
 	cp /opt/intel/openvino/deployment_tools/demo/squeezenet1.1.labels $SV/object-detection/
 
