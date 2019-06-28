@@ -19,11 +19,33 @@ Open a terminal and run the following commands to build and load the Intel® VTu
 
       sudo apt-get install <Name of the missing library>
 
-## Setup Environment Variables and Start Intel® VTune™ Amplifier
+## Setup Environment Variables for Intel® VTune™ Amplifier
 In a terminal run source setupvars.sh and amplxe-vars.sh scripts, and run amplxe-gui:
 
       source /opt/intel/openvino/bin/setupvars.sh
       source /opt/intel/system_studio_2019/vtune_amplifier_2019/amplxe-vars.sh
+
+## Build the sample application
+In a terminal, type following commands:
+
+      cd /opt/intel/openvino/deployment_tools/inference_engine/samples/object_detection_demo_ssd_async
+      sudo gedit main.cpp
+
+Then leave the Text Editor open, click this link: [[main.cpp](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/optimization-tools-and-techniques/main.cpp)], copy all the source code into your opened **main.cpp** file, click save and close the text editor.
+
+Next, type this command:
+
+      sudo gedit object_detection_demo_ssd_async.hpp
+
+Keep the Text Editor open, click this link: [[object_detection_demo_ssd_async.hpp](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/optimization-tools-and-techniques/object_detection_demo_ssd_async.hpp)], copy all the source code into your opened **object_detection_demo_ssd_async.hpp** file, click save and close the text editor.
+
+Now, in the same terminal:
+
+      cd /opt/intel/openvino/deployment_tools/inference_engine/samples
+      ./build_samples.sh
+
+Wait until you see "**Build completed, you can find binaries for all samples in the /home/intel/inference_engine_samples_build/intel64/Release subfolder.**", then type below command to start Intel® VTune™ Amplifier
+
       amplxe-gui
 
 The Intel® VTune™ Amplifier GUI will open.
@@ -46,14 +68,14 @@ Intel® VTune™ Amplifier will show **Configure Analysis** tab. Configure the a
 
 In the **Application** path field type:
 
-**_/opt/intel/workshop/smart-video-workshop/object-detection/tutorial1_**
+**_/home/intel/inference_engine_samples_build/intel64/Release/object_detection_demo_ssd_async_**
 
 And in the **Application parameters** field type:
 
-**_-i /opt/intel/workshop/smart-video-workshop/object-detection/Cars\ -\ 1900.mp4 -m /opt/intel/workshop/smart-video-workshop/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml_**
+**_-i /home/shane/Downloads/facedetection.mp4 -m /opt/intel/openvino_2019.1.094/deployment_tools/tools/model_downloader/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/face-detection-retail-0004.xml_**
 
 
-![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/03-VTune-OpenVINO-Analysis_Target-Crop_2019u3.png)
+![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/VTune2019_Create_Project.png)
 
 
 Right side of GUI will show the section with the **Analysis Type**. Select **Hotspots** analysis here, and in the Hotspots configuration , select **Hardware Event-Based Sampling with CPU sampling interval, ms set to 1**, and check the **Collect stacks** checkbox.
@@ -75,13 +97,13 @@ Once the application terminates (or the **Stop** button is clicked) Intel® VTun
 In the beginning of the summary, you’ll see the time, CPI (cycles per instruction), CPU frequency, thread count, and some other statistics. Hover with the mouse pointer over (?) signs to see the detailed description of the counter. Some of the counters here might be marked by red flags. Hover over the red flag to see more information on the flagged issue, and in some cases, suggestions for potential performance improvements.
 
 
-![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/05-VTune-OpenVINO-AHSummary-Crop_2019u3.png)
+![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/VTune2019_Summary.png)
 
 
 Next, there is the list of Top Hotspots and the list of Top Tasks. The Top Hotspots list shows 5 functions that took the most CPU time, and the Top Tasks, shows 5 tasks that took the most CPU time. Intel® Distribution of OpenVINO™ toolkit uses Intel® VTune™ Amplifier Instrumentation and Tracing Technology (ITT) to define these tasks.
 
 
-![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/06-VTune-OpenVINO-AH-TopTasks-Crop_2019u3.png)
+![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/VTune2019_Summary2.png)
 
 
 The Effective CPU Utilization Histogram shows the percentage of the time the specific number of logical CPUs (cores or threads) were running simultaneously. If your application does not utilize all the available cores, it might be possible to improve the performance by parallelizing it.
@@ -94,7 +116,7 @@ Click on the **Bottom-up** tab. It will show the list of functions, by default s
 The execution timeline is displayed on the bottom part of the window. Note the threads of the application, and their behavior. This raises questions such as "Why does each thread have multiple (about 100) peaks?" and "Could this indicate excessive task switching?"
 
 
-![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/07-VTune-OpenVINO-AH-BottomUp-Crop_2019u3.png)
+![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/VTune2019_Bottom-up.png)
 
 
 Try to zoom in on the timeline by clicking the mouse, dragging the mouse pointer over it, and then selecting **Zoom In on Selection** pop-up menu entry. In zoomed in view, the bottom-up view only shows hotspots (functions or tasks) observed during the selected time period. Also, note the task names on the OMP Master Thread and OpenCV thread. Use right click and Reset Zoom or Undo Previous Zoom pop-up menu entries to zoom out. 
@@ -108,9 +130,9 @@ In the Intel® VTune™ Amplifier GUI click **Configure Analysis** toolbar icon 
 ![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/08-VTune-OpenVINO-New_Analysis-Icon_Crop_2019u3.png)
 
 
-The previously configured **Analysis Type** settings will be shown. Click on the **WHAT** tab to change the application parameters. Add "-b 32" option to the **Application parameters**:
+The previously configured **Analysis Type** settings will be shown. Click on the **WHAT** tab to change the application parameters. Add "-async" option to the **Application parameters**:
 
-**_-i /opt/intel/workshop/smart-video-workshop/object-detection/Cars\ -\ 1900.mp4 -m /opt/intel/workshop/smart-video-workshop/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -b 32_**
+**_-i /home/shane/Downloads/facedetection.mp4 -m /opt/intel/openvino_2019.1.094/deployment_tools/tools/model_downloader/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/face-detection-retail-0004.xml -async_**
 
 Keep the previously configured settings. Click on the **Start** button to run and analyze the application.
 
@@ -119,7 +141,7 @@ Once the application profiling is done, review the **Summary** tab. Note the cha
 Switch to the **Bottom-up** tab and then to the **Platform** tab. Note how the thread behavior had changed. What in Intel® Distribution of OpenVINO™ toolkit caused this change in the behavior?
 
 
-![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/09-VTune-OpenVINO2-AHPlatform-Crop_2019u3.png)
+![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/VTune2019_Platform.png)
 
 
 ## Compare Two Profiling Results
@@ -138,7 +160,7 @@ Select the two results you would like to compare, and click on the **Compare** b
 Intel® VTune™ Amplifier will compare the profiling data for two runs. In the displayed results, note that now the difference between two runs is shown. Particularly in this case we can see improvement in CPU time.
 
 
-![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/11-VTune-OpenVINO-CompareResults-Summary-Crop_2019u3.png)
+![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/VTune2019_Comparison.png)
 
 
 Switch to the **Bottom-up** tab, make sure that the **Grouping** is set to **Task Domain / Task Type Function / Call Stack**, and click on the **InferenceEngine** domain to see the tasks in that domain.
