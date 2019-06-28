@@ -1,7 +1,7 @@
 # Optimizing Computer Vision Applications
 This tutorial shows some techniques to get better performance for computer vision applications with the Intel® Distribution of OpenVINO™ toolkit. 
 
-
+<!---
 ## 1. Tune parameters - set batch size
 In this section, we will see how changes in the batch size affect the performance. We will use the SSD300 model for the experiments.  
 
@@ -23,9 +23,9 @@ The default batch size for the Model Optimizer is 1.
 
 ### Run the example for different batch sizes 
 Change the batch sizes to 8,16,32,64,128 and so on and see the performance diffrence in terms of the inference time.
+--->
 
-
-### 2. Pick the right model based on application and hardware
+### 1. Pick the right model based on application and hardware
 Use/train a model with the right performance/accuracy tradeoffs. Performance differences between models can be bigger than any optimization you can do at the inference app level.
 Run various SSD models from the model_downloader in the car detection example which we used in the initial tutorial and observe the performance. We will run these tests on different hardware accelerators to determine how application performance depends on models as well as hardware. 
 
@@ -78,7 +78,7 @@ Run various SSD models from the model_downloader in the car detection example wh
 > **Note**: There is often USB write error for Intel® Movidius™ Neural Compute Stick, please try re-running the command. Sometimes it takes 3 trials. 
 
 	
-### 3. Use the right data type for your target harware and accuracy needs
+### 2. Use the right data type for your target harware and accuracy needs
 In this section, we will consider an example running on a GPU. FP16 operations are better optimized than FP32 on GPUs. We will run the object detection example with SSD models with data types FP16 and FP32 and observe the performance difference. 
 
 	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/SSD300/FP32/ssd300.xml -d GPU 
@@ -88,7 +88,7 @@ In this section, we will consider an example running on a GPU. FP16 operations a
 It is clear that we got better performance with FP16 models. 
 
 
-### 4. Use async
+### 3. Use async
 The async API can improve the overall frame rate of the application. While the accelerator is busy with running inference operations, the application can continue encoding, decoding or post inference data processing on the host. For this section, we will use the object_detection_demo_ssd_async sample. This sample makes asynchronous requests to the inference engine. This reduces the inference request latency, so that the overall framerate is determined by the MAXIMUM(detection time, input capturing time) and not the SUM(detection time, input capturing time).
 #### a) Navigate to the object_detection_demo_ssd_async sample build directory
 
