@@ -44,7 +44,9 @@ Now, in the same terminal:
       cd /opt/intel/openvino/deployment_tools/inference_engine/samples
       ./build_samples.sh
 
-Wait until you see "**Build completed, you can find binaries for all samples in the /home/intel/inference_engine_samples_build/intel64/Release subfolder.**", then type below command to start Intel® VTune™ Amplifier
+Wait until you see "**Build completed, you can find binaries for all samples in the /home/intel/inference_engine_samples_build/intel64/Release subfolder.**".
+
+Then download the test video from here: [head-pose-face-detection-female-and-male.mp4](https://github.com/intel-iot-devkit/sample-videos/blob/master/head-pose-face-detection-female-and-male.mp4?raw=true), and type below command in terminal to start Intel® VTune™ Amplifier
 
       amplxe-gui
 
@@ -122,6 +124,10 @@ The execution timeline is displayed on the bottom part of the window. Note the t
 Try to zoom in on the timeline by clicking the mouse, dragging the mouse pointer over it, and then selecting **Zoom In on Selection** pop-up menu entry. In zoomed in view, the bottom-up view only shows hotspots (functions or tasks) observed during the selected time period. Also, note the task names on the OMP Master Thread and OpenCV thread. Use right click and Reset Zoom or Undo Previous Zoom pop-up menu entries to zoom out. 
 
 The Platform tab shows both the application threads timeline, and the CPU metrics, such as CPU utilization and CPU Frequency. Just as in the Bottom-up tab, it is possible to zoom in to see more details for a given time period.
+
+
+![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/VTune2019_Platform_sync.png)
+
 
 ## Tune Intel® Distribution of OpenVINO™ Toolkit Parameters and Rerun Analysis
 In the Intel® VTune™ Amplifier GUI click **Configure Analysis** toolbar icon to start a new analysis.
