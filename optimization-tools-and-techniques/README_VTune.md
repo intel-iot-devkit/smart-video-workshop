@@ -138,7 +138,7 @@ In the Intel® VTune™ Amplifier GUI click **Configure Analysis** toolbar icon 
 
 The previously configured **Analysis Type** settings will be shown. Click on the **WHAT** tab to change the application parameters. Add "-async" option to the **Application parameters**:
 
-**_-i /home/shane/Downloads/head-pose-face-detection-female-and-male.mp4 -m /opt/intel/openvino/deployment_tools/tools/model_downloader/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/face-detection-retail-0004.xml -async_**
+**_-i /home/intel/Downloads/head-pose-face-detection-female-and-male.mp4 -m /opt/intel/openvino/deployment_tools/tools/model_downloader/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/face-detection-retail-0004.xml -async_**
 
 Keep the previously configured settings. Click on the **Start** button to run and analyze the application.
 
