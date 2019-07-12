@@ -22,29 +22,7 @@
 	"autorunInterval": "-1"
     },
     "intro": false,
-    "list":
-    {
-	"header": "List of IoT examples for Intel® Distribution of the OpenVINO™ in Python",
-	"labs":
-	[
-	    "Tutorials/classification/tutorial_classification_sample.ipynb",
-	    "Tutorials/object_detection/tutorial_object_detection_ssd.ipynb",
-	    "Tutorials/style_transfer/tutorial_style_transfer_sample.ipynb",
-	    "python/flaw-detector-python/flawdetector-demo.ipynb",
-	    "python/object-detection-python/object_detection_demo.ipynb",
-	    "python/live-traffic-example/live_traffic_detection_demo.ipynb",
-	    "python/store-traffic-monitor-python/store_traffic_monitor_demo.ipynb",
-	    "python/safety-gear-detection-python/safety_gear_detection.ipynb",
-	    "python/OCR-usingLSTM-python/OCR.ipynb",
-	    "python/pneumonia-classification/classification_pneumonia.ipynb",
-	    "python/Healthcare/Start_here.ipynb"
-	],
-	"messages":
-	{
-	    "goto": "Go to Lab"
-	}
-    },
-
+    
     "messages":
     {
 	"toggle": "Show/Hide Code Cells"
