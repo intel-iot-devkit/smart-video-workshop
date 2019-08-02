@@ -50,12 +50,13 @@ Run demo scripts (any one of them or both if you want to both the demos) which w
 	cd /opt/intel/openvino/deployment_tools/tools/model_downloader
 	sudo python3 downloader.py --name mobilenet-ssd,ssd300,ssd512,squeezenet1.1,face-detection-retail-0004,face-detection-retail-0004-fp16,age-gender-recognition-retail-0013,age-gender-recognition-retail-0013-fp16,head-pose-estimation-adas-0001,head-pose-estimation-adas-0001-fp16,emotions-recognition-retail-0003,emotions-recognition-retail-0003-fp16,facial-landmarks-35-adas-0002,facial-landmarks-35-adas-0002-fp16
 
-
+<!---
 #### e). Install Intel® System Studio, VNC viewer and Setup on development machine
 
 Follow the [guide](./up2-vision-kit/setup_intel_system_studio_2019.md) to install Intel® System Studio and VNC viewer on your development machine.
+--->
 
-#### f). Install Jupyter Notebook and Opencv
+#### e). Install Jupyter Notebook and Opencv
 Install Jupyter Notebook using below command
 
 	pip3 install jupyter
@@ -64,7 +65,7 @@ Install Opencv2 using below command
 
 	pip3 install opencv-python
 
-#### g). Run the Jupyter Notebook
+#### f). Run the Jupyter Notebook
 1.	Create the workshop directory from a terminal:
 
 ```bash
