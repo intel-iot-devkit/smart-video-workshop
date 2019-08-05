@@ -23,7 +23,8 @@ Inference is the process of using a trained neural network to interpret data, su
 
 #### 4. Download and clone the workshop content to the current directory (/opt/intel/workshop/smart-video-workshop).
 
-	git clone https://github.com/intel-iot-devkit/smart-video-workshop.git
+	git clone https://github.com/intel-iot-devkit/smart-video-workshop.git -b smart-video-workshop-2019-R1
+
 	
 #### 5. Set short path for the workshop directory
 
