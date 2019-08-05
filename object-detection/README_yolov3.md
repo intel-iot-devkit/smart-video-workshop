@@ -73,7 +73,7 @@ You should see the following two files listed in this directory: **frozen_darkne
 
 #### 1. Use the sample app (object_detection_demo_yolov3_async.py) from the Intel® Distribution of OpenVINO™ toolkit.
 
-	cd /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/object_detection_demo_yolov3_async
+	cd /opt/intel/openvino/deployment_tools/open_model_zoo/demos/python_demos/object_detection_demo_yolov3_async/
 
 	python3 object_detection_demo_yolov3_async.py -h
 
@@ -85,13 +85,12 @@ You should see the following two files listed in this directory: **frozen_darkne
 #### 3. Run the sample application to use the Inference Engine 
 The below command runs the application with YOLOv3 IR model and the video captured by the camera.
 
-
-	python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/object_detection_demo_yolov3_async/object_detection_demo_yolov3_async.py -i /dev/video0 -m $SV/object-detection/tensorflow-yolo-v3/FP32/frozen_darknet_yolov3_model.xml -l /home/intel/inference_engine_samples_build/intel64/Release/lib/libcpu_extension.so
+	python3 /opt/intel/openvino/deployment_tools/open_model_zoo/demos/python_demos/object_detection_demo_yolov3_async/object_detection_demo_yolov3_async.py -i /dev/video0 -m $SV/object-detection/tensorflow-yolo-v3/FP32/frozen_darknet_yolov3_model.xml -l $HOME/inference_engine_samples_build/intel64/Release/lib/libcpu_extension.so
 
 
 #### 1. Inference on CPU
 ```
-python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/object_detection_demo_yolov3_async/object_detection_demo_yolov3_async.py -i /dev/video0 -m $SV/object-detection/tensorflow-yolo-v3/FP32/frozen_darknet_yolov3_model.xml -l /home/intel/inference_engine_samples_build/intel64/Release/lib/libcpu_extension.so -d CPU
+python3 /opt/intel/openvino/deployment_tools/open_model_zoo/demos/python_demos/object_detection_demo_yolov3_async/object_detection_demo_yolov3_async.py -i /dev/video0 -m $SV/object-detection/tensorflow-yolo-v3/FP32/frozen_darknet_yolov3_model.xml -l $HOME/inference_engine_samples_build/intel64/Release/lib/libcpu_extension.so -d CPU
 ```
 You will see the **total time** it took to run the inference and see the detected objects captured by the camera video. 
 
@@ -100,7 +99,7 @@ Since you installed the OpenCL™ drivers to use the GPU, you can run the infere
 
 Set target hardware as GPU with **-d GPU**
 ```
-python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/object_detection_demo_yolov3_async/object_detection_demo_yolov3_async.py -i /dev/video0 -m $SV/object-detection/tensorflow-yolo-v3/FP32/frozen_darknet_yolov3_model.xml -d GPU
+python3 /opt/intel/openvino/deployment_tools/open_model_zoo/demos/python_demos/object_detection_demo_yolov3_async/object_detection_demo_yolov3_async.py -i /dev/video0 -m $SV/object-detection/tensorflow-yolo-v3/FP32/frozen_darknet_yolov3_model.xml -d GPU
 ```
 
 #### 3. Inference on the Intel® Movidius™ Neural Compute Stick 2
@@ -154,4 +153,4 @@ Let's run the Model Optimizer to get IR files in FP16 format suitable for the In
 
 Now run the example application with these new IR files.
 
-	python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/object_detection_demo_yolov3_async/object_detection_demo_yolov3_async.py -i /dev/video0 -m $SV/object-detection/tensorflow-yolo-v3/FP16/frozen_darknet_yolov3_model.xml -d MYRIAD
+	python3 /opt/intel/openvino/deployment_tools/open_model_zoo/demos/python_demos/object_detection_demo_yolov3_async/object_detection_demo_yolov3_async.py -i /dev/video0 -m $SV/object-detection/tensorflow-yolo-v3/FP16/frozen_darknet_yolov3_model.xml -d MYRIAD
