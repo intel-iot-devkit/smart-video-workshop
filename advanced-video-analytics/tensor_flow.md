@@ -95,7 +95,7 @@ Place Classification App collateral in current local directory:
 #### Run Application
 Note: To see all the flags that the sample takes as input run  ./classification_sample -h
 
-    ./classification_sample -i car_1.bmp -m inception_v1_frozen.xml
+    ./classification_sample_async -i car_1.bmp -m inception_v1_frozen.xml
 
 Expected Output:
 
