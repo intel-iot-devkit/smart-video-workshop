@@ -58,7 +58,8 @@ InceptionV1/Logits/Predictions/Reshape_1Freeze Graph
 ##### Freeze the graph for Intel® Distribution of OpenVINO™ toolkit 
 The script generates inception_v1_frozen.pb file with the frozen model in the directory you are currently in.
  
- 	python3 /usr/local/lib/python3.5/dist-packages/tensorflow/python/tools/freeze_graph.py --input_graph /tmp/inception_v1_inf_graph.pb --input_binary --input_checkpoint /tmp/checkpoints/inception_v1.ckpt --output_node_names InceptionV1/Logits/Predictions/Reshape_1 --output_graph inception_v1_frozen.pb
+ 	python3 $HOME/.local/lib/python3.5/site-packages/tensorflow/python/tools/freeze_graph.py --input_graph /tmp/inception_v1_inf_graph.pb --input_binary --input_checkpoint /tmp/checkpoints/inception_v1.ckpt --output_node_names InceptionV1/Logits/Predictions/Reshape_1 --output_graph inception_v1_frozen.pb
+
     
 You might get warning message "Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA" while executing above command, ignore that. 
 
@@ -100,30 +101,31 @@ Expected Output:
 
 
     [ INFO ] InferenceEngine: 
-	API version ............ 1.6
-	Build .................. custom_releases/2019/R1_c9b66a26e4d65bb986bb740e73f58c6e9e84c7c2
-	[ INFO ] Parsing input parameters
-	[ INFO ] Files were added: 1
-	[ INFO ]     car_1.bmp
-	[ INFO ] Loading plugin
+	API version ............ 2.0
+	Build .................. custom_releases/2019/R2_f5827d4773ebbe727c9acac5f007f7d94dd4be4e
+	Description ....... API
+    [ INFO ] Parsing input parameters
+    [ INFO ] Files were added: 1
+    [ INFO ]     car_1.bmp
+    [ INFO ] Creating Inference Engine
+	CPU
+	MKLDNNPlugin version ......... 2.0
+	Build ........... 27579
 
-		API version ............ 1.6
-		Build .................. 22443
-		Description ....... MKLDNNPlugin
-	[ INFO ] Loading network files:
-		inception_v1_frozen.xml
-		inception_v1_frozen.bin
-	[ INFO ] Preparing input blobs
-	[ WARNING ] Image is resized from (749, 637) to (224, 224)
-	[ INFO ] Batch size is 1
-	[ INFO ] Preparing output blobs
-	[ INFO ] Loading model to the plugin
-	[ INFO ] Starting inference (1 iterations)
-	[ INFO ] Processing output blobs
+    [ INFO ] Loading network files:
+	inception_v1_frozen.xml
+	inception_v1_frozen.bin
+    [ INFO ] Preparing input blobs
+    [ WARNING ] Image is resized from (749, 637) to (224, 224)
+    [ INFO ] Batch size is 1
+    [ INFO ] Preparing output blobs
+    [ INFO ] Loading model to the device
+    [ INFO ] Starting inference (1 iterations)
+    [ INFO ] Processing output blobs
 
-	Top 10 results:
+    Top 10 results:
 
-	Image car_1.bmp
+    Image car_1.bmp
 
 	classid probability label
 	------- ----------- -----
@@ -139,12 +141,12 @@ Expected Output:
 	689     0.0042265   overskirt
 
 
-	total inference time: 22.1188385
-	Average running time of one iteration: 22.1188385 ms
+	total inference time: 10.1313218
+	Average running time of one iteration: 10.1313218 ms
 
-	Throughput: 45.2103305 FPS
+	Throughput: 98.7038034 FPS
 
-	[ INFO ] Execution successful
+    [ INFO ] Execution successful
 
 
 
