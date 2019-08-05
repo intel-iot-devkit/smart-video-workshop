@@ -38,23 +38,26 @@ Run demo scripts (any one of them or both if you want to both the demos) which w
 	sudo chown -R username.username $HOME/inference_engine_samples_build
 	cd $HOME/inference_engine_samples_build
 	make
-	
+
+	sudo chown -R username.username $HOME/inference_engine_demos_build
+	cd $HOME/inference_engine_demos_build
+	make
+
 #### d). Download models using model downloader scripts in Intel® Distribution of OpenVINO™ toolkit installed folder
    - Install python3 (version 3.5.2 or newer) 
    - Install yaml and requests modules with command:
 
-	sudo -E pip3 install pyyaml requests
+	cd /opt/intel/openvino/deployment_tools/tools/model_downloader	
+	python3 -mpip install --user -r ./requirements.in
    
    - Run model downloader script to download example deep learning models
-  		
-	cd /opt/intel/openvino/deployment_tools/tools/model_downloader
-	sudo python3 downloader.py --name mobilenet-ssd,ssd300,ssd512,squeezenet1.1,face-detection-retail-0004,face-detection-retail-0004-fp16,age-gender-recognition-retail-0013,age-gender-recognition-retail-0013-fp16,head-pose-estimation-adas-0001,head-pose-estimation-adas-0001-fp16,emotions-recognition-retail-0003,emotions-recognition-retail-0003-fp16,facial-landmarks-35-adas-0002,facial-landmarks-35-adas-0002-fp16
+  	
+	sudo python3 downloader.py --name mobilenet-ssd,ssd300,ssd512,squeezenet1.1,face-detection-retail-0004,age-gender-recognition-retail-0013,head-pose-estimation-adas-0001,emotions-recognition-retail-0003,facial-landmarks-35-adas-0002
 
-<!---
+<!--
 #### e). Install Intel® System Studio, VNC viewer and Setup on development machine
-
 Follow the [guide](./up2-vision-kit/setup_intel_system_studio_2019.md) to install Intel® System Studio and VNC viewer on your development machine.
---->
+-->
 
 #### e). Install Jupyter Notebook and Opencv
 Install Jupyter Notebook using below command
@@ -97,7 +100,7 @@ sudo chown username.username -R /opt/intel/workshop/
 
 7. It opens in default browser, locate the required jupyter notebook (.ipynb) file and double click on it to open and run.
 
-> :warning: This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version R1 (openvino_toolkit_2019.1.094). 
+> :warning: This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version R2 2019 (openvino_toolkit_2019.2.242). 
 
 
 		
@@ -112,26 +115,26 @@ sudo chown username.username -R /opt/intel/workshop/
 * **Basic End to End Object Detection Inference Example**
   - Slides - [Basic End to End Object Detection Example](./presentations/02-03_Basic-End-to-End-Object-Detection-Example.pdf)
   - Lab Setup - [Lab Setup Instructions](./Lab_setup.md)
-  - Lab - Basic End to End Object Detection Example   [[C++](./object-detection/README.md)]   [[Python](./object-detection/Python/basic_end_to_end_object_detection.ipynb)]
-  - Lab - Tensor Flow example [[C++](./advanced-video-analytics/tensor_flow.md)] [[Python](./object-detection/Python/Tensor_Flow_example.ipynb)]
+  - Lab - Basic End to End Object Detection Example   [[C++](./object-detection/README.md)] <!--  [[Python](./object-detection/Python/basic_end_to_end_object_detection.ipynb)] -->
+  - Lab - Tensor Flow example [[C++](./advanced-video-analytics/tensor_flow.md)] <!-- [[Python](./object-detection/Python/Tensor_Flow_example.ipynb)] -->
   - Lab - [Object Detection with YOLOv3* model](./object-detection/README_yolov3.md)
 
 * **Hardware Heterogeneity**
-  - Lab - Hardware Heterogeneity [[C++](./hardware-heterogeneity/README.md)] [[Python](./hardware-heterogeneity/Python/hardware-heterogeneity.ipynb)]
+  - Lab - Hardware Heterogeneity [[C++](./hardware-heterogeneity/README.md)] <!-- [[Python](./hardware-heterogeneity/Python/hardware-heterogeneity.ipynb)] -->
 
 * **HW Acceleration with Intel® Movidius™ Neural Compute Stick**
-  - Lab - HW Acceleration with Intel® Movidius™ Neural Compute Stick [[C++](./HW-Acceleration-with-Movidious-NCS/README.md)] [[Python](./HW-Acceleration-with-Movidious-NCS/Python/HW_Acceleration_with_Movidius_NCS.ipynb)]
+  - Lab - HW Acceleration with Intel® Movidius™ Neural Compute Stick [[C++](./HW-Acceleration-with-Movidious-NCS/README.md)] <!--[[Python](./HW-Acceleration-with-Movidious-NCS/Python/HW_Acceleration_with_Movidius_NCS.ipynb)] -->
   
 * **FPGA Inference Accelerator**
   - Slides - [HW Acceleration with Intel® FPGA](./presentations/FPGA.pdf)
 
 * **Optimization Tools and Techniques** 
   - Slides - [Optimization Tools and Techniques](./presentations/04-05_Optimization_and_advanced_analytics.pdf)
-  - Lab 1 - Optimization Tools and Techniques [[C++](./optimization-tools-and-techniques/README.md)] [[Python](./optimization-tools-and-techniques/Python/optimization_tools_and_techniques.ipynb)]
+  - Lab 1 - Optimization Tools and Techniques [[C++](./optimization-tools-and-techniques/README.md)] <!-- [[Python](./optimization-tools-and-techniques/Python/optimization_tools_and_techniques.ipynb)] -->
   - Lab 2- [Intel® VTune™ Amplifier tutorial](./optimization-tools-and-techniques/README_VTune.md)
   
 * **Advanced Video Analytics**
-  - Lab - Multiple models usage example [[C++](./advanced-video-analytics/multiple_models.md)] [[Python](./advanced-video-analytics/Python/advanced_video_analytics.ipynb)]
+  - Lab - Multiple models usage example [[C++](./advanced-video-analytics/multiple_models.md)] <!-- [[Python](./advanced-video-analytics/Python/advanced_video_analytics.ipynb)] -->
 <!----  
 * **UP²\* AI Vision Development kit as Edge**
   - Setup - [Development machine and Internet Connection Sharing](./up2-vision-kit/dev_machine_setup.md)
