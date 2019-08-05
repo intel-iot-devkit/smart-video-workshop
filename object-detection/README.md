@@ -91,7 +91,8 @@ You should see the following two files listed in this directory: **mobilenet-ssd
 
  	cd $SV/object-detection/
 	make
-
+	
+> **Note:** *Please ignore the warnings. They are due to new IE APIs*
 #### 5. Download the test video file to the object-detection folder. 
 Put the below link in your favorite browser. 
 
