@@ -183,7 +183,7 @@ We create a simple model with a custom cosh layer. The weights are random and un
 
     <b>Using a C++ Sample:</b><br>
     ```
-    ~/inference_engine_samples_build/intel64/Release/classification_sample -i /opt/intel/openvino/deployment_tools/demo/car.png -m $SV/custom-layer/create_tf_model/tf_model/model.ckpt.xml -d CPU -l $SV/custom-layer/cl_ext_cosh/libcosh_cpu_extension.so
+    /$HOME/inference_engine_samples_build/intel64/Release/classification_sample_async -i /opt/intel/openvino/deployment_tools/demo/car.png -m $SV/custom-layer/create_tf_model/tf_model/model.ckpt.xml -d CPU -l $SV/custom-layer/cl_ext_cosh/libcosh_cpu_extension.so
     ```
     <br><b>Using a Python Sample:</b><br>
 
@@ -211,6 +211,5 @@ We create a simple model with a custom cosh layer. The weights are random and un
 
   <b>Using a C++ Sample:</b><br>
   ```
-  ~/inference_engine_samples_build/intel64/Release/classification_sample -i /opt/intel/openvino/deployment_tools/demo/car.png -m $SV/custom-layer/create_tf_model/tf_model/model.ckpt.xml -d GPU -c /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/cldnn_global_custom_kernels/cosh_kernel.xml
+ /$HOME/inference_engine_samples_build/intel64/Release/classification_sample_async -i /opt/intel/openvino/deployment_tools/demo/car.png -m $SV/custom-layer/create_tf_model/tf_model/model.ckpt.xml -d GPU -c /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/cldnn_global_custom_kernels/cosh_kernel.xml
   ```
-
