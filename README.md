@@ -54,12 +54,11 @@ Run demo scripts (any one of them or both if you want to both the demos) which w
   	
 	sudo python3 downloader.py --name mobilenet-ssd,ssd300,ssd512,squeezenet1.1,face-detection-retail-0004,age-gender-recognition-retail-0013,head-pose-estimation-adas-0001,emotions-recognition-retail-0003,facial-landmarks-35-adas-0002
 
-<!--
-#### e). Install Intel® System Studio, VNC viewer and Setup on development machine
+#### e). Install Intel® System Studio, VTune Amplifier, VNC viewer and Setup on development machine
 Follow the [guide](./up2-vision-kit/setup_intel_system_studio_2019.md) to install Intel® System Studio and VNC viewer on your development machine.
--->
 
-#### e). Install Jupyter Notebook and Opencv
+
+#### f). Install Jupyter Notebook and Opencv
 Install Jupyter Notebook using below command
 
 	pip3 install jupyter
@@ -68,7 +67,7 @@ Install Opencv2 using below command
 
 	pip3 install opencv-python
 
-#### f). Run the Jupyter Notebook
+#### g). Run the Jupyter Notebook
 1.	Create the workshop directory from a terminal:
 
 ```bash
