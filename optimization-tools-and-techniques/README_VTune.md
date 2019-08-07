@@ -10,7 +10,7 @@ The Intel® VTune™ Amplifier sampling driver provides access to Performance Mo
 
 Open a terminal and run the following commands to build and load the Intel® VTune™ Amplifier Sampling Driver, replace &lt;group&gt; with your user’s group name (e.g. intel):
               
-      cd /opt/intel/system_studio_2019/vtune_amplifier_2019/sepdk/src
+      cd /opt/intel/vtune_amplifier_2019/sepdk/src
       sudo ./build-driver -ni
       sudo ./insmod-sep -r -g <group>
       ./insmod-sep -q
@@ -23,12 +23,12 @@ Open a terminal and run the following commands to build and load the Intel® VTu
 In a terminal run source setupvars.sh and amplxe-vars.sh scripts, and run amplxe-gui:
 
       source /opt/intel/openvino/bin/setupvars.sh
-      source /opt/intel/system_studio_2019/vtune_amplifier_2019/amplxe-vars.sh
+      source /opt/intel/vtune_amplifier_2019/amplxe-vars.sh
 
 ## Build the sample application
 In a terminal, type following commands:
 
-      cd /opt/intel/openvino/deployment_tools/inference_engine/samples/object_detection_demo_ssd_async
+      cd /opt/intel/openvino/deployment_tools/inference_engine/demos/object_detection_demo_ssd_async
       sudo gedit main.cpp
 
 Then leave the Text Editor open, hold **Ctrl** key and click this link: [[main.cpp](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/optimization-tools-and-techniques/main.cpp?raw=true)], copy all the source code into your opened **main.cpp** file, click save and close the text editor.
@@ -41,13 +41,14 @@ Keep the Text Editor open, hold **Ctrl** key and click this link: [[object_detec
 
 Now, in the same terminal:
 
-      cd /opt/intel/openvino/deployment_tools/inference_engine/samples
-      ./build_samples.sh
+      cd $HOME/inference_engine_demos_build
+      make
 
 Wait until you see "**Build completed, you can find binaries for all samples in the /home/intel/inference_engine_samples_build/intel64/Release subfolder.**".
 
 Then download the test video from here: [head-pose-face-detection-female-and-male.mp4](https://github.com/intel-iot-devkit/sample-videos/blob/master/head-pose-face-detection-female-and-male.mp4?raw=true), and type below command in terminal to start Intel® VTune™ Amplifier
-
+      
+      sudo chown -R username.groupname $HOME/intel
       amplxe-gui
 
 The Intel® VTune™ Amplifier GUI will open.
@@ -70,11 +71,11 @@ Intel® VTune™ Amplifier will show **Configure Analysis** tab. Configure the a
 
 In the **Application** path field type:
 
-**_/home/intel/inference_engine_samples_build/intel64/Release/object_detection_demo_ssd_async_**
+**_/home/intel/inference_engine_demos_build/intel64/Release/object_detection_demo_ssd_async_**
 
 And in the **Application parameters** field type:
 
-**_-i /home/intel/Downloads/head-pose-face-detection-female-and-male.mp4 -m /opt/intel/openvino/deployment_tools/tools/model_downloader/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/face-detection-retail-0004.xml_**
+**_-i /home/intel/Downloads/head-pose-face-detection-female-and-male.mp4 -m /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/FP32/face-detection-retail-0004.xml_**
 
 
 ![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/VTune2019_Create_Project.png)
