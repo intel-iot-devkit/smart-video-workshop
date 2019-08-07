@@ -14,7 +14,7 @@ Note: This is done in home directory(~)
 
     cd
     git clone https://github.com/tensorflow/models/
-    cd models/research/slim
+    cd ~/models/research/slim
 
 #### Export Inference Graph and download checkpoint file 
 Export inference graph for one of the available models using the following command (Inception V1 in this example): 
