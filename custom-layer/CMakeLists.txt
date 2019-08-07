@@ -45,7 +45,7 @@ include_directories (PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/common
     ${InferenceEngine_INCLUDE_DIRS}
     "/opt/intel/openvino/deployment_tools/inference_engine/include"
-    "/opt/intel/openvino_2019.1.094/deployment_tools/inference_engine/external/tbb/include"
+    "/opt/intel/openvino/deployment_tools/inference_engine/external/tbb/include"
 )
 
 link_directories(
