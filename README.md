@@ -68,36 +68,12 @@ Install Opencv2 using below command
 	pip3 install opencv-python
 
 #### g). Run the Jupyter Notebook
-1.	Create the workshop directory from a terminal:
-
-```bash
-sudo mkdir -p /opt/intel/workshop/
-```
-2.	Change ownership of the workshop directory to the current user:
-
-```bash
-sudo chown username.username -R /opt/intel/workshop/
-```
-3.	Navigate to the new directory:
-```bash
-	cd /opt/intel/workshop/
-```
-
-4.	Clone the current Git Pull request repository to /opt/intel/workshop
-
-5. Navigate to Root directory in new terminal
-
-```bash
-	$ cd /
-```
-
-
-6. Run the Jupyter Notebook
+1. Run the Jupyter Notebook
 ```bash
 	$ jupyter notebook
 ```
 
-7. It opens in default browser, locate the required jupyter notebook (.ipynb) file and double click on it to open and run.
+2. It opens in default browser, locate the required jupyter notebook (.ipynb) file and double click on it to open and run.
 
 > :warning: This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version R2 2019 (openvino_toolkit_2019.2.242). 
 
