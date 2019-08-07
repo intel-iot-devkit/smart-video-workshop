@@ -10,12 +10,6 @@
 #include <gflags/gflags.h>
 #include <iostream>
 
-#ifdef _WIN32
-#include <os/windows/w_dirent.h>
-#else
-#include <dirent.h>
-#endif
-
 /// @brief message for help argument
 static const char help_message[] = "Print a usage message.";
 
@@ -25,12 +19,9 @@ static const char video_message[] = "Required. Path to a video file (specify \"c
 /// @brief message for model argument
 static const char model_message[] = "Required. Path to an .xml file with a trained model.";
 
-/// @brief message for plugin argument
-static const char plugin_message[] = "Optional. Plugin name. For example MKLDNNPlugin. If this parameter is pointed, " \
-"the demo will look for this plugin only.";
-
 /// @brief message for assigning cnn calculation to device
-static const char target_device_message[] = "Optional. Specify the target device to infer on (CPU, GPU, FPGA, HDDL or MYRIAD). " \
+static const char target_device_message[] = "Optional. Specify the target device to infer on (the list of available devices is shown below). " \
+"Default value is CPU. Use \"-d HETERO:<comma-separated_devices_list>\" format to specify HETERO plugin. " \
 "The demo will look for a suitable plugin for a specified device.";
 
 /// @brief message for performance counters
@@ -54,7 +45,6 @@ static const char input_resizable_message[] = "Optional. Enables resizable input
 
 /// @brief message Async mode flag
 static const char async_message[] = "Optional. Apply Async mode";
-
 
 /// \brief Define flag for showing help message <br>
 DEFINE_bool(h, false, help_message);
@@ -93,10 +83,10 @@ DEFINE_double(t, 0.5, thresh_output_message);
 /// It is an optional parameter
 DEFINE_bool(auto_resize, false, input_resizable_message);
 
+//smart-video-workshop
 /// \brief Enables resizable input<br>
 /// It is an optional parameter
 DEFINE_bool(async, false, async_message);
-
 
 /**
 * \brief This function show a help message
@@ -117,5 +107,5 @@ static void showUsage() {
     std::cout << "    -r                        " << raw_output_message << std::endl;
     std::cout << "    -t                        " << thresh_output_message << std::endl;
     std::cout << "    -auto_resize              " << input_resizable_message << std::endl;
-    std::cout << "    -async                    " << async_message << std::endl;
+    std::cout << "    -async                    " << async_message << std::endl; //smart-video-workshop
 }
