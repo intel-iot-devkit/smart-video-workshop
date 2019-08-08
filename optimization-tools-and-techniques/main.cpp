@@ -240,7 +240,7 @@ int main(int argc, char *argv[]) {
         auto wallclock = std::chrono::high_resolution_clock::now();
         double ocv_decode_time = 0, ocv_render_time = 0;
 
-	//smart-video-workshop - limit the frame number to 256
+	//smart-video-workshop - limit the frame number to 500
 	int framenum = 0;	
 
         //Sync or Async
@@ -251,7 +251,7 @@ int main(int argc, char *argv[]) {
 
         std::cout << "To close the application, press 'CTRL+C' here or switch to the output window and press ESC key" << std::endl;
         std::cout << "To switch between sync/async modes, press TAB key in the output window" << std::endl;
-        while (framenum) {
+        while (framenum < 500) {
             auto t0 = std::chrono::high_resolution_clock::now();
             // Here is the first asynchronous point:
             // in the async mode we capture frame to populate the NEXT infer request
@@ -371,6 +371,10 @@ int main(int argc, char *argv[]) {
             // in the truly Async mode we swap the NEXT and CURRENT requests for the next iteration
             curr_frame = next_frame;
             next_frame = cv::Mat();
+
+	    // smart-video-workshop: counte frames for VTune lab
+	    framenum = cap.get(cv::CAP_PROP_POS_FRAMES);
+
             if (isAsyncMode) {
                 async_infer_request_curr.swap(async_infer_request_next);
             }
