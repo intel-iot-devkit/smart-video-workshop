@@ -31,13 +31,13 @@ In a terminal, type following commands:
       cd /opt/intel/openvino/deployment_tools/inference_engine/samples/object_detection_demo_ssd_async
       sudo gedit main.cpp
 
-Then leave the Text Editor open, hold **Ctrl** key and click this link: [[main.cpp](./optimization-tools-and-techniques/main.cpp?raw=true)], copy all the source code into your opened **main.cpp** file, click save and close the text editor.
+Then leave the Text Editor open, hold **Ctrl** key and click this link: [[main.cpp](https://raw.githubusercontent.com/intel-iot-devkit/smart-video-workshop/smart-video-workshop-2019-R1/optimization-tools-and-techniques/main.cpp)], copy all the source code into your opened **main.cpp** file, click save and close the text editor.
 
 Next, type this command:
 
       sudo gedit object_detection_demo_ssd_async.hpp
 
-Keep the Text Editor open, hold **Ctrl** key and click this link: [[object_detection_demo_ssd_async.hpp](./object_detection_demo_ssd_async.hpp?raw=true)], copy all the source code into your opened **object_detection_demo_ssd_async.hpp** file, click save and close the text editor.
+Keep the Text Editor open, hold **Ctrl** key and click this link: [[object_detection_demo_ssd_async.hpp](https://raw.githubusercontent.com/intel-iot-devkit/smart-video-workshop/smart-video-workshop-2019-R1/optimization-tools-and-techniques/object_detection_demo_ssd_async.hpp)], copy all the source code into your opened **object_detection_demo_ssd_async.hpp** file, click save and close the text editor.
 
 Now, in the same terminal:
 
