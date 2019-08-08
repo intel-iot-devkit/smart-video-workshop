@@ -55,7 +55,7 @@ Run demo scripts (any one of them or both if you want to both the demos) which w
 	sudo python3 downloader.py --name mobilenet-ssd,ssd300,ssd512,squeezenet1.1,face-detection-retail-0004,age-gender-recognition-retail-0013,head-pose-estimation-adas-0001,emotions-recognition-retail-0003,facial-landmarks-35-adas-0002
 
 #### e). Install Intel® VTune™ Amplifier on development machine
-Follow the [guide](./up2-vision-kit/install_vtune_amplifier_2019.md) to install Intel® System Studio and VNC viewer on your development machine.
+Follow the [guide](./up2-vision-kit/install_vtune_amplifier_2019.md) to install Intel® VTune™ Amplifier on your development machine.
 
 
 #### f). Install Jupyter Notebook and Opencv
