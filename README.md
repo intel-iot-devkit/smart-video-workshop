@@ -83,6 +83,8 @@ sudo chown username.username -R /opt/intel/workshop/
 
 4.	Clone the current Git Pull request repository to /opt/intel/workshop
 
+		git clone https://github.com/intel-iot-devkit/smart-video-workshop.git -b smart-video-workshop-2019-R1
+
 5. Navigate to Root directory in new terminal
 
 ```bash
