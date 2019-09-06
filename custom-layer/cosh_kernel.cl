@@ -25,20 +25,21 @@
 
 #pragma OPENCL EXTENSION cl_khr_fp16 : enable
 
-__kernel void Cosh(
-     // Insert pointers to inputs, outputs as arguments here
-     // If your layer has one input and one output, arguments will be:
-          const __global INPUT0_TYPE*  input0, __global OUTPUT0_TYPE* output
-     )
+__kernel void Cosh(const __global INPUT0_TYPE* input,
+			__global OUTPUT0_TYPE* output)
 {
-    // Add the kernel implementation here: 
-	 const int dims = sizeof(INPUT0_DIMS) / sizeof(INPUT0_DIMS[0]);
-    int T_ = INPUT0_DIMS[0];
-    int N_ = INPUT0_DIMS[1];
-    int C_ = INPUT0_DIMS[2];
+	// global index definition set in the XML configuration file
+	const uint idx = get_global_id(0);
+	const uint idy = get_global_id(1);
+	const uint idbf = get_global_id(2);
+	const uint feature = idbf%OUTPUT0_DIMS[1];
+	const uint batch = idbf/OUTPUT0_DIMS[1];
 
-    // Fill output_sequences with -1
-    for (int ii = 0; ii < T_*N_; ii++) {
-        output[ii] = (OUTPUT0_TYPE)(exp(input0[ii]) + exp(-input0[ii]))/2;
-    }
+	const uint in_id = batch*INPUT0_PITCHES[0] + feature*INPUT0_PITCHES[1] +
+			   idy*INPUT0_PITCHES[2] + idx*INPUT0_PITCHES[3] + INPUT0_OFFSET;
+	const uint out_id = batch*OUTPUT0_PITCHES[0] + feature*OUTPUT0_PITCHES[1] +
+			   idy*OUTPUT0_PITCHES[2] + idx*OUTPUT0_PITCHES[3] + OUTPUT0_OFFSET;
+
+	INPUT0_TYPE value = input[in_id];
+        output[out_id] = (exp(value) + exp(-value))/2;
 }

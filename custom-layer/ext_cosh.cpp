@@ -77,7 +77,7 @@ public:
                        ResponseDesc *resp) noexcept override {
         // Add implementation for layer inference here
         // Examples of implementations are in OpenVINO samples/extensions folder
-		float* src_data = inputs[0]->buffer();
+	float* src_data = inputs[0]->buffer();
         float* dst_data = outputs[0]->buffer();
 
         SizeVector dims = inputs[0]->getTensorDesc().getDims();
@@ -87,12 +87,9 @@ public:
         int H = static_cast<int>((dims.size() > 2) ? dims[2] : 1);
         int W = static_cast<int>((dims.size() > 3) ? dims[3] : 1);
 
-		//hyperbolic cosine is given by : (e^x + e^-x)/2
-		parallel_for3d(N, C, H, [&](int b, int c, int h) {
-            // Fill output_sequences with -1
-			for (size_t ii = 0; ii < b*c; ii++) {
-				dst_data[ii] = (exp(src_data[ii]) + exp(-src_data[ii]))/2;
-			}
+	//hyperbolic cosine is given by : (e^x + e^-x)/2
+	parallel_for(N*C*H*W, [&](int ii) {
+		dst_data[ii] = (exp(src_data[ii]) + exp(-src_data[ii]))/2;
         });
         return OK;
     }
