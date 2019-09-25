@@ -1,0 +1,39 @@
+{ "devices" :  [
+	{"01": {"edge" : "IEI Tank 870-Q170", "processor" : "Intel Core i5-6500TE", "graphics" : "Intel HD Graphics 530", "accelerator" : "IEI Mustang-V100-MX8"}},
+	{"02": {"edge" : "IEI Tank 870-Q170", "processor" : "Intel Core i5-6500TE", "graphics" : "Intel HD Graphics 530", "accelerator" : "Intel Neural Compute Stick 2"}},
+	{"03": {"edge" : "IEI Tank 870-Q170", "processor" : "Intel Core i5-6500TE", "graphics" : "Intel HD Graphics 530", "accelerator" : "Intel Movidius Neural Compute Stick"}},
+	{"04": {"edge" : "IEI Tank 870-Q170", "processor" : "Intel Core i5-6500TE", "graphics" : "Intel HD Graphics 530", "accelerator" : "IEI Mustang-F100-A10"}},
+	{"05": {"edge" : "IEI Tank 870-Q170", "processor" : "Intel Core i5-6500TE", "graphics" :  "Intel HD Graphics 530", "accelerator" : "None"}},
+	{"06": {"edge" : "IEI Tank 870-Q170", "processor" : "Intel Xeon Processor E3-1268L v5", "graphics" : "Intel HD Graphics P530", "accelerator" : "None"}},
+	{"07": {"edge" : "UP Squared Grove IoT Development Kit", "processor" : "Intel Atom x7-E3950", "graphics" : "Intel HD Graphics 505", "accelerator" : "None"}}
+ ] , 
+
+  "processing" : {
+	"Intel Movidius Neural Compute Stick" : {"-d" : "MYRIAD", "FP" : "FP16"},
+	"Intel Neural Compute Stick 2" : {"-d" : "MYRIAD", "FP" : "FP16"},
+	"IEI Mustang-V100-MX8" : {"-d" : "HDDL", "FP" : "FP16"},
+	"Intel HD Graphics 505" : {"-d" : "GPU", "FP" : "FP32"},
+	"Intel HD Graphics 530" : {"-d" : "GPU", "FP" : "FP32"},
+	"Intel HD Graphics P530" : {"-d" : "GPU", "FP" : "FP32"},
+	"IEI Mustang-F100-A10" : {"-d" : "HETERO:FPGA,CPU", "FP" : "FP32"},
+	"Intel Xeon Processor E3-1268L v5" : {"-d" : "CPU", "FP" : "FP32"},
+	"Intel Core i5-6500TE" : {"-d" : "CPU", "FP" : "FP32"},
+	"Intel Atom x7-E3950" : {"-d" : "CPU", "FP" : "FP32"}
+ },
+ 
+ "code" : {
+	"IEI Tank 870-Q170" : "tank-870",
+	"Intel Core i5-6500TE" : "i5-6500te",
+	"IEI Mustang-V100-MX8" : "iei-mustang-v100-mx8",
+	"Intel Neural Compute Stick 2" : "intel-ncs2",
+	"Intel Movidius Neural Compute Stick" : "intel-ncs",
+	"IEI Mustang-F100-A10" : "iei-mustang-f100-a10",
+	"Intel HD Graphics 530" : "intel-hd-530",
+	"Intel HD Graphics 505" : "intel-hd-505",
+        "Intel HD Graphics P530" : "intel-hd-p530",
+	"Intel Xeon Processor E3-1268L v5" : "e3-1268l-v5",
+	"UP Squared Grove IoT Development Kit" : "up-squared",
+	"Intel Atom x7-E3950" : "e3950"
+  }
+
+} 

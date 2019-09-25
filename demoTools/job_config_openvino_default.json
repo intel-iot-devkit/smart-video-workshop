@@ -1,0 +1,116 @@
+{
+    "jobs": 
+
+    {	
+	"command" : "",
+	"output_type" : "text",
+	"results_path" : "results/",
+	"results_prefix" : "-r",
+	"results_defines" : "-F",
+	"plots":
+	[
+		{	"title": "plot title",
+			"selector": ""
+		}
+	],
+	"progress_indicators":
+	[
+		{
+			"file name": "i_progress.txt",
+			"title": "Inference"
+	    	},
+	    	{
+			"file name": "v_progress.txt",
+			"title": "Rendering"
+	    	}
+	],
+
+	"defines_types" : 
+	[
+		{
+			"-l" : ""
+		},
+		{
+			"-F" : "'"
+		}
+		
+	]
+    },
+
+    "inputs":
+    [ 
+	{ 
+	    "openvino_selector_all_devices" :
+	    {
+		"display_name": "Target compute device",
+		"type": "select",
+		"default": "Intel Core i5-6500TE",
+		"prefix": "-d ",
+		"options":
+		[
+		    {
+			"display_name": "Intel Movidius\nNeural Compute Stick",
+			"properties": "intel-ncs", 
+			"arguments": "MYRIAD -f FP16 -n 2"
+		    },
+		    {
+			"display_name": "Intel\nNeural Compute Stick 2 (2018)",
+			"properties": "intel-ncs2",
+			"arguments": "MYRIAD -f FP16 -n 4"
+		    },
+		    {
+			"display_name": "IEI\nMustang-V100-MX8",
+			"properties": "iei-mustang-v100-mx8",
+			"arguments": "HDDL -f FP16 -n 128"
+		    },
+		    {
+			"display_name": "Intel\nHD Graphics 505",
+			"properties": "intel-hd-505",
+			"arguments": "GPU -f FP16 -n 2"
+		    },
+		    {
+			"display_name": "Intel\nHD Graphics P530",
+			"properties": "intel-hd-p530",
+			"arguments": "GPU -f FP16 -n 2"
+		    },
+		    {
+			"display_name": "Intel\nHD Graphics 530",
+			"properties": "intel-hd-530",
+			"arguments": "GPU -f FP16 -n 2"
+		    },
+		    {
+			"display_name": "IEI\nMustang-F100-A10",
+			"properties": "iei-mustang-f100-a10",
+			"arguments": "HETERO:FPGA,CPU -f FP32 -n 4"
+		    },
+		    {
+			"display_name": "Intel Core\ni5-6500TE",
+			"properties": "i5-6500te",
+			"arguments": "CPU -f FP32 -n 4"
+		    },
+		    {
+			"display_name": "Intel Xeon Processor\nE3-1268L v5",
+			"properties": "e3-1268l-v5",
+			"arguments": "CPU -f FP32 -n 4"
+		    },
+		    {
+			"display_name": "Intel Atom\nx7-E3950",
+			"properties": "e3950",
+			"arguments": "CPU -f FP32 -n 4"
+		    }
+		]
+	    }
+	},
+
+	{
+	    "openvino_input_video":
+	    {
+		"display_name": "Input video file",
+		"type": "text",
+		"default": "",
+		"prefix": "-i "
+	    }
+	}
+
+    ]
+}

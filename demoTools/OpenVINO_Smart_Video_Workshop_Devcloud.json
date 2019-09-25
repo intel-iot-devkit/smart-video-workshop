@@ -1,0 +1,30 @@
+{
+    "css": "demoTools/catalog.css",
+    "status":
+    {
+	"serverSideStatusScript": "demoTools/checkStatus.sh",
+	"serverSideRefreshScript": "demoTools/refreshRepository.sh",
+	"messages":
+	{
+	    "placeholder": "(waiting to check the status; click the Check Status button to check immediately)",
+	    "uptodate": "As of {time}, the catalog is up to date.",
+	    "behind": "As of {time}, the catalog requires an update.",
+	    "ahead": "As of {time}, it seems that you are doing your own version control.",
+	    "unable": "As of {time}, we are unable to determine the catalog status due to a server-side error.",
+	    "foreword": "Upon refresh, we will pull the latest examples from GitHub.<br /><b>After the refresh, you will lose any changes you have made to the demos and any data that your demo runs may have generated.</b><br/>",
+	    "remote": "Remote URL",
+	    "lastCheck": "Server-side time of last status check",
+	    "gitsaid": "Output of 'git status'"
+	},
+	"button": "Refresh Catalog",
+	"reloadCode": "<script>window.location.reload()</script>",
+	"autorunFirstDelay": "1500",
+	"autorunInterval": "-1"
+    },
+    "intro": false,
+    
+    "messages":
+    {
+	"toggle": "Show/Hide Code Cells"
+    }
+}
