@@ -1,6 +1,8 @@
 # Optimized Inference at the Edge with Intel® Tools and Technologies 
 This workshop will walk you through a computer vision workflow using the latest Intel® technologies and comprehensive toolkits including support for deep learning algorithms that help accelerate smart video applications. You will learn how to optimize and improve performance with and without external accelerators and utilize tools to help you identify the best hardware configuration for your needs. This workshop will also outline the various frameworks and topologies supported by Intel® accelerator tools. 
 
+> :warning: This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version R3 2019 (openvino_toolkit_2019.3.334). 
+
 ## How to Get Started
    
 > :warning: For the in-class training, the hardware and software setup part has already been done on the workshop hardware. In-class training participants should directly move to Workshop Agenda section. 
@@ -10,7 +12,7 @@ In order to use this workshop content, you will need to setup your hardware and 
 The hardware requirements are mentioned in the System Requirement section of the [install guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux)
 
 ### 2. Operating System
-These labs have been validated on Ubuntu* 16.04 OS. 
+These labs have been validated on Ubuntu* 18.04 OS. 
 
 ### 3. Software installation steps
 #### a). Install Intel® Distribution of OpenVINO™ toolkit 
@@ -25,10 +27,6 @@ to install the Intel® Distribution of OpenVINO™ toolkit, configure Model Opti
 	sudo pip3 install cogapp
     
 #### c). Run the demo scipts and compile samples
-Delete $HOME/inference_engine_samples folder if it already exists. 
-
-	rm -rf $HOME/inference_engine_samples
-	
 Run demo scripts (any one of them or both if you want to both the demos) which will generate the folder $HOME/inference_engine_samples with the current Intel® Distribution of OpenVINO™ toolkit built. 
 
 	cd /opt/intel/openvino/deployment_tools/demo
@@ -75,7 +73,6 @@ Install Opencv2 using below command
 
 2. It opens in default browser, locate the required jupyter notebook (.ipynb) file and double click on it to open and run.
 
-> :warning: This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version R2 2019 (openvino_toolkit_2019.2.242). 
 
 
 		
