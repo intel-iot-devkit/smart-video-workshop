@@ -36,13 +36,13 @@ Run various SSD models from the model_downloader in the car detection example wh
 	
 For caffe framework, model optimizer expects the file names for .caffemodel and .prototxt to be the same. Let's simplify the model file names before the conversion. 
 
-	cd /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/object_detection/common/ssd/512/caffe/models/VGGNet/VOC0712Plus/SSD_512x512
+	cd /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/public/ssd512/models/VGGNet/VOC0712Plus/SSD_512x512
 	
 	sudo mv VGG_VOC0712Plus_SSD_512x512_iter_240000.caffemodel ssd512.caffemodel
 
 	sudo mv deploy.prototxt ssd512.prototxt
 
-	cd /opt/intel/openvino/deployment_tools/tools/model_downloader/object_detection/common/ssd/300/caffe/models/VGGNet/VOC0712Plus/SSD_300x300_ft/
+	cd /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/public/ssd300/models/VGGNet/VOC0712Plus/SSD_300x300_ft
 
 	 sudo mv VGG_VOC0712Plus_SSD_300x300_ft_iter_160000.caffemodel ssd300.caffemodel
 
@@ -52,13 +52,13 @@ Let's convert the models to IR.
 
 	cd /opt/intel/openvino/deployment_tools/model_optimizer
 	
-	python3 mo_caffe.py --input_model /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/object_detection/common/ssd/512/caffe/models/VGGNet/VOC0712Plus/SSD_512x512/ssd512.caffemodel -o $SV/object-detection/SSD512/FP32
+	python3 mo_caffe.py --input_model /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/public/ssd512/models/VGGNet/VOC0712Plus/SSD_512x512/ssd512.caffemodel -o $SV/object-detection/SSD512/FP32
 	
-	python3 mo_caffe.py --input_model /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/object_detection/common/ssd/512/caffe/models/VGGNet/VOC0712Plus/SSD_512x512/ssd512.caffemodel -o $SV/object-detection/SSD512/FP16 --data_type FP16
+	python3 mo_caffe.py --input_model /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/public/ssd512/models/VGGNet/VOC0712Plus/SSD_512x512/ssd512.caffemodel -o $SV/object-detection/SSD512/FP16 --data_type FP16
 	
-	python3 mo_caffe.py --input_model /opt/intel/openvino/deployment_tools/tools/model_downloader/object_detection/common/ssd/300/caffe/models/VGGNet/VOC0712Plus/SSD_300x300_ft/ssd300.caffemodel -o $SV/object-detection/SSD300/FP32
+	python3 mo_caffe.py --input_model /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/public/ssd300/models/VGGNet/VOC0712Plus/SSD_300x300_ft/ssd300.caffemodel -o $SV/object-detection/SSD300/FP32
 	
-	python3 mo_caffe.py --input_model /opt/intel/openvino/deployment_tools/tools/model_downloader/object_detection/common/ssd/300/caffe/models/VGGNet/VOC0712Plus/SSD_300x300_ft/ssd300.caffemodel -o $SV/object-detection/SSD300/FP16 --data_type FP16
+	python3 mo_caffe.py --input_model /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/public/ssd300/models/VGGNet/VOC0712Plus/SSD_300x300_ft/ssd300.caffemodel -o $SV/object-detection/SSD300/FP16 --data_type FP16
 		
 ### Set environmental variables and navigate to object detection tutorial directory
 
