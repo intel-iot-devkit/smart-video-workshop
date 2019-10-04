@@ -75,7 +75,7 @@ In the **Application** path field type:
 
 And in the **Application parameters** field type:
 
-**_-i /home/intel/Downloads/head-pose-face-detection-female-and-male.mp4 -m /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/FP32/face-detection-retail-0004.xml_**
+**_-i /home/intel/Downloads/head-pose-face-detection-female-and-male.mp4 -m /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/intel/face-detection-retail-0004/FP16/face-detection-retail-0004.xml_**
 
 
 ![image of the output](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/VTune2019_Create_Project.png)
