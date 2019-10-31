@@ -14,7 +14,7 @@ First, let's run the Hello Query Device sample application, which queries availa
 #### 2. Run the Hello Query Device application 
 	./hello_query_device
     
-#### 3. With the NCS2 plugged in, you will see three different Inference Engine devices available: CPU, GPU, MYRIAD on the workshop laptop
+With the NCS2 plugged in, you will see three different Inference Engine devices available: CPU, GPU, MYRIAD on the workshop laptop
 
 	Available devices: 
 	Device: CPU
