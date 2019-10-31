@@ -5,7 +5,7 @@ Multi-Device plugin automatically assigns inference requests to available comput
 
 This example shows how to use **MULTI** plugin to share the inference burden onto different hardware types. Here, we will use the command line option to demonstrate MULTI plugin usage.  
 
-### Hello Query Device
+## Hello Query Device
 First, let's run the Hello Query Device sample application, which queries available Inference Engine devices on your platform and prints out their metrics and default configuration values.
 
 #### 1. Navigate to sample application directory
@@ -83,9 +83,10 @@ First, let's run the Hello Query Device sample application, which queries availa
 		CONFIG_FILE : UNSUPPORTED TYPE
 		DEVICE_ID : UNSUPPORTED TYPE  
 
-### Benchmark C++ Tool     
+## Benchmark C++ Tool     
 Benchmark C++ Tool provide estimation of deep learning inference performance on supported devices. Performance can be measured for two inference modes: synchronous (latency-oriented) and asynchronous (throughput-oriented).  
 
+### First, let's take a look at the performance of each single Inference Engine device
 #### 1. Navigate to sample application directory
 	cd inference_engine_samples_build/intel64/Release/
 
@@ -116,7 +117,8 @@ At the end of the output you will see the performance of VPU:
 	Latency:    9.31586 ms
 	Throughput: 423.943 FPS
 
-#### 5. Run Benchmark tool application with MULTI:CPU,GPU
+### Now let's try MULTI plugin with different combination of available Inference Engine devices
+#### 1. Run Benchmark tool application with MULTI:CPU,GPU
 	./benchmark_app -i /opt/intel/openvino/deployment_tools/demo/car.png -m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml -d MULTI:CPU,GPU -niter 1000
 
 At the end of the output you will see the performance using both CPU and GPU, and it is better than using signle CPU or GPU:
@@ -124,7 +126,7 @@ At the end of the output you will see the performance using both CPU and GPU, an
 	Duration:   323.819 ms
 	Throughput: 3088.14 FPS
 	
-#### 6. Run Benchmark tool application with MULTI:CPU,MYRIAD
+#### 2. Run Benchmark tool application with MULTI:CPU,MYRIAD
 	./benchmark_app -i /opt/intel/openvino/deployment_tools/demo/car.png -m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml -d MULTI:CPU,MYRIAD.4.1-ma2480 -niter 1000
 
 At the end of the output you will see the performance using both CPU and VPU, and it is better than using signle CPU or VPU:
@@ -133,7 +135,7 @@ At the end of the output you will see the performance using both CPU and VPU, an
 	Throughput: 2932.86 FPS
 
 	
-#### 7. Run Benchmark tool application with MULTI:GPU,MYRIAD
+#### 3. Run Benchmark tool application with MULTI:GPU,MYRIAD
 	./benchmark_app -i /opt/intel/openvino/deployment_tools/demo/car.png -m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml -d MULTI:GPU,MYRIAD.4.1-ma2480 -niter 1000
 
 At the end of the output you will see the performance using both GPU and VPU, and it is better than using signle GPU or VPU:
@@ -142,10 +144,49 @@ At the end of the output you will see the performance using both GPU and VPU, an
 	Throughput: 1438.72 FPS
 
 	
-#### 8. Run Benchmark tool application with MULTI:CPU,GPU,MYRIAD
+#### 4. Run Benchmark tool application with MULTI:CPU,GPU,MYRIAD
 	./benchmark_app -i /opt/intel/openvino/deployment_tools/demo/car.png -m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml -d MULTI:CPU,GPU,MYRIAD.4.1-ma2480 -niter 1000
 
 At the end of the output you will see the performance using CPU, GPU and VPU, and it is better than using signle CPU, GPU or VPU:
 
 	Duration:   300.508 ms
 	Throughput: 3354.32 FPS
+	
+### What if I have multiple NCS2?
+In this example, we plugged three NCS2 to the laptop
+
+#### 1. Run the Hello Query Device application 
+	./hello_query_device
+
+Then you will see multiple NCS2 from the prints:
+
+	Available devices: 
+	Device: CPU
+	.
+	.
+	
+	Device: GPU
+	.
+	.
+	
+	Device: MYRIAD.4.1-ma2480
+	.
+	.
+	
+	Device: MYRIAD.4.2-ma2480
+	.
+	.
+		
+	Device: MYRIAD.4.4-ma2480
+	.
+	.
+		
+		
+#### 2. Run Benchmark tool application with multiple NCS2s
+	./benchmark_app -i /opt/intel/openvino/deployment_tools/demo/car.png -m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml -d MULTI:MYRIAD.4.1-ma2480,MYRIAD.4.2-ma2480,MYRIAD.4.4-ma2480 -niter 1000
+
+At the end of the output you will see the performance triples compare to single NCS2:
+
+	Duration:   705.39 ms
+	Throughput: 1429.00 FPS
+
