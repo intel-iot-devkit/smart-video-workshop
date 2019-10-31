@@ -91,7 +91,11 @@ Benchmark C++ Tool provide estimation of deep learning inference performance on 
 	cd inference_engine_samples_build/intel64/Release/
 
 #### 2. Run Benchmark tool application with CPU
-	./benchmark_app -i /opt/intel/openvino/deployment_tools/demo/car.png -m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml -d CPU -niter 1000
+	./benchmark_app \
+	-i /opt/intel/openvino/deployment_tools/demo/car.png \
+	-m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml \
+	-d CPU \
+	-niter 1000
 
 At the end of the output you will see the performance of CPU:
 
@@ -100,7 +104,11 @@ At the end of the output you will see the performance of CPU:
 	Throughput: 2757.46 FPS
 
 #### 3. Run Benchmark tool application with GPU
-	./benchmark_app -i /opt/intel/openvino/deployment_tools/demo/car.png -m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml -d GPU -niter 1000
+	./benchmark_app \
+	-i /opt/intel/openvino/deployment_tools/demo/car.png \
+	-m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml \
+	-d GPU \
+	-niter 1000
 
 At the end of the output you will see the performance of GPU:
 
@@ -109,7 +117,11 @@ At the end of the output you will see the performance of GPU:
 	Throughput: 1075.91 FPS
 
 #### 4. Run Benchmark tool application with MYRIAD
-	./benchmark_app -i /opt/intel/openvino/deployment_tools/demo/car.png -m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml -d MYRIAD.4.1-ma2480 -niter 1000
+	./benchmark_app \
+	-i /opt/intel/openvino/deployment_tools/demo/car.png \
+	-m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml \
+	-d MYRIAD.4.1-ma2480 \
+	-niter 1000
 
 At the end of the output you will see the performance of VPU:
 
@@ -119,7 +131,11 @@ At the end of the output you will see the performance of VPU:
 
 ### Now let's try MULTI plugin with different combination of available Inference Engine devices
 #### 1. Run Benchmark tool application with MULTI:CPU,GPU
-	./benchmark_app -i /opt/intel/openvino/deployment_tools/demo/car.png -m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml -d MULTI:CPU,GPU -niter 1000
+	./benchmark_app \
+	-i /opt/intel/openvino/deployment_tools/demo/car.png \
+	-m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml \
+	-d MULTI:CPU,GPU \
+	-niter 1000
 
 At the end of the output you will see the performance using both CPU and GPU, and it is better than using signle CPU or GPU:
 
@@ -127,7 +143,11 @@ At the end of the output you will see the performance using both CPU and GPU, an
 	Throughput: 3088.14 FPS
 	
 #### 2. Run Benchmark tool application with MULTI:CPU,MYRIAD
-	./benchmark_app -i /opt/intel/openvino/deployment_tools/demo/car.png -m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml -d MULTI:CPU,MYRIAD.4.1-ma2480 -niter 1000
+	./benchmark_app \
+	-i /opt/intel/openvino/deployment_tools/demo/car.png \
+	-m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml \
+	-d MULTI:CPU,MYRIAD.4.1-ma2480 \
+	-niter 1000
 
 At the end of the output you will see the performance using both CPU and VPU, and it is better than using signle CPU or VPU:
 
@@ -136,7 +156,11 @@ At the end of the output you will see the performance using both CPU and VPU, an
 
 	
 #### 3. Run Benchmark tool application with MULTI:GPU,MYRIAD
-	./benchmark_app -i /opt/intel/openvino/deployment_tools/demo/car.png -m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml -d MULTI:GPU,MYRIAD.4.1-ma2480 -niter 1000
+	./benchmark_app \
+	-i /opt/intel/openvino/deployment_tools/demo/car.png \
+	-m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml \
+	-d MULTI:GPU,MYRIAD.4.1-ma2480 \
+	-niter 1000
 
 At the end of the output you will see the performance using both GPU and VPU, and it is better than using signle GPU or VPU:
 
@@ -145,7 +169,11 @@ At the end of the output you will see the performance using both GPU and VPU, an
 
 	
 #### 4. Run Benchmark tool application with MULTI:CPU,GPU,MYRIAD
-	./benchmark_app -i /opt/intel/openvino/deployment_tools/demo/car.png -m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml -d MULTI:CPU,GPU,MYRIAD.4.1-ma2480 -niter 1000
+	./benchmark_app \
+	-i /opt/intel/openvino/deployment_tools/demo/car.png \
+	-m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml \
+	-d MULTI:CPU,GPU,MYRIAD.4.1-ma2480 \
+	-niter 1000
 
 At the end of the output you will see the performance using CPU, GPU and VPU, and it is better than using signle CPU, GPU or VPU:
 
@@ -183,7 +211,11 @@ Then you will see multiple NCS2 from the prints:
 		
 		
 #### 2. Run Benchmark tool application with multiple NCS2s
-	./benchmark_app -i /opt/intel/openvino/deployment_tools/demo/car.png -m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml -d MULTI:MYRIAD.4.1-ma2480,MYRIAD.4.2-ma2480,MYRIAD.4.4-ma2480 -niter 1000
+	./benchmark_app \
+	-i /opt/intel/openvino/deployment_tools/demo/car.png \
+	-m /opt/intel/openvino/deployment_tools/tools/model_downloader/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml \
+	-d MULTI:MYRIAD.4.1-ma2480,MYRIAD.4.2-ma2480,MYRIAD.4.4-ma2480 \
+	-niter 1000
 
 At the end of the output you will see the performance triples compare to single NCS2:
 
