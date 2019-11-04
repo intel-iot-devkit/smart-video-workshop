@@ -85,6 +85,7 @@ With the NCS2 plugged in, you will see three different Inference Engine devices 
 
 ## Benchmark C++ Tool     
 Benchmark C++ Tool provide estimation of deep learning inference performance on supported devices. Performance can be measured for two inference modes: synchronous (latency-oriented) and asynchronous (throughput-oriented).  
+> **Note** The performance number mentioned below in this tutorial are obtained on a particular machine (Intel® Xeon® CPU E3-1268L v5 @ 2.4GHz x 8 + Intel® HD Graphics P530 (Skylake GT2) + 32 GB Memory).     
 
 ### First, let's take a look at the performance of each single Inference Engine device
 #### 1. Navigate to sample application directory
