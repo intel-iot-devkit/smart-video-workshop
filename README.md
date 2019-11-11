@@ -115,6 +115,9 @@ Install Opencv2 using below command
 * **Implement Custom Layers for Inference on CPU and Integrated GPU**
   - Slides - [Custom Layer](./presentations/custom_layer.pdf)
   - Lab - [Custom Layer](./custom-layer/README.md)
+
+* **Support for Microsoft ONNX runtime in OpenVINO**
+  - Slides - [ONNX runtime and OpenVINO](./presentations/ONNX_runtime_and_OpenVINO.pdf)
   
 * **Additional Examples - Reference Implementations**
   - Industrial 
