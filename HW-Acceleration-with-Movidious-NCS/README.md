@@ -36,7 +36,7 @@ If using NCS1,
 	Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 	Bus 001 Device 015: ID 03e7:2150  
 	
-If useing NCS2,
+If using NCS2,
 
 	Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 	Bus 001 Device 015: ID 03e7:2485 
@@ -56,16 +56,17 @@ Set target hardware as Intel® Movidius™ NCS with **-d MYRIAD**
 ```
  ./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d MYRIAD
 ```
+<!--
 You will get following error as Intel® Movidius™ NCS supports only FP16 format. 
-<br>
 
 ![image of Movidius NCS error for FP32 model](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/images/NCSerror.png)
+-->
 
-<br>
+The Model Optimizer by default generate FP32 IR files if the data type is not particularly specified. In the previous command, we provided FP32 quantized model to Intel® Movidius™ NCS/NCS2 for inference. 
+Technically, the Intel® Movidius™ devices support FP16 quantization only. The movidius plugin converts the FP32 quantized model to FP16 during runtime and does through any error even if you provide FP32 quantized model. 
 
-The Model Optimizer by default generate FP32 IR files if the data type is not particularly specified.
 
-Let's run the Model Optimizer to get IR files in FP16 format suitable for the Intel® Movidius™ NCS by setting the data_type flag to FP16.
+Let's run the Model Optimizer to get IR files in FP16 format to infer the model on the Intel® Movidius™ NCS by setting the data_type flag to FP16.
   
     cd $SV/object-detection/mobilenet-ssd
     mkdir -p FP16
