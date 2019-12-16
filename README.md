@@ -119,6 +119,9 @@ Install Opencv2 using below command
 * **Support for Microsoft ONNX runtime in OpenVINO**
   - Slides - [ONNX runtime and OpenVINO](./presentations/ONNX_runtime_and_OpenVINO.pdf)
   
+* **Healthcare applications and Required Features**
+  - Slides - [ONNX runtime and OpenVINO](./presentations/Healthcare_presentation.pdf)
+  
 * **Additional Examples - Reference Implementations**
   - Industrial 
   	- [Safety Gear Detection](./safety-gear-example/README.md)
