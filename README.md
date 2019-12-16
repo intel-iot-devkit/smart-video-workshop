@@ -120,7 +120,7 @@ Install Opencv2 using below command
   - Slides - [ONNX runtime and OpenVINO](./presentations/ONNX_runtime_and_OpenVINO.pdf)
   
 * **Healthcare applications and Required Features**
-  - Slides - [ONNX runtime and OpenVINO](./presentations/Healthcare_presentation.pdf)
+  - Slides - [Healthcare Applications](./presentations/Healthcare_presentation.pdf)
   
 * **Additional Examples - Reference Implementations**
   - Industrial 
