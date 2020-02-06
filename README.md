@@ -1,7 +1,7 @@
 # Optimized Inference at the Edge with Intel® Tools and Technologies 
 This workshop will walk you through a computer vision workflow using the latest Intel® technologies and comprehensive toolkits including support for deep learning algorithms that help accelerate smart video applications. You will learn how to optimize and improve performance with and without external accelerators and utilize tools to help you identify the best hardware configuration for your needs. This workshop will also outline the various frameworks and topologies supported by Intel® accelerator tools. 
 
-> :warning: This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version R3 2019 (openvino_toolkit_2019.3.338). 
+> :warning: This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version R1 2020 (openvino_toolkit_2020.1.023). 
 
 ## How to Get Started
    
@@ -40,6 +40,7 @@ Run demo scripts (any one of them or both if you want to both the demos) which w
 	sudo chown -R username.username $HOME/inference_engine_demos_build
 	cd $HOME/inference_engine_demos_build
 	make
+	
 
 #### d). Download models using model downloader scripts in Intel® Distribution of OpenVINO™ toolkit installed folder
    - Install python3 (version 3.5.2 or newer) 
