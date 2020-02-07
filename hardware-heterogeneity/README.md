@@ -3,6 +3,8 @@
 
 This example shows how to use hetero plugin to define preferences to run different network layers on different hardware types. Here, we will use the command line option to define hetero plugin usage where the layer distribution is already defined. However, hetero plugin also allows developers to customize distribution of layers execution on different hardware by specifying it in the application code.  
 
+<!---
+
 ### Car detection tutorial example 
 #### 1. Navigate to the tutorial directory
 	export SV=/opt/intel/workshop/smart-video-workshop
@@ -21,6 +23,9 @@ This example shows how to use hetero plugin to define preferences to run differe
      ./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d HETERO:CPU,GPU 
 
 Observe the performance time required to process each frame by Inference Engine. For this particular example, inferance ran faster when prioritized for CPU as oppose to when GPU was the first priority.  
+
+--->
+
 
 ### Inference Engine classification sample     
 Intel® Distribution of OpenVINO™ toolkit install folder (/opt/intel/openvino/) includes various samples for developers to understand how Inference Engine APIs can be used. These samples have -pc flag implmented which shows per topology layer performance report. This will allow to see which layers are running on which hardware. We will run a very basic classification sample as an example in this section. We will provide car image as input to the classification sample. The output will be object labels with confidence numbers.  
