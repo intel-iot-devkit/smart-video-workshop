@@ -194,12 +194,12 @@ We create a simple model with a custom cosh layer. The weights are random and un
 
     <br>Try running the Python Sample without including the cosh extension library. You should see the error describing unsupported Cosh operation.
     ```
-    python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/classification_sample/classification_sample.py -i /opt/intel/openvino/deployment_tools/demo/car.png  -m $SV/custom-layer/create_tf_model/tf_model/model.ckpt.xml -d CPU
+    python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python/classification_sample/classification_sample.py -i /opt/intel/openvino/deployment_tools/demo/car.png  -m $SV/custom-layer/create_tf_model/tf_model/model.ckpt.xml -d CPU
     ```
 
     <br>Now run the command with the cosh extension library:<br>
     ```
-    python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/classification_sample/classification_sample.py -i /opt/intel/openvino/deployment_tools/demo/car.png  -m $SV/custom-layer/create_tf_model/tf_model/model.ckpt.xml -l $SV/custom-layer/cl_ext_cosh/libcosh_cpu_extension.so -d CPU
+    python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python/classification_sample/classification_sample.py -i /opt/intel/openvino/deployment_tools/demo/car.png  -m $SV/custom-layer/create_tf_model/tf_model/model.ckpt.xml -l $SV/custom-layer/cl_ext_cosh/libcosh_cpu_extension.so -d CPU
     ```
 ### Inference Engine custom layer implementation for the Intel® integrated GPU
 
