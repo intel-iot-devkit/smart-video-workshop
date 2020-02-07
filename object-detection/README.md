@@ -54,15 +54,15 @@ You should see the following two files listed in this directory: **mobilenet-ssd
 
 #### 1. Open the sample app (main.cpp) in the editor of your choice to view the lines that call the Inference Engine.
 
-	cd $SV/object-detection/
-	gedit main.cpp
+	cd $SV/object-detection/Python
+	gedit tutorial1.py
 
-* Line 130 &#8212; loads the Inference Engine plugin for use within the application
-* Line 144 &#8212; initializes the network object
-* Line 210 &#8212; loads model to the plugin
-* Line 228 &#8212; allocate input blobs
-* Line 238 &#8212; allocate output blobs
-* Line 289 &#8212; runs inference using the optimized model
+* Line 71 &#8212; Plugin initialization for specified device and load extensions library if specified
+* Line 78 &#8212; Read IR
+* Line 98 &#8212; Allocate the input and output blob
+* Line 106 &#8212; Read and pre-process input image
+* Line 153 &#8212; Inference loop
+* Line 197 &#8212; Process the output
 
 
 #### 2. Close the source file
@@ -70,14 +70,16 @@ You should see the following two files listed in this directory: **mobilenet-ssd
 #### 3. Source your environmental variables
 
 	source /opt/intel/openvino/bin/setupvars.sh
-
+<!---
 #### 4. Build the sample application with make file
 
  	cd $SV/object-detection/
 	make
 	
 > **Note:** *Please ignore the warnings. They are due to new IE APIs*
-#### 5. Download the test video file to the object-detection folder. 
+-->
+
+#### 4. Download the test video file to the object-detection folder. 
 Put the below link in your favorite browser. 
 
 	https://pixabay.com/en/videos/download/video-1900_source.mp4?attachment
@@ -86,21 +88,23 @@ Cars - 1900.mp4 file will get downloaded. Put that file in the $SV/object-detect
 
 	mv ~/Downloads/Cars\ -\ 1900.mp4 .
 
-#### 6. Run the sample application to use the Inference Engine on the test video
+#### 5. Run the sample application to use the Inference Engine on the test video
 The below command runs the application 
 	 
-	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml 
+	cd $SV/object-detection/Python
+	python3 tutorial1.py -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml 
  
 > **Note:** If you get an error related to "undefined reference to 'google::FlagRegisterer...", try uninstalling libgflags-dev: sudo apt-get remove libgflags-dev
 
 #### 7. Display output
 For simplicity of the code and in order to put more focus on the performance number, video rendering with rectangle boxes for detected objects has been separated from main.cpp. 
 
-	 make -f Makefile_ROIviewer 
-	./ROIviewer -i $SV/object-detection/Cars\ -\ 1900.mp4 -l $SV/object-detection/pascal_voc_classes.txt 
+	cd $SV/object-detection/Python 
+	python3 ROIviewer.py -i $SV/object-detection/Cars\ -\ 1900.mp4 -l $SV/object-detection/pascal_voc_classes.txt 
 	
 You should see a video play with cars running on the highway and red bounding boxes around them. 
 
+<!---
 Here are the parameters used in the above command to run the application:
 
 	./tutorial1 -h
@@ -113,6 +117,7 @@ Here are the parameters used in the above command to run the application:
 		-d <device>     Infer target device (CPU or GPU or MYRIAD)
 		-fr #           Maximum frames to process
 	
+--->
 
 ## Part 3: Run the example on different hardware
 
@@ -124,11 +129,11 @@ Here are the parameters used in the above command to run the application:
 	
 	export SV=/opt/intel/workshop/smart-video-workshop/
 	
-	cd $SV/object-detection
+	cd $SV/object-detection/Python
  
 #### 1. CPU
 ```
-./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d CPU
+python3 tutorial1.py -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d CPU
 ```
 You will see the **total time** it took to run the inference.
 
@@ -137,7 +142,7 @@ Since you installed the OpenCL™ drivers to use the GPU, you can run the infere
 
 Set target hardware as GPU with **-d GPU**
 ```
-./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d GPU
+python3 tutorial1.py -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d GPU
 ```
 
 The **total time** between CPU and GPU will vary depending on your system.
