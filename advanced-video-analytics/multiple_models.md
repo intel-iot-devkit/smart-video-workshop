@@ -76,5 +76,5 @@ Following car image will appear the at end of the above command execution. It sh
 	
 #### 8. Now let's add facial landmarks detector, running on the CPU
 	
-	./interactive_face_detection_demo -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD -m_ag $models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp $models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU -m_em $models/emotions-recognition-retail-0003/INT8/emotions-recognition-retail-0003.xml -d_em CPU -m_lm  $models/facial-landmarks-35-adas-0002/FP32/facial-landmarks-35-adas-0002.xml -d_lm CPU
+	./interactive_face_detection_demo -i cam -m $models/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -d MYRIAD -m_ag $models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -d_ag CPU -m_hp $models/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -d_hp GPU -m_em $models/emotions-recognition-retail-0003/FP32-INT8/emotions-recognition-retail-0003.xml -d_em CPU -m_lm  $models/facial-landmarks-35-adas-0002/FP32/facial-landmarks-35-adas-0002.xml -d_lm CPU
 	
