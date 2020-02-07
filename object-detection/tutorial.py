@@ -89,10 +89,13 @@ def main():
                       "or --cpu_extension command line argument")
             sys.exit(1)
 
-    #Set Batch Size
+    #Set Batch Size 
     net.batch_size = args.b
     batchSize = net.batch_size
+
     frameLimit = args.fr
+
+    # Allocate the input and output blob
     assert len(net.inputs.keys()) == 1, "Demo supports only single input topologies"
     assert len(net.outputs) == 1, "Demo supports only single output topologies"
     input_blob = next(iter(net.inputs))
@@ -147,6 +150,7 @@ def main():
     process_more_frames=True
     frames_in_output=batchSize
     
+    # Inference Loop
     while process_more_frames:
         time1 = time.time()
         for mb in range(0 , batchSize):
