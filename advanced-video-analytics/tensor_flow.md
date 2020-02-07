@@ -58,7 +58,7 @@ InceptionV1/Logits/Predictions/Reshape_1Freeze Graph
 ##### Freeze the graph for Intel® Distribution of OpenVINO™ toolkit 
 The script generates inception_v1_frozen.pb file with the frozen model in the directory you are currently in.
  
- 	python3 $HOME/.local/lib/python3.5/site-packages/tensorflow/python/tools/freeze_graph.py --input_graph /tmp/inception_v1_inf_graph.pb --input_binary --input_checkpoint /tmp/checkpoints/inception_v1.ckpt --output_node_names InceptionV1/Logits/Predictions/Reshape_1 --output_graph inception_v1_frozen.pb
+ 	python3 /usr/local/lib/python3.6/site-packages/tensorflow/python/tools/freeze_graph.py --input_graph /tmp/inception_v1_inf_graph.pb --input_binary --input_checkpoint /tmp/checkpoints/inception_v1.ckpt --output_node_names InceptionV1/Logits/Predictions/Reshape_1 --output_graph inception_v1_frozen.pb
 
     
 You might get warning message "Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA" while executing above command, ignore that. 
