@@ -88,26 +88,26 @@ Install Opencv2 using below command
 * **Basic End to End Object Detection Inference Example**
   - Slides - [Basic End to End Object Detection Example](./presentations/02-03_Basic-End-to-End-Object-Detection-Example.pdf)
   - Lab Setup - [Lab Setup Instructions](./Lab_setup.md)
-  - Lab - Basic End to End Object Detection Example   [[C++](./object-detection/README.md)] <!--  [[Python](./object-detection/Python/basic_end_to_end_object_detection.ipynb)] -->
-  - Lab - Tensor Flow example [[C++](./advanced-video-analytics/tensor_flow.md)] <!-- [[Python](./object-detection/Python/Tensor_Flow_example.ipynb)] -->
+  - Lab - [Basic End to End Object Detection Example](./object-detection/README.md) <!--  [[Python](./object-detection/Python/basic_end_to_end_object_detection.ipynb)] -->
+  - Lab - [Tensor Flow example](./advanced-video-analytics/tensor_flow.md) <!-- [[Python](./object-detection/Python/Tensor_Flow_example.ipynb)] -->
   - Lab - [Object Detection with YOLOv3* model](./object-detection/README_yolov3.md)
 
 * **Hardware Heterogeneity**
-  - Lab - Hardware Heterogeneity [[C++](./hardware-heterogeneity/README.md)] <!-- [[Python](./hardware-heterogeneity/Python/hardware-heterogeneity.ipynb)] -->
+  - Lab - [Hardware Heterogeneity](./hardware-heterogeneity/README.md) <!-- [[Python](./hardware-heterogeneity/Python/hardware-heterogeneity.ipynb)] -->
 
 * **HW Acceleration with Intel® Movidius™ Neural Compute Stick**
-  - Lab - HW Acceleration with Intel® Movidius™ Neural Compute Stick [[C++](./HW-Acceleration-with-Movidious-NCS/README.md)] <!--[[Python](./HW-Acceleration-with-Movidious-NCS/Python/HW_Acceleration_with_Movidius_NCS.ipynb)] -->
+  - Lab - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](./HW-Acceleration-with-Movidious-NCS/README.md) <!--[[Python](./HW-Acceleration-with-Movidious-NCS/Python/HW_Acceleration_with_Movidius_NCS.ipynb)] -->
   
 * **FPGA Inference Accelerator**
   - Slides - [HW Acceleration with Intel® FPGA](./presentations/FPGA.pdf)
 
 * **Optimization Tools and Techniques** 
   - Slides - [Optimization Tools and Techniques](./presentations/04-05_Optimization_and_advanced_analytics.pdf)
-  - Lab 1 - Optimization Tools and Techniques [[C++](./optimization-tools-and-techniques/README.md)] <!-- [[Python](./optimization-tools-and-techniques/Python/optimization_tools_and_techniques.ipynb)] -->
+  - Lab 1 - [Optimization Tools and Techniques](./optimization-tools-and-techniques/README.md) <!-- [[Python](./optimization-tools-and-techniques/Python/optimization_tools_and_techniques.ipynb)] -->
   - Lab 2- [Intel® VTune™ Amplifier tutorial](./optimization-tools-and-techniques/README_VTune.md)
   
 * **Advanced Video Analytics**
-  - Lab - Multiple models usage example [[C++](./advanced-video-analytics/multiple_models.md)] <!-- [[Python](./advanced-video-analytics/Python/advanced_video_analytics.ipynb)] -->
+  - Lab - [Multiple models usage example](./advanced-video-analytics/multiple_models.md) <!-- [[Python](./advanced-video-analytics/Python/advanced_video_analytics.ipynb)] -->
 <!----  
 * **UP²\* AI Vision Development kit as Edge**
   - Setup - [Development machine and Internet Connection Sharing](./up2-vision-kit/dev_machine_setup.md)
