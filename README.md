@@ -79,14 +79,14 @@ Install Opencv2 using below command
 		
 ## Workshop Agenda
 * **Smart Video/Computer Vision Tools Overview**
-  - Slides - [Introduction to Smart Video Tools](./presentations/01-Introduction-to-Intel-Smart-Video-Tools.pdf)
+  - Slides - [Introduction to Smart Video Tools](./presentations/01-Introduction-to-Intel-Smart-Video-Tools_R1_2020.pdf)
 
 * **Training a Deep Learning Model**
   - Slides - [Training a Deep Learning Model](./presentations/DL_training_model.pdf)
   - Lab - Training a Deep Learning Model  [[Default](./dl-model-training/README.md)] [[Python](./dl-model-training/Python/Deep_Learning_Tutorial.ipynb)]
   
 * **Basic End to End Object Detection Inference Example**
-  - Slides - [Basic End to End Object Detection Example](./presentations/02-03_Basic-End-to-End-Object-Detection-Example.pdf)
+  - Slides - [Basic End to End Object Detection Example](./presentations/02-03_Basic-End-to-End-Object-Detection-Example_R1_2020.pdf)
   - Lab Setup - [Lab Setup Instructions](./Lab_setup.md)
   - Lab - [Basic End to End Object Detection Example](./object-detection/README.md) <!--  [[Python](./object-detection/Python/basic_end_to_end_object_detection.ipynb)] -->
   - Lab - [Tensor Flow example](./advanced-video-analytics/tensor_flow.md) <!-- [[Python](./object-detection/Python/Tensor_Flow_example.ipynb)] -->
@@ -102,7 +102,7 @@ Install Opencv2 using below command
   - Slides - [HW Acceleration with Intel® FPGA](./presentations/FPGA.pdf)
 
 * **Optimization Tools and Techniques** 
-  - Slides - [Optimization Tools and Techniques](./presentations/04-05_Optimization_and_advanced_analytics.pdf)
+  - Slides - [Optimization Tools and Techniques](./presentations/04-05_Optimization_and_advanced_analytics_R1_2020.pdf)
   - Lab 1 - [Optimization Tools and Techniques](./optimization-tools-and-techniques/README.md) <!-- [[Python](./optimization-tools-and-techniques/Python/optimization_tools_and_techniques.ipynb)] -->
   - Lab 2- [Intel® VTune™ Amplifier tutorial](./optimization-tools-and-techniques/README_VTune.md)
   
