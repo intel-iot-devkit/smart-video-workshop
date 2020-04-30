@@ -79,7 +79,7 @@ Install Opencv2 using below command
 		
 ## Workshop Agenda
 * **Smart Video/Computer Vision Tools Overview**
-  - Slides - [Introduction to Smart Video Tools](./presentations/01-Introduction-to-Intel-Smart-Video-Tools_R1_2020.pdf)
+  - Slides - [Introduction to Smart Video Tools](./presentations/01-Introduction-to-Intel-Smart-Video-Tools_R2_2020.pdf)
 
 * **Training a Deep Learning Model**
   - Slides - [Training a Deep Learning Model](./presentations/DL_training_model.pdf)
@@ -102,7 +102,7 @@ Install Opencv2 using below command
   - Slides - [HW Acceleration with Intel® FPGA](./presentations/FPGA.pdf)
 
 * **Optimization Tools and Techniques** 
-  - Slides - [Optimization Tools and Techniques](./presentations/04-05_Optimization_and_advanced_analytics_R1_2020.pdf)
+  - Slides - [Optimization Tools and Techniques](./presentations/04-05_Optimization_and_advanced_analytics_R2_2020.pdf)
   - Lab 1 - [Optimization Tools and Techniques](./optimization-tools-and-techniques/README.md) <!-- [[Python](./optimization-tools-and-techniques/Python/optimization_tools_and_techniques.ipynb)] -->
   - Lab 2- [Intel® VTune™ Amplifier tutorial](./optimization-tools-and-techniques/README_VTune.md)
   
