@@ -54,15 +54,15 @@ You should see the following two files listed in this directory: **mobilenet-ssd
 
 #### 1. Open the sample app (main.cpp) in the editor of your choice to view the lines that call the Inference Engine.
 
-	cd $SV/object-detection/Python
-	gedit tutorial1.py
+	cd /opt/intel/openvino/deployment_tools/open_model_zoo/demos/python_demos/object_detection_demo_ssd_async
+	gedit object_detection_demo_ssd_async.py
 
-* Line 71 &#8212; Plugin initialization for specified device and load extensions library if specified
-* Line 78 &#8212; Read IR
-* Line 98 &#8212; Allocate the input and output blob
-* Line 106 &#8212; Read and pre-process input image
-* Line 153 &#8212; Inference loop
-* Line 197 &#8212; Process the output
+* Line 107 &#8212; Creating Inference Engine
+* Line 111 &#8212; Loading network
+* Line 126 $ 80 &#8212; Prepare the input and output blob
+* Line 140 &#8212; Read and pre-process input image
+* Line 138 &#8212; Loading IR to the plugin
+* Line 173 &#8212; Inference Loop and Process the output
 
 
 #### 2. Close the source file
@@ -91,33 +91,54 @@ Cars - 1900.mp4 file will get downloaded. Put that file in the $SV/object-detect
 #### 5. Run the sample application to use the Inference Engine on the test video
 The below command runs the application 
 	 
-	cd $SV/object-detection/Python
-	python3 tutorial1.py -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml 
+	cd /opt/intel/openvino/deployment_tools/open_model_zoo/demos/python_demos/object_detection_demo_ssd_async
+	python3 object_detection_demo_ssd_async.py -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml 
  
 > **Note:** If you get an error related to "undefined reference to 'google::FlagRegisterer...", try uninstalling libgflags-dev: sudo apt-get remove libgflags-dev
 
-#### 7. Display output
+<!--- #### 7. Display output
 For simplicity of the code and in order to put more focus on the performance number, video rendering with rectangle boxes for detected objects has been separated from main.cpp. 
 
 	cd $SV/object-detection/Python 
 	python3 ROIviewer.py -i $SV/object-detection/Cars\ -\ 1900.mp4 -l $SV/object-detection/pascal_voc_classes.txt 
-	
-You should see a video play with cars running on the highway and red bounding boxes around them. 
 
 <!---
-Here are the parameters used in the above command to run the application:
-
-	./tutorial1 -h
-
-		-h              Print a usage message
-		-i <path>       Required. Path to input video file
-		-model <path>   Required. Path to model file.
-		-b #            Batch size.
-		-thresh #       Threshold (0-1: .5=50%)
-		-d <device>     Infer target device (CPU or GPU or MYRIAD)
-		-fr #           Maximum frames to process
-	
+You should see a video play with cars running on the highway and red bounding boxes around them. 
 --->
+
+	Here are the parameters used in the above command to run the application:
+	usage: object_detection_demo_ssd_async.py [-h] -m MODEL -i INPUT
+						  [-l CPU_EXTENSION] [-d DEVICE]
+						  [--labels LABELS]
+						  [-pt PROB_THRESHOLD] [--no_show]
+						  [-u UTILIZATION_MONITORS]
+
+	Options:
+	  -h, --help            Show this help message and exit.
+	  -m MODEL, --model MODEL
+				Required. Path to an .xml file with a trained model.
+	  -i INPUT, --input INPUT
+				Required. Path to video file or image. 'cam' for
+				capturing video stream from camera
+	  -l CPU_EXTENSION, --cpu_extension CPU_EXTENSION
+				Optional. Required for CPU custom layers. Absolute
+				path to a shared library with the kernels
+				implementations.
+	  -d DEVICE, --device DEVICE
+				Optional. Specify the target device to infer on; CPU,
+				GPU, FPGA, HDDL or MYRIAD is acceptable. The demo will
+				look for a suitable plugin for device specified.
+				Default value is CPU
+	  --labels LABELS       Optional. Path to labels mapping file
+	  -pt PROB_THRESHOLD, --prob_threshold PROB_THRESHOLD
+				Optional. Probability threshold for detections
+				filtering
+	  --no_show             Optional. Don't show output
+	  -u UTILIZATION_MONITORS, --utilization_monitors UTILIZATION_MONITORS
+				Optional. List of monitors to show initially.
+
+	
+
 
 ## Part 3: Run the example on different hardware
 
@@ -129,20 +150,20 @@ Here are the parameters used in the above command to run the application:
 	
 	export SV=/opt/intel/workshop/smart-video-workshop/
 	
-	cd $SV/object-detection/Python
+	cd /opt/intel/openvino/deployment_tools/open_model_zoo/demos/python_demos/object_detection_demo_ssd_async
  
 #### 1. CPU
 ```
-python3 tutorial1.py -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d CPU
+python3 object_detection_demo_ssd_async.py -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d CPU
 ```
-You will see the **total time** it took to run the inference.
+<!--- You will see the **total time** it took to run the inference.
 
 #### 2. GPU
 Since you installed the OpenCL™ drivers to use the GPU, you can run the inference on GPU and compare the difference.
 
 Set target hardware as GPU with **-d GPU**
 ```
-python3 tutorial1.py -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d GPU
+python3  object_detection_demo_ssd_async.py -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d GPU
 ```
 
-The **total time** between CPU and GPU will vary depending on your system.
+<!--- The **total time** between CPU and GPU will vary depending on your system.
