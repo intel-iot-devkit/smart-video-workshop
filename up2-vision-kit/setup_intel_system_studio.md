@@ -36,7 +36,7 @@
 9.	Click Next, **don’t** check **“Integrate to Wind River Linux and Wind River Workbench”** and **“Integrate into Android NDK”**, click Install
 10.	Once installation complete, **uncheck** Launch Intel® System Studio, Click Finish
 
-# Prepare for running OpenVINO projects using Intel® System Studio
+# Prepare for running Intel® Distribution of OpenVINO™ toolkit projects using Intel® System Studio
 1.	Open a terminal, type **sudo gedit /opt/intel/system_studio_2018/iss_ide_eclipse-launcher.sh**
 2.	Add **source /opt/intel/computer_vision_sdk/bin/setupvars.sh** after line 26, click save and close
 3.	Go to desktop, double click Intel® System Studio icon, go to **Window ->Preferences ->Intel(R) System Studio ->Hide unsupported wizards**, uncheck then hit Apply then OK
