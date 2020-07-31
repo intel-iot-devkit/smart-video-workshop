@@ -53,10 +53,11 @@ Run demo scripts (any one of them or both if you want to both the demos) which w
   	
 	sudo python3 downloader.py --name mobilenet-ssd,ssd300,ssd512,squeezenet1.1,face-detection-retail-0004,age-gender-recognition-retail-0013,head-pose-estimation-adas-0001,emotions-recognition-retail-0003,facial-landmarks-35-adas-0002
 
+<!--- 
 #### e). Install Intel® VTune™ Amplifier on development machine
 Follow the [guide](./up2-vision-kit/install_vtune_amplifier_2019.md) to install Intel® VTune™ Amplifier on your development machine.
-
-
+ --->
+<!--- 
 #### f). Install Jupyter Notebook and Opencv
 Install Jupyter Notebook using below command
 
@@ -65,7 +66,8 @@ Install Jupyter Notebook using below command
 Install Opencv2 using below command
 
 	pip3 install opencv-python
-
+ --->
+ <!---
 #### g). Run the Jupyter Notebook
 1. Run the Jupyter Notebook
 ```bash
@@ -73,20 +75,22 @@ Install Opencv2 using below command
 ```
 
 2. It opens in default browser, locate the required jupyter notebook (.ipynb) file and double click on it to open and run.
-
+ --->
 
 
 		
 ## Workshop Agenda
-* **Smart Video/Computer Vision Tools Overview**
-  - Slides - [Introduction to Smart Video Tools](./presentations/01-Introduction-to-Intel-Smart-Video-Tools_R2_2020.pdf)
-
+* **Smart Video/Computer Vision Tools Presentation**
+  - Slides - [Introduction to Smart Video Tools](./presentations/OpenVINO%20in%203%20hours%202020-r4-v2.pdf)
+ 
+ <!---
 * **Training a Deep Learning Model**
   - Slides - [Training a Deep Learning Model](./presentations/DL_training_model.pdf)
   - Lab - Training a Deep Learning Model  [[Default](./dl-model-training/README.md)] [[Python](./dl-model-training/Python/Deep_Learning_Tutorial.ipynb)]
-  
+ --->
+ 
 * **Basic End to End Object Detection Inference Example**
-  - Slides - [Basic End to End Object Detection Example](./presentations/02-03_Basic-End-to-End-Object-Detection-Example_R1_2020.pdf)
+  <!---- Slides - [Basic End to End Object Detection Example](./presentations/02-03_Basic-End-to-End-Object-Detection-Example_R1_2020.pdf)--->
   - Lab Setup - [Lab Setup Instructions](./Lab_setup.md)
   - Lab - [Basic End to End Object Detection Example](./object-detection/README.md) <!--  [[Python](./object-detection/Python/basic_end_to_end_object_detection.ipynb)] -->
   - Lab - [Tensor Flow example](./advanced-video-analytics/tensor_flow.md) <!-- [[Python](./object-detection/Python/Tensor_Flow_example.ipynb)] -->
@@ -102,9 +106,9 @@ Install Opencv2 using below command
   - Slides - [HW Acceleration with Intel® FPGA](./presentations/FPGA.pdf)
 
 * **Optimization Tools and Techniques** 
-  - Slides - [Optimization Tools and Techniques](./presentations/04-05_Optimization_and_advanced_analytics_R2_2020.pdf)
+  <!---- - Slides - [Optimization Tools and Techniques](./presentations/04-05_Optimization_and_advanced_analytics_R2_2020.pdf) --->
   - Lab 1 - [Optimization Tools and Techniques](./optimization-tools-and-techniques/README.md) <!-- [[Python](./optimization-tools-and-techniques/Python/optimization_tools_and_techniques.ipynb)] -->
-  - Lab 2- [Intel® VTune™ Amplifier tutorial](./optimization-tools-and-techniques/README_VTune.md)
+  <!---- - Lab 2- [Intel® VTune™ Amplifier tutorial](./optimization-tools-and-techniques/README_VTune.md) --->
   
 * **Advanced Video Analytics**
   - Lab - [Multiple models usage example](./advanced-video-analytics/multiple_models.md) <!-- [[Python](./advanced-video-analytics/Python/advanced_video_analytics.ipynb)] -->
@@ -113,9 +117,11 @@ Install Opencv2 using below command
   - Setup - [Development machine and Internet Connection Sharing](./up2-vision-kit/dev_machine_setup.md)
   - Lab - [Interact face detection on UP2 kit using Intel® System Studio](./up2-vision-kit/openvino-projects-using-iss2019.md) ---->
 
+<!----
 * **Implement Custom Layers for Inference on CPU and Integrated GPU**
   - Slides - [Custom Layer](./presentations/custom_layer.pdf)
   - Lab - [Custom Layer](./custom-layer/README.md)
+---->
 
 * **Support for Microsoft ONNX runtime in OpenVINO**
   - Slides - [ONNX runtime and OpenVINO](./presentations/ONNX_runtime_and_OpenVINO.pdf)
