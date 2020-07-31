@@ -28,4 +28,4 @@ If you get a fatal message, "fatal: destination path 'smart-video-workshop' alre
 
 #### 5. Set short path for the workshop directory
 
-	export SV=/opt/intel/workshop/smart-video-workshop/
+	export SW=/opt/intel/workshop/smart-video-workshop/
