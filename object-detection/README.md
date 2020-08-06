@@ -157,7 +157,7 @@ You should see a video play with cars running on the highway and red bounding bo
 ```
 python3 object_detection_demo_ssd_async.py -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d CPU
 ```
-<!--- You will see the **total time** it took to run the inference.
+<!--- You will see the **total time** it took to run the inference. --->
 
 #### 2. GPU
 Since you installed the OpenCL™ drivers to use the GPU, you can run the inference on GPU and compare the difference.
@@ -167,4 +167,4 @@ Set target hardware as GPU with **-d GPU**
 python3  object_detection_demo_ssd_async.py -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d GPU
 ```
 
-<!--- The **total time** between CPU and GPU will vary depending on your system.
+<!--- The **total time** between CPU and GPU will vary depending on your system. --->
