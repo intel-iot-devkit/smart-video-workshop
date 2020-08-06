@@ -85,7 +85,8 @@ Put the below link in your favorite browser.
 	https://pixabay.com/en/videos/download/video-1900_source.mp4?attachment
 	
 Cars - 1900.mp4 file will get downloaded. Put that file in the $SV/object-detection folder. 
-
+	
+	cd $SV/object-detection/
 	mv ~/Downloads/Cars\ -\ 1900.mp4 .
 
 #### 5. Run the sample application to use the Inference Engine on the test video
