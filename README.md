@@ -93,8 +93,6 @@ Install Opencv2 using below command
   <!---- Slides - [Basic End to End Object Detection Example](./presentations/02-03_Basic-End-to-End-Object-Detection-Example_R1_2020.pdf)--->
   - Lab Setup - [Lab Setup Instructions](./Lab_setup.md)
   - Lab - [Basic End to End Object Detection Example](./object-detection/README.md) <!--  [[Python](./object-detection/Python/basic_end_to_end_object_detection.ipynb)] -->
-  - Lab - [Tensor Flow example](./advanced-video-analytics/tensor_flow.md) <!-- [[Python](./object-detection/Python/Tensor_Flow_example.ipynb)] -->
-  - Lab - [Object Detection with YOLOv3* model](./object-detection/README_yolov3.md)
 
 * **Hardware Heterogeneity**
   - Lab - [Hardware Heterogeneity](./hardware-heterogeneity/README.md) <!-- [[Python](./hardware-heterogeneity/Python/hardware-heterogeneity.ipynb)] -->
@@ -129,14 +127,6 @@ Install Opencv2 using below command
 * **Healthcare applications and Required Features**
   - Slides - [Healthcare Applications](./presentations/Healthcare_presentation.pdf)
   
-* **Additional Examples - Reference Implementations**
-  - Industrial 
-  	- [Safety Gear Detection](./safety-gear-example/README.md)
-	- [Restricted Zone Notifier](https://github.com/intel-iot-devkit/restricted-zone-notifier-cpp)
-  	- [Object Size Detector](https://github.com/intel-iot-devkit/object-size-detector-cpp)
-  - Retail 
-  	- [Store Traffic Monitor](https://github.com/intel-iot-devkit/store-traffic-monitor)
-	- [Shopper Gaze Monitor](https://github.com/intel-iot-devkit/shopper-gaze-monitor-cpp)
 <!--	
 * **Workshop Survey**
   - [Workshop Survey](https://idz.qualtrics.com/jfe/form/SV_a9GvOxtOrOziykB)
