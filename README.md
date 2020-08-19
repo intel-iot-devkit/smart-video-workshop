@@ -6,16 +6,16 @@ This workshop will walk you through a computer vision workflow using the latest 
 ## How to Get Started
    
 In order to use this workshop content, you will need to setup your hardware and install the Intel® Distribution of OpenVINO™ toolkit for infering your computer vision application.  
-### 1. Hardware requirements
-The hardware requirements are mentioned in the System Requirement section of the [install guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux)
+### 1. System requirements
+System Requirement can be found from [HERE](https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit/system-requirements.html)
 
 ### 2. Operating System
 These labs have been validated on Ubuntu* 18.04 OS. 
 
 ### 3. Software installation steps
 #### a). Install Intel® Distribution of OpenVINO™ toolkit 
-Use steps described in the [install guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux)
-to install the Intel® Distribution of OpenVINO™ toolkit, set the Environment Variables, configure Model Optimizer, run the Verification Scripts to Verify Installation, and additional steps to enable the toolkit components to use GPU or VPU on your system.
+[Download](https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit/choose-download/linux.html) Linux*-based Intel® Distribution of OpenVINO™ toolkit and use steps described in the [install guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux)
+to install the Intel® Distribution of OpenVINO™ toolkit, set the Environment Variables, configure Model Optimizer, run the Verification Scripts to verify installation, and additional steps to enable the toolkit components to use GPU or VPU on your system.
 
 #### b). Run the demo scipts and compile samples
 Run demo scripts (any one of them or both if you want to both the demos) which will generate the folder $HOME/inference_engine_samples with the current Intel® Distribution of OpenVINO™ toolkit built. 
@@ -24,68 +24,61 @@ Run demo scripts (any one of them or both if you want to both the demos) which w
 	./demo_squeezenet_download_convert_run.sh
 	./demo_security_barrier_camera.sh
 	
-	sudo chown -R username.username $HOME/inference_engine_samples_build
 	cd $HOME/inference_engine_samples_build
 	make
 
-	sudo chown -R username.username $HOME/inference_engine_demos_build
 	cd $HOME/inference_engine_demos_build
 	make
 	
 ## Workshop Agenda
-* **Smart Video/Computer Vision Tools Presentation**
-  - Slides - [Introduction to Smart Video Tools](./presentations/OpenVINO%20in%203%20hours%202020-r4-v2.pdf)
- 
- <!---
-* **Training a Deep Learning Model**
-  - Slides - [Training a Deep Learning Model](./presentations/DL_training_model.pdf)
-  - Lab - Training a Deep Learning Model  [[Default](./dl-model-training/README.md)] [[Python](./dl-model-training/Python/Deep_Learning_Tutorial.ipynb)]
- --->
- 
-* **Basic End to End Object Detection Inference Example**
-  <!---- Slides - [Basic End to End Object Detection Example](./presentations/02-03_Basic-End-to-End-Object-Detection-Example_R1_2020.pdf)--->
+* **Intel® Distribution of OpenVINO™ toolkit Overview**
+  - Slides - [Introduction to Smart Video Tools](./presentations/01.%20Intel%20Distribution%20of%20OpenVINO%20Toolkit%20Overview.pdf)
   - Lab Setup - [Lab Setup Instructions](./Lab_setup.md)
-  - Lab - [Basic End to End Object Detection Example](./object-detection/README.md) <!--  [[Python](./object-detection/Python/basic_end_to_end_object_detection.ipynb)] -->
-
-* **Hardware Heterogeneity**
-  - Lab - [Hardware Heterogeneity](./hardware-heterogeneity/README.md) <!-- [[Python](./hardware-heterogeneity/Python/hardware-heterogeneity.ipynb)] -->
-
-* **HW Acceleration with Intel® Movidius™ Neural Compute Stick**
-  - Lab - [HW Acceleration with Intel® Movidius™ Neural Compute Stick](./HW-Acceleration-with-Movidious-NCS/README.md) <!--[[Python](./HW-Acceleration-with-Movidious-NCS/Python/HW_Acceleration_with_Movidius_NCS.ipynb)] -->
   
-* **FPGA Inference Accelerator**
-  - Slides - [HW Acceleration with Intel® FPGA](./presentations/FPGA.pdf)
+* **Model Optimizer**
+  - Slides - [Model Optimizer](./presentations/02.%20Model%20Optimizer.pdf)
+  - Lab1 - [Optimize a Caffe* Classification Model - SqueezeNet v1.1](./README.md)
+  - Lab2 - [Optimize a Tensorflow* Object Detection Model - SSD with MobileNet](./README.md)
 
-* **Optimization Tools and Techniques** 
-  <!---- - Slides - [Optimization Tools and Techniques](./presentations/04-05_Optimization_and_advanced_analytics_R2_2020.pdf) --->
-  - Lab 1 - [Optimization Tools and Techniques](./optimization-tools-and-techniques/README.md) <!-- [[Python](./optimization-tools-and-techniques/Python/optimization_tools_and_techniques.ipynb)] -->
-  <!---- - Lab 2- [Intel® VTune™ Amplifier tutorial](./optimization-tools-and-techniques/README_VTune.md) --->
+* **Inference Engine**
+  - Slides - [Inference Engine](./presentations/03.%20Inference%20Engine.pdf)
+  - Lab3 - [Run Classfication Sample application with the optimized SqueezeNet v1.1](./hREADME.md)
+  - Lab4 - [Run Object Detection Sample application with the optimized SSD with MobileNet](./hREADME.md)
+  - Lab5 - [Run Benchmark App with Hetero plugin](./README.md)
+
+* **Accelerators based on Intel® Movidius™ Vision Processing Unit**
+  - Slides - [Accelerators based on Intel® Movidius™ VPU](./presentations/04.%20Accelerators%20based%20on%20Intel®%20Movidius™%20Vision%20Processing%20Unit.pdf)
+  - Lab6 - [HW Acceleration with Intel® Movidius™ Neural Compute Stick2](./HW-Acceleration-with-Movidious-NCS/README.md)
+  - Lab7 - [Run Benchmark App with Multi plugin](./README.md)
   
-* **Advanced Video Analytics**
-  - Lab - [Multiple models usage example](./advanced-video-analytics/multiple_models.md) <!-- [[Python](./advanced-video-analytics/Python/advanced_video_analytics.ipynb)] -->
-<!----  
-* **UP²\* AI Vision Development kit as Edge**
-  - Setup - [Development machine and Internet Connection Sharing](./up2-vision-kit/dev_machine_setup.md)
-  - Lab - [Interact face detection on UP2 kit using Intel® System Studio](./up2-vision-kit/openvino-projects-using-iss2019.md) ---->
+* **Accelerators based on Intel® Arria® FPGA**
+  - Slides - [Accelerators based on Intel® Arria® FPGA](./presentations/05.%20Accelerators%20based%20on%20Intel®%20Arria®%20FPGA.pdf)
 
-<!----
-* **Implement Custom Layers for Inference on CPU and Integrated GPU**
-  - Slides - [Custom Layer](./presentations/custom_layer.pdf)
-  - Lab - [Custom Layer](./custom-layer/README.md)
----->
+* **Multiple Models in One Application** 
+  - Slides - [Multiple Models in One Application](./presentations/08.%20Multiple%20Models%20in%20One%20Application.pdf) 
+  - Lab8 - [Run Security Barrier Demo Application](./README.md) 
+  
+* **Deep Learning Workbench**
+  - Slides - [Deep Learning Workbench](./presentations/06.%20Deep%20Learning%20Workbench.pdf) 
+  - Demo Video - [DL Workbench Walkthrough](./README.md)
+  
+* **Deep Learning Streamer**
+  - Slides - [Deep Learning Streamer](./presentations/07.%20Deep%20Learning%20streamer.pdf) 
+  - Lab9 - [Build a Media Analytic Pipeline with DL Streamer](./README.md)
 
+* **Intel® DevCloud for the Edge**
+  - Slides - [Intel® DevCloud for the Edge](./presentations/09.%20Intel%20DevCloud%20for%20the%20Edge.pdf) 
+  - Demo Video - [Intel® DevCloud for the Edge Walkthrough](./README.md)
+
+
+## Further Reading Materials
 * **Support for Microsoft ONNX runtime in OpenVINO**
   - Slides - [ONNX runtime and OpenVINO](./presentations/ONNX_runtime_and_OpenVINO.pdf)
   
 * **Healthcare applications and Required Features**
   - Slides - [Healthcare Applications](./presentations/Healthcare_presentation.pdf)
   
-<!--	
-* **Workshop Survey**
-  - [Workshop Survey](https://idz.qualtrics.com/jfe/form/SV_a9GvOxtOrOziykB)
-  - [Custom Layer Tutorial Survey](https://intelemployee.az1.qualtrics.com/jfe/form/SV_1ZjOKaEIQUM5FpX)
-  - [Embedded Vision Summit Workshop Survey](https://intel.az1.qualtrics.com/jfe/form/SV_6RsCwmj6QGD3PAF)
-  -->
+
 > #### Disclaimer
 
 > Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries in the U.S. and/or other countries. 
