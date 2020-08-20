@@ -37,7 +37,7 @@ Run demo scripts (any one of them or both if you want to both the demos) which w
   
 * **Model Optimizer**
   - Slides - [Model Optimizer](./presentations/02.%20Model%20Optimizer.pdf)
-  - Lab1 - [Optimize a Caffe* Classification Model - SqueezeNet v1.1](./README.md)
+  - Lab1 - [Optimize a Caffe* Classification Model - SqueezeNet v1.1](./Labs/Optimize_Caffe_squeezeNet.md)
   - Lab2 - [Optimize a Tensorflow* Object Detection Model - SSD with MobileNet](./README.md)
 
 * **Inference Engine**
