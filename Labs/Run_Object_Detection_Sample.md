@@ -18,7 +18,7 @@ In this lab, we are going to run a classification Python sample application with
 	-i /opt/intel/workshop/smart-video-workshop/Labs/birds.jpg \
 	-d CPU  
 
-The output would be something like this, we can see two objects with classid 16 have detected:
+The output would be something like this, we can see two objects with classid 16 have been detected:
 
 	[0,16] element, prob = 0.992423    (130,336)-(881,895) batch id : 0 WILL BE PRINTED!
 	[1,16] element, prob = 0.990345    (1158,475)-(1638,1022) batch id : 0 WILL BE PRINTED!
