@@ -43,7 +43,7 @@ Run demo scripts (any one of them or both if you want to both the demos) which w
 * **Inference Engine**
   - Slides - [Inference Engine](./presentations/03.%20Inference%20Engine.pdf)
   - Lab3 - [Run Classfication Sample application with the optimized SqueezeNet v1.1](./Labs/Run_Classification_Sample.md)
-  - Lab4 - [Run Object Detection Sample application with the optimized SSD with MobileNet](./hREADME.md)
+  - Lab4 - [Run Object Detection Sample application with the optimized SSD with MobileNet](./Labs/Run_Object_Detection_Sample.md)
   - Lab5 - [Run Benchmark App with Hetero plugin](./README.md)
 
 * **Accelerators based on Intel® Movidius™ Vision Processing Unit**
