@@ -55,7 +55,8 @@ A list of general parameters for Model Optimizer will be printed out, to learn m
 
 #### 3. Convert Squeezenet1.1 to IR with FP32 data precision
 
-	sudo python3 mo.py --input_shape=[1,3,227,227] \
+	sudo python3 mo.py \
+	--input_shape=[1,3,227,227] \
 	--input=data \
 	--output=prob \
 	--mean_values=data[104.0,117.0,123.0] \
@@ -76,7 +77,8 @@ You will see three fils were created under this folder, the .xml file is the top
 
 #### 5. Convert Squeezenet1.1 to IR with FP16 data precision
 
-	sudo python3 mo.py --input_shape=[1,3,227,227] \
+	sudo python3 mo.py \
+	--input_shape=[1,3,227,227] \
 	--input=data \
 	--output=prob \
 	--mean_values=data[104.0,117.0,123.0] \
