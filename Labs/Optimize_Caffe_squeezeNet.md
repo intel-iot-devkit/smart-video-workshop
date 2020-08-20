@@ -37,7 +37,7 @@ To learn more about this model, you can either click [HERE](https://github.com/o
 	cd /opt/intel/openvino/deployment_tools/open_model_zoo/models/public/squeezenet1.1
 	gedit squeezenet1.1.md  
 
-From the model description file, you will need to understand the input and output layer name, shape of the input layer, and BGR mean value or scale value if applicable for this model.
+> **Note**: From the model description file, you will need to understand the input and output **layer name**, **shape** of the input layer, and BGR **mean value** or **scale value** if applicable for this model.
 
 ## Part 2: Convert the downloaded Caffe* model to IR format
 
@@ -57,8 +57,8 @@ A list of general parameters for Model Optimizer will be printed out, to learn m
 
 	sudo python3 mo.py --input_shape=[1,3,227,227] \
 	--input=data \
-	--mean_values=data[104.0,117.0,123.0] \
 	--output=prob \
+	--mean_values=data[104.0,117.0,123.0] \
 	--input_model=/opt/intel/workshop/public/squeezenet1.1/squeezenet1.1.caffemodel \
 	--input_proto=/opt/intel/workshop/public/squeezenet1.1/squeezenet1.1.prototxt \
 	--data_type FP32 \
@@ -74,3 +74,26 @@ You will see three fils were created under this folder, the .xml file is the top
 
 	squeezenet1.1_fp32.bin  squeezenet1.1_fp32.mapping  squeezenet1.1_fp32.xml
 
+#### 5. Convert Squeezenet1.1 to IR with FP16 data precision
+
+	sudo python3 mo.py --input_shape=[1,3,227,227] \
+	--input=data \
+	--output=prob \
+	--mean_values=data[104.0,117.0,123.0] \
+	--input_model=/opt/intel/workshop/public/squeezenet1.1/squeezenet1.1.caffemodel \
+	--input_proto=/opt/intel/workshop/public/squeezenet1.1/squeezenet1.1.prototxt \
+	--data_type FP16 \
+	-o /opt/intel/workshop/Squeezenet/FP16 \
+	--model_name squeezenet1.1_fp16
+
+#### 4. Check the converted model 
+	
+	cd /opt/intel/workshop/Squeezenet/FP16
+	ls
+	
+You will see three fils were created under this folder, the .xml file is the topology file of the model, while the .bin file is the weight and bias.
+
+	squeezenet1.1_fp16.bin  squeezenet1.1_fp16.mapping  squeezenet1.1_fp16.xml
+
+## Further Reading
+To learn more about converting a Caffe* model using Model Optimizer, please refer to this OpenVINO documentation [Converting a Caffe* Model](https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_convert_model_Convert_Model_From_Caffe.html)
