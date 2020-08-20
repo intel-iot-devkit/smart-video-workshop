@@ -11,7 +11,7 @@ In this lab, we are going to run a classification Python sample application with
 	cd classification_sample_async
 	python3 classification_sample_async.py -h
 
-#### 3. Download SqueezeNet v1.1 to the Workshop directory
+#### 3. Run classification_sample_async Sample Application with SqueezeNet v1.1 model on CPU
 
 	python3 classification_sample_async.py \
 	-m /opt/intel/workshop/Squeezenet/FP32/squeezenet1.1_fp32.xml \
