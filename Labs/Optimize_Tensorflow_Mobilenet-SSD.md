@@ -1,14 +1,10 @@
 # Optimize a Tensorflow* Object Detection Model - ssd_mobilenet_v1_coco
 
 In this lab, we are going to use the Model Downloader to download a Tensorflow* Object Detection model - ssd_mobilenet_v1_coco from [Open Model Zoo](https://github.com/openvinotoolkit/open_model_zoo). Then use Model Optimizer to convert the model into Intermediate Representation format with both FP32 and FP16 data precision.  
-
-#### Set short path for the workshop directory
-
-	export SV=/opt/intel/workshop/smart-video-workshop/
     
 ## Part 1: Download a public pre-trained model with Model Downloader
 
-In this section, you will use the Model Downloader to download a public pre-trained Tensorflow* Object Detection model.
+In this section, you will use the Model Downloader to download a public pre-trained Tensorflow* Object Detection model. The ssd_mobilenet_v1_coco model is one of supported Frozen Topologies from TensorFlow Object Detection Models Zoo.
 
 #### 1. Navigate to the directory of Model Downloader and check the usage of Model Downloader
  	
@@ -42,7 +38,7 @@ To learn more about this model, you can either click [HERE](https://github.com/o
 
 ## Part 2: Convert the downloaded Tensorflow* model to IR format
 
-In this session, you will use the Model Optimizer to convert the downloaded Tensorflow* Object Detection model to IR format with both FP32 and FP16 data precisions.
+In this session, you will use the Model Optimizer to convert the downloaded Tensorflow* Object Detection model to IR format with both FP32 and FP16 data precisions. 
 
 #### 1. Navigate to the Model Optimizer directory
 
@@ -55,7 +51,7 @@ In this session, you will use the Model Optimizer to convert the downloaded Tens
 A list of general parameters for Model Optimizer will be printed out, to learn more about each parameter, you can refer to this [Document](https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_convert_model_Converting_Model_General.html)
 
 #### 3. Convert ssd_mobilenet_v1_coco to IR with FP32 data precision
-There are also Model Optimizer parameters
+To learn more about which and why below Model Optimizer parameters are used for Converting TensorFlow* Object Detection API Models, please refer to [Converting TensorFlow* Object Detection API Models](https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_convert_model_tf_specific_Convert_Object_Detection_API_Models.html) from OpenVINO documentation.
 
 	sudo python3 mo.py \
 	--reverse_input_channels \
