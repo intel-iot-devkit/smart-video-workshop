@@ -65,6 +65,7 @@ There are also Model Optimizer parameters
 	--transformations_config=/opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json \
 	--tensorflow_object_detection_api_pipeline_config=/opt/intel/workshop/public/ssd_mobilenet_v1_coco/ssd_mobilenet_v1_coco_2018_01_28/pipeline.config \
 	--input_model=/opt/intel/workshop/public/ssd_mobilenet_v1_coco/ssd_mobilenet_v1_coco_2018_01_28/frozen_inference_graph.pb \
+	--data_type FP32 
 	-o /opt/intel/workshop/Mobilenet-SSD-v1/FP32 \
 	--model_name mobilenet-ssd-v1-fp32
 
@@ -77,26 +78,28 @@ You will see three fils were created under this folder, the .xml file is the top
 
 	mobilenet-ssd-v1-fp32.bin  mobilenet-ssd-v1-fp32.mapping  mobilenet-ssd-v1-fp32.xml
 
-#### 5. Convert Squeezenet1.1 to IR with FP16 data precision
-
-	sudo python3 mo.py --input_shape=[1,3,227,227] \
-	--input=data \
-	--output=prob \
-	--mean_values=data[104.0,117.0,123.0] \
-	--input_model=/opt/intel/workshop/public/squeezenet1.1/squeezenet1.1.caffemodel \
-	--input_proto=/opt/intel/workshop/public/squeezenet1.1/squeezenet1.1.prototxt \
-	--data_type FP16 \
-	-o /opt/intel/workshop/Squeezenet/FP16 \
-	--model_name squeezenet1.1_fp16
+#### 5. Convert ssd_mobilenet_v1_coco to IR with FP16 data precision
+	
+	sudo python3 mo.py \
+	--reverse_input_channels \
+	--input_shape=[1,300,300,3] \
+	--input=image_tensor \
+	--output=detection_scores,detection_boxes,num_detections \
+	--transformations_config=/opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json \
+	--tensorflow_object_detection_api_pipeline_config=/opt/intel/workshop/public/ssd_mobilenet_v1_coco/ssd_mobilenet_v1_coco_2018_01_28/pipeline.config \
+	--input_model=/opt/intel/workshop/public/ssd_mobilenet_v1_coco/ssd_mobilenet_v1_coco_2018_01_28/frozen_inference_graph.pb \
+	--data_type FP16 
+	-o /opt/intel/workshop/Mobilenet-SSD-v1/FP16 \
+	--model_name mobilenet-ssd-v1-fp16
 
 #### 4. Check the converted model 
 	
-	cd /opt/intel/workshop/Squeezenet/FP16
+	cd /opt/intel/workshop/Mobilenet-SSD-v1/FP16
 	ls
 	
 You will see three fils were created under this folder, the .xml file is the topology file of the model, while the .bin file is the weight and bias.
 
-	squeezenet1.1_fp16.bin  squeezenet1.1_fp16.mapping  squeezenet1.1_fp16.xml
+	mobilenet-ssd-v1-fp16.bin      mobilenet-ssd-v1-fp16.xml	mobilenet-ssd-v1-fp16.mapping
 
 ## Further Reading
-To learn more about converting a Caffe* model using Model Optimizer, please refer to this OpenVINO documentation [Converting a Caffe* Model](https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_convert_model_Convert_Model_From_Caffe.html)
+To learn more about converting a Tensorflow* model using Model Optimizer, please refer to this OpenVINO documentation [Converting a Tensorflow* Model](https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_convert_model_Convert_Model_From_TensorFlow.html)
