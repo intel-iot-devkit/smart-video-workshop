@@ -1,101 +1,70 @@
-# Optimize a Caffe* Classification Model - SqueezeNet v1.1
+# Run Classification Sample Application with the Optimized SqueezeNet v1.1 Model 
 
-In this lab, we are going to use the Model Downloader to download a Caffe* Classification model - SqueezeNet v1.1 from [Open Model Zoo](https://github.com/openvinotoolkit/open_model_zoo). Then use Model Optimizer to convert the model into Intermediate Representation format with both FP32 and FP16 data precision.  
-
-#### Set short path for the workshop directory
-
-	export SV=/opt/intel/workshop/smart-video-workshop/
-    
-## Part 1: Download a public pre-trained model with Model Downloader
-
-In this section, you will use the Model Downloader to download a public pre-trained Caffe* classfication model.
-
-#### 1. Navigate to the directory of Model Downloader and check the usage of Model Downloader
+In this lab, we are going to run a classification Python sample application with the optimized SqueezeNet v1.1 Model we converted in [Lab1 - Optimize a Caffe* Classification Model - SqueezeNet v1.1](./Optimize_Caffe_squeezeNet.md).
+ 
+#### 1. Navigate to the directory of the Python Sample Application 
  	
-	cd /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/
-	python3 downloader.py -h
+	/opt/intel/openvino/deployment_tools/inference_engine/samples/python
 
-#### 2. Check all the available Intel or public pre-trained models on Open Model Zoo
+#### 2. Navigate to the directory of classification_sample_async and check the usage of this sample application
 
-	python3 downloader.py --print_all
+	cd classification_sample_async
+	python3 classification_sample_async.py -h
 
 #### 3. Download SqueezeNet v1.1 to the Workshop directory
 
-	sudo python3 downloader.py --name squeezenet1.1 -o /opt/intel/workshop
-	
-#### 4. Check the downloaded model
+	python3 classification_sample_async.py \
+	-m /opt/intel/workshop/Squeezenet/FP32/squeezenet1.1_fp32.xml \
+	-i /opt/intel/workshop/smart-video-workshop/Labs/daisy.jpg \
+	-d CPU \
+	--labels /opt/intel/workshop/smart-video-workshop/Labs/squeezetnet_label.txt 
 
-	cd /opt/intel/workshop/public/squeezenet1.1
-	ls
+The output would be something like this:
 
-You will see the downloaded Caffe* model:
+	classid probability
+	------- -----------
+	985: 'daisy',0.9918603
+	309: 'bee',0.0062189
+	108: 'sea anemone, anemone',0.0002938
+	973: 'coral reef',0.0001974
+	308: 'fly',0.0001486
+	301: 'ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle',0.0001268
+	324: 'cabbage butterfly',0.0001079
+	947: 'mushroom',0.0001005
+	995: 'earthstar',0.0000976
+	506: 'coil, spiral, volute, whorl, helix',0.0000964
 
-	squeezenet1.1.caffemodel  squeezenet1.1.prototxt  squeezenet1.1.prototxt.orig
+#### 4. Switch to another picture and run the same application on GPU with FP16 data precision model
 
-To learn more about this model, you can either click [HERE](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/public/squeezenet1.1/squeezenet1.1.md), or:
+	python3 classification_sample_async.py \
+	-m /opt/intel/workshop/Squeezenet/FP16/squeezenet1.1_fp16.xml \
+	-i /opt/intel/workshop/smart-video-workshop/Labs/puppy.jpg \
+	-d GPU \
+	--labels /opt/intel/workshop/smart-video-workshop/Labs/squeezetnet_label.txt 
 
-	cd /opt/intel/openvino/deployment_tools/open_model_zoo/models/public/squeezenet1.1
-	gedit squeezenet1.1.md  
+You will see the output like this:
 
-> **Note**: From the model description file, you will need to understand the input and output **layer name**, **shape** of the input layer, and BGR **mean value** or **scale value** if applicable for this model.
+	classid probability
+	------- -----------
+	208: 'Labrador retriever',0.5244141
+	852: 'tennis ball',0.4282227
+	805: 'soccer ball',0.0158691
+	207: 'golden retriever',0.0066185
+	222: 'kuvasz',0.0064087
+	178: 'Weimaraner',0.0055656
+	180: 'American Staffordshire terrier, Staffordshire terrier, American pit bull terrier, pit bull terrier',0.0020828
+	190: 'Sealyham terrier, Sealyham',0.0020485
+	251: 'dalmatian, coach dog, carriage dog',0.0012798
+	176: 'Saluki, gazelle hound',0.0012589
 
-## Part 2: Convert the downloaded Caffe* model to IR format
+You can download different pictures from the internet, and try the same application with the optimized SqueezeNet v1.1 model.
 
-In this session, you will use the Model Optimizer to convert the downloaded Caffe* classfication model to IR format with both FP32 and FP16 data precisions.
+#### 5. Explore the sourcecode
+Now let's take a look at the sourcecode, and learn more about the Inference Engine API
 
-#### 1. Navigate to the Model Optimizer directory
+	cd /opt/intel/openvino/deployment_tools/inference_engine/samples/python/classification_sample_async
+	gedit classification_sample_async.py
 
-	cd /opt/intel/openvino/deployment_tools/model_optimizer/
-
-#### 2. Check the usage of Model Optimizer
-
-	python3 mo.py -h
-
-A list of general parameters for Model Optimizer will be printed out, to learn more about each parameter, you can refer to this [Document](https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_convert_model_Converting_Model_General.html)
-
-#### 3. Convert Squeezenet1.1 to IR with FP32 data precision
-
-	sudo python3 mo.py \
-	--input_shape=[1,3,227,227] \
-	--input=data \
-	--output=prob \
-	--mean_values=data[104.0,117.0,123.0] \
-	--input_model=/opt/intel/workshop/public/squeezenet1.1/squeezenet1.1.caffemodel \
-	--input_proto=/opt/intel/workshop/public/squeezenet1.1/squeezenet1.1.prototxt \
-	--data_type FP32 \
-	-o /opt/intel/workshop/Squeezenet/FP32 \
-	--model_name squeezenet1.1_fp32
-
-#### 4. Check the converted model 
-	
-	cd /opt/intel/workshop/Squeezenet/FP32
-	ls
-	
-You will see three fils were created under this folder, the .xml file is the topology file of the model, while the .bin file is the weight and bias.
-
-	squeezenet1.1_fp32.bin  squeezenet1.1_fp32.mapping  squeezenet1.1_fp32.xml
-
-#### 5. Convert Squeezenet1.1 to IR with FP16 data precision
-
-	sudo python3 mo.py \
-	--input_shape=[1,3,227,227] \
-	--input=data \
-	--output=prob \
-	--mean_values=data[104.0,117.0,123.0] \
-	--input_model=/opt/intel/workshop/public/squeezenet1.1/squeezenet1.1.caffemodel \
-	--input_proto=/opt/intel/workshop/public/squeezenet1.1/squeezenet1.1.prototxt \
-	--data_type FP16 \
-	-o /opt/intel/workshop/Squeezenet/FP16 \
-	--model_name squeezenet1.1_fp16
-
-#### 4. Check the converted model 
-	
-	cd /opt/intel/workshop/Squeezenet/FP16
-	ls
-	
-You will see three fils were created under this folder, the .xml file is the topology file of the model, while the .bin file is the weight and bias.
-
-	squeezenet1.1_fp16.bin  squeezenet1.1_fp16.mapping  squeezenet1.1_fp16.xml
 
 ## Further Reading
-To learn more about converting a Caffe* model using Model Optimizer, please refer to this OpenVINO documentation [Converting a Caffe* Model](https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_convert_model_Convert_Model_From_Caffe.html)
+To learn more about Image Classification Python* Sample Async, please refer to this OpenVINO documentation [Image Classification Python* Sample Async](https://docs.openvinotoolkit.org/latest/openvino_inference_engine_ie_bridges_python_sample_classification_sample_async_README.html)
