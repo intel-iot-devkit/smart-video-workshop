@@ -32,7 +32,7 @@ Benchmark C++ Tool provides estimation of deep learning inference performance on
 
 ### First, let's take a look at the performance of each single Inference Engine device
 #### 1. Navigate to sample application directory
-	cd inference_engine_samples_build/intel64/Release/
+	cd $HOME/inference_engine_samples_build/intel64/Release
 
 #### 2. Run Benchmark tool application with CPU
 > **Note**: Make sure you have gone through the [Run the Verification Scripts to Verify Installation](https://docs.openvinotoolkit.org/latest/openvino_docs_install_guides_installing_openvino_linux.html#run-the-demos) during your installation of OpenVINO Toolkit. 
