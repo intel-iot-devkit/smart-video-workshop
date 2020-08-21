@@ -49,5 +49,9 @@ Here we can change any of the "CPU" to GPU, MYRIAD, or HETERO, MULTI plugins:
 	-m_lpr /home/intel/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP16/license-plate-recognition-barrier-0001.xml \
 	-m_va /home/intel/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml
 
+#### 3. Explore the source code to learn more about how to chain multiple models
 
+	cd /opt/intel/openvino/deployment_tools/open_model_zoo/demos/security_barrier_camera_demo
+	gedit main.cpp
 	
+
