@@ -64,7 +64,7 @@ Run demo scripts (any one of them or both if you want to both the demos) which w
   
 * **Deep Learning Streamer**
   - Slides - [Deep Learning Streamer](./presentations/07.%20Deep%20Learning%20streamer.pdf) 
-  - Lab9 - [Build a Media Analytic Pipeline with DL Streamer](./README.md)
+  - Lab9 - [Build a Media Analytic Pipeline with DL Streamer](./Labs/Build_DL_Streamer_Pipeline.md)
 
 * **Intel® DevCloud for the Edge**
   - Slides - [Intel® DevCloud for the Edge](./presentations/09.%20Intel%20DevCloud%20for%20the%20Edge.pdf) 
