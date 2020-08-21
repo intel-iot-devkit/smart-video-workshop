@@ -61,7 +61,7 @@ To learn more about which and why below Model Optimizer parameters are used for 
 	--transformations_config=/opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json \
 	--tensorflow_object_detection_api_pipeline_config=/opt/intel/workshop/public/ssd_mobilenet_v1_coco/ssd_mobilenet_v1_coco_2018_01_28/pipeline.config \
 	--input_model=/opt/intel/workshop/public/ssd_mobilenet_v1_coco/ssd_mobilenet_v1_coco_2018_01_28/frozen_inference_graph.pb \
-	--data_type FP32 
+	--data_type FP32 \
 	-o /opt/intel/workshop/Mobilenet-SSD-v1/FP32 \
 	--model_name mobilenet-ssd-v1-fp32
 
@@ -86,7 +86,7 @@ You will see three fils were created under this folder, the .xml file is the top
 	--transformations_config=/opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json \
 	--tensorflow_object_detection_api_pipeline_config=/opt/intel/workshop/public/ssd_mobilenet_v1_coco/ssd_mobilenet_v1_coco_2018_01_28/pipeline.config \
 	--input_model=/opt/intel/workshop/public/ssd_mobilenet_v1_coco/ssd_mobilenet_v1_coco_2018_01_28/frozen_inference_graph.pb \
-	--data_type FP16 
+	--data_type FP16 \
 	-o /opt/intel/workshop/Mobilenet-SSD-v1/FP16 \
 	--model_name mobilenet-ssd-v1-fp16
 
