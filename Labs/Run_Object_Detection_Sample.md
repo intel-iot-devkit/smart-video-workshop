@@ -4,7 +4,7 @@ In this lab, we are going to run a classification Python sample application with
  
 #### 1. Navigate to the directory of the Python Sample Application 
  	
-	/opt/intel/openvino/deployment_tools/inference_engine/samples/python
+	cd /opt/intel/openvino/deployment_tools/inference_engine/samples/python
 
 #### 2. Navigate to the directory of object_detection_sample_ssd and check the usage of this sample application
 
