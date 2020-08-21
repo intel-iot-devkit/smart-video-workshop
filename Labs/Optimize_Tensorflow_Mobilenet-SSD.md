@@ -76,6 +76,8 @@ You will see three fils were created under this folder, the .xml file is the top
 
 #### 5. Convert ssd_mobilenet_v1_coco to IR with FP16 data precision
 	
+	cd /opt/intel/openvino/deployment_tools/model_optimizer/
+	
 	sudo python3 mo.py \
 	--reverse_input_channels \
 	--input_shape=[1,300,300,3] \
