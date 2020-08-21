@@ -37,7 +37,7 @@ To learn more about this model, you can either click [HERE](https://github.com/o
 	cd /opt/intel/openvino/deployment_tools/open_model_zoo/models/public/squeezenet1.1
 	gedit squeezenet1.1.md  
 
-> **Note**: From the model description file, you will need to understand the input and output **layer name**, **shape** of the input layer, and BGR **mean value** or **scale value** if applicable for this model.
+> **Note**: From the model description file, you will need to understand the input and output **layer name**, **shape** of the input layer, **color order** and **mean value** or **scale value** if applicable for this mode
 
 ## Part 2: Convert the downloaded Caffe* model to IR format
 
