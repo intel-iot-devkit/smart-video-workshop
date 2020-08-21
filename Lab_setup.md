@@ -20,12 +20,3 @@ Set the folder to execute labs in the workshop github.
 
 	git clone https://github.com/intel-iot-devkit/smart-video-workshop.git
 	
-If you get a fatal message, "fatal: destination path 'smart-video-workshop' already exists and is not an empty directory.
-",
-
-	cd /opt/intel/workshop/smart-video-workshop/
-	git pull
-
-#### 5. Set short path for the workshop directory
-
-	export SV=/opt/intel/workshop/smart-video-workshop/
