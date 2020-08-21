@@ -56,7 +56,7 @@ Run demo scripts (any one of them or both if you want to both the demos) which w
 
 * **Multiple Models in One Application** 
   - Slides - [Multiple Models in One Application](./presentations/08.%20Multiple%20Models%20in%20One%20Application.pdf) 
-  - Lab8 - [Run Security Barrier Demo Application](./README.md) 
+  - Lab8 - [Run Security Barrier Demo Application](./Labs/Run_Security_Barrier_Demo.md) 
   
 * **Deep Learning Workbench**
   - Slides - [Deep Learning Workbench](./presentations/06.%20Deep%20Learning%20Workbench.pdf) 
