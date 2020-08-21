@@ -9,7 +9,7 @@ In this lab, we are going to run the [Benchmark App](https://docs.openvinotoolki
 First, let's run the Hello Query Device sample application, which queries available Inference Engine devices on your platform and prints out their metrics and default configuration values.
 
 #### 1. Navigate to sample application directory
-	cd inference_engine_samples_build/intel64/Release/
+	cd $HOME/inference_engine_samples_build/intel64/Release
   
 #### 2. Run the Hello Query Device application 
 	./hello_query_device
