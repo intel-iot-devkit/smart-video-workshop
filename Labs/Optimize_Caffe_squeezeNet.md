@@ -50,6 +50,8 @@ A list of general parameters for Model Optimizer will be printed out, to learn m
 
 #### 3. Convert Squeezenet1.1 to IR with FP32 data precision
 
+	cd /opt/intel/openvino/deployment_tools/model_optimizer/
+	
 	sudo python3 mo.py \
 	--input_shape=[1,3,227,227] \
 	--input=data \
