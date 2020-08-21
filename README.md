@@ -48,8 +48,8 @@ Run demo scripts (any one of them or both if you want to both the demos) which w
 
 * **Accelerators based on Intel® Movidius™ Vision Processing Unit**
   - Slides - [Accelerators based on Intel® Movidius™ VPU](./presentations/04.%20Accelerators%20based%20on%20Intel®%20Movidius™%20Vision%20Processing%20Unit.pdf)
-  - Lab6 - [HW Acceleration with Intel® Movidius™ Neural Compute Stick2](./HW-Acceleration-with-Movidious-NCS/README.md)
-  - Lab7 - [Run Benchmark App with Multi plugin](./Labs/Run_Samples_with_NCS2.md)
+  - Lab6 - [HW Acceleration with Intel® Movidius™ Neural Compute Stick2](./Labs/Run_Samples_with_NCS2.md)
+  - Lab7 - [Run Benchmark App with Multi plugin](./Labs/Run_Benchmark_Multi.md)
   
 * **Accelerators based on Intel® Arria® FPGA**
   - Slides - [Accelerators based on Intel® Arria® FPGA](./presentations/05.%20Accelerators%20based%20on%20Intel®%20Arria®%20FPGA.pdf)
