@@ -6,7 +6,7 @@ In this lab, we are going to run the [Benchmark App](https://docs.openvinotoolki
 #### 1. Navigate to the directory of samples build directory
 Make sure you have build the samples as per the instructions given in the [How to Get Started](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/README.md#how-to-get-started) section. 
 
-	 cd $HOME/inference_engine_demos_build/intel64/Release
+	 cd $HOME/inference_engine_samples_build/intel64/Release
 
 We can check the usage of Benchmark App:
 
