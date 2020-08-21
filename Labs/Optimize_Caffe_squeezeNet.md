@@ -1,11 +1,6 @@
 # Optimize a Caffe* Classification Model - SqueezeNet v1.1
 
-In this lab, we are going to use the Model Downloader to download a Caffe* Classification model - SqueezeNet v1.1 from [Open Model Zoo](https://github.com/openvinotoolkit/open_model_zoo). Then use Model Optimizer to convert the model into Intermediate Representation format with both FP32 and FP16 data precision.  
-
-#### Set short path for the workshop directory
-
-	export SV=/opt/intel/workshop/smart-video-workshop/
-    
+In this lab, we are going to use the Model Downloader to download a Caffe* Classification model - SqueezeNet v1.1 from [Open Model Zoo](https://github.com/openvinotoolkit/open_model_zoo). Then use Model Optimizer to convert the model into Intermediate Representation format with both FP32 and FP16 data precision.   
 ## Part 1: Download a public pre-trained model with Model Downloader
 
 In this section, you will use the Model Downloader to download a public pre-trained Caffe* classfication model.
