@@ -15,7 +15,7 @@ to install the Intel® Distribution of OpenVINO™ toolkit, set the Environment 
 #### b). Run the demo scipts and compile samples
 Run demo scripts (any one of them or both if you want to both the demos) which will generate the folder $HOME/inference_engine_samples with the current Intel® Distribution of OpenVINO™ toolkit built. 
 
-	cd /opt/intel/openvino/deployment_tools/demo
+	cd /opt/intel/openvino_2021/deployment_tools/demo
 	./demo_squeezenet_download_convert_run.sh
 	./demo_security_barrier_camera.sh
 	
