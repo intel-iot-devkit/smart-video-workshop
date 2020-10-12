@@ -4,7 +4,7 @@ In this lab, we are going to run a classification Python sample application with
  
 #### 1. Navigate to the directory of the Python Sample Application 
  	
-	cd /opt/intel/openvino/deployment_tools/inference_engine/samples/python
+	cd /opt/intel/openvino_2021/deployment_tools/inference_engine/samples/python
 
 #### 2. Navigate to the directory of object_detection_sample_ssd and check the usage of this sample application
 
@@ -32,6 +32,7 @@ Now we can check an out.bmp has been generated, open it we will see the bounding
 
 #### 4. Switch to another picture and run the same application on GPU with FP16 data precision model
 
+	rm -f out.bmp
 	python3 object_detection_sample_ssd.py \
 	-m /opt/intel/workshop/Mobilenet-SSD-v1/FP16/mobilenet-ssd-v1-fp16.xml \
 	-i /opt/intel/workshop/smart-video-workshop/Labs/dog_cat.jpg \
@@ -48,7 +49,7 @@ You can download different pictures from the internet, and try the same applicat
 #### 5. Explore the sourcecode
 Now let's take a look at the sourcecode, and learn more about the Inference Engine API
 
-	cd /opt/intel/openvino/deployment_tools/inference_engine/samples/python/object_detection_sample_ssd
+	cd /opt/intel/openvino_2021/deployment_tools/inference_engine/samples/python/object_detection_sample_ssd
 	gedit object_detection_sample_ssd.py
 
 
