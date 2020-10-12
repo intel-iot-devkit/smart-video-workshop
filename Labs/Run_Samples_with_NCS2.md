@@ -30,7 +30,7 @@ Set target hardware as Intel® Movidius™ NCS with **-d MYRIAD**, remember to u
 
 Run Classification Sample Application with NCS2:
 
-	cd /opt/intel/openvino/deployment_tools/inference_engine/samples/python/classification_sample_async
+	cd /opt/intel/openvino_2021/deployment_tools/inference_engine/samples/python/classification_sample_async
 	
 	python3 classification_sample_async.py \
 	-m /opt/intel/workshop/Squeezenet/FP16/squeezenet1.1_fp16.xml \
@@ -40,7 +40,9 @@ Run Classification Sample Application with NCS2:
 
 Run Object Detection Sample Application with NCS2:
 
-	cd /opt/intel/openvino/deployment_tools/inference_engine/samples/python/object_detection_sample_ssd/
+	cd /opt/intel/openvino_2021/deployment_tools/inference_engine/samples/python/object_detection_sample_ssd/
+	
+	rm -f out.bmp
 	
 	python3 object_detection_sample_ssd.py \
 	-m /opt/intel/workshop/Mobilenet-SSD-v1/FP16/mobilenet-ssd-v1-fp16.xml \
