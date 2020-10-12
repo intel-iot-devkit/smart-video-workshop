@@ -7,7 +7,7 @@ In this section, you will use the Model Downloader to download a public pre-trai
 
 #### 1. Navigate to the directory of Model Downloader and check the usage of Model Downloader
  	
-	cd /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/
+	cd /opt/intel/openvino_2021/deployment_tools/open_model_zoo/tools/downloader/
 	python3 downloader.py -h
 
 #### 2. Check all the available Intel or public pre-trained models on Open Model Zoo
@@ -16,7 +16,7 @@ In this section, you will use the Model Downloader to download a public pre-trai
 
 #### 3. Download SqueezeNet v1.1 to the Workshop directory
 
-	sudo python3 downloader.py --name squeezenet1.1 -o /opt/intel/workshop
+	python3 downloader.py --name squeezenet1.1 -o /opt/intel/workshop
 	
 #### 4. Check the downloaded model
 
@@ -29,7 +29,7 @@ You will see the downloaded Caffe* model:
 
 To learn more about this model, you can either click [HERE](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/public/squeezenet1.1/squeezenet1.1.md), or:
 
-	cd /opt/intel/openvino/deployment_tools/open_model_zoo/models/public/squeezenet1.1
+	cd /opt/intel/openvino_2021/deployment_tools/open_model_zoo/models/public/squeezenet1.1
 	gedit squeezenet1.1.md  
 
 > **Note**: From the model description file, you will need to understand the input and output **layer name**, **shape** of the input layer, **color order** and **mean value** or **scale value** if applicable for this mode
@@ -40,7 +40,7 @@ In this session, you will use the Model Optimizer to convert the downloaded Caff
 
 #### 1. Navigate to the Model Optimizer directory
 
-	cd /opt/intel/openvino/deployment_tools/model_optimizer/
+	cd /opt/intel/openvino_2021/deployment_tools/model_optimizer/
 
 #### 2. Check the usage of Model Optimizer
 
@@ -72,7 +72,7 @@ You will see three fils were created under this folder, the .xml file is the top
 
 #### 5. Convert Squeezenet1.1 to IR with FP16 data precision
 
-	cd /opt/intel/openvino/deployment_tools/model_optimizer/
+	cd /opt/intel/openvino_2021/deployment_tools/model_optimizer/
 	
 	sudo python3 mo.py \
 	--input_shape=[1,3,227,227] \
