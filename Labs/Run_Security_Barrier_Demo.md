@@ -7,7 +7,7 @@ The Intel® Distribution of OpenVINO™ toolkit package includes security barrie
 
 #### 1. Navigate to the security camera barrier demo script directory
 
-	cd /opt/intel/openvino/deployment_tools/demo/
+	cd /opt/intel/openvino_2021/deployment_tools/demo/
  
 #### 2. Run the security camera sample with Intel optimized pre-trained models 
     
@@ -44,14 +44,14 @@ When you run the demo script above, from the terminal prints, we will see the ac
 Here we can change any of the "CPU" to GPU, MYRIAD, or HETERO, MULTI plugins:
 
 	./security_barrier_camera_demo -d GPU -d_va MYRIAD -d_lpr MULTI:CPU,MYRIAD \
-	-i /opt/intel/openvino/deployment_tools/demo/car_1.bmp \
+	-i /opt/intel/openvino_2021/deployment_tools/demo/car_1.bmp \
 	-m /home/intel/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP16/vehicle-license-plate-detection-barrier-0106.xml \
 	-m_lpr /home/intel/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP16/license-plate-recognition-barrier-0001.xml \
 	-m_va /home/intel/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml
 
 #### 3. Explore the source code to learn more about how to chain multiple models
 
-	cd /opt/intel/openvino/deployment_tools/open_model_zoo/demos/security_barrier_camera_demo
+	cd /opt/intel/openvino_2021/deployment_tools/open_model_zoo/demos/security_barrier_camera_demo
 	gedit main.cpp
 	
 
