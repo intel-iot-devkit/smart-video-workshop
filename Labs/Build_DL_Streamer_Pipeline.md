@@ -18,7 +18,7 @@ After running below command, you will see the downloaded video displayed on the 
 
 #### 3. Download the pre-trained models we are going use to build the Media Analytic Pipeline
 
-	cd /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/
+	cd /opt/intel/openvino_2021/deployment_tools/open_model_zoo/tools/downloader/
 	python3 downloader.py --name person-vehicle-bike-detection-crossroad-0078,person-attributes-recognition-crossroad-0230,vehicle-attributes-recognition-barrier-0039
 
 #### 4. Add the DL Streamer element "gvadetect" to the pipeline to detect vehicle and pedestrian and element "gvawatermark" to show the bounding box
@@ -29,8 +29,8 @@ In addition to provide the path to the model, a path to JSON file with descripti
 	decodebin ! \
 	videoconvert ! \
 	video/x-raw,format=BGRx ! \
-	gvadetect model=/opt/intel/openvino_2020.4.287/deployment_tools/open_model_zoo/tools/downloader/intel/person-vehicle-bike-detection-crossroad-0078/FP32/person-vehicle-bike-detection-crossroad-0078.xml \
-	model-proc=/opt/intel/openvino/data_processing/dl_streamer/samples/gst_launch/vehicle_pedestrian_tracking/model_proc/person-vehicle-bike-detection-crossroad-0078.json \
+	gvadetect model=/opt/intel/openvino_2021/deployment_tools/open_model_zoo/tools/downloader/intel/person-vehicle-bike-detection-crossroad-0078/FP32/person-vehicle-bike-detection-crossroad-0078.xml \
+	model-proc=/opt/intel/openvino_2021/data_processing/dl_streamer/samples/gst_launch/vehicle_pedestrian_tracking/model_proc/person-vehicle-bike-detection-crossroad-0078.json \
 	inference-interval=5 threshold=0.6 device=CPU ! queue ! \
 	gvawatermark ! \
 	videoconvert ! fpsdisplaysink video-sink=xvimagesink sync=true
@@ -42,8 +42,8 @@ In addition to provide the path to the model, a path to JSON file with descripti
 	decodebin ! \
 	videoconvert ! \
 	video/x-raw,format=BGRx ! \
-	gvadetect model=/opt/intel/openvino_2020.4.287/deployment_tools/open_model_zoo/tools/downloader/intel/person-vehicle-bike-detection-crossroad-0078/FP32/person-vehicle-bike-detection-crossroad-0078.xml \
-	model-proc=/opt/intel/openvino/data_processing/dl_streamer/samples/gst_launch/vehicle_pedestrian_tracking/model_proc/person-vehicle-bike-detection-crossroad-0078.json \
+	gvadetect model=/opt/intel/openvino_2021/deployment_tools/open_model_zoo/tools/downloader/intel/person-vehicle-bike-detection-crossroad-0078/FP32/person-vehicle-bike-detection-crossroad-0078.xml \
+	model-proc=/opt/intel/openvino_2021/data_processing/dl_streamer/samples/gst_launch/vehicle_pedestrian_tracking/model_proc/person-vehicle-bike-detection-crossroad-0078.json \
 	inference-interval=5 threshold=0.6 device=CPU ! queue ! \
 	gvatrack tracking-type="short-term" ! queue ! \
 	gvawatermark ! \
@@ -57,15 +57,15 @@ Same as the "gvadetect", we will need to provide path to model and json file, se
 	decodebin ! \
 	videoconvert ! \
 	video/x-raw,format=BGRx ! \
-	gvadetect model=/opt/intel/openvino_2020.4.287/deployment_tools/open_model_zoo/tools/downloader/intel/person-vehicle-bike-detection-crossroad-0078/FP32/person-vehicle-bike-detection-crossroad-0078.xml \
-	model-proc=/opt/intel/openvino/data_processing/dl_streamer/samples/gst_launch/vehicle_pedestrian_tracking/model_proc/person-vehicle-bike-detection-crossroad-0078.json \
+	gvadetect model=/opt/intel/openvino_2021/deployment_tools/open_model_zoo/tools/downloader/intel/person-vehicle-bike-detection-crossroad-0078/FP32/person-vehicle-bike-detection-crossroad-0078.xml \
+	model-proc=/opt/intel/openvino_2021/data_processing/dl_streamer/samples/gst_launch/vehicle_pedestrian_tracking/model_proc/person-vehicle-bike-detection-crossroad-0078.json \
 	inference-interval=5 threshold=0.6 device=CPU ! queue ! \
 	gvatrack tracking-type="short-term" ! queue ! \
-	gvaclassify model= /opt/intel/openvino_2020.4.287/deployment_tools/open_model_zoo/tools/downloader/intel/person-attributes-recognition-crossroad-0230/FP32/person-attributes-recognition-crossroad-0230.xml \
-	model-proc= /opt/intel/openvino/data_processing/dl_streamer/samples/gst_launch/vehicle_pedestrian_tracking/model_proc/person-attributes-recognition-crossroad-0230.json \
+	gvaclassify model= /opt/intel/openvino_2021/deployment_tools/open_model_zoo/tools/downloader/intel/person-attributes-recognition-crossroad-0230/FP32/person-attributes-recognition-crossroad-0230.xml \
+	model-proc= /opt/intel/openvino_2021/data_processing/dl_streamer/samples/gst_launch/vehicle_pedestrian_tracking/model_proc/person-attributes-recognition-crossroad-0230.json \
 	reclassify-interval=10 device=CPU object-class=person ! queue ! \
- 	gvaclassify model= /opt/intel/openvino_2020.4.287/deployment_tools/open_model_zoo/tools/downloader/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml \
-	model-proc= /opt/intel/openvino/data_processing/dl_streamer/samples/gst_launch/vehicle_pedestrian_tracking/model_proc/vehicle-attributes-recognition-barrier-0039.json \
+ 	gvaclassify model= /opt/intel/openvino_2021/deployment_tools/open_model_zoo/tools/downloader/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml \
+	model-proc= /opt/intel/openvino_2021/data_processing/dl_streamer/samples/gst_launch/vehicle_pedestrian_tracking/model_proc/vehicle-attributes-recognition-barrier-0039.json \
 	reclassify-interval=10 device=CPU object-class=vehicle ! queue ! \
 	gvawatermark ! \
 	videoconvert ! fpsdisplaysink video-sink=xvimagesink sync=true
