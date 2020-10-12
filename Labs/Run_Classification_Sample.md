@@ -4,7 +4,7 @@ In this lab, we are going to run a classification Python sample application with
  
 #### 1. Navigate to the directory of the Python Sample Application 
  	
-	cd /opt/intel/openvino/deployment_tools/inference_engine/samples/python
+	cd /opt/intel/openvino_2021/deployment_tools/inference_engine/samples/python
 
 #### 2. Navigate to the directory of classification_sample_async and check the usage of this sample application
 
@@ -62,7 +62,7 @@ You can download different pictures from the internet, and try the same applicat
 #### 5. Explore the sourcecode
 Now let's take a look at the sourcecode, and learn more about the Inference Engine API
 
-	cd /opt/intel/openvino/deployment_tools/inference_engine/samples/python/classification_sample_async
+	cd /opt/intel/openvino_2021/deployment_tools/inference_engine/samples/python/classification_sample_async
 	gedit classification_sample_async.py
 
 
