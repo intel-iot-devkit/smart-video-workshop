@@ -1,7 +1,7 @@
 # Optimized Inference at the Edge with Intel® Tools and Technologies 
 This workshop will walk you through a computer vision workflow using the latest Intel® technologies and comprehensive toolkits including support for deep learning algorithms that help accelerate smart video applications. You will learn how to optimize and improve performance with and without external accelerators and utilize tools to help you identify the best hardware configuration for your needs. This workshop will also outline the various frameworks and topologies supported by Intel® accelerator tools. 
 
-> :warning: Labs of this workshop have been validated with Intel® Distribution of OpenVINO™ toolkit version R4 2020 (openvino_toolkit_2020.4.287). Videos shown below is based on OpenVINO 2020R2, might be slightly different from the slides, but the content is largely the same.
+> :warning: Labs of this workshop have been validated with **Intel® Distribution of OpenVINO™ toolkit 2021.1 (openvino_toolkit_2021.1.110)**. Videos shown below is based on OpenVINO 2020R2, might be slightly different from the slides, but the content is largely the same. **FPGA plugin will no longer be supported by the OpenVINO stardard release, you can find the FPGA content from ealier branches.**
 	
 ## Workshop Agenda
 * **Intel® Distribution of OpenVINO™ toolkit Overview** - [[Slides]](./presentations/01.%20Intel%20Distribution%20of%20OpenVINO%20Toolkit%20Overview.pdf) [[Video]](https://software.intel.com/content/www/us/en/develop/videos/part-1-intel-distribution-of-openvino-toolkit-overview.html)
@@ -21,8 +21,6 @@ This workshop will walk you through a computer vision workflow using the latest 
   - Lab6 - [HW Acceleration with Intel® Movidius™ Neural Compute Stick2](./Labs/Run_Samples_with_NCS2.md)
   - Lab7 - [Run Benchmark App with Multi plugin](./Labs/Run_Benchmark_Multi.md)
   
-* **Accelerators based on Intel® Arria® FPGA** - [[Slides]](./presentations/05.%20Accelerators%20based%20on%20Intel®%20Arria®%20FPGA.pdf) [[Video]](https://software.intel.com/content/www/us/en/develop/videos/part-10-accelerators-based-on-intel-arria-fpga.html)
-
 * **Multiple Models in One Application**  - [[Slides]](./presentations/08.%20Multiple%20Models%20in%20One%20Application.pdf) [[Video]](https://software.intel.com/content/www/us/en/develop/videos/part-6-multiple-models-in-one-application.html)
   - Lab8 - [Run Security Barrier Demo Application](./Labs/Run_Security_Barrier_Demo.md) 
   
