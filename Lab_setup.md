@@ -37,7 +37,7 @@ Set the folder to execute labs in the workshop github.
 
 > **Note:** *replace the usernames below with your user account name*
 		
-	sudo chown username.username -R /opt/intel/workshop/
+	sudo chown username.username -R /opt/intel
 
 #### 3. Navigate to the new directory
 
