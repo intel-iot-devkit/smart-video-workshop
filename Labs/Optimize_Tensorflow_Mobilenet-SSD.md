@@ -8,7 +8,7 @@ In this section, you will use the Model Downloader to download a public pre-trai
 
 #### 1. Navigate to the directory of Model Downloader and check the usage of Model Downloader
  	
-	cd /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/
+	cd /opt/intel/openvino_2021/deployment_tools/open_model_zoo/tools/downloader/
 	python3 downloader.py -h
 
 #### 2. Check all the available Intel or public pre-trained models on Open Model Zoo
@@ -17,7 +17,7 @@ In this section, you will use the Model Downloader to download a public pre-trai
 
 #### 3. Download SqueezeNet v1.1 to the Workshop directory
 
-	sudo python3 downloader.py --name ssd_mobilenet_v1_coco -o /opt/intel/workshop
+	python3 downloader.py --name ssd_mobilenet_v1_coco -o /opt/intel/workshop
 	
 #### 4. Check the downloaded model
 
@@ -31,7 +31,7 @@ You will see the downloaded Tensorflow* model:
 
 To learn more about this model, you can either click [HERE](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/public/ssd_mobilenet_v1_coco/ssd_mobilenet_v1_coco.md), or:
 
-	cd /opt/intel/openvino/deployment_tools/open_model_zoo/models/public/ssd_mobilenet_v1_coco
+	cd /opt/intel/openvino_2021/deployment_tools/open_model_zoo/models/public/ssd_mobilenet_v1_coco
 	gedit ssd_mobilenet_v1_coco.md  
 
 > **Note**: From the model description file, you will need to understand the input and output **layer name**, **shape** of the input layer, **color order** and **mean value** or **scale value** if applicable for this model.
@@ -42,7 +42,7 @@ In this session, you will use the Model Optimizer to convert the downloaded Tens
 
 #### 1. Navigate to the Model Optimizer directory
 
-	cd /opt/intel/openvino/deployment_tools/model_optimizer/
+	cd /opt/intel/openvino_2021/deployment_tools/model_optimizer/
 
 #### 2. Check the usage of Model Optimizer
 
@@ -53,12 +53,12 @@ A list of general parameters for Model Optimizer will be printed out, to learn m
 #### 3. Convert ssd_mobilenet_v1_coco to IR with FP32 data precision
 To learn more about which and why below Model Optimizer parameters are used for Converting TensorFlow* Object Detection API Models, please refer to [Converting TensorFlow* Object Detection API Models](https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_convert_model_tf_specific_Convert_Object_Detection_API_Models.html) from OpenVINO documentation.
 
-	sudo python3 mo.py \
+	python3 mo.py \
 	--reverse_input_channels \
 	--input_shape=[1,300,300,3] \
 	--input=image_tensor \
 	--output=detection_scores,detection_boxes,num_detections \
-	--transformations_config=/opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json \
+	--transformations_config=/opt/intel/openvino_2021/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json \
 	--tensorflow_object_detection_api_pipeline_config=/opt/intel/workshop/public/ssd_mobilenet_v1_coco/ssd_mobilenet_v1_coco_2018_01_28/pipeline.config \
 	--input_model=/opt/intel/workshop/public/ssd_mobilenet_v1_coco/ssd_mobilenet_v1_coco_2018_01_28/frozen_inference_graph.pb \
 	--data_type FP32 \
@@ -76,14 +76,14 @@ You will see three fils were created under this folder, the .xml file is the top
 
 #### 5. Convert ssd_mobilenet_v1_coco to IR with FP16 data precision
 	
-	cd /opt/intel/openvino/deployment_tools/model_optimizer/
+	cd /opt/intel/openvino_2021/deployment_tools/model_optimizer/
 	
-	sudo python3 mo.py \
+	python3 mo.py \
 	--reverse_input_channels \
 	--input_shape=[1,300,300,3] \
 	--input=image_tensor \
 	--output=detection_scores,detection_boxes,num_detections \
-	--transformations_config=/opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json \
+	--transformations_config=/opt/intel/openvino_2021/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json \
 	--tensorflow_object_detection_api_pipeline_config=/opt/intel/workshop/public/ssd_mobilenet_v1_coco/ssd_mobilenet_v1_coco_2018_01_28/pipeline.config \
 	--input_model=/opt/intel/workshop/public/ssd_mobilenet_v1_coco/ssd_mobilenet_v1_coco_2018_01_28/frozen_inference_graph.pb \
 	--data_type FP16 \
