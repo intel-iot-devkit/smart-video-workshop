@@ -26,6 +26,7 @@ This workshop will walk you through a computer vision workflow using the latest 
   
 * **Deep Learning Workbench** - [[Slides]](./presentations/06.%20Deep%20Learning%20Workbench.pdf) [[Video]](https://software.intel.com/content/www/us/en/develop/videos/part-11-deep-learning-workbench.html)
   - Demo - [DL Workbench Walkthrough](https://software.intel.com/content/www/us/en/develop/videos/part-12-demonstration-of-deep-learning-workbench.html)
+  - [Short Video Tutorials on YouTube](https://www.youtube.com/playlist?list=PLTseHiQLIfGM6ltiaeh9fL8qfxiE-u4fw)
   
 * **Deep Learning Streamer** - [[Slides]](./presentations/07.%20Deep%20Learning%20streamer.pdf) [[Video]](https://software.intel.com/content/www/us/en/develop/videos/part-13-deep-learning-streamer.html)
   - Lab9 - [Build a Media Analytic Pipeline with DL Streamer](./Labs/Build_DL_Streamer_Pipeline.md)
