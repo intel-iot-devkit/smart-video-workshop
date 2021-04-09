@@ -46,7 +46,9 @@ In this session, you will use the Model Optimizer to convert the downloaded Caff
 
 	python3 mo.py -h
 
-A list of general parameters for Model Optimizer will be printed out, to learn more about each parameter, you can refer to this [Document](https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_convert_model_Converting_Model_General.html)
+A list of general parameters for Model Optimizer will be printed out, to learn more about each parameter, you can refer to this [Document](https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_convert_model_Converting_Model_General.html). 
+
+For the model downloaded from [Open Model Zoo](https://github.com/openvinotoolkit/open_model_zoo), you can always find a [model.yml](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/public/squeezenet1.1/model.yml) file which contains the Model Optimizer parameters required to convert this particular model.
 
 #### 3. Convert Squeezenet1.1 to IR with FP32 data precision
 
