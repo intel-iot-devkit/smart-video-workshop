@@ -11,7 +11,8 @@ In this lab, we are going to run a classification Python sample application with
 	cd object_detection_sample_ssd/
 	python3 object_detection_sample_ssd.py -h
 
-#### 3. Run object_detection_sample_ssd Sample Application with MobileNet-SSD model on CPU
+#### 3. Run object_detection_sample_ssd Sample Application with MobileNet-SSD model on CPU with FP32 data precision model
+![Bird](./birds.jpg)
 
 	python3 object_detection_sample_ssd.py \
 	-m /opt/intel/workshop/Mobilenet-SSD-v1/FP32/mobilenet-ssd-v1-fp32.xml \
@@ -48,6 +49,7 @@ You can download different pictures from the internet, and try the same applicat
 
 #### 5. Explore the sourcecode
 Now let's take a look at the sourcecode, and learn more about the Inference Engine API
+![IE_workflow](../images/IE_workflow.png)
 
 	cd /opt/intel/openvino_2021/deployment_tools/inference_engine/samples/python/object_detection_sample_ssd
 	gedit object_detection_sample_ssd.py
@@ -55,3 +57,5 @@ Now let's take a look at the sourcecode, and learn more about the Inference Engi
 
 ## Further Reading
 To learn more about Object Detection Python* Sample SSD, please refer to this OpenVINO documentation [Object Detection Python* Sample SSD](https://docs.openvinotoolkit.org/latest/openvino_inference_engine_ie_bridges_python_sample_object_detection_sample_ssd_README.html)
+
+If you are looking for reference application that can take **video file** or **live camera** as input, check out this [Object Detection Python* Demo Application](https://github.com/openvinotoolkit/open_model_zoo/blob/master/demos/object_detection_demo/python/README.md), you can also find it from $INTEL_OPENVINO_DIR/deployment_tools/open_model_zoo/demos/object_detection_demo/python
