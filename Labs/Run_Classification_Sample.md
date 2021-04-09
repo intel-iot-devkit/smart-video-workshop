@@ -11,7 +11,8 @@ In this lab, we are going to run a classification Python sample application with
 	cd classification_sample_async
 	python3 classification_sample_async.py -h
 
-#### 3. Run classification_sample_async Sample Application with SqueezeNet v1.1 model on CPU
+#### 3. Run classification_sample_async Sample Application with SqueezeNet v1.1 model on CPU with FP32 precision model
+![daisy](./daisy.jpg)
 
 	python3 classification_sample_async.py \
 	-m /opt/intel/workshop/Squeezenet/FP32/squeezenet1.1_fp32.xml \
@@ -35,6 +36,7 @@ The output would be something like this:
 	506: 'coil, spiral, volute, whorl, helix',0.0000964
 
 #### 4. Switch to another picture and run the same application on GPU with FP16 data precision model
+![daisy](./puppy.jpg)
 
 	python3 classification_sample_async.py \
 	-m /opt/intel/workshop/Squeezenet/FP16/squeezenet1.1_fp16.xml \
@@ -59,8 +61,9 @@ You will see the output like this:
 
 You can download different pictures from the internet, and try the same application with the optimized SqueezeNet v1.1 model.
 
-#### 5. Explore the sourcecode
-Now let's take a look at the sourcecode, and learn more about the Inference Engine API
+#### 5. Explore the source code
+Now let's take a look at the sourcecode, and learn more about the Inference Engine API, here's the Inference Engine Workflow, you can try to find those functions from the source code:
+![IE_Workflow](../images/IE_workflow.png)
 
 	cd /opt/intel/openvino_2021/deployment_tools/inference_engine/samples/python/classification_sample_async
 	gedit classification_sample_async.py
