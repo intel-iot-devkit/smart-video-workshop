@@ -53,6 +53,8 @@ A list of general parameters for Model Optimizer will be printed out, to learn m
 #### 3. Convert ssd_mobilenet_v1_coco to IR with FP32 data precision
 To learn more about which and why below Model Optimizer parameters are used for Converting TensorFlow* Object Detection API Models, please refer to [Converting TensorFlow* Object Detection API Models](https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_convert_model_tf_specific_Convert_Object_Detection_API_Models.html) from OpenVINO documentation.
 
+For the model downloaded from [Open Model Zoo](https://github.com/openvinotoolkit/open_model_zoo), you can always find a [model.yml](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/public/ssd_mobilenet_v1_coco/model.yml) file which contains the Model Optimizer parameters required to convert this particular model.
+
 	python3 mo.py \
 	--reverse_input_channels \
 	--input_shape=[1,300,300,3] \
