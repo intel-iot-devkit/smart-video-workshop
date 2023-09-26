@@ -4,6 +4,7 @@ This workshop will walk you through the workflow using Intel® Distribution of O
 > :warning: Labs of this workshop have been validated with **Intel® Distribution of OpenVINO™ toolkit 2021.3 (openvino_toolkit_2021.3.394)**. Some of the videos shown below is based on OpenVINO 2021.2, might be slightly different from the slides, but the content is largely the same. **FPGA plugin will no longer be supported by the OpenVINO stardard release, you can find the FPGA content from earlier branches.**
 	
 ## Workshop Agenda
+
 * **Intel® Distribution of OpenVINO™ toolkit Overview** 
   - Training Slides - [Part1](./presentations/OpenVINO_Training_Part1_2021.3.pdf), [Part2](./presentations/OpenVINO_Training_Part2_2021.3.pdf)
   - Training Video Series - [Intel® Distribution of OpenVINO™ Toolkit Training](https://software.intel.com/content/www/us/en/develop/video-series/openvino-toolkit-on-demand-workshop.html)
