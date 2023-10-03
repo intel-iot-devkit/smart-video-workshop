@@ -1,0 +1,6 @@
+all:
+	g++ -fPIE -O0 -g -o ROIviewer --std=c++11 ROIviewer.cpp -I. \
+            -I/opt/intel/openvino/opencv/include/ \
+            -L/opt/intel/openvino/opencv/lib -lopencv_core -lopencv_imgcodecs -lopencv_imgproc -lopencv_highgui -lopencv_videoio -lopencv_video -L$(HOME)/inference_engine_samples_build/intel64/Release/lib -lgflags_nothreads -lgflags
+
+
