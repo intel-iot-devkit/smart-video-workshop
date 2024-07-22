@@ -1,6 +1,7 @@
 # Optimized Inference at the Edge with Intel® Tools and Technologies 
 This workshop will walk you through the workflow using Intel® Distribution of OpenVINO™ toolkit for inferencing deep learning algorithms that help accelerate vision, automatic speech recognition, natural language processing, recommendation systems and many other applications. You will learn how to optimize and improve performance with or without external accelerators and utilize tools to help you identify the best hardware configuration for your needs. This workshop will also outline the various frameworks and topologies supported by Intel® Distribution of OpenVINO™ toolkit. 
 
+
 > :warning: Labs of this workshop have been validated with **Intel® Distribution of OpenVINO™ toolkit 2021.3 (openvino_toolkit_2021.3.394)**. Some of the videos shown below is based on OpenVINO 2021.2, might be slightly different from the slides, but the content is largely the same. **FPGA plugin will no longer be supported by the OpenVINO stardard release, you can find the FPGA content from earlier branches.**
 	
 ## Workshop Agenda
