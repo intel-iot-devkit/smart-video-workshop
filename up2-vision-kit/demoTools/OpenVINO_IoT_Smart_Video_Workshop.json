@@ -1,0 +1,52 @@
+{
+    "css": "demoTools/catalog.css",
+    "status":
+    {
+	"serverSideStatusScript": "demoTools/checkStatus.sh",
+	"serverSideRefreshScript": "demoTools/refreshRepository.sh",
+	"messages":
+	{
+	    "placeholder": "(waiting to check the status; click the Check Status button to check immediately)",
+	    "uptodate": "As of {time}, the catalog is up to date.",
+	    "behind": "As of {time}, the catalog requires an update.",
+	    "ahead": "As of {time}, it seems that you are doing your own version control.",
+	    "unable": "As of {time}, we are unable to determine the catalog status due to a server-side error.",
+	    "foreword": "Upon refresh, we will pull the latest examples from GitHub.<br /><b>After the refresh, you will lose any changes you have made to the demos and any data that your demo runs may have generated.</b><br/>",
+	    "remote": "Remote URL",
+	    "lastCheck": "Server-side time of last status check",
+	    "gitsaid": "Output of 'git status'"
+	},
+	"button": "Refresh Catalog",
+	"reloadCode": "<script>window.location.reload()</script>",
+	"autorunFirstDelay": "1500",
+	"autorunInterval": "-1"
+    },
+    "intro": false,
+    "list":
+    {
+	"header": "Smart Video Workshop",
+	"repo_root" : "https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/",
+	"labs":
+	[
+	    "advanced-video-analytics/multiple_models.md",
+	    "dl-model-training/README.md",
+	    "object-detection/README.md",
+	    "up2-vision-kit/openvino-projects-using-iss2019.md",
+	    "optimization-tools-and-techniques/README.md",
+	    "custom-layer/README.md",
+	    "safety-gear-example/README.md",
+	    "presentations/README.md",
+	    "hardware-heterogeneity/README.md",
+	    "HW-Acceleration-with-Movidious-NCS/README.md" 
+	],
+	"messages":
+	{
+	    "goto": "Go to Lab"
+	}
+    },
+
+    "messages":
+    {
+	"toggle": "Show/Hide Code Cells"
+    }
+}
